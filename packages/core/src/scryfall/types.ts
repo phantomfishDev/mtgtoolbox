@@ -45,6 +45,8 @@ export interface ScryfallCard {
   frame: string;
   frame_effects?: string[];
   promo: boolean;
+  /** Tags such as `universesbeyond`, `surgefoil`. The only UB signal on the object. */
+  promo_types?: string[];
   digital: boolean;
   oversized?: boolean;
   image_status: ImageStatus;

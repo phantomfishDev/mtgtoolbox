@@ -42,8 +42,18 @@ export class Progress {
     private readonly total: number,
   ) {}
 
+  /** Jump to an absolute count, for producers that report progress that way. */
+  set(value: number): void {
+    this.current = value;
+    this.render();
+  }
+
   tick(step = 1): void {
     this.current += step;
+    this.render();
+  }
+
+  private render(): void {
     if (!process.stderr.isTTY) return;
     process.stderr.write(`\r${dim(`${this.label} ${this.current}/${this.total}`)}${ESC}[K`);
   }

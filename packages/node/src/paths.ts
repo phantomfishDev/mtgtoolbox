@@ -34,6 +34,10 @@ export function imageCacheDir(): string {
   return join(cacheDir(), 'images');
 }
 
+export function printsCacheDir(): string {
+  return join(cacheDir(), 'prints');
+}
+
 /** Resolution order: explicit flag, then environment, then the default path. */
 export function collectionPath(override?: string): string {
   return override ?? env('MTGPROXY_COLLECTION') ?? join(configDir(), 'collection.json');

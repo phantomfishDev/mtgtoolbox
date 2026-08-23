@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-import type { BlobCache, CardCache, ScryfallCard } from '@mtgproxy/core';
-import { cardCacheDir, imageCacheDir } from './paths.js';
+import type { BlobCache, CardCache, PrintsCache, ScryfallCard } from '@mtgproxy/core';
+import { cardCacheDir, imageCacheDir, printsCacheDir } from './paths.js';
 
 /**
  * Disk-backed caches.
@@ -61,6 +61,39 @@ export class FileCardCache implements CardCache {
   }
 }
 
+/**
+ * Caches the full printing list for a card name.
+ *
+ * These lists are the expensive part of preference-aware resolution — one
+ * request per distinct name — so they are given a long but finite lifetime:
+ * new printings appear when sets release, and a stale list would silently hide
+ * them.
+ */
+export class FilePrintsCache implements PrintsCache {
+  private readonly dir: string;
+  private readonly maxAgeMs: number;
+
+  constructor(options: FileCacheOptions = {}) {
+    this.dir = options.dir ?? printsCacheDir();
+    this.maxAgeMs = options.maxAgeMs ?? 7 * 24 * 60 * 60 * 1000;
+  }
+
+  async get(name: string): Promise<ScryfallCard[] | undefined> {
+    const path = fileFor(this.dir, name, '.json');
+    try {
+      const info = await stat(path);
+      if (Date.now() - info.mtimeMs > this.maxAgeMs) return undefined;
+      return JSON.parse(await readFile(path, 'utf8')) as ScryfallCard[];
+    } catch {
+      return undefined;
+    }
+  }
+
+  async set(name: string, cards: ScryfallCard[]): Promise<void> {
+    await writeAtomic(fileFor(this.dir, name, '.json'), JSON.stringify(cards));
+  }
+}
+
 export class FileImageCache implements BlobCache {
   private readonly dir: string;
 
@@ -109,11 +142,27 @@ async function measure(dir: string): Promise<CacheStats> {
   return { files, bytes };
 }
 
-export async function cacheStats(): Promise<{ cards: CacheStats; images: CacheStats }> {
-  return { cards: await measure(cardCacheDir()), images: await measure(imageCacheDir()) };
+export async function cacheStats(): Promise<{
+  cards: CacheStats;
+  prints: CacheStats;
+  images: CacheStats;
+}> {
+  return {
+    cards: await measure(cardCacheDir()),
+    prints: await measure(printsCacheDir()),
+    images: await measure(imageCacheDir()),
+  };
 }
 
-export async function clearCache(which: 'cards' | 'images' | 'all' = 'all'): Promise<void> {
-  if (which === 'cards' || which === 'all') await rm(cardCacheDir(), { recursive: true, force: true });
-  if (which === 'images' || which === 'all') await rm(imageCacheDir(), { recursive: true, force: true });
+export type CacheKind = 'cards' | 'prints' | 'images' | 'all';
+
+export async function clearCache(which: CacheKind = 'all'): Promise<void> {
+  const targets: Record<Exclude<CacheKind, 'all'>, string> = {
+    cards: cardCacheDir(),
+    prints: printsCacheDir(),
+    images: imageCacheDir(),
+  };
+  for (const [kind, dir] of Object.entries(targets)) {
+    if (which === 'all' || which === kind) await rm(dir, { recursive: true, force: true });
+  }
 }

@@ -19,6 +19,11 @@ export interface CardCache {
   set(key: string, card: ScryfallCard): Promise<void>;
 }
 
+export interface PrintsCache {
+  get(name: string): Promise<ScryfallCard[] | undefined>;
+  set(name: string, cards: ScryfallCard[]): Promise<void>;
+}
+
 export interface BlobCache {
   get(key: string): Promise<Uint8Array | undefined>;
   set(key: string, bytes: Uint8Array): Promise<void>;
@@ -37,6 +42,7 @@ export class MemoryCardCache implements CardCache {
 export interface ScryfallClientOptions {
   fetchImpl?: typeof fetch;
   cardCache?: CardCache;
+  printsCache?: PrintsCache;
   imageCache?: BlobCache;
   rateLimitMs?: number;
   /** Scryfall requires a descriptive User-Agent. */
@@ -70,6 +76,7 @@ export class ScryfallClient {
   private readonly userAgent: string;
   private readonly onRequest: ((url: string) => void) | undefined;
   readonly imageCache: BlobCache | undefined;
+  private readonly printsCache: PrintsCache | undefined;
   /** Serialises every request through one chain so the rate limit is global. */
   private queue: Promise<unknown> = Promise.resolve();
   private lastRequestAt = 0;
@@ -78,6 +85,7 @@ export class ScryfallClient {
     this.fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
     this.cardCache = options.cardCache ?? new MemoryCardCache();
     this.imageCache = options.imageCache;
+    this.printsCache = options.printsCache;
     this.rateLimitMs = options.rateLimitMs ?? DEFAULT_RATE_LIMIT_MS;
     this.userAgent = options.userAgent ?? 'mtgproxy/0.1 (+https://github.com/drewbonddev/mtgproxy)';
     this.onRequest = options.onRequest;
@@ -190,6 +198,47 @@ export class ScryfallClient {
       if (error instanceof ScryfallError && error.status === 404) return null;
       throw error;
     }
+  }
+
+  /**
+   * Every printing of a card, newest first.
+   *
+   * This is what the preference engine ranks over, and it costs one request per
+   * distinct card name rather than one per 75 cards, so results are cached
+   * aggressively. An unknown name yields an empty list rather than throwing.
+   */
+  async prints(name: string): Promise<ScryfallCard[]> {
+    const key = name.toLowerCase();
+    const cached = await this.printsCache?.get(key);
+    if (cached) return cached;
+
+    const query = `!"${name.replace(/"/g, '')}"`;
+    let url: string | null =
+      `${API}/cards/search?q=${encodeURIComponent(query)}&unique=prints&order=released&dir=desc`;
+    const all: ScryfallCard[] = [];
+
+    try {
+      while (url) {
+        const response = await this.request(url);
+        const body = (await response.json()) as {
+          data: ScryfallCard[];
+          has_more: boolean;
+          next_page?: string;
+        };
+        all.push(...body.data);
+        url = body.has_more ? (body.next_page ?? null) : null;
+      }
+    } catch (error) {
+      // A name with no printings returns 404 from the search endpoint.
+      if (error instanceof ScryfallError && error.status === 404) return [];
+      throw error;
+    }
+
+    for (const card of all) {
+      await this.cardCache.set(identifierKey({ id: card.id }), card);
+    }
+    await this.printsCache?.set(key, all);
+    return all;
   }
 
   /** Fetch card image bytes, reading through the image cache when present. */

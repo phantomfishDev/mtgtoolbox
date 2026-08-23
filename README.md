@@ -4,35 +4,38 @@ A local-first Magic: the Gathering proxy print-sheet generator — a CLI that tu
 decklist into a print-ready PDF at true card size, a web app for browsing and tweaking,
 and a plain-file collection tracker so you only proxy the cards you don't already own.
 
-> **Status:** M1 complete — decklist parsing, Scryfall resolution and PDF output all
-> work from the CLI. The collection tracker, printing preferences and web app are next.
-> See [docs/PLAN.md](docs/PLAN.md) for the full architecture and milestones.
+> **Status:** M2 complete — decklist parsing, PDF output, collection tracking and
+> printing preferences all work from the CLI. The web app is next. See
+> [docs/PLAN.md](docs/PLAN.md) for the full architecture and milestones.
 
 ## Install
 
 ```bash
 pnpm install
 pnpm build
+pnpm link --global   # puts `mtgproxy` on your PATH
 ```
+
+Or run it without linking: `node apps/cli/dist/index.js <command>`.
 
 ## Usage
 
 Render a decklist to a PDF:
 
 ```bash
-node apps/cli/dist/index.js print examples/sample-deck.txt
+mtgproxy print examples/sample-deck.txt
 ```
 
 Check what a list resolves to, without generating anything:
 
 ```bash
-node apps/cli/dist/index.js resolve examples/sample-deck.txt
+mtgproxy resolve examples/sample-deck.txt
 ```
 
 Pipe a list in from anywhere:
 
 ```bash
-pbpaste | node apps/cli/dist/index.js print -
+pbpaste | mtgproxy print -
 ```
 
 ### Deck list formats
@@ -54,7 +57,7 @@ Point it at a markdown file — such as a guide written by the `commander-deck-b
 skill — and it finds the decklist block automatically, preferring the one under the
 copy-list heading.
 
-### Options
+### Print options
 
 | Flag | Default | Notes |
 |---|---|---|
@@ -64,6 +67,107 @@ copy-list heading.
 | `-q, --quality <level>` | `png` | `png`, `large`, `normal` |
 | `--gap <mm>` | `0` | space between cards; `0` tiles them so one cut serves two |
 | `--markdown` | auto | force markdown block extraction |
+| `-m, --missing-only` | off | print only cards not already in your collection |
+
+## Your collection
+
+Track what you own so you only proxy the gaps.
+
+```bash
+mtgproxy collection add "Sol Ring" --quantity 2
+mtgproxy collection add "Cultivate" --set msc --number 172
+mtgproxy collection list
+mtgproxy collection stats
+```
+
+Cards are resolved through Scryfall as they are added, so the stored name and printing
+are canonical rather than however you typed them. The file lives at
+`~/.config/mtgproxy/collection.json` (override with `--collection` or
+`$MTGPROXY_COLLECTION`), sorted stably so it stays readable and diffable under version
+control. Writes go through a temp file and a rename, keeping the previous version as
+`.bak` — a crash mid-write leaves either the old file or the new one, never a mixture.
+
+Then see what a deck would cost you:
+
+```bash
+mtgproxy diff my-deck.md
+mtgproxy print my-deck.md --missing-only
+```
+
+Basic lands count as owned by default, since most people have plenty; pass
+`--no-assume-basics` to include them. Any printing of a card counts as owning it unless
+you pass `--strict-printing`.
+
+## Printing preferences
+
+Choose *which version* of each card gets printed.
+
+```bash
+mtgproxy print deck.md --prefer-set cmm --full-art
+mtgproxy print deck.md --no-ub --borderless
+mtgproxy prints "Sol Ring" --explain
+```
+
+| Flag | Effect |
+|---|---|
+| `--prefer-set <code>` | favour this set; repeatable, and earlier entries win |
+| `--avoid-set <code>` | penalise this set |
+| `--require-set <code>` | restrict to these sets entirely |
+| `--full-art` | favour full-art printings |
+| `--borderless` | favour borderless printings |
+| `--retro` | favour retro-frame printings |
+| `--frame-effect <name>` | favour a frame effect, e.g. `showcase`, `extendedart` |
+| `--no-ub` | avoid Universes Beyond printings |
+| `--no-prefer-owned` | stop favouring printings you already own |
+| `--profile <name>` | use a named profile from the config file |
+
+Precedence runs strongest first: a printing named on the decklist line, then a saved
+pin, then command-line flags, then the named profile, then built-in defaults.
+
+An explicit `avoid` outranks every positive signal, including preferring cards you
+already own — asking for no Universes Beyond printings means it even if you happen to
+own one.
+
+Save profiles in `~/.config/mtgproxy/config.json`:
+
+```bash
+mtgproxy prefs init
+mtgproxy prefs show --profile retro
+```
+
+```jsonc
+{
+  "defaultProfile": "mine",
+  "profiles": {
+    "mine": {
+      "preferSets": ["cmm", "ltc"],
+      "borderless": "prefer",
+      "universesBeyond": "avoid",
+      "basics": { "preferSets": ["unf"], "fullArt": "require" }
+    }
+  }
+}
+```
+
+`basics` is a separate sub-policy layered on top of the main one, because wanting every
+Swamp from one specific full-art set is a different preference from how you treat
+spells — and in a 38-land deck it is most of what you see.
+
+To always use one exact printing of a card:
+
+```bash
+mtgproxy pin "Sol Ring" --set soc --number 427
+```
+
+Pins are checked against Scryfall when set, so a wrong collector number fails
+immediately rather than silently falling back during your next print run.
+
+### Why preferences cost more
+
+With no preferences active, a deck resolves in **two** requests via Scryfall's batch
+endpoint. Any active preference means every printing of every distinct card has to be
+fetched and ranked, which is **one request per distinct name** — about 9 seconds for a
+100-card deck, then cached for a week.
 
 ### A note on quality and file size
 
@@ -92,9 +196,12 @@ Card data and images are cached under `~/.cache/mtgproxy` (or `$XDG_CACHE_HOME`)
 re-printing a deck needs no network at all.
 
 ```bash
-node apps/cli/dist/index.js cache info
-node apps/cli/dist/index.js cache clear images
+mtgproxy cache info
+mtgproxy cache clear images
 ```
+
+Printing lists are cached for a week rather than forever, because new printings appear
+when sets release and a stale list would silently hide them.
 
 ## Known limitations
 

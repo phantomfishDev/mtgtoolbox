@@ -3,16 +3,20 @@ import { extname } from 'node:path';
 import {
   ScryfallClient,
   frontImageUrl,
+  hasActivePreferences,
   mergeEntries,
   parseDecklist,
   resolveDeck,
+  resolveDeckWithPreferences,
   totalCards,
+  type Collection,
   type ImageQuality,
   type ParseResult,
+  type PreferenceProfile,
   type PrintItem,
   type ResolveResult,
 } from '@mtgproxy/core';
-import { FileCardCache, FileImageCache } from '@mtgproxy/node';
+import { FileCardCache, FileImageCache, FilePrintsCache } from '@mtgproxy/node';
 import { Progress, dim, fail, info, warn, yellow } from './ui.js';
 
 /** Read a decklist from a file path, or from stdin when the path is `-`. */
@@ -31,9 +35,20 @@ export async function readDeckSource(path: string): Promise<{ text: string; mark
 export function makeClient(quiet: boolean): ScryfallClient {
   return new ScryfallClient({
     cardCache: new FileCardCache(),
+    printsCache: new FilePrintsCache(),
     imageCache: new FileImageCache(),
     onRequest: quiet ? undefined : (url) => info(dim(`  fetch ${url.replace('https://', '')}`)),
   });
+}
+
+/** Every key a collection entry can be recognised by, for `preferOwned`. */
+export function ownedKeysOf(collection: Collection): Set<string> {
+  const keys = new Set<string>();
+  for (const entry of collection.cards) {
+    if (entry.scryfallId) keys.add(entry.scryfallId);
+    keys.add(`${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`);
+  }
+  return keys;
 }
 
 export function reportParse(result: ParseResult, path: string): void {
@@ -51,33 +66,67 @@ export function reportParse(result: ParseResult, path: string): void {
 
 export function reportResolve(result: ResolveResult): void {
   for (const warning of result.warnings) warn(warning.message);
-  for (const item of result.unresolved) {
-    fail(`line ${item.entry.line}: ${item.reason}`);
-  }
+  for (const item of result.unresolved) fail(`line ${item.entry.line}: ${item.reason}`);
   if (result.unresolved.length > 0) {
     info(yellow(`${result.unresolved.length} card(s) could not be resolved and will be skipped`));
   }
 }
 
+export interface LoadDeckOptions {
+  markdown?: boolean;
+  profile?: PreferenceProfile;
+  collection?: Collection;
+  pins?: Record<string, { set: string; collectorNumber: string }>;
+}
+
 export interface LoadedDeck {
   parse: ParseResult;
   resolve: ResolveResult;
+  /** True when the slower per-name path was taken. */
+  usedPreferences: boolean;
 }
 
+/**
+ * Parse and resolve a decklist.
+ *
+ * Picks the cheap batch path (two requests per deck) unless the profile
+ * actually expresses a preference, in which case every printing of every
+ * distinct name has to be fetched so the engine has something to rank.
+ */
 export async function loadDeck(
   path: string,
   client: ScryfallClient,
-  options: { markdown?: boolean } = {},
+  options: LoadDeckOptions = {},
 ): Promise<LoadedDeck> {
   const source = await readDeckSource(path);
   const parse = parseDecklist(source.text, { markdown: options.markdown ?? source.markdown });
   reportParse(parse, path === '-' ? 'stdin' : path);
-  if (parse.entries.length === 0) {
-    throw new Error('no cards found in the decklist');
-  }
+  if (parse.entries.length === 0) throw new Error('no cards found in the decklist');
+
   const merged = mergeEntries(parse.entries);
-  const resolve = await resolveDeck(merged, client);
-  return { parse, resolve };
+  const pins = options.pins ?? {};
+  const hasCollection = (options.collection?.cards.length ?? 0) > 0;
+  const wantsPreferences =
+    (options.profile !== undefined && hasActivePreferences(options.profile, { hasCollection })) ||
+    Object.keys(pins).length > 0;
+
+  if (!options.profile || !wantsPreferences) {
+    return { parse, resolve: await resolveDeck(merged, client), usedPreferences: false };
+  }
+
+  const distinct = new Set(merged.map((entry) => entry.name.toLowerCase())).size;
+  info(dim(`  ranking printings for ${distinct} distinct cards`));
+  const progress = new Progress('fetching printings', distinct);
+
+  const resolve = await resolveDeckWithPreferences(merged, client, {
+    profile: options.profile,
+    ...(options.collection ? { ownedKeys: ownedKeysOf(options.collection) } : {}),
+    pins,
+    onProgress: (done) => progress.set(done),
+  });
+  progress.stop();
+
+  return { parse, resolve, usedPreferences: true };
 }
 
 /**

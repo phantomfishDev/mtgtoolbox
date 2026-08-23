@@ -19,7 +19,12 @@ export interface UnresolvedCard {
 export interface ResolveWarning {
   entry: DeckEntry;
   card: ScryfallCard;
-  code: 'double-faced' | 'low-resolution' | 'digital-only';
+  code:
+    | 'double-faced'
+    | 'low-resolution'
+    | 'digital-only'
+    | 'pin-missed'
+    | 'preferences-relaxed';
   message: string;
 }
 

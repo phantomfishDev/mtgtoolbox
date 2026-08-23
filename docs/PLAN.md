@@ -208,15 +208,34 @@ static build plus `/api/collection`.
 
 ## 8. Milestones
 
-| # | Deliverable |
-|---|---|
-| M1 | Scaffold, parser, Scryfall client, layout, PDF, `mtgproxy print` — end-to-end printable deck |
-| M2 | Collection file and commands, diff, `--missing-only`, preference engine, profiles, `prints` / `pin` / `prefs` |
-| M3 | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
-| M4 | `mtgproxy serve` and disk-backed collection sync |
-| M5 | CSV importers, bulk-data ingestion, CI, Pages deploy, docs |
+| # | Status | Deliverable |
+|---|---|---|
+| M1 | done | Scaffold, parser, Scryfall client, layout, PDF, `mtgproxy print` — end-to-end printable deck |
+| M2 | done | Collection file and commands, diff, `--missing-only`, preference engine, profiles, `prints` / `pin` / `prefs` |
+| M3 | next | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
+| M4 | | `mtgproxy serve` and disk-backed collection sync |
+| M5 | | CSV importers, bulk-data ingestion, Pages deploy |
 
 M1 alone makes the deck-builder skill's output printable.
+
+### Notes from building M2
+
+Two things came out differently from the design above.
+
+**Universes Beyond is detectable locally.** The plan assumed UB could only be filtered
+server-side through Scryfall's `is:ub` search predicate. In fact the card object carries
+`promo_types` containing `universesbeyond`, verified as tagged on 46 of 46 UB Sol Ring
+printings. So it is scored as an ordinary soft rule rather than a query-level filter.
+
+**`preferOwned` cannot be allowed to force the expensive path.** It is on by default, and
+a naive "does this profile express a preference" check therefore always said yes, which
+would have sent every single print run down the one-request-per-card route. It only
+counts as active when the collection actually holds something.
+
+**Explicit avoidance outranks ownership.** The first weighting had `preferOwned` at +120
+and `avoid` at -60, so `--no-ub` failed to displace a Universes Beyond printing the user
+happened to own. Avoid rules are now stronger than every positive signal: a stated
+preference should beat an inferred one.
 
 ## Known limitations in v1
 
