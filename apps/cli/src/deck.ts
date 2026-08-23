@@ -13,9 +13,9 @@ import {
   type ImageQuality,
   type ParseResult,
   type PreferenceProfile,
-  type PrintItem,
   type ResolveResult,
 } from '@mtgproxy/core';
+import type { PrintItem } from '@mtgproxy/core/pdf';
 import { FileCardCache, FileImageCache, FilePrintsCache } from '@mtgproxy/node';
 import { Progress, dim, fail, info, warn, yellow } from './ui.js';
 

@@ -45,7 +45,10 @@ export interface ScryfallClientOptions {
   printsCache?: PrintsCache;
   imageCache?: BlobCache;
   rateLimitMs?: number;
-  /** Scryfall requires a descriptive User-Agent. */
+  /**
+   * Scryfall asks for a descriptive User-Agent. Browsers forbid setting it, so
+   * it is omitted there rather than producing a header the fetch layer drops.
+   */
   userAgent?: string;
   /** Called before each network request; useful for progress reporting. */
   onRequest?: (url: string) => void;
@@ -73,7 +76,7 @@ export class ScryfallClient {
   private readonly fetchImpl: typeof fetch;
   private readonly cardCache: CardCache;
   private readonly rateLimitMs: number;
-  private readonly userAgent: string;
+  private readonly userAgent: string | undefined;
   private readonly onRequest: ((url: string) => void) | undefined;
   readonly imageCache: BlobCache | undefined;
   private readonly printsCache: PrintsCache | undefined;
@@ -87,7 +90,10 @@ export class ScryfallClient {
     this.imageCache = options.imageCache;
     this.printsCache = options.printsCache;
     this.rateLimitMs = options.rateLimitMs ?? DEFAULT_RATE_LIMIT_MS;
-    this.userAgent = options.userAgent ?? 'mtgproxy/0.1 (+https://github.com/drewbonddev/mtgproxy)';
+    // `window` present means a browser, where User-Agent is a forbidden header.
+    const inBrowser = typeof globalThis === 'object' && 'window' in globalThis;
+    this.userAgent =
+      options.userAgent ?? (inBrowser ? undefined : 'mtgproxy/0.2 (+https://github.com/drewbonddev/mtgproxy)');
     this.onRequest = options.onRequest;
   }
 
@@ -114,7 +120,7 @@ export class ScryfallClient {
         ...init,
         headers: {
           Accept: 'application/json',
-          'User-Agent': this.userAgent,
+          ...(this.userAgent ? { 'User-Agent': this.userAgent } : {}),
           ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
           ...init?.headers,
         },

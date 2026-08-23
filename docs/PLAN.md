@@ -212,8 +212,8 @@ static build plus `/api/collection`.
 |---|---|---|
 | M1 | done | Scaffold, parser, Scryfall client, layout, PDF, `mtgproxy print` — end-to-end printable deck |
 | M2 | done | Collection file and commands, diff, `--missing-only`, preference engine, profiles, `prints` / `pin` / `prefs` |
-| M3 | next | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
-| M4 | | `mtgproxy serve` and disk-backed collection sync |
+| M3 | done | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
+| M4 | next | `mtgproxy serve` and disk-backed collection sync |
 | M5 | | CSV importers, bulk-data ingestion, Pages deploy |
 
 M1 alone makes the deck-builder skill's output printable.
@@ -236,6 +236,28 @@ counts as active when the collection actually holds something.
 and `avoid` at -60, so `--no-ub` failed to displace a Universes Beyond printing the user
 happened to own. Avoid rules are now stronger than every positive signal: a stated
 preference should beat an inferred one.
+
+### Notes from building M3
+
+**Scryfall is directly reachable from the browser.** Both `api.scryfall.com` and
+`cards.scryfall.io` send `Access-Control-Allow-Origin: *`, so the web app fetches card
+data and raw image bytes itself. No proxy or backend is needed for the static
+deployment, which is what makes the GitHub Pages mode viable at all.
+
+**`User-Agent` cannot be set in a browser.** It is a forbidden header, so the client
+omits it there rather than emitting one the fetch layer silently drops. Scryfall's
+guidelines ask for a descriptive agent; the CLI still sends one.
+
+**The print view's state had to move above the view.** Switching to the collection tab
+unmounted it and discarded the resolved decklist — which breaks the app's central
+workflow, since going to add a card you just noticed you own is the obvious thing to do
+mid-deck. Durable state now lives in `App`; transient state (spinners, errors, the open
+picker) stays local, because that genuinely should reset.
+
+**`pdf-lib` is loaded on demand.** Re-exporting the renderer from the core barrel forced
+it into every consumer's main chunk. It is now a `@mtgproxy/core/pdf` subpath, imported
+dynamically when a PDF is actually requested: the initial bundle went from 275 KB to
+96 KB gzipped.
 
 ## Known limitations in v1
 

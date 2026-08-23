@@ -4,9 +4,9 @@ A local-first Magic: the Gathering proxy print-sheet generator — a CLI that tu
 decklist into a print-ready PDF at true card size, a web app for browsing and tweaking,
 and a plain-file collection tracker so you only proxy the cards you don't already own.
 
-> **Status:** M2 complete — decklist parsing, PDF output, collection tracking and
-> printing preferences all work from the CLI. The web app is next. See
-> [docs/PLAN.md](docs/PLAN.md) for the full architecture and milestones.
+> **Status:** M3 complete — everything works from the CLI, and the web app runs the
+> same engine in the browser. Next is `mtgproxy serve`, which lets the web app read and
+> write the CLI's files. See [docs/PLAN.md](docs/PLAN.md) for the full architecture.
 
 ## Install
 
@@ -68,6 +68,24 @@ copy-list heading.
 | `--gap <mm>` | `0` | space between cards; `0` tiles them so one cut serves two |
 | `--markdown` | auto | force markdown block extraction |
 | `-m, --missing-only` | off | print only cards not already in your collection |
+
+## Web app
+
+```bash
+pnpm --filter @mtgproxy/web dev
+```
+
+Then open <http://localhost:5173>. Paste a decklist, see every card resolved with
+owned/missing badges, click any card to browse and pick a different printing, and
+download the PDF — all generated in the browser by the same code the CLI runs.
+
+The app works entirely offline of any backend. It stores your collection and
+preferences in the browser (IndexedDB), with import/export to move a `collection.json`
+in and out. When `mtgproxy serve` is running it will instead read and write the same
+files the CLI uses; the header always says which of the two is in effect.
+
+Card data, printing lists and images are cached in the browser, so a deck you have
+already resolved comes back instantly.
 
 ## Your collection
 

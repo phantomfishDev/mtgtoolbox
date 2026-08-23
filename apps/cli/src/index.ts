@@ -9,13 +9,13 @@ import {
   isBasicLand,
   missingOnly,
   normalizeName,
-  renderPdf,
   scorePrinting,
   comparePrintings,
   type GuideStyle,
   type ImageQuality,
   type PaperName,
 } from '@mtgproxy/core';
+import { renderPdf } from '@mtgproxy/core/pdf';
 import { cacheStats, clearCache, loadCollection, loadConfig, saveConfig } from '@mtgproxy/node';
 import { collectionCommand } from './collection-cmd.js';
 import { fetchImages, loadDeck, makeClient, ownedKeysOf, reportResolve } from './deck.js';

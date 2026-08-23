@@ -3,7 +3,6 @@ export * from './scryfall/types.js';
 export * from './scryfall/client.js';
 export * from './scryfall/resolve.js';
 export * from './layout/geometry.js';
-export * from './pdf/render.js';
 export * from './collection/types.js';
 export * from './collection/collection.js';
 export * from './collection/diff.js';

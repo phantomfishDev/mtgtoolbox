@@ -1,8 +1,17 @@
 {
   "files": [],
   "references": [
-    { "path": "./packages/core" },
-    { "path": "./packages/node" },
-    { "path": "./apps/cli" }
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/node"
+    },
+    {
+      "path": "./apps/cli"
+    },
+    {
+      "path": "./apps/web"
+    }
   ]
 }
