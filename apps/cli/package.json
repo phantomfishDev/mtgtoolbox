@@ -1,0 +1,14 @@
+{
+  "name": "@mtgproxy/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "mtgproxy": "./dist/index.js" },
+  "main": "./dist/index.js",
+  "files": ["dist"],
+  "scripts": { "build": "tsc --build" },
+  "dependencies": {
+    "@mtgproxy/core": "workspace:*",
+    "@mtgproxy/node": "workspace:*",
+    "commander": "^12.1.0"
+  }
+}

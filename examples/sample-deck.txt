@@ -1,0 +1,13 @@
+# A plain decklist. Comments and blank lines are ignored.
+# Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
+
+1 Sheoldred, the Apocalypse
+
+Deck
+1 Arcane Signet
+1 Command Tower
+1 Cultivate (MSC) 172
+1 Demonic Tutor
+1 Malakir Rebirth // Malakir Mire
+1 Sol Ring
+4 Swamp

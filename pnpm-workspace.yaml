@@ -1,0 +1,10 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+
+allowBuilds:
+  esbuild: true
+
+# vitest pulls in esbuild, whose postinstall links the platform binary.
+onlyBuiltDependencies:
+  - esbuild
