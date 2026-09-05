@@ -11,8 +11,19 @@ import type { CardIdentifier, CollectionResponse, ScryfallCard } from './types.j
 const API = 'https://api.scryfall.com';
 /** `POST /cards/collection` accepts at most this many identifiers per request. */
 export const COLLECTION_CHUNK_SIZE = 75;
-/** Scryfall's API guidelines ask for 50-100ms between requests. */
-export const DEFAULT_RATE_LIMIT_MS = 100;
+/**
+ * Gap between requests.
+ *
+ * Scryfall asks for fewer than 10 requests per second. A 100ms gap sits exactly
+ * on that ceiling rather than below it, and in practice earns a 429 — so the
+ * default leaves headroom instead. This matters more than it used to: the
+ * shipped preference profile is active, so a deck costs one request per
+ * distinct card rather than two in total.
+ */
+export const DEFAULT_RATE_LIMIT_MS = 150;
+
+/** How many times a rate-limited request is retried before giving up. */
+const RATE_LIMIT_RETRIES = 3;
 
 export interface CardCache {
   get(key: string): Promise<ScryfallCard | undefined>;
@@ -52,6 +63,8 @@ export interface ScryfallClientOptions {
   userAgent?: string;
   /** Called before each network request; useful for progress reporting. */
   onRequest?: (url: string) => void;
+  /** Called when a request is rate-limited and about to be retried. */
+  onRateLimit?: (waitMs: number, attempt: number) => void;
 }
 
 export class ScryfallError extends Error {
@@ -78,6 +91,7 @@ export class ScryfallClient {
   private readonly rateLimitMs: number;
   private readonly userAgent: string | undefined;
   private readonly onRequest: ((url: string) => void) | undefined;
+  private readonly onRateLimit: ((waitMs: number, attempt: number) => void) | undefined;
   readonly imageCache: BlobCache | undefined;
   private readonly printsCache: PrintsCache | undefined;
   /** Serialises every request through one chain so the rate limit is global. */
@@ -95,6 +109,7 @@ export class ScryfallClient {
     this.userAgent =
       options.userAgent ?? (inBrowser ? undefined : 'mtgproxy/0.2 (+https://github.com/drewbonddev/mtgproxy)');
     this.onRequest = options.onRequest;
+    this.onRateLimit = options.onRateLimit;
   }
 
   /** Run `task` after the rate-limit gap has elapsed since the previous request. */
@@ -115,17 +130,19 @@ export class ScryfallClient {
 
   private async request(url: string, init?: RequestInit): Promise<Response> {
     return this.schedule(async () => {
-      this.onRequest?.(url);
-      const response = await this.fetchImpl(url, {
-        ...init,
-        headers: {
-          Accept: 'application/json',
-          ...(this.userAgent ? { 'User-Agent': this.userAgent } : {}),
-          ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
-          ...init?.headers,
-        },
-      });
-      if (!response.ok) {
+      for (let attempt = 0; ; attempt++) {
+        this.onRequest?.(url);
+        const response = await this.fetchImpl(url, {
+          ...init,
+          headers: {
+            Accept: 'application/json',
+            ...(this.userAgent ? { 'User-Agent': this.userAgent } : {}),
+            ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
+            ...init?.headers,
+          },
+        });
+        if (response.ok) return response;
+
         let detail = response.statusText;
         try {
           const body = (await response.json()) as { details?: string };
@@ -133,9 +150,20 @@ export class ScryfallClient {
         } catch {
           // Non-JSON error body; the status text is the best we have.
         }
+
+        // Back off and retry rather than failing a long deck resolution
+        // outright. Scryfall warns that ignoring a 429 leads to a network ban,
+        // so the wait is deliberately generous and honours Retry-After.
+        if (response.status === 429 && attempt < RATE_LIMIT_RETRIES) {
+          const header = Number.parseInt(response.headers.get('retry-after') ?? '', 10);
+          const wait = Number.isFinite(header) ? header * 1000 : 2000 * 2 ** attempt;
+          this.onRateLimit?.(wait, attempt + 1);
+          await new Promise((resolve) => setTimeout(resolve, wait));
+          continue;
+        }
+
         throw new ScryfallError(detail, response.status, url);
       }
-      return response;
     });
   }
 

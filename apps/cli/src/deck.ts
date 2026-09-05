@@ -38,6 +38,8 @@ export function makeClient(quiet: boolean): ScryfallClient {
     printsCache: new FilePrintsCache(),
     imageCache: new FileImageCache(),
     onRequest: quiet ? undefined : (url) => info(dim(`  fetch ${url.replace('https://', '')}`)),
+    onRateLimit: (waitMs, attempt) =>
+      warn(`rate-limited by Scryfall; waiting ${Math.round(waitMs / 1000)}s (attempt ${attempt})`),
   });
 }
 

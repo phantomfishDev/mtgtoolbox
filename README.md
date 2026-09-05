@@ -23,13 +23,13 @@ Or run it without linking: `node apps/cli/dist/index.js <command>`.
 Render a decklist to a PDF:
 
 ```bash
-mtgproxy print examples/sample-deck.txt
+mtgproxy print examples/rats.txt
 ```
 
 Check what a list resolves to, without generating anything:
 
 ```bash
-mtgproxy resolve examples/sample-deck.txt
+mtgproxy resolve examples/rats.txt
 ```
 
 Pipe a list in from anywhere:
@@ -232,13 +232,23 @@ Override any of it per run with the flags above, or edit
 A profile expressing no real preference — only rules that exclude unprintable cards —
 resolves a deck in **two** requests via Scryfall's batch endpoint. Any rule that can
 change *which* printing wins means every printing of every distinct card has to be
-fetched and ranked instead, at **one request per distinct name**: about 9 seconds for a
-100-card deck, then cached for a week.
+fetched and ranked instead, at **one request per distinct name**.
 
-**The default profile above is an active one**, so decks take the per-card path by
-default. That is the price of the defaults having opinions. If you want the fast path,
-strip the taste rules (`fullArt`, `borderless`, `universesBeyond`, `preferSets`,
-`basics`) and keep only the safety ones.
+**The default profile above is an active one**, so decks take the per-card path.
+Measured on a 100-card deck with 54 distinct cards:
+
+| | Time |
+|---|---|
+| First run, cold cache | **~65 seconds** |
+| Every run after, cached | **~0.2 seconds** |
+
+Round-trip latency dominates, not the request throttle, so the cold number scales with
+distinct card count rather than deck size. Printing lists cache for a week.
+
+If you want the fast path, strip the taste rules (`fullArt`, `borderless`,
+`universesBeyond`, `preferSets`, `basics`) and keep only the safety ones. Ingesting
+Scryfall's bulk data would remove the cold cost entirely; that is on the
+[roadmap](docs/ROADMAP.md).
 
 ### A note on quality and file size
 
