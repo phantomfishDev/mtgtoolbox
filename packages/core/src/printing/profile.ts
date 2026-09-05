@@ -54,15 +54,25 @@ export type Config = z.infer<typeof ConfigSchema>;
 /**
  * The built-in baseline.
  *
- * Deliberately conservative: it rules out printings that are unreadable or that
- * print badly, and expresses no aesthetic opinion beyond that.
+ * Opinionated by design: it favours the modern full-art and borderless
+ * treatments, keeps Universes Beyond out, and allows low-resolution scans so
+ * that an artwork is never dropped purely for lacking a high-resolution scan.
+ *
+ * Note that this profile is active — it expresses real preferences, not just
+ * safety rules — so resolution takes the per-card path that fetches every
+ * printing, rather than the two-request batch path. See `hasActivePreferences`.
  */
 export const DEFAULT_PROFILE: PreferenceProfile = {
-  requireHighres: true,
+  requireHighres: false,
   lang: 'en',
   textless: 'avoid',
   avoidSetTypes: ['memorabilia', 'funny', 'token'],
   preferOwned: true,
+  fullArt: 'prefer',
+  borderless: 'prefer',
+  universesBeyond: 'avoid',
+  preferSets: ['hob'],
+  basics: { preferSets: [], fullArt: 'prefer' },
 };
 
 export function emptyConfig(): Config {

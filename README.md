@@ -96,8 +96,7 @@ per illustration, not the same picture in nine frames. **choose per copy** split
 choosing, so you can pick each one yourself; **same printing for all** collapses it back.
 
 Where a card has fewer distinct artworks than copies, some repeat and the app says so,
-naming the preference responsible — usually *only use high-resolution scans*, since some
-older artworks exist only as low-resolution scans.
+naming the preference responsible so you know which setting to relax.
 
 On the **Print** tab you can paste a decklist, see every card resolved with
 owned/missing badges, click any card to browse and pick a different printing, and
@@ -204,12 +203,42 @@ mtgproxy pin "Sol Ring" --set soc --number 427
 Pins are checked against Scryfall when set, so a wrong collector number fails
 immediately rather than silently falling back during your next print run.
 
-### Why preferences cost more
+### The default profile
 
-With no preferences active, a deck resolves in **two** requests via Scryfall's batch
-endpoint. Any active preference means every printing of every distinct card has to be
-fetched and ranked, which is **one request per distinct name** — about 9 seconds for a
+Out of the box the tool prefers full-art and borderless treatments, avoids Universes
+Beyond, favours printings from The Hobbit, and allows low-resolution scans rather than
+dropping an artwork for lacking a high-resolution one:
+
+```jsonc
+{
+  "requireHighres": false,
+  "lang": "en",
+  "textless": "avoid",
+  "avoidSetTypes": ["memorabilia", "funny", "token"],
+  "preferOwned": true,
+  "fullArt": "prefer",
+  "borderless": "prefer",
+  "universesBeyond": "avoid",
+  "preferSets": ["hob"],
+  "basics": { "preferSets": [], "fullArt": "prefer" }
+}
+```
+
+Override any of it per run with the flags above, or edit
+`~/.config/mtgproxy/config.json`.
+
+### What preferences cost
+
+A profile expressing no real preference — only rules that exclude unprintable cards —
+resolves a deck in **two** requests via Scryfall's batch endpoint. Any rule that can
+change *which* printing wins means every printing of every distinct card has to be
+fetched and ranked instead, at **one request per distinct name**: about 9 seconds for a
 100-card deck, then cached for a week.
+
+**The default profile above is an active one**, so decks take the per-card path by
+default. That is the price of the defaults having opinions. If you want the fast path,
+strip the taste rules (`fullArt`, `borderless`, `universesBeyond`, `preferSets`,
+`basics`) and keep only the safety ones.
 
 ### A note on quality and file size
 
@@ -256,6 +285,11 @@ Double-faced cards print their front face only. The back is not silently dropped
 pnpm typecheck
 pnpm test
 ```
+
+## Planned
+
+Designs for work not yet built — Moxfield export, mana curve, deck brackets, and
+GitHub Pages hosting — are in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Credits
 

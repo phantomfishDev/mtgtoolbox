@@ -37,6 +37,12 @@ export interface ScryfallCard {
   collector_number: string;
   rarity: string;
   type_line?: string;
+  /** Converted mana cost, for mana-curve analysis. */
+  cmc?: number;
+  mana_cost?: string;
+  /** Scryfall's flag for the Commander "Game Changers" list, used for brackets. */
+  game_changer?: boolean;
+  keywords?: string[];
   image_uris?: ScryfallImageUris;
   card_faces?: ScryfallCardFace[];
   full_art: boolean;

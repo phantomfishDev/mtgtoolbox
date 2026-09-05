@@ -216,6 +216,9 @@ static build plus `/api/collection`.
 | M4 | next | `mtgproxy serve` and disk-backed collection sync |
 | M5 | | CSV importers, bulk-data ingestion, Pages deploy |
 
+Designs for work beyond these — Moxfield export, mana curve, deck brackets and
+Pages hosting — live in [ROADMAP.md](ROADMAP.md).
+
 M1 alone makes the deck-builder skill's output printable.
 
 ### Notes from building M2

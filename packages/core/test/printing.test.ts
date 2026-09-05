@@ -184,8 +184,24 @@ describe('profiles', () => {
 });
 
 describe('hasActivePreferences', () => {
-  it('is false for the safety-only baseline', () => {
-    expect(hasActivePreferences(DEFAULT_PROFILE)).toBe(false);
+  it('is false for a profile carrying only safety rules', () => {
+    // Rules that merely exclude unprintable cards cannot change which printing
+    // wins, so they must not force the per-card resolution path.
+    expect(
+      hasActivePreferences({
+        requireHighres: true,
+        lang: 'en',
+        textless: 'avoid',
+        avoidSetTypes: ['memorabilia'],
+      }),
+    ).toBe(false);
+  });
+
+  it('is true for the shipped default, which is deliberately opinionated', () => {
+    // The default expresses real taste (full art, borderless, no Universes
+    // Beyond), so every deck resolves through the slower path that fetches all
+    // printings. That cost is the price of the default having opinions.
+    expect(hasActivePreferences(DEFAULT_PROFILE)).toBe(true);
   });
 
   it('stays false for preferOwned with an empty collection', () => {
