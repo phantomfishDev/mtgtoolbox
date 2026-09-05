@@ -7,6 +7,7 @@ import {
   computeLayout,
   diffDeck,
   assessBracket,
+  buildDeckData,
   isBasicLand,
   manaCurve,
   missingOnly,
@@ -18,13 +19,34 @@ import {
   type PaperName,
 } from '@mtgproxy/core';
 import { renderPdf } from '@mtgproxy/core/pdf';
-import { cacheStats, clearCache, loadCollection, loadConfig, saveConfig } from '@mtgproxy/node';
+import {
+  DECK_DATA_SUFFIX,
+  adoptDeck,
+  cacheStats,
+  clearCache,
+  deckId,
+  decksDir,
+  listDecks,
+  loadCollection,
+  loadConfig,
+  saveConfig,
+  saveDeckData,
+} from '@mtgproxy/node';
 import { collectionCommand } from './collection-cmd.js';
 import { fetchImages, loadDeck, makeClient, ownedKeysOf, reportResolve } from './deck.js';
 import { collect, resolveProfile, type ProfileFlags } from './prefs.js';
 import { bold, cyan, dim, done, fail, formatBytes, green, info, yellow } from './ui.js';
 
 const VERSION = '0.2.0';
+
+/**
+ * Request gap used by `sync`.
+ *
+ * Syncing every deck is hundreds of requests back to back, and sustained work
+ * at the interactive rate earns a 429 whose Retry-After is a full minute. Being
+ * slower per request is far cheaper than paying that repeatedly.
+ */
+const SYNC_RATE_LIMIT_MS = 350;
 
 function choice<T extends string>(allowed: readonly T[]) {
   return (value: string): T => {
@@ -397,6 +419,78 @@ withDeckOptions(
   info(bold('Not checked'));
   for (const note of assessment.unchecked) info(dim(`  - ${note}`));
 });
+
+withDeckOptions(
+  program
+    .command('sync')
+    .description('Store card data beside each decklist so it need not be re-fetched')
+    .argument('[files...]', 'decklists to sync; defaults to every deck in the decks directory')
+    .option('--decks <dir>', 'decks directory (default: ./examples)')
+    .option('-f, --force', 're-resolve even when stored data is already current')
+    .option(
+      '--rate <ms>',
+      'gap between requests; syncing many decks is bulk work and a 429 costs a full minute',
+      (value) => Number.parseInt(value, 10),
+      SYNC_RATE_LIMIT_MS,
+    ),
+).action(
+  async (files: string[], flags: DeckFlags & { decks?: string; force?: boolean; rate: number }) => {
+  const dir = decksDir(flags.decks);
+  const { data: collection } = await loadCollection(flags.collection);
+  const { profile } = await resolveProfile(flags);
+  const config = (await loadConfig(flags.config)).data;
+  const client = makeClient(true, flags.rate);
+
+  // A file given from outside the decks directory is a new deck: copy it in so
+  // its data has somewhere to live beside it.
+  const targets: string[] = [];
+  for (const file of files.length > 0 ? files : await listDecks(dir)) {
+    const adopted = await adoptDeck(file, dir);
+    if (resolvePath(adopted) !== resolvePath(file)) {
+      done(`added ${cyan(adopted)}`);
+    }
+    targets.push(adopted);
+  }
+
+  if (targets.length === 0) {
+    info(dim(`no decklists found in ${dir}`));
+    return;
+  }
+
+  let written = 0;
+  for (const target of targets) {
+    const name = deckId(target);
+    try {
+      const loaded = await loadDeck(target, client, {
+        profile,
+        collection,
+        pins: config.pins ?? {},
+        ignoreStored: flags.force ?? false,
+      });
+
+      if (loaded.resolve.unresolved.length > 0) {
+        for (const item of loaded.resolve.unresolved) fail(`${name}: ${item.reason}`);
+        info(yellow(`${name}: skipped, ${loaded.resolve.unresolved.length} card(s) unresolved`));
+        continue;
+      }
+
+      const data = buildDeckData(name, loaded.resolve.resolved, profile, ownedKeysOf(collection));
+      const changed = await saveDeckData(target, data);
+      written += changed ? 1 : 0;
+      info(
+        `  ${changed ? green('updated') : dim('current')} ${name.padEnd(24)} ` +
+          dim(`${data.cards.length} printings`),
+      );
+    } catch (error) {
+      fail(`${name}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  info('');
+  done(`${written} of ${targets.length} deck${targets.length === 1 ? '' : 's'} written to ${cyan(dir)}`);
+  info(dim(`  data files are named <deck>${DECK_DATA_SUFFIX}`));
+  },
+);
 
 const prefs = program.command('prefs').description('Inspect printing preference profiles');
 

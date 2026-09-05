@@ -1,4 +1,11 @@
-import { commanders, parseDecklist, totalCards, type DeckEntry } from '@mtgproxy/core';
+import {
+  commanders,
+  parseDecklist,
+  parseDeckData,
+  totalCards,
+  type DeckData,
+  type DeckEntry,
+} from '@mtgproxy/core';
 
 /**
  * The decklists kept in the repository's `examples/` directory.
@@ -13,6 +20,64 @@ const files = import.meta.glob('../../../examples/*.txt', {
   import: 'default',
   eager: true,
 }) as Record<string, string>;
+
+/**
+ * Stored card data, referenced by URL rather than inlined.
+ *
+ * A deck's card data is around 60 KB; inlining nine of them would add half a
+ * megabyte to the bundle every visitor downloads, for decks most of them will
+ * never open. As URLs they are fetched only when a deck is actually used, and
+ * come from the same origin, so it is a local read either way.
+ */
+const dataUrls = import.meta.glob('../../../examples/*.cards.json', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+function idFromPath(path: string): string {
+  return path.split('/').pop()?.replace(/\.(cards\.json|txt)$/, '') ?? path;
+}
+
+const dataUrlById = new Map(
+  Object.entries(dataUrls).map(([path, url]) => [idFromPath(path), url]),
+);
+
+/**
+ * Keyed by deck id, holding the in-flight promise rather than the result.
+ *
+ * Storing the result would only dedupe *after* a fetch resolved, and callers
+ * arrive together — a remount under StrictMode asks twice before either
+ * finishes — so the same file would be downloaded several times over.
+ */
+const dataCache = new Map<string, Promise<DeckData | null>>();
+
+/** Fetch a deck's stored card data, or null when it has none. */
+export function loadDeckData(id: string): Promise<DeckData | null> {
+  const inFlight = dataCache.get(id);
+  if (inFlight) return inFlight;
+
+  const url = dataUrlById.get(id);
+  if (!url) {
+    const absent = Promise.resolve(null);
+    dataCache.set(id, absent);
+    return absent;
+  }
+
+  const pending = (async () => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`${response.status}`);
+      return parseDeckData(await response.json());
+    } catch {
+      // Stored data is an optimisation; a bad file must not break the deck.
+      return null;
+    }
+  })();
+
+  dataCache.set(id, pending);
+  return pending;
+}
 
 export interface BundledDeck {
   /** Filename without extension, used as a stable identity. */
@@ -57,7 +122,7 @@ function leadingNote(text: string): string | null {
 }
 
 function describe(path: string, text: string): BundledDeck {
-  const id = path.split('/').pop()?.replace(/\.txt$/, '') ?? path;
+  const id = idFromPath(path);
   const { entries } = parseDecklist(text);
   return {
     id,
@@ -73,3 +138,8 @@ function describe(path: string, text: string): BundledDeck {
 export const BUNDLED_DECKS: BundledDeck[] = Object.entries(files)
   .map(([path, text]) => describe(path, text))
   .sort((a, b) => a.name.localeCompare(b.name));
+
+/** Bundled deck whose decklist matches this text exactly, if any. */
+export function bundledDeckForText(text: string): BundledDeck | undefined {
+  return BUNDLED_DECKS.find((deck) => deck.text === text);
+}

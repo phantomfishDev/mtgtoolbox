@@ -119,6 +119,37 @@ When Scryfall rate-limits a request or the connection drops, the app waits and r
 rather than losing a long resolution, and says so on screen instead of appearing to
 hang. If it does fail, **Try again** re-runs it and bypasses the cache.
 
+## Stored card data
+
+Every decklist in [`examples/`](examples) has a `<deck>.cards.json` beside it holding the
+card data for the printings it resolved to. Without it, opening a deck costs one Scryfall
+request per distinct card — about a minute for a hundred of them, every time, on every
+machine. With it, that becomes a single local read.
+
+```bash
+mtgproxy sync                 # store data for every deck
+mtgproxy sync my-new-deck.txt # copy a new deck in and store its data too
+mtgproxy sync --force         # re-resolve even when the stored data looks current
+```
+
+Passing a decklist from outside the decks directory copies it in, so a new deck and its
+data end up side by side. `--decks <dir>` or `$MTGPROXY_DECKS` moves the directory.
+
+**Only the chosen printings are stored, and never image bytes** — just the URLs Scryfall
+serves images from. Storing every printing of every card would be about 1.5 MB per deck
+against 60 KB for the chosen ones; the web app fetches a deck's file only when you open
+that deck, rather than bundling them all.
+
+The cost of storing only the chosen printings is that the file is valid only for the
+rules that chose them. Both the preference profile and — when `preferOwned` is on — the
+collection are fingerprinted into the file and checked on load, so changing a preference
+or your collection falls back to resolving properly instead of quietly showing printings
+that contradict your settings. Run `mtgproxy sync` again to regenerate against your own
+setup.
+
+The committed files were generated against an empty collection, which is what a first-time
+visitor has.
+
 ## Mana curve
 
 The deck view charts the curve of a deck's nonland cards, and `mtgproxy curve <file>`

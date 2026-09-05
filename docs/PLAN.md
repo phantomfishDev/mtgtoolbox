@@ -240,6 +240,23 @@ and `avoid` at -60, so `--no-ub` failed to displace a Universes Beyond printing 
 happened to own. Avoid rules are now stronger than every positive signal: a stated
 preference should beat an inferred one.
 
+### Notes from building deck data storage
+
+Storing a deck's cards beside its decklist turns a minute of Scryfall requests
+into one local read. Two measurements shaped the format.
+
+**Every printing costs 1.5 MB per deck; the chosen ones cost 60 KB.** Measured
+on a 54-card deck with 1,589 printings between them. Storing every printing
+would let any preference profile resolve offline, but nine decks would come to
+13 MB. Storing the chosen printings only means the file is valid for one
+profile, which is the trade that was taken.
+
+**So the file has to know what produced it.** The preference profile is
+fingerprinted into it, and so is the collection whenever `preferOwned` is on,
+because ownership decides printings under that setting. Both are checked on
+load and a mismatch falls back to resolving properly, rather than showing
+printings that contradict the user's own settings.
+
 ### Notes from building M3
 
 **Scryfall is directly reachable from the browser.** Both `api.scryfall.com` and

@@ -12,3 +12,5 @@ export * from './printing/resolve.js';
 export * from './analysis/mana.js';
 export * from './analysis/curve.js';
 export * from './analysis/bracket.js';
+export * from './deckdata/types.js';
+export * from './deckdata/build.js';

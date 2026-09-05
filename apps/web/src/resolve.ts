@@ -1,5 +1,6 @@
 import {
   hasActivePreferences,
+  resolveFromDeckData,
   type DeckEntry,
   type ResolvedCard,
   type ScryfallCard,
@@ -14,6 +15,7 @@ import {
   type ResolveResult,
 } from '@mtgproxy/core';
 import { getClient } from './platform/client.js';
+import { bundledDeckForText, loadDeckData } from './decks.js';
 import type { Overrides } from './session.js';
 import { getCached, makeCacheKey, putCached } from './resolution-cache.js';
 
@@ -49,11 +51,37 @@ export async function resolveText(
   if (!options.force) {
     const cached = getCached(key);
     if (cached) return cached;
+
+    // Card data shipped beside the decklist turns a minute of requests into a
+    // single same-origin fetch. It is only used when the profile and the
+    // collection that produced it still apply; resolveFromDeckData refuses
+    // otherwise, and resolution falls through to the network.
+    const stored = await storedResolution(text, options);
+    if (stored) {
+      putCached(key, stored);
+      return stored;
+    }
   }
 
   const result = await resolveUncached(text, options);
   putCached(key, result);
   return result;
+}
+
+async function storedResolution(
+  text: string,
+  options: ResolveTextOptions,
+): Promise<ResolveResult | null> {
+  const deck = bundledDeckForText(text);
+  if (!deck) return null;
+
+  const data = await loadDeckData(deck.id);
+  if (!data) return null;
+
+  options.onProgress?.('Reading stored card data');
+  const entries = mergeEntries(parseDecklist(text).entries);
+  const applied = resolveFromDeckData(entries, data, options.profile, options.ownedKeys);
+  return applied?.result ?? null;
 }
 
 async function resolveUncached(

@@ -2,6 +2,8 @@ import { readFile } from 'node:fs/promises';
 import { extname } from 'node:path';
 import {
   ScryfallClient,
+  buildDeckData,
+  resolveFromDeckData,
   frontImageUrl,
   hasActivePreferences,
   mergeEntries,
@@ -16,7 +18,7 @@ import {
   type ResolveResult,
 } from '@mtgproxy/core';
 import type { PrintItem } from '@mtgproxy/core/pdf';
-import { FileCardCache, FileImageCache, FilePrintsCache } from '@mtgproxy/node';
+import { FileCardCache, FileImageCache, FilePrintsCache, loadDeckData } from '@mtgproxy/node';
 import { Progress, dim, fail, info, warn, yellow } from './ui.js';
 
 /** Read a decklist from a file path, or from stdin when the path is `-`. */
@@ -32,8 +34,9 @@ export async function readDeckSource(path: string): Promise<{ text: string; mark
   return { text, markdown: ['.md', '.markdown'].includes(extname(path).toLowerCase()) };
 }
 
-export function makeClient(quiet: boolean): ScryfallClient {
+export function makeClient(quiet: boolean, rateLimitMs?: number): ScryfallClient {
   return new ScryfallClient({
+    ...(rateLimitMs !== undefined ? { rateLimitMs } : {}),
     cardCache: new FileCardCache(),
     printsCache: new FilePrintsCache(),
     imageCache: new FileImageCache(),
@@ -83,6 +86,8 @@ export interface LoadDeckOptions {
   profile?: PreferenceProfile;
   collection?: Collection;
   pins?: Record<string, { set: string; collectorNumber: string }>;
+  /** Ignore card data stored beside the deck and resolve over the network. */
+  ignoreStored?: boolean;
 }
 
 export interface LoadedDeck {
@@ -90,6 +95,8 @@ export interface LoadedDeck {
   resolve: ResolveResult;
   /** True when the slower per-name path was taken. */
   usedPreferences: boolean;
+  /** True when the deck came from card data stored beside it. */
+  usedStoredData: boolean;
 }
 
 /**
@@ -110,6 +117,22 @@ export async function loadDeck(
   if (parse.entries.length === 0) throw new Error('no cards found in the decklist');
 
   const merged = mergeEntries(parse.entries);
+
+  // Card data stored beside the deck makes this a local read rather than one
+  // request per distinct card. It is only used when the profile that wrote it
+  // still applies; `resolveFromDeckData` refuses otherwise.
+  if (!options.ignoreStored && options.profile && path !== '-') {
+    const stored = await loadDeckData(path);
+    const owned = options.collection ? ownedKeysOf(options.collection) : new Set<string>();
+    const applied = stored
+      ? resolveFromDeckData(merged, stored, options.profile, owned)
+      : null;
+    if (applied) {
+      info(dim(`  using stored card data (${stored!.cards.length} printings)`));
+      return { parse, resolve: applied.result, usedPreferences: false, usedStoredData: true };
+    }
+  }
+
   const pins = options.pins ?? {};
   const hasCollection = (options.collection?.cards.length ?? 0) > 0;
   const wantsPreferences =
@@ -117,7 +140,12 @@ export async function loadDeck(
     Object.keys(pins).length > 0;
 
   if (!options.profile || !wantsPreferences) {
-    return { parse, resolve: await resolveDeck(merged, client), usedPreferences: false };
+    return {
+      parse,
+      resolve: await resolveDeck(merged, client),
+      usedPreferences: false,
+      usedStoredData: false,
+    };
   }
 
   const distinct = new Set(merged.map((entry) => entry.name.toLowerCase())).size;
@@ -132,8 +160,10 @@ export async function loadDeck(
   });
   progress.stop();
 
-  return { parse, resolve, usedPreferences: true };
+  return { parse, resolve, usedPreferences: true, usedStoredData: false };
 }
+
+export { buildDeckData };
 
 /**
  * Download the artwork for each resolved card.
