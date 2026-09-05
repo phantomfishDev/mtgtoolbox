@@ -84,6 +84,30 @@ describe('parseDecklist', () => {
     expect(mergeEntries(entries)).toHaveLength(2);
   });
 
+  it('treats cards above a Deck header as commanders', () => {
+    // The shape Moxfield and Archidekt export: commander on top, no label.
+    const { entries } = parseDecklist('1 Marrow-Gnawer\n\nDeck\n1 Sol Ring\n1 Swamp');
+    expect(commanders(entries).map((e) => e.name)).toEqual(['Marrow-Gnawer']);
+    expect(entries[1]?.section).toBe('deck');
+  });
+
+  it('handles two partner commanders above the header', () => {
+    const { entries } = parseDecklist('1 Rootha\n1 Muddle\n\nDeck\n1 Sol Ring');
+    expect(commanders(entries).map((e) => e.name)).toEqual(['Rootha', 'Muddle']);
+  });
+
+  it('does not invent a commander in a list with no headers', () => {
+    // A bare alphabetical list has no structural signal, so guessing would be
+    // wrong more often than right.
+    const { entries } = parseDecklist('1 Sol Ring\n1 Swamp\n1 Island');
+    expect(commanders(entries)).toEqual([]);
+  });
+
+  it('leaves an explicit Commander section alone', () => {
+    const { entries } = parseDecklist('Commander\n1 Atraxa\n\nDeck\n1 Sol Ring');
+    expect(commanders(entries).map((e) => e.name)).toEqual(['Atraxa']);
+  });
+
   it('reports every bad line instead of throwing', () => {
     const { entries, errors } = parseDecklist('1 Sol Ring\n0 Broken\n2 Island');
     expect(entries).toHaveLength(2);

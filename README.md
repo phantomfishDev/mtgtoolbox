@@ -76,11 +76,17 @@ pnpm --filter @mtgproxy/web dev
 ```
 
 Then open <http://localhost:5173>. The **Decks** tab lists every decklist in
-[`examples/`](examples) with its commander and card count — click one to load it straight
-into the printer. Anything you drop into that directory as a `.txt` appears there
-automatically; the files are inlined at build time, so the list works in the static
-deployment too. A card count other than 100 is badged in amber, which is a quick way to
-spot an unfinished list.
+[`examples/`](examples) with its commander and card count. **View cards** opens the deck
+card by card — grouped by type, with every printing exactly as it would be printed, and
+click any card for a full-size look. **Print** sends it straight to the printer.
+
+Anything you drop into that directory as a `.txt` appears there automatically; the files
+are inlined at build time, so the list works in the static deployment too. A card count
+other than 100 is badged in amber, which is a quick way to spot an unfinished list.
+
+The commander is read from the list itself: either an explicit `Commander` header, or —
+following the convention Moxfield and Archidekt export — any cards sitting above a
+`Deck` header.
 
 On the **Print** tab you can paste a decklist, see every card resolved with
 owned/missing badges, click any card to browse and pick a different printing, and

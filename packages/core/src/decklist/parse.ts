@@ -171,6 +171,17 @@ export function parseDecklist(text: string, options: ParseOptions = {}): ParseRe
     entries.push({ quantity, name, set, collectorNumber, section, line, raw });
   });
 
+  // Lists exported by Moxfield and Archidekt put the commander on its own line
+  // above the `Deck` header rather than under a `Commander` one. Cards that
+  // open such a file are therefore commanders. A file with no headers at all
+  // gets no such treatment — there the leading cards are just cards.
+  if (entries.some((entry) => entry.section === 'deck')) {
+    for (const entry of entries) {
+      if (entry.section !== undefined) break;
+      entry.section = 'commander';
+    }
+  }
+
   return { entries, errors, fromMarkdownBlock };
 }
 

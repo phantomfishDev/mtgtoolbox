@@ -9,7 +9,13 @@ import { Badge, Button, Panel } from '../components/ui.js';
  * the local files, so the list is instant and usable offline. Card images and
  * printings are only fetched once a deck is actually opened.
  */
-export function DecksView({ onOpen }: { onOpen: (deck: BundledDeck) => void }) {
+export function DecksView({
+  onView,
+  onPrint,
+}: {
+  onView: (deck: BundledDeck) => void;
+  onPrint: (deck: BundledDeck) => void;
+}) {
   const [query, setQuery] = useState('');
 
   const visible = useMemo(() => {
@@ -49,7 +55,12 @@ export function DecksView({ onOpen }: { onOpen: (deck: BundledDeck) => void }) {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((deck) => (
-            <DeckCard key={deck.id} deck={deck} onOpen={() => onOpen(deck)} />
+            <DeckCard
+              key={deck.id}
+              deck={deck}
+              onView={() => onView(deck)}
+              onPrint={() => onPrint(deck)}
+            />
           ))}
         </div>
       )}
@@ -57,7 +68,15 @@ export function DecksView({ onOpen }: { onOpen: (deck: BundledDeck) => void }) {
   );
 }
 
-function DeckCard({ deck, onOpen }: { deck: BundledDeck; onOpen: () => void }) {
+function DeckCard({
+  deck,
+  onView,
+  onPrint,
+}: {
+  deck: BundledDeck;
+  onView: () => void;
+  onPrint: () => void;
+}) {
   // A Commander deck is exactly 100; flag anything else rather than hiding it.
   const complete = deck.cardCount === 100;
 
@@ -68,20 +87,23 @@ function DeckCard({ deck, onOpen }: { deck: BundledDeck; onOpen: () => void }) {
           <h3 className="font-semibold leading-tight">{deck.name}</h3>
           <Badge tone={complete ? 'good' : 'warn'}>{deck.cardCount}</Badge>
         </div>
-        {deck.commanders.length > 0 && (
-          <p className="mt-1 text-sm text-muted">{deck.commanders.join(' / ')}</p>
+        {deck.commanders.length > 0 ? (
+          <p className="mt-1 text-sm">
+            <span className="text-muted">Commander </span>
+            <span className="font-medium">{deck.commanders.join(' / ')}</span>
+          </p>
+        ) : (
+          <p className="mt-1 text-sm text-muted italic">No commander declared</p>
         )}
       </div>
 
       {deck.note && <p className="line-clamp-3 text-xs text-muted">{deck.note}</p>}
 
       <div className="mt-auto flex items-center gap-2">
-        <Button variant="primary" onClick={onOpen}>
-          Open
+        <Button variant="primary" onClick={onView}>
+          View cards
         </Button>
-        <span className="text-xs text-muted">
-          {deck.entries.length} line{deck.entries.length === 1 ? '' : 's'}
-        </span>
+        <Button onClick={onPrint}>Print</Button>
       </div>
     </Panel>
   );

@@ -5,14 +5,9 @@ import {
   computeLayout,
   diffDeck,
   frontImageUrl,
-  hasActivePreferences,
-  mergeProfiles,
-  mergeEntries,
   missingOnly,
   normalizeName,
   parseDecklist,
-  resolveDeck,
-  resolveDeckWithPreferences,
   totalCards,
   type PaperName,
   type ResolveResult,
@@ -21,6 +16,7 @@ import {
 } from '@mtgproxy/core';
 import { getClient } from '../platform/client.js';
 import { useApp } from '../state.js';
+import { activeProfile, ownedKeysOf, resolveText } from '../resolve.js';
 import type { PrintSession } from '../session.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
@@ -48,19 +44,8 @@ export function PrintView({
   const setText = (value: string) => onChange({ text: value });
   const setOptions = (value: typeof options) => onChange({ options: value });
 
-  const profile = useMemo(() => {
-    const named = config.defaultProfile ? config.profiles?.[config.defaultProfile] : undefined;
-    return mergeProfiles(DEFAULT_PROFILE, named);
-  }, [config]);
-
-  const ownedKeys = useMemo(() => {
-    const keys = new Set<string>();
-    for (const entry of collection.cards) {
-      if (entry.scryfallId) keys.add(entry.scryfallId);
-      keys.add(`${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`);
-    }
-    return keys;
-  }, [collection]);
+  const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
+  const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
 
   /** Resolved cards with any manual printing overrides applied. */
   const effective = useMemo<ResolvedCard[]>(() => {
@@ -80,31 +65,13 @@ export function PrintView({
     setError(null);
     setBusy('Parsing decklist');
     try {
-      const parsed = parseDecklist(text);
-      if (parsed.entries.length === 0) throw new Error('No cards found in that list.');
-      const entries = mergeEntries(parsed.entries);
-      const client = getClient();
-
-      const hasCollection = collection.cards.length > 0;
-      const pins = config.pins ?? {};
-      const wantsPreferences =
-        hasActivePreferences(profile, { hasCollection }) || Object.keys(pins).length > 0;
-
-      let resolved: ResolveResult;
-      if (wantsPreferences) {
-        const distinct = new Set(entries.map((entry) => normalizeName(entry.name))).size;
-        setBusy(`Ranking printings for ${distinct} cards`);
-        resolved = await resolveDeckWithPreferences(entries, client, {
-          profile,
-          ownedKeys,
-          pins,
-          onProgress: (done, total) => setBusy(`Ranking printings ${done}/${total}`),
-        });
-      } else {
-        setBusy('Looking up cards');
-        resolved = await resolveDeck(entries, client);
-      }
-
+      const resolved = await resolveText(text, {
+        profile,
+        collection,
+        config,
+        ownedKeys,
+        onProgress: setBusy,
+      });
       onChange({ result: resolved, overrides: {} });
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : String(cause));

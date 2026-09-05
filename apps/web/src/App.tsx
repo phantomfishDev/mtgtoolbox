@@ -4,6 +4,8 @@ import { detectStore, type DataStore } from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
 import { DecksView } from './views/DecksView.js';
+import { DeckDetailView } from './views/DeckDetailView.js';
+import type { BundledDeck } from './decks.js';
 import { PrintView } from './views/PrintView.js';
 import { CollectionView } from './views/CollectionView.js';
 import { PreferencesView } from './views/PreferencesView.js';
@@ -22,6 +24,8 @@ export function App() {
   const [tab, setTab] = useState<TabId>('decks');
   // Held here so switching tabs does not discard a resolved decklist.
   const [session, setSession] = useState<PrintSession>(initialSession);
+  /** The deck being browsed card by card; null shows the deck list. */
+  const [viewing, setViewing] = useState<BundledDeck | null>(null);
   const [store, setStore] = useState<DataStore | null>(null);
   const [collection, setCollection] = useState<Collection | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
@@ -65,6 +69,13 @@ export function App() {
     };
   }, [store, collection, config]);
 
+  // Loading a deck replaces the whole working session: a stale resolution or
+  // printing override from the previous deck would silently apply to this one.
+  const openForPrinting = (deck: BundledDeck): void => {
+    setSession({ ...initialSession, text: deck.text });
+    setTab('print');
+  };
+
   if (!state) {
     return (
       <div className="flex min-h-dvh items-center justify-center">
@@ -100,17 +111,16 @@ export function App() {
         </header>
 
         <main className="mx-auto max-w-7xl px-4 py-6">
-          {tab === 'decks' && (
-            <DecksView
-              onOpen={(deck) => {
-                // Loading a deck replaces the whole working session: a stale
-                // resolution or printing override from the previous deck would
-                // silently apply to this one.
-                setSession({ ...initialSession, text: deck.text });
-                setTab('print');
-              }}
-            />
-          )}
+          {tab === 'decks' &&
+            (viewing ? (
+              <DeckDetailView
+                deck={viewing}
+                onBack={() => setViewing(null)}
+                onPrint={openForPrinting}
+              />
+            ) : (
+              <DecksView onView={setViewing} onPrint={openForPrinting} />
+            ))}
           {tab === 'print' && (
             <PrintView
               session={session}

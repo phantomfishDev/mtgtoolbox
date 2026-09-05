@@ -1,3 +1,10 @@
+# Nazgûl deck. Commander declared explicitly so tools can identify it;
+# the 99 are unchanged.
+
+Commander
+1 Lord of the Nazgûl
+
+Deck
 1 Akroma's Memorial
 1 An Offer You Can't Refuse
 1 Arcane Signet
@@ -73,4 +80,3 @@
 1 Witch-king, Bringer of Ruin
 1 Witch's Cottage
 1 Wonder
-1 Lord of the Nazgûl
