@@ -13,7 +13,7 @@ For the architecture these plug into, see [PLAN.md](PLAN.md).
 | GitHub Pages hosting | Workflow written, `base` already relative | Enable Pages in repo settings |
 | Export to Moxfield | Parser already reads the target format | Exporter, UI entry point |
 | Mana curve | **done** | — |
-| Deck bracket | `game_changer` on the card type | Criteria, heuristics, explanation UI |
+| Deck bracket | **done** | — |
 
 ---
 
@@ -122,7 +122,27 @@ effective cost differs (cost reducers present, `Cascade`, `Suspend`, etc.).
 
 ---
 
-## 4. Deck bracket, and why
+## 4. Deck bracket, and why — built
+
+Lives in `packages/core/src/analysis/bracket.ts`, shown by `BracketPanel` and
+printed by `mtgproxy bracket`.
+
+Checking the current criteria before building — as the note below insisted —
+paid off twice. **Tutor limits were removed in the October 2025 update**, so the
+tutor criterion listed below is stale and is deliberately not implemented. And
+Scryfall's `game_changer` flag means the Game Changers list never has to be
+checked into this repo at all: `is:gamechanger` returns 53 cards, matching the
+published count, and it stays current on its own.
+
+Validated against real decks: both Secrets of Strixhaven precons assess as
+bracket 2, which is what precons are built to be, and the Rats deck lands at 3
+on the strength of a single Game Changer.
+
+Combo detection remains unbuilt and is reported as unchecked rather than
+guessed at. Option 3 below — Commander Spellbook — is still the right answer if
+it is ever wanted.
+
+The original design notes follow.
 
 **Where:** `packages/core/src/analysis/bracket.ts`, rendered in `DeckDetailView`.
 

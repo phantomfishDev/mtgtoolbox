@@ -124,6 +124,26 @@ The chart also names what makes it misleading — cost reducers, free casts, X s
 cascade and suspend, and cards with a land on the back. A printed curve is only the
 truth for a deck that pays full price for everything.
 
+## Commander bracket
+
+The deck view assesses which bracket a deck's contents sit in, and `mtgproxy bracket
+<file>` does the same in a terminal. It names the cards behind the call, because a
+bracket is something you say out loud to a table and an unexplained number is not much
+use.
+
+Game Changers come from Scryfall's own `game_changer` flag rather than a list checked
+into this repo, so they stay current as the list changes. Mass land denial and
+extra-turn chains are matched from oracle text, deliberately narrowly — wrongly calling
+a deck bracket 4 is worse than missing a signal.
+
+It is explicit about its limits. Two-card infinite combos are not detected, and neither
+bracket 1 nor bracket 5 is ever assigned automatically: one is a statement of intent
+about how a deck is meant to be played, the other an agreement between players. Those
+are listed in the output rather than folded silently into the number.
+
+Tutors are not counted — they stopped being a bracket criterion in the October 2025
+update.
+
 ## Your collection
 
 Track what you own so you only proxy the gaps.

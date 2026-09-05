@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
+  assessBracket,
   diffDeck,
   manaCurve,
   normalizeName,
@@ -18,6 +19,7 @@ import {
   CATEGORY_ORDER,
   type CardCategory,
 } from '../resolve.js';
+import { BracketPanel } from '../components/BracketPanel.js';
 import { ManaCurveChart } from '../components/ManaCurveChart.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
 
@@ -105,6 +107,7 @@ export function DeckDetailView({
 
   const total = result?.resolved.reduce((sum, item) => sum + item.entry.quantity, 0) ?? 0;
   const curve = useMemo(() => (result ? manaCurve(result.resolved) : null), [result]);
+  const bracket = useMemo(() => (result ? assessBracket(result.resolved) : null), [result]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -165,6 +168,13 @@ export function DeckDetailView({
           <p className="text-sm text-amber-600">
             This deck has {total} cards. A Commander deck is 100.
           </p>
+        </Panel>
+      )}
+
+      {bracket && (
+        <Panel>
+          <h3 className="mb-3 text-sm font-semibold">Commander bracket</h3>
+          <BracketPanel assessment={bracket} />
         </Panel>
       )}
 

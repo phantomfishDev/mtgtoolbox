@@ -6,6 +6,7 @@ import {
   PAPER_SIZES,
   computeLayout,
   diffDeck,
+  assessBracket,
   isBasicLand,
   manaCurve,
   missingOnly,
@@ -361,6 +362,40 @@ withDeckOptions(
       info(dim(`      ${caveat.cards.join(', ')}`));
     }
   }
+});
+
+withDeckOptions(
+  program
+    .command('bracket')
+    .description('Assess which Commander bracket a decklist sits in, and why')
+    .argument('<file>', 'decklist file, or - to read stdin')
+    .option('--json', 'emit the assessment as JSON on stdout'),
+).action(async (file: string, flags: DeckFlags & { json?: boolean }) => {
+  const { resolve } = await prepare(file, flags);
+  reportResolve(resolve);
+  const assessment = assessBracket(resolve.resolved);
+
+  if (flags.json) {
+    process.stdout.write(`${JSON.stringify(assessment, null, 2)}\n`);
+    return;
+  }
+
+  info('');
+  info(`${bold('Bracket')}  ${cyan(`${assessment.bracket} - ${assessment.name}`)}`);
+  info(dim(`  ${assessment.summary}`));
+
+  if (assessment.signals.length > 0) {
+    info('');
+    info(bold('Why'));
+    for (const signal of assessment.signals) {
+      info(`  ${yellow('-')} ${signal.explanation}`);
+      info(dim(`      ${signal.cards.join(', ')}`));
+    }
+  }
+
+  info('');
+  info(bold('Not checked'));
+  for (const note of assessment.unchecked) info(dim(`  - ${note}`));
 });
 
 const prefs = program.command('prefs').description('Inspect printing preference profiles');
