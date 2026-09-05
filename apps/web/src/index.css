@@ -7,6 +7,11 @@
   --color-ink: oklch(25% 0.01 260);
   --color-muted: oklch(52% 0.012 260);
   --color-accent: oklch(55% 0.16 265);
+  /* Chart marks are a separate token from the UI accent: the viz lightness band
+     is narrower than what a button needs, and both were validated against their
+     own surface rather than flipped from one another. */
+  --color-chart-1: #426bce;
+  --color-grid: oklch(90% 0.006 260);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +22,8 @@
     --color-ink: oklch(93% 0.005 260);
     --color-muted: oklch(66% 0.012 260);
     --color-accent: oklch(72% 0.14 265);
+    --color-chart-1: #5f85dd;
+    --color-grid: oklch(31% 0.012 260);
   }
 }
 

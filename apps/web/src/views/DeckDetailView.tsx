@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
   diffDeck,
+  manaCurve,
   normalizeName,
   type ResolveResult,
   type ResolvedCard,
@@ -17,6 +18,7 @@ import {
   CATEGORY_ORDER,
   type CardCategory,
 } from '../resolve.js';
+import { ManaCurveChart } from '../components/ManaCurveChart.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
 
 /**
@@ -102,6 +104,7 @@ export function DeckDetailView({
   }, [result, commanderNames]);
 
   const total = result?.resolved.reduce((sum, item) => sum + item.entry.quantity, 0) ?? 0;
+  const curve = useMemo(() => (result ? manaCurve(result.resolved) : null), [result]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -162,6 +165,13 @@ export function DeckDetailView({
           <p className="text-sm text-amber-600">
             This deck has {total} cards. A Commander deck is 100.
           </p>
+        </Panel>
+      )}
+
+      {curve && (
+        <Panel>
+          <h3 className="mb-3 text-sm font-semibold">Mana curve</h3>
+          <ManaCurveChart curve={curve} />
         </Panel>
       )}
 

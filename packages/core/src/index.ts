@@ -9,3 +9,5 @@ export * from './collection/diff.js';
 export * from './printing/profile.js';
 export * from './printing/score.js';
 export * from './printing/resolve.js';
+export * from './analysis/mana.js';
+export * from './analysis/curve.js';

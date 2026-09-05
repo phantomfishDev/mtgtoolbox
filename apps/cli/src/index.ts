@@ -7,6 +7,7 @@ import {
   computeLayout,
   diffDeck,
   isBasicLand,
+  manaCurve,
   missingOnly,
   normalizeName,
   scorePrinting,
@@ -319,6 +320,47 @@ withDeckOptions(
     }
   }
   if (ranked.length > flags.limit) info(dim(`  ... ${ranked.length - flags.limit} more`));
+});
+
+withDeckOptions(
+  program
+    .command('curve')
+    .description('Show the mana curve of a decklist')
+    .argument('<file>', 'decklist file, or - to read stdin')
+    .option('--json', 'emit the curve as JSON on stdout'),
+).action(async (file: string, flags: DeckFlags & { json?: boolean }) => {
+  const { resolve } = await prepare(file, flags);
+  reportResolve(resolve);
+  const curve = manaCurve(resolve.resolved);
+
+  if (flags.json) {
+    process.stdout.write(`${JSON.stringify(curve, null, 2)}\n`);
+    return;
+  }
+
+  info('');
+  info(
+    `${bold('Curve')}  ${curve.spells} spells, ${curve.lands} lands, ` +
+      `average mana value ${curve.averageManaValue.toFixed(2)}`,
+  );
+  info('');
+
+  // Scale bars to the widest bucket so the shape is readable at any deck size.
+  const width = 40;
+  for (const bucket of curve.buckets) {
+    const filled = curve.peak === 0 ? 0 : Math.round((bucket.count / curve.peak) * width);
+    const bar = '#'.repeat(filled).padEnd(width, ' ');
+    info(`  ${bucket.label.padStart(2)}  ${cyan(bar)} ${String(bucket.count).padStart(3)}`);
+  }
+
+  if (curve.caveats.length > 0) {
+    info('');
+    info(bold('Where the printed curve misleads'));
+    for (const caveat of curve.caveats) {
+      info(`  ${yellow('-')} ${caveat.message}`);
+      info(dim(`      ${caveat.cards.join(', ')}`));
+    }
+  }
 });
 
 const prefs = program.command('prefs').description('Inspect printing preference profiles');

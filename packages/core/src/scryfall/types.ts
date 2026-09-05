@@ -19,6 +19,8 @@ export interface ScryfallCardFace {
   name: string;
   mana_cost?: string;
   type_line?: string;
+  oracle_text?: string;
+  cmc?: number;
   image_uris?: ScryfallImageUris;
 }
 
@@ -43,6 +45,7 @@ export interface ScryfallCard {
   /** Scryfall's flag for the Commander "Game Changers" list, used for brackets. */
   game_changer?: boolean;
   keywords?: string[];
+  oracle_text?: string;
   image_uris?: ScryfallImageUris;
   card_faces?: ScryfallCardFace[];
   full_art: boolean;

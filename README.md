@@ -110,6 +110,20 @@ files the CLI uses; the header always says which of the two is in effect.
 Card data, printing lists and images are cached in the browser, so a deck you have
 already resolved comes back instantly.
 
+## Mana curve
+
+The deck view charts the curve of a deck's nonland cards, and `mtgproxy curve <file>`
+prints the same thing in a terminal.
+
+Two details it gets right that most curves do not. A card whose *back* face is a land
+is charted as the spell it is, not dropped as a land — Scryfall's combined type line
+reads `Instant // Land`, which is easy to misread. And a split card is charted at its
+front half's cost, not the sum of both halves that Scryfall reports.
+
+The chart also names what makes it misleading — cost reducers, free casts, X spells,
+cascade and suspend, and cards with a land on the back. A printed curve is only the
+truth for a deck that pays full price for everything.
+
 ## Your collection
 
 Track what you own so you only proxy the gaps.

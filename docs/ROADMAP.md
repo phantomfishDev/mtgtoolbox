@@ -12,7 +12,7 @@ For the architecture these plug into, see [PLAN.md](PLAN.md).
 |---|---|---|
 | GitHub Pages hosting | Workflow written, `base` already relative | Enable Pages in repo settings |
 | Export to Moxfield | Parser already reads the target format | Exporter, UI entry point |
-| Mana curve | `cmc` on the card type | Analysis module, chart |
+| Mana curve | **done** | — |
 | Deck bracket | `game_changer` on the card type | Criteria, heuristics, explanation UI |
 
 ---
@@ -81,7 +81,18 @@ name when a printing fails to import rather than silently dropping the card.
 
 ---
 
-## 3. Mana curve
+## 3. Mana curve — built
+
+Lives in `packages/core/src/analysis/curve.ts` with the front-face helpers in
+`analysis/mana.ts`, charted by `ManaCurveChart` and printed by `mtgproxy curve`.
+
+Two things found while building it, both of which would have produced a wrong
+chart: a modal double-faced card's combined type line reads `Instant // Land`,
+so a naive land test drops a castable spell; and Scryfall reports a split card's
+`cmc` as the **sum** of both halves (Dusk // Dawn is 9), so the front half's
+cost has to be computed instead. Both are covered by tests.
+
+The original design notes follow.
 
 **Where:** `packages/core/src/analysis/curve.ts`, rendered in `DeckDetailView`.
 
