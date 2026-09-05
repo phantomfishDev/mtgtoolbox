@@ -1,0 +1,59 @@
+# A plain decklist. Comments and blank lines are ignored.
+# Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
+
+1 Marrow-Gnawer
+
+Deck
+1 Ashcoat of the Shadow Swarm
+1 Ayara, First of Locthwain
+1 Bojuka Bog
+1 Bontu's Monument
+1 Cabal Coffers
+1 Cabal Stronghold
+1 Castle Locthwain
+1 Cavern of Souls
+1 Coat of Arms
+1 Crypt of Agadeem
+1 Crypt Rats
+1 Dark Ritual
+1 Demonic Tutor
+1 Door of Destinies
+1 Echoing Return
+1 Go for the Throat
+1 Grave Pact
+1 Haunted One
+1 Herald's Horn
+1 Hero's Downfall
+1 Ink-Eyes, Servant of Oni
+1 Jet Medallion
+1 Karumonix, the Rat King
+1 Kindred Dominance
+1 Lightning Greaves
+1 Lord Skitter, Sewer King
+1 Mudflat Village
+1 Nashi, Moon Sage's Scion
+1 Ogre Slumlord
+1 Pack Rat
+1 Patriarch's Bidding
+1 Persistent Marshstalker
+1 Phyrexian Arena
+1 Piper of the Swarm
+25 Rat Colony
+1 Ratcatcher
+1 Revenge of the Rats
+1 Sign in Blood
+1 Skullclamp
+1 Sol Ring
+1 Species Specialist
+23 Swamp
+1 Swarm of Rats
+1 Swarmyard
+1 Swarmyard Massacre
+1 Tangled Colony
+1 The Soul Stone
+1 Thornbite Staff
+1 Three Tree City
+1 Thrumming Stone
+1 Urborg, Tomb of Yawgmoth
+1 Westvale Abbey
+1 Witch's Cottage

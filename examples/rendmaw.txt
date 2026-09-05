@@ -1,0 +1,88 @@
+# A plain decklist. Comments and blank lines are ignored.
+# Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
+
+1 Rendmaw, Creaking Nest
+
+Deck
+Junk Diver
+Foundry Inspector
+Adaptive Automaton
+Foraging Wickermaw
+Dread Tiller
+Ornithopter of Paradise
+Ornithopter
+Anvilwrought Raptor
+Arcbound Condor
+Bladegriff Prototype
+Clockwork Condor
+One-Eyed Scarecrow
+Scarecrow
+Lurebound Scarecrow
+Scarecrow Guide
+Shire Scarecrow
+Signpost Scarecrow
+Wild-Field Scarecrow
+Wingrattle Scarecrow
+Skyclave Sentinel
+Thaumaturge's Familiar
+Oasis Gardener
+Myr Sire
+Sanctuary Raptor
+Scaretiller
+Scrapbasket
+Tatterkite
+Wickerfolk Thresher
+Wickerfolk Indomitable
+Erebos, God of the Dead
+Wing Storm
+Jet Medallion
+Tree of Tales
+Vault of Whispers
+Darksteel Citadel
+Cabal Coffers
+Urborg, Tomb of Yawgmoth
+Vault of Whispers
+Westvale Abbey
+Copper Myr
+Leaden Myr
+Palladium Myr
+Plague Myr
+Myr Retriever
+Dryad Arbor
+Massacre Wurm
+Lignify
+Haywire Mite
+Solemn Simulacrum
+Whip of Erebos
+Enduring Vitality
+Dockside Chef
+Culling Ritual
+Pygmy Kavu
+Noxious Gearhulk
+Foundry Inspector
+Blood Seeker
+Burnished Hart
+Manakin
+Blood Artist
+Memnite
+Cryptothrall
+Reap
+Putrefy
+Treasure Vault
+Bojuka Bog
+Reliquary Tower
+Urborg, Tomb of Yawgmoth
+Darkmoss Bridge
+Command Tower
+Woodland Cemetery
+Tainted Wood
+Twilight Mire
+Golgari Rot Farm
+Viridescent Bog
+Deathcap Glade
+Temple of Malady
+Underground Mortuary
+Primal Vigor
+The Meathook Massacre
+Raking Canopy
+Revenge of Ravens

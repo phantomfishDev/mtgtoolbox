@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  commanders,
   extractFromMarkdown,
   mergeEntries,
   parseDecklist,
@@ -47,6 +48,40 @@ describe('parseDecklist', () => {
   it('reads a card name off a labelled header line', () => {
     const { entries } = parseDecklist('Commander: Atraxa, Praetors’ Voice');
     expect(entries[0]).toMatchObject({ quantity: 1, name: 'Atraxa, Praetors’ Voice' });
+  });
+
+  it('tags entries with the section they appeared under', () => {
+    const { entries } = parseDecklist('Commander\n1 Atraxa\n\nDeck\n1 Sol Ring');
+    expect(entries[0]).toMatchObject({ name: 'Atraxa', section: 'commander' });
+    expect(entries[1]).toMatchObject({ name: 'Sol Ring', section: 'deck' });
+  });
+
+  it('folds section aliases onto one canonical name', () => {
+    const { entries } = parseDecklist('Commanders\n1 Atraxa\n\nMainboard\n1 Sol Ring');
+    expect(entries[0]?.section).toBe('commander');
+    expect(entries[1]?.section).toBe('deck');
+  });
+
+  it('tags a labelled commander line too', () => {
+    const { entries } = parseDecklist('Commander: Atraxa');
+    expect(entries[0]?.section).toBe('commander');
+  });
+
+  it('leaves entries above any header without a section', () => {
+    const { entries } = parseDecklist('1 Sol Ring');
+    expect(entries[0]?.section).toBeUndefined();
+  });
+
+  it('extracts the commanders from a list', () => {
+    const { entries } = parseDecklist('Commander\n1 Rootha\n1 Muddle\n\nDeck\n1 Sol Ring');
+    expect(commanders(entries).map((e) => e.name)).toEqual(['Rootha', 'Muddle']);
+  });
+
+  it('does not merge a commander into an identically named deck entry', () => {
+    // A card can legitimately appear in both zones across formats; collapsing
+    // them would lose the commander tag and miscount the deck.
+    const { entries } = parseDecklist('Commander\n1 Sol Ring\n\nDeck\n1 Sol Ring');
+    expect(mergeEntries(entries)).toHaveLength(2);
   });
 
   it('reports every bad line instead of throwing', () => {

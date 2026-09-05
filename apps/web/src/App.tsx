@@ -3,12 +3,14 @@ import type { Collection, Config } from '@mtgproxy/core';
 import { detectStore, type DataStore } from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
+import { DecksView } from './views/DecksView.js';
 import { PrintView } from './views/PrintView.js';
 import { CollectionView } from './views/CollectionView.js';
 import { PreferencesView } from './views/PreferencesView.js';
 import { Spinner } from './components/ui.js';
 
 const TABS = [
+  { id: 'decks', label: 'Decks' },
   { id: 'print', label: 'Print' },
   { id: 'collection', label: 'Collection' },
   { id: 'preferences', label: 'Preferences' },
@@ -17,7 +19,7 @@ const TABS = [
 type TabId = (typeof TABS)[number]['id'];
 
 export function App() {
-  const [tab, setTab] = useState<TabId>('print');
+  const [tab, setTab] = useState<TabId>('decks');
   // Held here so switching tabs does not discard a resolved decklist.
   const [session, setSession] = useState<PrintSession>(initialSession);
   const [store, setStore] = useState<DataStore | null>(null);
@@ -98,6 +100,17 @@ export function App() {
         </header>
 
         <main className="mx-auto max-w-7xl px-4 py-6">
+          {tab === 'decks' && (
+            <DecksView
+              onOpen={(deck) => {
+                // Loading a deck replaces the whole working session: a stale
+                // resolution or printing override from the previous deck would
+                // silently apply to this one.
+                setSession({ ...initialSession, text: deck.text });
+                setTab('print');
+              }}
+            />
+          )}
           {tab === 'print' && (
             <PrintView
               session={session}

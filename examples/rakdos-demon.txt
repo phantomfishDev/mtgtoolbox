@@ -1,0 +1,96 @@
+# A plain decklist. Comments and blank lines are ignored.
+# Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
+
+1 Rakdos, Lord of Riots
+
+Deck
+1 Arcane Signet
+1 Archfiend of Depravity
+1 Archfiend of Despair
+1 Archon of Cruelty
+1 Balor
+1 Bedevil
+1 Blackcleave Cliffs
+1 Blightstep Pathway
+1 Blood Crypt
+1 Bloodgift Demon
+1 Bloodletter of Aclazotz
+1 Bloodthirster
+1 Bojuka Bog
+1 Boltwave
+1 Bontu's Monument
+1 Burning-Rune Demon
+1 Cabal Coffers
+1 Castle Locthwain
+1 Cavern of Souls
+1 Chaos Warp
+1 Command Tower
+1 Dark Ritual
+1 Demon of Dark Schemes
+1 Demonlord Belzenlok
+1 Diabolic Tutor
+1 Dragonskull Summit
+1 Feed the Swarm
+1 Fellwar Stone
+1 Fiery Confluence
+1 Flame Rift
+1 Foreboding Ruins
+1 Graven Cairns
+1 Great Unclean One
+1 Harvester of Souls
+1 Haunted Ridge
+1 Herald of Slaanesh
+1 Herald's Horn
+1 Impact Tremors
+1 Indulgent Tormentor
+1 Kardur, Doomscourge
+1 Leechridden Swamp
+1 Lightning Greaves
+1 Liliana's Contract
+1 Lobber Crew
+1 Lord of the Void
+1 Luxury Suite
+1 Malakir Rebirth
+1 Master of Cruelties
+1 Mind Stone
+4 Mountain
+1 Night's Whisper
+1 Ob Nixilis, Unshackled
+1 Path of Ancestry
+1 Phyrexian Arena
+1 Piranha Marsh
+1 Purphoros, God of the Forge
+1 Rakdos Carnarium
+1 Rakdos Charm
+1 Rakdos Signet
+1 Rakdos, Patron of Chaos
+1 Rakdos, the Showstopper
+1 Razaketh, the Foulblooded
+1 Read the Bones
+1 Reaper from the Abyss
+1 Roaming Throne
+1 Rogue's Passage
+1 Rune-Scarred Demon
+1 Secluded Courtyard
+1 Shivan Gorge
+1 Sign in Blood
+1 Sire of Insanity
+1 Smoldering Marsh
+1 Sol Ring
+1 Spawn of Mayhem
+1 Spear Spewer
+1 Sulfurous Springs
+1 Sunscorched Desert
+7 Swamp
+1 Swiftfoot Boots
+1 Tainted Peak
+1 Talisman of Indulgence
+1 Terminate
+1 Thermo-Alchemist
+1 Torbran, Thane of Red Fell
+1 Unholy Annex
+1 Urborg, Tomb of Yawgmoth
+1 Urza's Incubator
+1 Vandalblast
+1 Vilis, Broker of Blood
+1 Wayfarer's Bauble

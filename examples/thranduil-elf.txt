@@ -1,0 +1,94 @@
+# A plain decklist. Comments and blank lines are ignored.
+# Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
+
+1 Thranduil, the Elvenking
+
+Deck
+1 Arbor Elf
+1 Arcane Signet
+1 Arwen Undómiel
+1 Arwen, Weaver of Hope
+1 Assassin's Trophy
+1 Beast Whisperer
+1 Beast Within
+1 Bloom Tender
+1 Breeding Pool
+1 Buried Alive
+1 Cavern of Souls
+1 Circle of Dreams Druid
+1 Command Tower
+1 Counterspell
+1 Craterhoof Behemoth
+1 Deathcap Glade
+1 Deathrite Shaman
+1 Devoted Druid
+1 Dreamroot Cascade
+1 Drowned Catacomb
+1 Elrond, Moon-Reader
+1 Elven Chorus
+1 Elven Passage
+1 Elvenking's Halls
+1 Elvenking's Harper
+1 Elves of Deep Shadow
+1 Elvish Archdruid
+1 Elvish Harbinger
+1 Elvish Mystic
+1 Elvish Warmaster
+1 Exotic Orchard
+1 Ezuri, Renegade Leader
+1 Fauna Shaman
+1 Finale of Devastation
+6 Forest
+1 Fyndhorn Elves
+1 Galadriel of Lothlórien
+1 Galadriel, Elven-Queen
+1 Galion, Elvenking's Butler
+1 Guardian Project
+1 Haldir, Lórien Lieutenant
+1 Heroic Intervention
+1 Hinterland Harbor
+1 Immaculate Magistrate
+1 Imperious Perfect
+4 Island
+1 Jarad's Orders
+1 Kindred Discovery
+1 Kindred Dominance
+1 Lathril, Blade of the Elves
+1 Leaf-Crowned Visionary
+1 Legolas Greenleaf
+1 Legolas's Quick Reflexes
+1 Llanowar Elves
+1 Llanowar Wastes
+1 Lórien Revealed
+1 Marwyn, the Nurturer
+1 Overgrown Tomb
+1 Path of Ancestry
+1 Priest of Titania
+1 Putrefy
+1 Quirion Ranger
+1 Rejuvenating Springs
+1 Riddles in the Dark
+1 Secluded Courtyard
+1 Selvala, Heart of the Wilds
+1 Sol Ring
+4 Swamp
+1 Swan Song
+1 Sylvan Library
+1 Thranduil the Strategist
+1 Thranduil, Sindarin Liege
+1 Thranduil's Company
+1 Thranduil's Decree
+1 Timberwatch Elf
+1 Tom, Bert, and William
+1 Umbral Mantle
+1 Undergrowth Stadium
+1 Watery Grave
+1 Wirewood Channeler
+1 Wirewood Lodge
+1 Wirewood Symbiote
+1 Wizard's Staff
+1 Wood Elves
+1 Woodland Cemetery
+1 Woodland Weavemaster
+1 Yavimaya Coast
+1 Zagoth Triome

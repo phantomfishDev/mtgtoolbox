@@ -75,7 +75,14 @@ copy-list heading.
 pnpm --filter @mtgproxy/web dev
 ```
 
-Then open <http://localhost:5173>. Paste a decklist, see every card resolved with
+Then open <http://localhost:5173>. The **Decks** tab lists every decklist in
+[`examples/`](examples) with its commander and card count — click one to load it straight
+into the printer. Anything you drop into that directory as a `.txt` appears there
+automatically; the files are inlined at build time, so the list works in the static
+deployment too. A card count other than 100 is badged in amber, which is a quick way to
+spot an unfinished list.
+
+On the **Print** tab you can paste a decklist, see every card resolved with
 owned/missing badges, click any card to browse and pick a different printing, and
 download the PDF — all generated in the browser by the same code the CLI runs.
 

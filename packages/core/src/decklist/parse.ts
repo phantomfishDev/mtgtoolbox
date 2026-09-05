@@ -13,10 +13,15 @@ export interface DeckEntry {
   /** Lowercase set code, when the line pinned a printing. */
   set?: string;
   collectorNumber?: string;
+  /** The section the line appeared under, e.g. `commander`. */
+  section?: DeckSection;
   /** 1-based line number in the source text. */
   line: number;
   raw: string;
 }
+
+/** Normalised section names. Aliases such as `commanders` fold into one. */
+export type DeckSection = 'commander' | 'deck' | 'sideboard' | 'maybeboard' | 'companion' | 'tokens';
 
 export interface ParseError {
   line: number;
@@ -31,17 +36,21 @@ export interface ParseResult {
   fromMarkdownBlock: boolean;
 }
 
-/** Headers that delimit sections rather than naming a card. */
-const SECTION_HEADERS = new Set([
-  'deck',
-  'commander',
-  'commanders',
-  'sideboard',
-  'maybeboard',
-  'companion',
-  'main',
-  'mainboard',
-  'tokens',
+/**
+ * Headers that delimit sections rather than naming a card, mapped to the
+ * canonical name so that `Commanders` and `Mainboard` do not become distinct
+ * sections from `Commander` and `Deck`.
+ */
+const SECTION_HEADERS = new Map<string, DeckSection>([
+  ['deck', 'deck'],
+  ['main', 'deck'],
+  ['mainboard', 'deck'],
+  ['commander', 'commander'],
+  ['commanders', 'commander'],
+  ['sideboard', 'sideboard'],
+  ['maybeboard', 'maybeboard'],
+  ['companion', 'companion'],
+  ['tokens', 'tokens'],
 ]);
 
 /**
@@ -112,6 +121,8 @@ export function parseDecklist(text: string, options: ParseOptions = {}): ParseRe
 
   const entries: DeckEntry[] = [];
   const errors: ParseError[] = [];
+  /** Set by a bare header line and applied to every entry beneath it. */
+  let currentSection: DeckSection | undefined;
 
   body.split(/\r?\n/).forEach((raw, index) => {
     const line = index + 1;
@@ -119,11 +130,18 @@ export function parseDecklist(text: string, options: ParseOptions = {}): ParseRe
     if (working === '') return;
 
     // `Commander: Atraxa` names a card; a bare `Commander` is a section header.
+    let section = currentSection;
     const labelled = working.match(/^([A-Za-z]+)\s*:\s*(.+)$/);
-    if (labelled && SECTION_HEADERS.has((labelled[1] ?? '').toLowerCase())) {
+    const labelledSection = labelled ? SECTION_HEADERS.get((labelled[1] ?? '').toLowerCase()) : undefined;
+    if (labelled && labelledSection) {
+      section = labelledSection;
       working = labelled[2] ?? '';
-    } else if (SECTION_HEADERS.has(working.replace(/[:\s]+$/, '').toLowerCase())) {
-      return;
+    } else {
+      const bare = SECTION_HEADERS.get(working.replace(/[:\s]+$/, '').toLowerCase());
+      if (bare) {
+        currentSection = bare;
+        return;
+      }
     }
 
     working = working.replace(TRAILING_MARKER_RE, '');
@@ -150,10 +168,15 @@ export function parseDecklist(text: string, options: ParseOptions = {}): ParseRe
       return;
     }
 
-    entries.push({ quantity, name, set, collectorNumber, line, raw });
+    entries.push({ quantity, name, set, collectorNumber, section, line, raw });
   });
 
   return { entries, errors, fromMarkdownBlock };
+}
+
+/** The cards listed under a `Commander` header, if the list marked any. */
+export function commanders(entries: readonly DeckEntry[]): DeckEntry[] {
+  return entries.filter((entry) => entry.section === 'commander');
 }
 
 /** Total card count, counting quantities. */
@@ -165,7 +188,7 @@ export function totalCards(entries: readonly DeckEntry[]): number {
 export function mergeEntries(entries: readonly DeckEntry[]): DeckEntry[] {
   const byKey = new Map<string, DeckEntry>();
   for (const entry of entries) {
-    const key = `${entry.name.toLowerCase()}|${entry.set ?? ''}|${entry.collectorNumber ?? ''}`;
+    const key = `${entry.name.toLowerCase()}|${entry.set ?? ''}|${entry.collectorNumber ?? ''}|${entry.section ?? ''}`;
     const existing = byKey.get(key);
     if (existing) existing.quantity += entry.quantity;
     else byKey.set(key, { ...entry });
