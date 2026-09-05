@@ -21,6 +21,7 @@ import {
 } from '../resolve.js';
 import { BracketPanel } from '../components/BracketPanel.js';
 import { ManaCurveChart } from '../components/ManaCurveChart.js';
+import { useRetryNotice } from '../useRetryNotice.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
 
 /**
@@ -44,6 +45,9 @@ export function DeckDetailView({
   const [busy, setBusy] = useState<string | null>('Loading');
   const [error, setError] = useState<string | null>(null);
   const [zoomed, setZoomed] = useState<ScryfallCard | null>(null);
+  /** Bumped to force a fresh resolution, bypassing the cache. */
+  const [reloadToken, setReloadToken] = useState(0);
+  const retryNotice = useRetryNotice();
 
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
   const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
@@ -59,6 +63,7 @@ export function DeckDetailView({
       collection,
       config,
       ownedKeys,
+      force: reloadToken > 0,
       onProgress: (message) => {
         if (!cancelled) setBusy(message);
       },
@@ -76,7 +81,7 @@ export function DeckDetailView({
     return () => {
       cancelled = true;
     };
-  }, [deck.text, profile, collection, config, ownedKeys]);
+  }, [deck.text, profile, collection, config, ownedKeys, reloadToken]);
 
   const diff = useMemo(
     () => (result ? diffDeck(result.resolved, collection, { assumeBasics: true }) : null),
@@ -144,12 +149,16 @@ export function DeckDetailView({
       {busy && (
         <Panel>
           <Spinner label={busy} />
+          {retryNotice && <p className="mt-2 text-xs text-amber-600">{retryNotice}</p>}
         </Panel>
       )}
 
       {error && (
         <Panel className="border-amber-500/50">
           <p className="text-sm text-amber-600">{error}</p>
+          <div className="mt-3">
+            <Button onClick={() => setReloadToken((n) => n + 1)}>Try again</Button>
+          </div>
         </Panel>
       )}
 

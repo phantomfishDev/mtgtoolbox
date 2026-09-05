@@ -27,6 +27,7 @@ import {
   type DeckSlot,
 } from '../resolve.js';
 import type { PrintSession } from '../session.js';
+import { useRetryNotice } from '../useRetryNotice.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
 
@@ -51,6 +52,7 @@ export function PrintView({
   /** Informational, unlike `error`: the action worked but not perfectly. */
   const [notice, setNotice] = useState<string | null>(null);
   const [picking, setPicking] = useState<DeckSlot | null>(null);
+  const retryNotice = useRetryNotice();
 
   const setText = (value: string) => onChange({ text: value });
   const setOptions = (value: typeof options) => onChange({ options: value });
@@ -142,8 +144,9 @@ export function PrintView({
     }
   }
 
-  async function resolve() {
+  async function resolve(force = false) {
     setError(null);
+    setNotice(null);
     setBusy('Parsing decklist');
     try {
       const resolved = await resolveText(text, {
@@ -151,6 +154,7 @@ export function PrintView({
         collection,
         config,
         ownedKeys,
+        force,
         onProgress: setBusy,
       });
       onChange({ result: resolved, overrides: {} });
@@ -238,7 +242,11 @@ export function PrintView({
               <Button variant="ghost" onClick={() => setText(SAMPLE)}>
                 Use sample
               </Button>
-              <Button variant="primary" onClick={resolve} disabled={busy !== null || !text.trim()}>
+              <Button
+                variant="primary"
+                onClick={() => void resolve()}
+                disabled={busy !== null || !text.trim()}
+              >
                 Resolve
               </Button>
             </div>
@@ -260,12 +268,18 @@ export function PrintView({
         {busy && (
           <Panel>
             <Spinner label={busy} />
+            {retryNotice && <p className="mt-2 text-xs text-amber-600">{retryNotice}</p>}
           </Panel>
         )}
 
         {error && (
           <Panel className="border-amber-500/50">
             <p className="text-sm text-amber-600">{error}</p>
+            <div className="mt-3 flex gap-2">
+              <Button onClick={() => void resolve(true)} disabled={busy !== null || !text.trim()}>
+                Try again
+              </Button>
+            </div>
           </Panel>
         )}
 

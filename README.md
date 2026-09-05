@@ -107,8 +107,17 @@ preferences in the browser (IndexedDB), with import/export to move a `collection
 in and out. When `mtgproxy serve` is running it will instead read and write the same
 files the CLI uses; the header always says which of the two is in effect.
 
-Card data, printing lists and images are cached in the browser, so a deck you have
-already resolved comes back instantly.
+Card data, printing lists and images are cached in the browser (IndexedDB), and the
+resolved deck itself is cached for the session, so reopening a deck you have already
+looked at is instant rather than a repeat of the work.
+
+The cache key covers everything that can change the answer — the decklist, your
+preference profile, pinned printings, and (only when `preferOwned` is on) what you own —
+so changing a preference produces a fresh resolution instead of a stale hit.
+
+When Scryfall rate-limits a request or the connection drops, the app waits and retries
+rather than losing a long resolution, and says so on screen instead of appearing to
+hang. If it does fail, **Try again** re-runs it and bypasses the cache.
 
 ## Mana curve
 

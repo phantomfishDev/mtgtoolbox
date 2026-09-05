@@ -15,6 +15,7 @@ import {
 } from '@mtgproxy/core';
 import { getClient } from './platform/client.js';
 import type { Overrides } from './session.js';
+import { getCached, makeCacheKey, putCached } from './resolution-cache.js';
 
 /**
  * Turn decklist text into resolved printings.
@@ -30,9 +31,32 @@ export interface ResolveTextOptions {
   config: Config;
   ownedKeys: ReadonlySet<string>;
   onProgress?: (message: string) => void;
+  /** Skip the cache and resolve again — what a retry button wants. */
+  force?: boolean;
 }
 
 export async function resolveText(
+  text: string,
+  options: ResolveTextOptions,
+): Promise<ResolveResult> {
+  const key = makeCacheKey({
+    text,
+    profile: options.profile,
+    config: options.config,
+    ownedKeys: options.ownedKeys,
+  });
+
+  if (!options.force) {
+    const cached = getCached(key);
+    if (cached) return cached;
+  }
+
+  const result = await resolveUncached(text, options);
+  putCached(key, result);
+  return result;
+}
+
+async function resolveUncached(
   text: string,
   options: ResolveTextOptions,
 ): Promise<ResolveResult> {

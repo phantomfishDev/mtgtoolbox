@@ -22,8 +22,8 @@ export const COLLECTION_CHUNK_SIZE = 75;
  */
 export const DEFAULT_RATE_LIMIT_MS = 150;
 
-/** How many times a rate-limited request is retried before giving up. */
-const RATE_LIMIT_RETRIES = 3;
+/** How many times a failed request is retried before giving up. */
+const MAX_RETRIES = 3;
 
 export interface CardCache {
   get(key: string): Promise<ScryfallCard | undefined>;
@@ -56,6 +56,8 @@ export interface ScryfallClientOptions {
   printsCache?: PrintsCache;
   imageCache?: BlobCache;
   rateLimitMs?: number;
+  /** Base delay for retry backoff, doubled per attempt. Set to 0 in tests. */
+  retryBackoffMs?: number;
   /**
    * Scryfall asks for a descriptive User-Agent. Browsers forbid setting it, so
    * it is omitted there rather than producing a header the fetch layer drops.
@@ -63,8 +65,17 @@ export interface ScryfallClientOptions {
   userAgent?: string;
   /** Called before each network request; useful for progress reporting. */
   onRequest?: (url: string) => void;
-  /** Called when a request is rate-limited and about to be retried. */
-  onRateLimit?: (waitMs: number, attempt: number) => void;
+  /** Called when a request failed and is about to be retried. */
+  onRetry?: (info: RetryInfo) => void;
+}
+
+export interface RetryInfo {
+  /** Why the request is being retried. */
+  reason: 'rate-limit' | 'network';
+  waitMs: number;
+  /** 1-based retry number. */
+  attempt: number;
+  message: string;
 }
 
 export class ScryfallError extends Error {
@@ -89,9 +100,10 @@ export class ScryfallClient {
   private readonly fetchImpl: typeof fetch;
   private readonly cardCache: CardCache;
   private readonly rateLimitMs: number;
+  private readonly retryBackoffMs: number;
   private readonly userAgent: string | undefined;
   private readonly onRequest: ((url: string) => void) | undefined;
-  private readonly onRateLimit: ((waitMs: number, attempt: number) => void) | undefined;
+  private readonly onRetry: ((info: RetryInfo) => void) | undefined;
   readonly imageCache: BlobCache | undefined;
   private readonly printsCache: PrintsCache | undefined;
   /** Serialises every request through one chain so the rate limit is global. */
@@ -104,12 +116,13 @@ export class ScryfallClient {
     this.imageCache = options.imageCache;
     this.printsCache = options.printsCache;
     this.rateLimitMs = options.rateLimitMs ?? DEFAULT_RATE_LIMIT_MS;
+    this.retryBackoffMs = options.retryBackoffMs ?? 1000;
     // `window` present means a browser, where User-Agent is a forbidden header.
     const inBrowser = typeof globalThis === 'object' && 'window' in globalThis;
     this.userAgent =
       options.userAgent ?? (inBrowser ? undefined : 'mtgproxy/0.2 (+https://github.com/drewbonddev/mtgproxy)');
     this.onRequest = options.onRequest;
-    this.onRateLimit = options.onRateLimit;
+    this.onRetry = options.onRetry;
   }
 
   /** Run `task` after the rate-limit gap has elapsed since the previous request. */
@@ -130,17 +143,38 @@ export class ScryfallClient {
 
   private async request(url: string, init?: RequestInit): Promise<Response> {
     return this.schedule(async () => {
+      this.onRequest?.(url);
       for (let attempt = 0; ; attempt++) {
-        this.onRequest?.(url);
-        const response = await this.fetchImpl(url, {
-          ...init,
-          headers: {
-            Accept: 'application/json',
-            ...(this.userAgent ? { 'User-Agent': this.userAgent } : {}),
-            ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
-            ...init?.headers,
-          },
-        });
+        const retry = async (info: RetryInfo): Promise<void> => {
+          this.onRetry?.(info);
+          await new Promise((resolve) => setTimeout(resolve, info.waitMs));
+        };
+
+        let response: Response;
+        try {
+          response = await this.fetchImpl(url, {
+            ...init,
+            headers: {
+              Accept: 'application/json',
+              ...(this.userAgent ? { 'User-Agent': this.userAgent } : {}),
+              ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
+              ...init?.headers,
+            },
+          });
+        } catch (cause) {
+          // A dropped connection or a flaky link should not lose a minute of
+          // resolution work, so transient failures are retried like a 429.
+          if (attempt >= MAX_RETRIES) throw cause;
+          const message = cause instanceof Error ? cause.message : String(cause);
+          await retry({
+            reason: 'network',
+            waitMs: this.retryBackoffMs * 2 ** attempt,
+            attempt: attempt + 1,
+            message,
+          });
+          continue;
+        }
+
         if (response.ok) return response;
 
         let detail = response.statusText;
@@ -154,11 +188,10 @@ export class ScryfallClient {
         // Back off and retry rather than failing a long deck resolution
         // outright. Scryfall warns that ignoring a 429 leads to a network ban,
         // so the wait is deliberately generous and honours Retry-After.
-        if (response.status === 429 && attempt < RATE_LIMIT_RETRIES) {
+        if (response.status === 429 && attempt < MAX_RETRIES) {
           const header = Number.parseInt(response.headers.get('retry-after') ?? '', 10);
-          const wait = Number.isFinite(header) ? header * 1000 : 2000 * 2 ** attempt;
-          this.onRateLimit?.(wait, attempt + 1);
-          await new Promise((resolve) => setTimeout(resolve, wait));
+          const wait = Number.isFinite(header) ? header * 1000 : this.retryBackoffMs * 2 * 2 ** attempt;
+          await retry({ reason: 'rate-limit', waitMs: wait, attempt: attempt + 1, message: detail });
           continue;
         }
 

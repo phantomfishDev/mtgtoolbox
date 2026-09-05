@@ -34,7 +34,7 @@ describe('rate limiting', () => {
       rateLimited('0'),
       json({ data: [card({ name: 'Sol Ring' })], not_found: [] }),
     ]);
-    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0 });
+    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0, retryBackoffMs: 0 });
 
     const result = await client.collection([{ name: 'Sol Ring' }]);
     expect(result.data).toHaveLength(1);
@@ -51,7 +51,7 @@ describe('rate limiting', () => {
     const client = new ScryfallClient({
       fetchImpl: impl,
       rateLimitMs: 0,
-      onRateLimit: (_wait, attempt) => seen.push(attempt),
+      onRetry: (info) => seen.push(info.attempt),
     });
 
     await client.collection([{ name: 'Sol Ring' }]);
@@ -64,7 +64,7 @@ describe('rate limiting', () => {
     const client = new ScryfallClient({
       fetchImpl: impl,
       rateLimitMs: 0,
-      onRateLimit: (wait) => waits.push(wait),
+      onRetry: (info) => waits.push(info.waitMs),
     });
 
     await client.collection([{ name: 'Sol Ring' }]);
@@ -77,6 +77,44 @@ describe('rate limiting', () => {
 
     await expect(client.collection([{ name: 'Sol Ring' }])).rejects.toThrow(ScryfallError);
     // The initial attempt plus a bounded number of retries.
+    expect(calls).toHaveLength(4);
+  });
+
+  it('retries a dropped connection', async () => {
+    // A flaky link must not throw away a minute of resolution work.
+    const calls: string[] = [];
+    let first = true;
+    const impl = (async (url: string | URL | Request) => {
+      calls.push(String(url));
+      if (first) {
+        first = false;
+        throw new TypeError('Failed to fetch');
+      }
+      return json({ data: [], not_found: [] });
+    }) as unknown as typeof fetch;
+
+    const seen: string[] = [];
+    const client = new ScryfallClient({
+      fetchImpl: impl,
+      rateLimitMs: 0,
+      retryBackoffMs: 0,
+      onRetry: (info) => seen.push(info.reason),
+    });
+
+    await client.collection([{ name: 'Sol Ring' }]);
+    expect(calls).toHaveLength(2);
+    expect(seen).toEqual(['network']);
+  });
+
+  it('gives up on a link that never comes back', async () => {
+    const calls: string[] = [];
+    const impl = (async (url: string | URL | Request) => {
+      calls.push(String(url));
+      throw new TypeError('Failed to fetch');
+    }) as unknown as typeof fetch;
+    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0, retryBackoffMs: 0 });
+
+    await expect(client.collection([{ name: 'Sol Ring' }])).rejects.toThrow(/Failed to fetch/);
     expect(calls).toHaveLength(4);
   });
 
