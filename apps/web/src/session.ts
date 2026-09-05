@@ -1,10 +1,4 @@
-import type {
-  GuideStyle,
-  ImageQuality,
-  PaperName,
-  ResolveResult,
-  ScryfallCard,
-} from '@mtgproxy/core';
+import type { GuideStyle, ImageQuality, PaperName, ResolveResult, ScryfallCard } from '@mtgproxy/core';
 
 /**
  * The print view's working state.
@@ -24,11 +18,25 @@ export interface PrintOptions {
   gap: number;
 }
 
+/**
+ * Which printing to use for a card the deck runs more than one of.
+ *
+ * A deck may want nine copies of one card in nine different artworks, or nine
+ * identical ones. `copies` present means the card has been split so each copy
+ * chooses for itself; absent means every copy shares `all`.
+ */
+export interface PrintingChoice {
+  all?: ScryfallCard;
+  copies?: (ScryfallCard | null)[];
+}
+
+export type Overrides = Record<string, PrintingChoice>;
+
 export interface PrintSession {
   text: string;
   result: ResolveResult | null;
-  /** Manual printing choices, keyed by normalised card name. */
-  overrides: Record<string, ScryfallCard>;
+  /** Keyed by normalised card name. */
+  overrides: Overrides;
   options: PrintOptions;
 }
 

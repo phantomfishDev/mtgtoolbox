@@ -2,21 +2,30 @@ import { useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
   PAPER_SIZES,
+  comparePrintings,
   computeLayout,
   diffDeck,
   frontImageUrl,
+  isBasicLand,
   missingOnly,
-  normalizeName,
   parseDecklist,
+  scorePrinting,
   totalCards,
   type PaperName,
   type ResolveResult,
-  type ResolvedCard,
   type ScryfallCard,
 } from '@mtgproxy/core';
 import { getClient } from '../platform/client.js';
 import { useApp } from '../state.js';
-import { activeProfile, ownedKeysOf, resolveText } from '../resolve.js';
+import {
+  activeProfile,
+  distinctArtworks,
+  expand,
+  ownedKeysOf,
+  resolveText,
+  slotsToCards,
+  type DeckSlot,
+} from '../resolve.js';
 import type { PrintSession } from '../session.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
@@ -39,7 +48,9 @@ export function PrintView({
   // Transient only: these should not survive a tab switch.
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [picking, setPicking] = useState<ScryfallCard | null>(null);
+  /** Informational, unlike `error`: the action worked but not perfectly. */
+  const [notice, setNotice] = useState<string | null>(null);
+  const [picking, setPicking] = useState<DeckSlot | null>(null);
 
   const setText = (value: string) => onChange({ text: value });
   const setOptions = (value: typeof options) => onChange({ options: value });
@@ -47,19 +58,89 @@ export function PrintView({
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
   const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
 
-  /** Resolved cards with any manual printing overrides applied. */
-  const effective = useMemo<ResolvedCard[]>(() => {
-    if (!result) return [];
-    return result.resolved.map((item) => {
-      const override = overrides[normalizeName(item.entry.name)];
-      return override ? { ...item, card: override } : item;
-    });
-  }, [result, overrides]);
+  /** One tile per entry, or one per copy where a card has been split. */
+  const slots = useMemo(
+    () => (result ? expand(result.resolved, overrides) : []),
+    [result, overrides],
+  );
+  /** Slots as resolved cards: 1:1 and in order, so diff rows line up by index. */
+  const effective = useMemo(() => slotsToCards(slots), [slots]);
 
   const diff = useMemo(
     () => diffDeck(effective, collection, { assumeBasics: options.assumeBasics }),
     [effective, collection, options.assumeBasics],
   );
+
+  /** Write a printing to one slot: either to every copy, or to just this one. */
+  function choosePrinting(slot: DeckSlot, card: ScryfallCard): void {
+    const choice = overrides[slot.key] ?? {};
+    if (slot.copyIndex === null) {
+      onChange({ overrides: { ...overrides, [slot.key]: { ...choice, all: card } } });
+      return;
+    }
+    const copies = [...(choice.copies ?? Array.from({ length: slot.totalCopies }, () => null))];
+    copies[slot.copyIndex] = card;
+    onChange({ overrides: { ...overrides, [slot.key]: { ...choice, copies } } });
+  }
+
+  /** Give each copy its own printing, starting from the one in use. */
+  function splitCopies(slot: DeckSlot): void {
+    const choice = overrides[slot.key] ?? {};
+    const copies = Array.from({ length: slot.totalCopies }, () => choice.all ?? slot.card);
+    onChange({ overrides: { ...overrides, [slot.key]: { ...choice, copies } } });
+  }
+
+  /** Back to one shared printing for every copy. */
+  function combineCopies(slot: DeckSlot): void {
+    const { copies: _dropped, ...rest } = overrides[slot.key] ?? {};
+    onChange({ overrides: { ...overrides, [slot.key]: rest } });
+  }
+
+  /**
+   * Assign a visibly different artwork to each copy.
+   *
+   * This is the point of splitting for a card printed in many arts, and doing
+   * it by hand nine times is tedious enough that nobody would.
+   */
+  async function assignDistinctArt(slot: DeckSlot): Promise<void> {
+    setError(null);
+    setNotice(null);
+    setBusy(`Finding artworks for ${slot.entry.name}`);
+    try {
+      const candidates = await getClient().prints(slot.entry.name);
+      if (candidates.length === 0) throw new Error(`No printings found for ${slot.entry.name}.`);
+      const basic = isBasicLand(candidates[0]!);
+      const eligible = candidates
+        .map((card) => scorePrinting(card, profile, { ownedKeys, isBasic: basic }))
+        .filter((entry) => !entry.disqualified)
+        .sort(comparePrintings)
+        .map((entry) => entry.card);
+      // Nothing survives the profile's hard rules: fall back rather than give up.
+      const relaxed = eligible.length === 0;
+      const { chosen, distinct } = distinctArtworks(relaxed ? candidates : eligible, slot.totalCopies);
+
+      const choice = overrides[slot.key] ?? {};
+      onChange({ overrides: { ...overrides, [slot.key]: { ...choice, copies: chosen } } });
+
+      // Repeating a copy silently would look like a bug, so say what happened
+      // and which preference is responsible for it.
+      if (distinct < slot.totalCopies) {
+        const all = distinctArtworks(candidates, slot.totalCopies).distinct;
+        setNotice(
+          `${slot.entry.name}: ${distinct} distinct artwork${distinct === 1 ? '' : 's'} available ` +
+            `for ${slot.totalCopies} copies, so some repeat.` +
+            (all > distinct
+              ? ` ${all} exist in total — the rest are excluded by your printing preferences` +
+                (profile.requireHighres ? `, mainly "only use high-resolution scans".` : '.')
+              : ''),
+        );
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    } finally {
+      setBusy(null);
+    }
+  }
 
   async function resolve() {
     setError(null);
@@ -188,19 +269,23 @@ export function PrintView({
           </Panel>
         )}
 
+        {notice && (
+          <Panel className="border-edge">
+            <p className="text-sm text-muted">{notice}</p>
+          </Panel>
+        )}
+
         {result && <Warnings result={result} />}
 
-        {result && effective.length > 0 && (
+        {result && slots.length > 0 && (
           <CardGrid
-            cards={effective}
+            slots={slots}
             diff={diff}
             onPick={setPicking}
-            overrides={overrides}
-            onReset={(name) => {
-              const next = { ...overrides };
-              delete next[name];
-              onChange({ overrides: next });
-            }}
+            onSplit={splitCopies}
+            onCombine={combineCopies}
+            onDistinctArt={(slot) => void assignDistinctArt(slot)}
+            busy={busy !== null}
           />
         )}
       </div>
@@ -277,11 +362,18 @@ export function PrintView({
 
       {picking && (
         <PrintingPicker
-          card={picking}
+          card={picking.card}
+          scope={
+            picking.copyIndex === null
+              ? picking.totalCopies > 1
+                ? `all ${picking.totalCopies} copies`
+                : null
+              : `copy ${picking.copyIndex + 1} of ${picking.totalCopies}`
+          }
           profile={profile}
           ownedKeys={ownedKeys}
           onPick={(card) => {
-            onChange({ overrides: { ...overrides, [normalizeName(card.name)]: card } });
+            choosePrinting(picking, card);
             setPicking(null);
           }}
           onClose={() => setPicking(null)}
@@ -310,58 +402,72 @@ function Warnings({ result }: { result: ResolveResult }) {
 }
 
 function CardGrid({
-  cards,
+  slots,
   diff,
   onPick,
-  overrides,
-  onReset,
+  onSplit,
+  onCombine,
+  onDistinctArt,
+  busy,
 }: {
-  cards: ResolvedCard[];
+  slots: DeckSlot[];
   diff: ReturnType<typeof diffDeck>;
-  onPick: (card: ScryfallCard) => void;
-  overrides: Record<string, ScryfallCard>;
-  onReset: (name: string) => void;
+  onPick: (slot: DeckSlot) => void;
+  onSplit: (slot: DeckSlot) => void;
+  onCombine: (slot: DeckSlot) => void;
+  onDistinctArt: (slot: DeckSlot) => void;
+  busy: boolean;
 }) {
-  const rowFor = (id: string) => diff.rows.find((row) => row.card.id === id);
+  const total = slots.reduce((sum, slot) => sum + slot.quantity, 0);
 
   return (
     <Panel>
       <h2 className="mb-3 font-semibold">
-        {cards.length} cards{' '}
+        {total} cards{' '}
         <span className="text-sm font-normal text-muted">
           &mdash; click any card to choose a different printing
         </span>
       </h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {cards.map((item) => {
-          const image =
-            item.card.image_uris?.normal ?? item.card.card_faces?.[0]?.image_uris?.normal;
-          const row = rowFor(item.card.id);
-          const name = normalizeName(item.entry.name);
-          const overridden = name in overrides;
+        {slots.map((slot, index) => {
+          const image = slot.card.image_uris?.normal ?? slot.card.card_faces?.[0]?.image_uris?.normal;
+          // Diff rows are built from these slots in order, so index pairs exactly.
+          const row = diff.rows[index];
+          const split = slot.copyIndex !== null;
           return (
-            <div key={`${item.card.id}-${item.entry.line}`} className="flex flex-col gap-1">
+            <div key={`${slot.key}-${slot.copyIndex ?? 'all'}-${slot.entry.line}`} className="flex flex-col gap-1">
               <button
                 type="button"
-                onClick={() => onPick(item.card)}
-                className="group relative overflow-hidden rounded-lg border border-edge transition hover:border-accent"
+                onClick={() => onPick(slot)}
+                className="relative overflow-hidden rounded-lg border border-edge transition hover:border-accent"
               >
                 {image ? (
-                  <img src={image} alt={item.card.name} loading="lazy" className="aspect-[63/88] w-full object-cover" />
+                  <img
+                    src={image}
+                    alt={slot.card.name}
+                    loading="lazy"
+                    className="aspect-[63/88] w-full object-cover"
+                  />
                 ) : (
                   <div className="flex aspect-[63/88] w-full items-center justify-center bg-edge p-2 text-center text-xs">
-                    {item.card.name}
+                    {slot.card.name}
                   </div>
                 )}
-                {item.entry.quantity > 1 && (
+                {slot.quantity > 1 && (
                   <span className="absolute left-1 top-1 rounded bg-black/70 px-1.5 py-0.5 text-xs font-semibold text-white">
-                    {item.entry.quantity}x
+                    {slot.quantity}x
+                  </span>
+                )}
+                {split && (
+                  <span className="absolute left-1 top-1 rounded bg-black/70 px-1.5 py-0.5 text-[11px] font-semibold text-white">
+                    {slot.copyIndex! + 1} of {slot.totalCopies}
                   </span>
                 )}
               </button>
+
               <div className="flex flex-wrap items-center gap-1 text-[11px] text-muted">
                 <span>
-                  {item.card.set.toUpperCase()} {item.card.collector_number}
+                  {slot.card.set.toUpperCase()} {slot.card.collector_number}
                 </span>
                 {row && row.missing === 0 && <Badge tone="good">owned</Badge>}
                 {row && row.missing > 0 && row.owned > 0 && (
@@ -369,16 +475,43 @@ function CardGrid({
                     {row.owned}/{row.needed}
                   </Badge>
                 )}
-                {overridden && (
-                  <button
-                    type="button"
-                    onClick={() => onReset(name)}
-                    className="underline hover:text-accent"
-                  >
-                    reset
-                  </button>
-                )}
               </div>
+
+              {/* Copy controls sit on the first tile of a multi-copy card only,
+                  so a nine-copy card does not repeat them nine times. */}
+              {slot.totalCopies > 1 && (slot.copyIndex === null || slot.copyIndex === 0) && (
+                <div className="flex flex-wrap gap-2 text-[11px]">
+                  {split ? (
+                    <button
+                      type="button"
+                      disabled={busy}
+                      onClick={() => onCombine(slot)}
+                      className="underline hover:text-accent disabled:opacity-40"
+                    >
+                      same printing for all {slot.totalCopies}
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() => onDistinctArt(slot)}
+                        className="underline hover:text-accent disabled:opacity-40"
+                      >
+                        different art each
+                      </button>
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() => onSplit(slot)}
+                        className="underline hover:text-accent disabled:opacity-40"
+                      >
+                        choose per copy
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           );
         })}

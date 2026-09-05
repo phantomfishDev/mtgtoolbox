@@ -50,6 +50,8 @@ export interface ScryfallCard {
   digital: boolean;
   oversized?: boolean;
   image_status: ImageStatus;
+  /** Shared by printings that reuse the same artwork, differing only in frame. */
+  illustration_id?: string;
   scryfall_uri?: string;
   games?: string[];
   finishes?: string[];

@@ -1,5 +1,8 @@
 import {
   hasActivePreferences,
+  type DeckEntry,
+  type ResolvedCard,
+  type ScryfallCard,
   mergeEntries,
   normalizeName,
   parseDecklist,
@@ -11,6 +14,7 @@ import {
   type ResolveResult,
 } from '@mtgproxy/core';
 import { getClient } from './platform/client.js';
+import type { Overrides } from './session.js';
 
 /**
  * Turn decklist text into resolved printings.
@@ -114,4 +118,100 @@ export function categorise(typeLine: string, isCommander: boolean): CardCategory
   if (/\bArtifact\b/.test(typeLine)) return 'Artifact';
   if (/\bEnchantment\b/.test(typeLine)) return 'Enchantment';
   return 'Other';
+}
+
+// ---------------------------------------------------------------------------
+// Per-copy printing selection
+// ---------------------------------------------------------------------------
+
+/**
+ * One tile in the card grid.
+ *
+ * A deck entry becomes a single slot covering all its copies, or — once split —
+ * one slot per copy so each can carry its own printing.
+ */
+export interface DeckSlot {
+  /** Normalised card name; the key into the overrides map. */
+  key: string;
+  card: ScryfallCard;
+  entry: DeckEntry;
+  /** Copies this slot stands for. Always 1 once split. */
+  quantity: number;
+  /** Position within the entry, or null when the slot covers every copy. */
+  copyIndex: number | null;
+  /** Total copies the deck runs of this card. */
+  totalCopies: number;
+}
+
+/**
+ * Turn resolved cards into display slots, applying any printing overrides.
+ *
+ * Split entries expand into one slot per copy. Slots stay in decklist order so
+ * that a diff computed from them lines up index for index.
+ */
+export function expand(
+  resolved: readonly ResolvedCard[],
+  overrides: Overrides,
+): DeckSlot[] {
+  const slots: DeckSlot[] = [];
+  for (const item of resolved) {
+    const key = normalizeName(item.entry.name);
+    const choice = overrides[key];
+    const total = item.entry.quantity;
+    const shared = choice?.all ?? item.card;
+
+    if (choice?.copies) {
+      for (let index = 0; index < total; index++) {
+        slots.push({
+          key,
+          card: choice.copies[index] ?? shared,
+          entry: item.entry,
+          quantity: 1,
+          copyIndex: index,
+          totalCopies: total,
+        });
+      }
+    } else {
+      slots.push({ key, card: shared, entry: item.entry, quantity: total, copyIndex: null, totalCopies: total });
+    }
+  }
+  return slots;
+}
+
+/** Slots as resolved cards, 1:1 and in the same order, for diffing and printing. */
+export function slotsToCards(slots: readonly DeckSlot[]): ResolvedCard[] {
+  return slots.map((slot) => ({
+    entry: { ...slot.entry, quantity: slot.quantity },
+    card: slot.card,
+    via: 'name' as const,
+  }));
+}
+
+/**
+ * Pick `count` printings that genuinely look different.
+ *
+ * Scryfall gives several printings per artwork — the same picture in a
+ * different frame or set — so choosing purely by score would hand back near
+ * duplicates. One printing per `illustration_id` is taken first, best-scoring
+ * first, and only once the distinct artworks run out does it repeat.
+ */
+export function distinctArtworks(
+  ranked: readonly ScryfallCard[],
+  count: number,
+): { chosen: ScryfallCard[]; distinct: number } {
+  const seen = new Set<string>();
+  const unique: ScryfallCard[] = [];
+  for (const card of ranked) {
+    const art = card.illustration_id ?? card.id;
+    if (seen.has(art)) continue;
+    seen.add(art);
+    unique.push(card);
+    if (unique.length === count) break;
+  }
+  if (unique.length === 0) return { chosen: [], distinct: 0 };
+  // Fewer artworks than copies: cycle rather than leaving copies unassigned.
+  return {
+    chosen: Array.from({ length: count }, (_, index) => unique[index % unique.length]!),
+    distinct: unique.length,
+  };
 }

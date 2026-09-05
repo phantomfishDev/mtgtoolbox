@@ -108,6 +108,17 @@ describe('missingOnly', () => {
     expect(trimmed[0]?.entry.quantity).toBe(2);
   });
 
+  it('keeps rows separate when several share one printing', () => {
+    // Nine copies of a card each listed on their own row: if rows were keyed by
+    // printing rather than position they would collide and share one count.
+    const rows = [resolved('Nazgul', 1), resolved('Nazgul', 1), resolved('Nazgul', 1)];
+    const collection = addEntry(emptyCollection(), own({ name: 'Nazgul', quantity: 1 }));
+    const diff = diffDeck(rows, collection);
+    expect(diff.totalOwned).toBe(1);
+    // One copy is covered, so exactly two rows survive.
+    expect(missingOnly(rows, diff)).toHaveLength(2);
+  });
+
   it('drops rows that are fully owned', () => {
     const collection = addEntry(emptyCollection(), own({ name: 'Brainstorm', quantity: 4 }));
     const rows = [resolved('Brainstorm', 2)];

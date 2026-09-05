@@ -122,17 +122,20 @@ export function diffDeck(
 /**
  * Reduce a resolved deck to only the copies that are missing, preserving order.
  * Rows fully covered by the collection drop out entirely.
+ *
+ * Rows are paired with cards by position rather than by printing, because a
+ * deck can legitimately list one printing across several rows — nine copies of
+ * a card each choosing their own art, say — and keying on the printing would
+ * make those rows collide and share one row's count.
  */
 export function missingOnly(
   resolved: readonly ResolvedCard[],
   diff: DeckDiff,
 ): ResolvedCard[] {
-  const byCardId = new Map(diff.rows.map((row) => [row.card.id, row]));
   const out: ResolvedCard[] = [];
-  for (const item of resolved) {
-    const row = byCardId.get(item.card.id);
-    const missing = row?.missing ?? item.entry.quantity;
+  resolved.forEach((item, index) => {
+    const missing = diff.rows[index]?.missing ?? item.entry.quantity;
     if (missing > 0) out.push({ ...item, entry: { ...item.entry, quantity: missing } });
-  }
+  });
   return out;
 }

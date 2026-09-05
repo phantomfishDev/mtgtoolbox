@@ -19,12 +19,15 @@ import { Badge, Button, Spinner } from './ui.js';
  */
 export function PrintingPicker({
   card,
+  scope,
   profile,
   ownedKeys,
   onPick,
   onClose,
 }: {
   card: ScryfallCard;
+  /** What the choice applies to, when the deck runs more than one copy. */
+  scope?: string | null;
   profile: PreferenceProfile;
   ownedKeys: ReadonlySet<string>;
   onPick: (card: ScryfallCard) => void;
@@ -84,6 +87,7 @@ export function PrintingPicker({
             <h2 className="font-semibold">{card.name}</h2>
             <p className="text-xs text-muted">
               {ranked ? `${ranked.length} printings, ranked by your preferences` : 'loading...'}
+              {scope ? ` - applies to ${scope}` : ''}
             </p>
           </div>
           <Button variant="ghost" onClick={onClose}>

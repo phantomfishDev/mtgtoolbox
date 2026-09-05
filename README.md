@@ -88,6 +88,17 @@ The commander is read from the list itself: either an explicit `Commander` heade
 following the convention Moxfield and Archidekt export — any cards sitting above a
 `Deck` header.
 
+### Cards the deck runs several copies of
+
+A tile for a card with more than one copy carries two extra controls. **different art each**
+splits it into one tile per copy and gives each a visibly different artwork — one printing
+per illustration, not the same picture in nine frames. **choose per copy** splits it without
+choosing, so you can pick each one yourself; **same printing for all** collapses it back.
+
+Where a card has fewer distinct artworks than copies, some repeat and the app says so,
+naming the preference responsible — usually *only use high-resolution scans*, since some
+older artworks exist only as low-resolution scans.
+
 On the **Print** tab you can paste a decklist, see every card resolved with
 owned/missing badges, click any card to browse and pick a different printing, and
 download the PDF — all generated in the browser by the same code the CLI runs.
