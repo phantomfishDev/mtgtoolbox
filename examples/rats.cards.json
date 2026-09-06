@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "rats",
-  "generatedAt": "2026-09-05T21:41:46.633Z",
+  "generatedAt": "2026-09-06T00:50:21.406Z",
   "profile": "n76cg",
   "owned": "w7k42t",
   "cards": [
@@ -19,6 +19,7 @@
       "rarity": "mythic",
       "type_line": "Legendary Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "Each land is a Swamp in addition to its other land types.",
       "keywords": [],
@@ -54,6 +55,9 @@
       "rarity": "rare",
       "type_line": "Creature — Rat",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Pack Rat's power and toughness are each equal to the number of Rats you control.\n{2}{B}, Discard a card: Create a token that's a copy of this creature.",
       "keywords": [],
@@ -89,6 +93,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Rat Rogue",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "All Rats have fear.\n{T}, Sacrifice a Rat: Create X 1/1 black Rat creature tokens, where X is the number of Rats you control.",
       "keywords": [],
@@ -129,6 +136,9 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{3}, {T}: Add {B} for each basic Swamp you control.",
       "keywords": [],
@@ -161,6 +171,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Enchantment — Background",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}",
       "oracle_text": "Commander creatures you own have \"Whenever this creature becomes tapped, it and other creatures you control that share a creature type with it each get +2/+0 and gain undying until end of turn.\" (When a creature with undying dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
       "keywords": [],
@@ -200,6 +213,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}{B}",
       "oracle_text": "Target player draws two cards and loses 2 life.",
       "keywords": [],
@@ -235,6 +251,9 @@
       "rarity": "mythic",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Search your library for a card, put that card into your hand, then shuffle.",
       "keywords": [],
@@ -273,6 +292,9 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}",
       "oracle_text": "Destroy target creature or planeswalker.",
       "keywords": [],
@@ -311,6 +333,7 @@
       "rarity": "rare",
       "type_line": "Legendary Artifact",
       "cmc": 5,
+      "color_identity": [],
       "mana_cost": "{5}",
       "oracle_text": "Spells you cast have ripple 4. (Whenever you cast a spell, you may reveal the top four cards of your library. You may cast spells with the same name as that spell from among the revealed cards without paying their mana costs. Put the rest on the bottom of your library.)",
       "keywords": [],
@@ -346,6 +369,9 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Swamp.\n{T}: Add {B}.\n{1}{B}{B}, {T}: Draw a card, then you lose life equal to the number of cards in your hand.",
       "keywords": [],
@@ -378,6 +404,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 1,
+      "color_identity": [],
       "mana_cost": "{1}",
       "oracle_text": "{T}: Add {C}{C}.",
       "keywords": [],
@@ -413,6 +440,7 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
       "keywords": [],
@@ -451,6 +479,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "Create a tapped 1/1 black Rat creature token for each creature card in your graveyard.\nFlashback {2}{B}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
       "keywords": [
@@ -485,6 +516,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Black spells you cast cost {1} less to cast.",
       "keywords": [],
@@ -520,6 +552,7 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Regenerate target Insect, Rat, Spider, or Squirrel. (The next time it would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
       "keywords": [
@@ -561,6 +594,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "As this artifact enters, choose a creature type.\nCreature spells you cast of the chosen type cost {1} less to cast.\nAt the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
       "keywords": [],
@@ -596,6 +630,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Rat Ninja",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Ninjutsu {3}{B}{B} ({3}{B}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever Ink-Eyes deals combat damage to a player, you may put target creature card from that player's graveyard onto the battlefield under your control.\n{1}{B}: Regenerate Ink-Eyes.",
       "keywords": [
@@ -639,6 +676,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Rat Warlock",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}",
       "oracle_text": "Whenever Ashcoat attacks or blocks, other Rats you control get +X/+X until end of turn, where X is the number of Rats you control.\nAt the beginning of your end step, you may mill four cards. If you do, return up to two Rat creature cards from your graveyard to your hand. (To mill a card, put the top card of your library into your graveyard.)",
       "keywords": [
@@ -676,6 +716,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Each player chooses a creature type. Each player returns all creature cards of a type chosen this way from their graveyard to the battlefield.",
       "keywords": [],
@@ -708,6 +751,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}",
       "oracle_text": "Return target creature card and all other cards with the same name as that card from your graveyard to your hand.",
       "keywords": [],
@@ -740,6 +786,9 @@
       "rarity": "uncommon",
       "type_line": "Legendary Creature — Rat Noble",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}",
       "oracle_text": "Whenever another Rat you control enters, exile up to one target card from an opponent's graveyard.\nAt the beginning of combat on your turn, create a 1/1 black Rat creature token with \"This token can't block.\"",
       "keywords": [],
@@ -775,6 +824,9 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B}. Spend this mana only to cast a creature spell.\n{1}{B}, {T}, Sacrifice this land: Return target Bat, Lizard, Rat, or Squirrel card from your graveyard to your hand.",
       "keywords": [],
@@ -807,6 +859,9 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
       "keywords": [],
@@ -839,6 +894,7 @@
       "rarity": "rare",
       "type_line": "Artifact — Equipment",
       "cmc": 1,
+      "color_identity": [],
       "mana_cost": "{1}",
       "oracle_text": "Equipped creature gets +1/-1.\nWhenever equipped creature dies, draw two cards.\nEquip {1}",
       "keywords": [
@@ -873,6 +929,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Phyrexian Rat",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}",
       "oracle_text": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nOther Rats you control have toxic 1.\nWhen Karumonix enters, look at the top five cards of your library. You may reveal any number of Rat cards from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in a random order.",
       "keywords": [
@@ -915,6 +974,9 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{2}, {T}: Add {B} for each Swamp you control.",
       "keywords": [],
@@ -953,6 +1015,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Rat",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}",
       "oracle_text": "{X}: This creature deals X damage to each creature and each player. Spend only black mana on X.",
       "keywords": [],
@@ -985,6 +1050,9 @@
       "rarity": "rare",
       "type_line": "Creature — Rat",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "This creature can't block.\nWhen this creature dies, create X 1/1 black Rat creature tokens with \"This token can't block,\" where X is the amount of damage dealt to it this turn.",
       "keywords": [],
@@ -1017,6 +1085,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Create two 1/1 green Squirrel creature tokens. Then each creature that isn't an Insect, Rat, Spider, or Squirrel gets -1/-1 until end of turn for each creature you control that's an Insect, Rat, Spider, or Squirrel.",
       "keywords": [],
@@ -1049,6 +1120,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Rat Berserker",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "This creature gets +1/+0 for each other Rat you control.\nThreshold — Whenever you attack with one or more Rats, if there are seven or more cards in your graveyard, you may pay {2}{B}. If you do, return this card from your graveyard to the battlefield tapped and attacking.",
       "keywords": [
@@ -1083,6 +1157,7 @@
       "rarity": "rare",
       "type_line": "Artifact — Equipment",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
       "keywords": [
@@ -1120,6 +1195,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Rat",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "This creature gets +1/+0 for each other Rat you control.\nA deck can have any number of cards named Rat Colony.",
       "keywords": [],
@@ -1158,6 +1236,9 @@
       "rarity": "common",
       "type_line": "Creature — Rat",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Swarm of Rats's power is equal to the number of Rats you control.",
       "keywords": [],
@@ -1190,6 +1271,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 7,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{5}{B}{B}",
       "oracle_text": "Choose a creature type. Destroy all creatures that aren't of the chosen type.",
       "keywords": [],
@@ -1228,6 +1312,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Rat Ninja",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}",
       "oracle_text": "Ninjutsu {3}{B} ({3}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever Nashi deals combat damage to a player, exile the top card of each player's library. Until end of turn, you may play one of those cards. If you cast a spell this way, pay life equal to its mana value rather than paying its mana cost.",
       "keywords": [
@@ -1266,6 +1353,9 @@
       "rarity": "common",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Destroy target nonartifact creature.",
       "keywords": [],
@@ -1298,6 +1388,9 @@
       "rarity": "rare",
       "type_line": "Creature — Human Warlock",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Rats you control have menace.\n{1}{B}, {T}: Create a 1/1 black Rat creature token.\n{2}{B}{B}, {T}, Sacrifice three Rats: Gain control of target creature.",
       "keywords": [],
@@ -1330,6 +1423,9 @@
       "rarity": "rare",
       "type_line": "Creature — Ogre Rogue",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Whenever another nontoken creature dies, you may create a 1/1 black Rat creature token.\nRats you control have deathtouch.",
       "keywords": [],
@@ -1362,6 +1458,9 @@
       "rarity": "mythic",
       "type_line": "Enchantment",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}{B}",
       "oracle_text": "Whenever a creature you control dies, each other player sacrifices a creature of their choice.",
       "keywords": [],
@@ -1401,6 +1500,9 @@
       "rarity": "common",
       "type_line": "Land — Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}.)\nThis land enters tapped unless you control three or more other Swamps.\nWhen this land enters untapped, you may put target creature card from your graveyard on top of your library.",
       "keywords": [],
@@ -1433,6 +1535,7 @@
       "rarity": "uncommon",
       "type_line": "Legendary Artifact",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Black creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, each opponent loses 1 life and you gain 1 life.",
       "keywords": [],
@@ -1468,6 +1571,9 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\n{T}: Add {B}.\n{2}, {T}: Add {B} for each black creature card in your graveyard.",
       "keywords": [],
@@ -1500,6 +1606,9 @@
       "rarity": "rare",
       "type_line": "Creature — Human Warrior",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "As this creature enters, choose a creature type.\nWhenever a creature of the chosen type dies, you may draw a card.",
       "keywords": [],
@@ -1532,6 +1641,9 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}",
       "oracle_text": "Add {B}{B}{B}.",
       "keywords": [],
@@ -1564,6 +1676,7 @@
       "rarity": "mythic",
       "type_line": "Artifact",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "As this artifact enters, choose a creature type.\nWhenever you cast a spell of the chosen type, put a charge counter on this artifact.\nCreatures you control of the chosen type get +1/+1 for each charge counter on this artifact.",
       "keywords": [],
@@ -1602,6 +1715,7 @@
       "rarity": "uncommon",
       "type_line": "Kindred Artifact — Shaman Equipment",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Equipped creature has \"{2}, {T}: This creature deals 1 damage to any target\" and \"Whenever a creature dies, untap this creature.\"\nWhenever a Shaman creature enters, you may attach this Equipment to it.\nEquip {4}",
       "keywords": [
@@ -1636,6 +1750,9 @@
       "rarity": "rare",
       "type_line": "Land // Legendary Creature — Demon",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "keywords": [
         "Flying",
         "Lifelink",
@@ -1693,6 +1810,7 @@
       "rarity": "rare",
       "type_line": "Legendary Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As Three Tree City enters, choose a creature type.\n{T}: Add {C}.\n{2}, {T}: Choose a color. Add an amount of mana of that color equal to the number of creatures you control of the chosen type.",
       "keywords": [],
@@ -1732,6 +1850,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 5,
+      "color_identity": [],
       "mana_cost": "{5}",
       "oracle_text": "Each creature gets +1/+1 for each other creature on the battlefield that shares at least one creature type with it. (For example, if two Goblin Warriors and a Goblin Shaman are on the battlefield, each gets +2/+2.)",
       "keywords": [],
@@ -1767,6 +1886,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}{B}{B}",
       "oracle_text": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life.\n{T}, Sacrifice another black creature: Draw a card.",
       "keywords": [],
@@ -1803,6 +1925,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}.)",
       "keywords": [],
@@ -1835,6 +1960,9 @@
       "rarity": "rare",
       "type_line": "Creature — Ogre Rogue",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nAt the beginning of your upkeep, you may search your library for a Rat card, reveal it, put it into your hand, then shuffle.",
       "keywords": [
@@ -1869,6 +1997,9 @@
       "rarity": "rare",
       "type_line": "Enchantment",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}",
       "oracle_text": "At the beginning of your upkeep, you draw a card and you lose 1 life.",
       "keywords": [],
@@ -1908,6 +2039,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Artifact — Infinity Stone",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Indestructible\n{T}: Add {B}.\n{6}{B}, {T}, Exile a creature you control: Harness The Soul Stone. (Once harnessed, its ∞ ability is active.)\n∞ — At the beginning of your upkeep, return target creature card from your graveyard to the battlefield.",
       "keywords": [

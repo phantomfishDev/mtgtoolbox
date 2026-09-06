@@ -41,6 +41,8 @@ export interface ScryfallCard {
   type_line?: string;
   /** Converted mana cost, for mana-curve analysis. */
   cmc?: number;
+  /** WUBRG letters; a Commander deck's colours are its commander's identity. */
+  color_identity?: string[];
   mana_cost?: string;
   /** Scryfall's flag for the Commander "Game Changers" list, used for brackets. */
   game_changer?: boolean;

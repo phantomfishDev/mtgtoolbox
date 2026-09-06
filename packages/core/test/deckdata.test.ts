@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildDeckData,
   ownedFingerprint,
+  refreshDeckData,
   profileFingerprint,
   resolveFromDeckData,
   trimCard,
@@ -154,6 +155,31 @@ describe('ownedFingerprint', () => {
     expect(ownedFingerprint({ preferOwned: true }, new Set(['a', 'b']))).toBe(
       ownedFingerprint({ preferOwned: true }, new Set(['b', 'a'])),
     );
+  });
+});
+
+describe('refreshDeckData', () => {
+  const original = buildDeckData('deck', [at('Sol Ring', 1, { id: 'x' })], profile, new Set());
+
+  it('picks up a field that was not stored before', () => {
+    const refreshed = refreshDeckData(original, [
+      card({ id: 'x', name: 'Sol Ring', color_identity: [] , cmc: 1 }),
+    ]);
+    expect(refreshed.cards[0]?.cmc).toBe(1);
+  });
+
+  it('keeps the choices, profile and collection fingerprint', () => {
+    const refreshed = refreshDeckData(original, [card({ id: 'x', name: 'Sol Ring' })]);
+    expect(refreshed.chosen).toEqual(original.chosen);
+    expect(refreshed.profile).toBe(original.profile);
+    expect(refreshed.owned).toBe(original.owned);
+  });
+
+  it('keeps a card the refresh did not return', () => {
+    // A printing can vanish from a lookup; dropping it would corrupt the deck.
+    const refreshed = refreshDeckData(original, []);
+    expect(refreshed.cards).toHaveLength(1);
+    expect(refreshed.cards[0]?.id).toBe('x');
   });
 });
 

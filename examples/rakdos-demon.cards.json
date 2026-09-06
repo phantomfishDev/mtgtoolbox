@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "rakdos-demon",
-  "generatedAt": "2026-09-05T21:41:46.575Z",
+  "generatedAt": "2026-09-06T00:50:20.907Z",
   "profile": "n76cg",
   "owned": "w7k42t",
   "cards": [
@@ -19,6 +19,10 @@
       "rarity": "uncommon",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{2}",
       "oracle_text": "{1}, {T}: Add {B}{R}.",
       "keywords": [],
@@ -51,6 +55,10 @@
       "rarity": "rare",
       "type_line": "Land // Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -99,6 +107,7 @@
       "rarity": "mythic",
       "type_line": "Legendary Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "Each land is a Swamp in addition to its other land types.",
       "keywords": [],
@@ -134,6 +143,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Flying\nAt the beginning of your upkeep, target player draws a card and loses 1 life.",
       "keywords": [
@@ -168,6 +180,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Demon",
       "cmc": 3,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{2}{R}",
       "oracle_text": "Locus of Slaanesh — Demon spells you cast cost {2} less to cast.\nOther Demons you control have haste.",
       "keywords": [
@@ -205,6 +220,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 1,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{R}",
       "oracle_text": "Destroy target artifact you don't control.\nOverload {4}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
       "keywords": [
@@ -239,6 +257,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Flying\nAt the beginning of each opponent's end step, that player chooses up to two creatures they control, then sacrifices the rest.",
       "keywords": [
@@ -273,6 +294,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {R}. This land deals 1 damage to you.",
       "keywords": [],
@@ -311,6 +336,10 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{B}{R}",
       "oracle_text": "Destroy target creature. It can't be regenerated.",
       "keywords": [],
@@ -346,6 +375,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}{B}",
       "oracle_text": "Target player draws two cards and loses 2 life.",
       "keywords": [],
@@ -381,6 +413,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Archon",
       "cmc": 8,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{6}{B}{B}",
       "oracle_text": "Flying\nWhenever this creature enters or attacks, target opponent sacrifices a creature or planeswalker of their choice, discards a card, and loses 3 life. You draw a card and gain 3 life.",
       "keywords": [
@@ -419,6 +454,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}{B}",
       "oracle_text": "Flying\nMorbid — At the beginning of each end step, if a creature died this turn, destroy target non-Demon creature.",
       "keywords": [
@@ -454,6 +492,9 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Swamp.\n{T}: Add {B}.\n{1}{B}{B}, {T}: Draw a card, then you lose life equal to the number of cards in your hand.",
       "keywords": [],
@@ -486,6 +527,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 1,
+      "color_identity": [],
       "mana_cost": "{1}",
       "oracle_text": "{T}: Add {C}{C}.",
       "keywords": [],
@@ -521,6 +563,7 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
       "keywords": [],
@@ -559,6 +602,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 7,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{5}{B}{B}",
       "oracle_text": "Flying\nWhen this creature enters, search your library for a card, put it into your hand, then shuffle.",
       "keywords": [
@@ -593,6 +639,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{4}{B}{R}",
       "oracle_text": "Flying, trample\nWhen Rakdos enters, flip a coin for each creature that isn't a Demon, Devil, or Imp. Destroy each creature whose coin comes up tails.",
       "keywords": [
@@ -631,6 +681,10 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{B}{B}{R}",
       "oracle_text": "Destroy target artifact, creature, or planeswalker.",
       "keywords": [],
@@ -666,6 +720,10 @@
       "set_type": "expansion",
       "collector_number": "349",
       "rarity": "rare",
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -719,6 +777,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Mountain",
       "cmc": 0,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {R}.)",
       "keywords": [],
@@ -751,6 +812,10 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{4}{B}{R}",
       "oracle_text": "At the beginning of each end step, each player discards their hand.",
       "keywords": [],
@@ -783,6 +848,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "As this artifact enters, choose a creature type.\nCreature spells you cast of the chosen type cost {1} less to cast.\nAt the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
       "keywords": [],
@@ -818,6 +884,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control two or fewer other lands.\n{T}: Add {B} or {R}.",
       "keywords": [],
@@ -856,6 +926,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Demon",
       "cmc": 4,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{B}{B}{R}{R}",
       "oracle_text": "You can't cast Rakdos unless an opponent lost life this turn.\nFlying, trample\nCreature spells you cast cost {1} less to cast for each 1 life your opponents have lost this turn.",
       "keywords": [
@@ -894,6 +968,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhenever another nontoken creature dies, you may draw a card.",
       "keywords": [
@@ -928,6 +1005,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact — Equipment",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
       "keywords": [
@@ -969,6 +1047,7 @@
       "rarity": "common",
       "type_line": "Land — Desert",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "When this land enters, it deals 1 damage to target player or planeswalker.\n{T}: Add {C}.",
       "keywords": [],
@@ -1001,6 +1080,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Enchantment Creature — God",
       "cmc": 4,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{3}{R}",
       "oracle_text": "Indestructible\nAs long as your devotion to red is less than five, Purphoros isn't a creature.\nWhenever another creature you control enters, Purphoros deals 2 damage to each opponent.\n{2}{R}: Creatures you control get +1/+0 until end of turn.",
       "keywords": [
@@ -1039,6 +1121,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Golem",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Ward {2}\nAs this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nIf a triggered ability of another creature you control of the chosen type triggers, it triggers an additional time.",
       "keywords": [
@@ -1076,6 +1159,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{2}{R}",
       "oracle_text": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield.",
       "keywords": [],
@@ -1111,6 +1197,9 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
       "keywords": [],
@@ -1143,6 +1232,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
       "keywords": [],
@@ -1178,6 +1268,9 @@
       "rarity": "uncommon",
       "type_line": "Instant // Land",
       "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -1226,6 +1319,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{3}{R}{R}",
       "oracle_text": "Flying\nWhenever this creature attacks or dies, choose one or more. Each mode must target a different player.\n• Target opponent draws three cards, then discards three cards at random.\n• Target opponent sacrifices a nontoken artifact of their choice.\n• This creature deals damage to target opponent equal to the number of cards in their hand.",
       "keywords": [
@@ -1260,6 +1356,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Swamp or a Mountain.\n{T}: Add {B} or {R}.",
       "keywords": [],
@@ -1295,6 +1395,7 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
       "keywords": [],
@@ -1333,6 +1434,9 @@
       "rarity": "rare",
       "type_line": "Enchantment — Room // Enchantment — Room",
       "cmc": 8,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B} // {3}{B}{B}",
       "keywords": [],
       "game_changer": false,
@@ -1384,6 +1488,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Flying, trample\nWhenever an opponent searches their library, that player sacrifices a creature of their choice and loses 10 life.\nWhenever another creature dies, put a +1/+1 counter on Ob Nixilis.",
       "keywords": [
@@ -1422,6 +1529,9 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{2}, {T}: Add {B} for each Swamp you control.",
       "keywords": [],
@@ -1460,6 +1570,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you have two or more opponents.\n{T}: Add {B} or {R}.",
       "keywords": [],
@@ -1492,6 +1606,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{B/R}, {T}: Add {B}{B}, {B}{R}, or {R}{R}.",
       "keywords": [],
@@ -1524,6 +1642,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}",
       "oracle_text": "Reverberating Summons — At the beginning of your end step, each opponent loses 2 life. Then for each opponent who has less life than you, create a 1/3 black Demon creature token named Plaguebearer of Nurgle.",
       "keywords": [
@@ -1561,6 +1682,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Human Shaman",
       "cmc": 2,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{1}{R}",
       "oracle_text": "Defender\n{T}: This creature deals 1 damage to each opponent.\nWhenever you cast an instant or sorcery spell, untap this creature.",
       "keywords": [
@@ -1595,6 +1719,7 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
       "keywords": [],
@@ -1627,6 +1752,10 @@
       "rarity": "uncommon",
       "type_line": "Legendary Creature — Demon Berserker",
       "cmc": 4,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{2}{B}{R}",
       "oracle_text": "When Kardur enters, until your next turn, creatures your opponents control attack each combat if able and attack a player other than you if able.\nWhenever an attacking creature dies, each opponent loses 1 life and you gain 1 life.",
       "keywords": [],
@@ -1662,6 +1791,10 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {R}. Activate only if you control a Swamp.",
       "keywords": [],
@@ -1694,6 +1827,7 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
       "keywords": [
@@ -1734,6 +1868,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "Flying\nAt the beginning of your upkeep, draw a card unless target opponent sacrifices a creature of their choice or pays 3 life.",
       "keywords": [
@@ -1768,6 +1905,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Vampire Demon",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}{B}",
       "oracle_text": "Flying\nIf an opponent would lose life during your turn, they lose twice that much life instead. (Damage causes loss of life.)",
       "keywords": [
@@ -1805,6 +1945,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 1,
+      "color_identity": [],
       "mana_cost": "{1}",
       "oracle_text": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
       "keywords": [],
@@ -1840,6 +1981,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 1,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{R}",
       "oracle_text": "Boltwave deals 3 damage to each opponent.",
       "keywords": [],
@@ -1872,6 +2016,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
       "keywords": [],
@@ -1904,6 +2051,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {R}.",
       "keywords": [],
@@ -1942,6 +2093,9 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, target player loses 1 life.\n{T}: Add {B}.",
       "keywords": [],
@@ -1974,6 +2128,7 @@
       "rarity": "rare",
       "type_line": "Artifact — Equipment",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
       "keywords": [
@@ -2011,6 +2166,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}{B}",
       "oracle_text": "Flying\nWhen this creature enters, all other creatures get -2/-2 until end of turn.\nWhenever another creature dies, you get {E} (an energy counter).\n{2}{B}, Pay {E}{E}{E}{E}: Put target creature card from a graveyard onto the battlefield under your control tapped.",
       "keywords": [
@@ -2045,6 +2203,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{4}{B}{R}",
       "oracle_text": "Flying, trample\nAt the beginning of your end step, target opponent may sacrifice two nonland, nontoken permanents of their choice. If they don't, you draw two cards.",
       "keywords": [
@@ -2083,6 +2245,7 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
       "keywords": [],
@@ -2121,6 +2284,10 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{B}{R}",
       "oracle_text": "Choose one —\n• Exile target player's graveyard.\n• Destroy target artifact.\n• Each creature deals 1 damage to its controller.",
       "keywords": [],
@@ -2153,6 +2320,9 @@
       "rarity": "uncommon",
       "type_line": "Land — Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}.)\nThis land enters tapped.\n{B}, {T}: Each opponent loses 1 life. Activate only if you control two or more black permanents.",
       "keywords": [],
@@ -2185,6 +2355,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
       "keywords": [],
@@ -2223,6 +2394,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "You draw two cards and lose 2 life.",
       "keywords": [],
@@ -2255,6 +2429,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elder Demon",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Flying, trample\nWhen Demonlord Belzenlok enters, exile cards from the top of your library until you exile a nonland card, then put that card into your hand. If the card's mana value is 4 or greater, repeat this process. Demonlord Belzenlok deals 1 damage to you for each card put into your hand this way.",
       "keywords": [
@@ -2293,6 +2470,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
       "keywords": [],
@@ -2325,6 +2503,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 4,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{2}{R}{R}",
       "oracle_text": "Choose three. You may choose the same mode more than once.\n• Fiery Confluence deals 1 damage to each creature.\n• Fiery Confluence deals 2 damage to each opponent.\n• Destroy target artifact.",
       "keywords": [],
@@ -2357,6 +2538,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 8,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{6}{B}{B}",
       "oracle_text": "Flying\nYour opponents can't gain life.\nAt the beginning of each end step, each opponent loses life equal to the life that player lost this turn. (Damage causes loss of life.)",
       "keywords": [
@@ -2391,6 +2575,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Dwarf Noble",
       "cmc": 4,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{1}{R}{R}{R}",
       "oracle_text": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
       "keywords": [],
@@ -2426,6 +2613,9 @@
       "rarity": "common",
       "type_line": "Creature — Goblin Warrior",
       "cmc": 3,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{2}{R}",
       "oracle_text": "Defender\n{T}: This creature deals 1 damage to each opponent.\nWhenever you cast a multicolored spell, untap this creature.",
       "keywords": [
@@ -2460,6 +2650,7 @@
       "rarity": "uncommon",
       "type_line": "Legendary Artifact",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Black creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, each opponent loses 1 life and you gain 1 life.",
       "keywords": [],
@@ -2495,6 +2686,9 @@
       "rarity": "rare",
       "type_line": "Legendary Land",
       "cmc": 0,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{2}{R}, {T}: Shivan Gorge deals 1 damage to each opponent.",
       "keywords": [],
@@ -2530,6 +2724,9 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}",
       "oracle_text": "Add {B}{B}{B}.",
       "keywords": [],
@@ -2562,6 +2759,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "Spectacle {1}{B}{B} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nFlying, trample\nAt the beginning of your upkeep, this creature deals 1 damage to each player. Then if you have 10 or less life, put a +1/+1 counter on this creature.",
       "keywords": [
@@ -2598,6 +2798,7 @@
       "rarity": "mythic",
       "type_line": "Artifact",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "As this artifact enters, choose a creature type.\nCreature spells of the chosen type cost {2} less to cast.",
       "keywords": [],
@@ -2636,6 +2837,9 @@
       "rarity": "rare",
       "type_line": "Creature — Demon",
       "cmc": 6,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{5}{R}",
       "oracle_text": "Flying, trample\nWhenever this creature deals combat damage to a player, untap it. After this phase, there is an additional combat phase.\nThis creature can't attack a player it has already attacked this turn.",
       "keywords": [
@@ -2674,6 +2878,10 @@
       "rarity": "rare",
       "type_line": "Land — Swamp Mountain",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B} or {R}.)\nThis land enters tapped unless you control two or more basic lands.",
       "keywords": [],
@@ -2706,6 +2914,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Demon",
       "cmc": 8,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{5}{B}{B}{B}",
       "oracle_text": "Flying\n{B}, Pay 2 life: Target creature gets -1/-1 until end of turn.\nWhenever you lose life, draw that many cards. (Damage causes loss of life.)",
       "keywords": [
@@ -2743,6 +2954,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Demon",
       "cmc": 8,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{5}{B}{B}{B}",
       "oracle_text": "Flying, trample\nPay 2 life, Sacrifice another creature: Search your library for a card, put that card into your hand, then shuffle.",
       "keywords": [
@@ -2781,6 +2995,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "Search your library for a card, put that card into your hand, then shuffle.",
       "keywords": [],
@@ -2813,6 +3030,10 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {B}{R}.",
       "keywords": [],
@@ -2851,6 +3072,10 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {R}. This artifact deals 1 damage to you.",
       "keywords": [],
@@ -2886,6 +3111,9 @@
       "rarity": "uncommon",
       "type_line": "Enchantment",
       "cmc": 2,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{1}{R}",
       "oracle_text": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
       "keywords": [],
@@ -2925,6 +3153,10 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 5,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "{3}{B}{R}",
       "oracle_text": "First strike, deathtouch\nThis creature can only attack alone.\nWhenever this creature attacks a player and isn't blocked, that player's life total becomes 1. This creature assigns no combat damage this combat.",
       "keywords": [
@@ -2963,6 +3195,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{1}{R}",
       "oracle_text": "Flame Rift deals 4 damage to each player.",
       "keywords": [],
@@ -2995,6 +3230,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon",
       "cmc": 7,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}{B}",
       "oracle_text": "Flying\nWhenever this creature deals combat damage to a player, exile the top seven cards of that player's library, then put a creature card from among them onto the battlefield under your control.",
       "keywords": [
@@ -3035,6 +3273,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "R"
+      ],
       "mana_cost": "",
       "oracle_text": "As this land enters, you may reveal a Swamp or Mountain card from your hand. If you don't, this land enters tapped.\n{T}: Add {B} or {R}.",
       "keywords": [],
@@ -3067,6 +3309,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}.)",
       "keywords": [],
@@ -3099,6 +3344,9 @@
       "rarity": "rare",
       "type_line": "Enchantment",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}{B}",
       "oracle_text": "At the beginning of your upkeep, you draw a card and you lose 1 life.",
       "keywords": [],
@@ -3138,6 +3386,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Demon Berserker",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Flying\nWhen this creature enters, you may search your library for exactly two cards not named Burning-Rune Demon that have different names. If you do, reveal those cards. An opponent chooses one of them. Put the chosen card into your hand and the other into your graveyard, then shuffle.",
       "keywords": [
@@ -3172,6 +3423,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}",
       "oracle_text": "Scry 2, then draw two cards. You lose 2 life. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
       "keywords": [
@@ -3206,6 +3460,9 @@
       "rarity": "common",
       "type_line": "Creature — Goblin Warrior",
       "cmc": 1,
+      "color_identity": [
+        "R"
+      ],
       "mana_cost": "{R}",
       "oracle_text": "Defender\n{T}: This creature deals 1 damage to each player.",
       "keywords": [
@@ -3240,6 +3497,9 @@
       "rarity": "rare",
       "type_line": "Enchantment",
       "cmc": 5,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}",
       "oracle_text": "When this enchantment enters, you draw four cards and you lose 4 life.\nAt the beginning of your upkeep, if you control four or more Demons with different names, you win the game.",
       "keywords": [],

@@ -2,9 +2,11 @@ import {
   commanders,
   parseDecklist,
   parseDeckData,
+  parseDeckIndex,
   totalCards,
   type DeckData,
   type DeckEntry,
+  type DeckIndex,
 } from '@mtgproxy/core';
 
 /**
@@ -50,6 +52,36 @@ const dataUrlById = new Map(
  * arrive together — a remount under StrictMode asks twice before either
  * finishes — so the same file would be downloaded several times over.
  */
+/**
+ * The deck index, fetched once for the list page.
+ *
+ * Referenced by URL like the per-deck data: it is a single file the list needs
+ * up front, but still too large to inline into the bundle.
+ */
+const indexUrls = import.meta.glob('../../../examples/decks.index.json', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+let indexPromise: Promise<DeckIndex | null> | null = null;
+
+export function loadDeckIndex(): Promise<DeckIndex | null> {
+  indexPromise ??= (async () => {
+    const url = Object.values(indexUrls)[0];
+    if (!url) return null;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`${response.status}`);
+      return parseDeckIndex(await response.json());
+    } catch {
+      // The list still works without it, just with less on each card.
+      return null;
+    }
+  })();
+  return indexPromise;
+}
+
 const dataCache = new Map<string, Promise<DeckData | null>>();
 
 /** Fetch a deck's stored card data, or null when it has none. */

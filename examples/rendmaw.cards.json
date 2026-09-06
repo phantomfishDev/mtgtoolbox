@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "rendmaw",
-  "generatedAt": "2026-09-05T21:45:13.228Z",
+  "generatedAt": "2026-09-06T00:50:21.796Z",
   "profile": "n76cg",
   "owned": "w7k42t",
   "cards": [
@@ -19,6 +19,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Griffin",
       "cmc": 5,
+      "color_identity": [],
       "mana_cost": "{5}",
       "oracle_text": "Flying\nWhenever this creature deals combat damage to a player, destroy target nonland permanent of that player's choice that one of your opponents controls.",
       "keywords": [
@@ -53,6 +54,7 @@
       "rarity": "mythic",
       "type_line": "Legendary Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "Each land is a Swamp in addition to its other land types.",
       "keywords": [],
@@ -88,6 +90,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Myr",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "{T}: Add {C}{C}.",
       "keywords": [],
@@ -124,6 +127,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Construct",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Protector — Other artifact creatures you control have hexproof.",
       "keywords": [
@@ -161,6 +165,10 @@
       "rarity": "rare",
       "type_line": "Land — Swamp Forest",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B} or {G}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
       "keywords": [
@@ -201,6 +209,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Vigilance\n{2}: Add one mana of any color.",
       "keywords": [
@@ -235,6 +244,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Phyrexian Myr",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "When this creature dies, create a 1/1 colorless Phyrexian Myr artifact creature token.",
       "keywords": [],
@@ -267,6 +277,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Defender\n{2}, Sacrifice this creature: Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.",
       "keywords": [
@@ -301,6 +312,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {B} or {G}.",
       "keywords": [
@@ -335,6 +350,9 @@
       "rarity": "rare",
       "type_line": "Artifact Land",
       "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {G}.",
       "keywords": [],
@@ -370,6 +388,9 @@
       "rarity": "uncommon",
       "type_line": "Enchantment",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}",
       "oracle_text": "Whenever a creature attacks you or a planeswalker you control, that creature's controller loses 1 life and you gain 1 life.",
       "keywords": [],
@@ -402,6 +423,9 @@
       "rarity": "rare",
       "type_line": "Artifact Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {B}.",
       "keywords": [],
@@ -437,6 +461,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Whenever this creature becomes tapped, choose one —\n• You may put a land card from your hand onto the battlefield tapped.\n• Return target land card from your graveyard to the battlefield tapped.",
       "keywords": [],
@@ -469,6 +494,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Black spells you cast cost {1} less to cast.",
       "keywords": [],
@@ -504,6 +530,10 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 4,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{2}{B}{G}",
       "oracle_text": "Destroy each nonland permanent with mana value 2 or less. Add {B} or {G} for each permanent destroyed this way.",
       "keywords": [],
@@ -540,6 +570,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Thopter",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "{0}",
       "oracle_text": "Flying",
       "keywords": [
@@ -574,6 +605,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Construct",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nOther creatures you control of the chosen type get +1/+1.",
       "keywords": [],
@@ -609,6 +641,9 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Myr",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add {G}.",
       "keywords": [],
@@ -641,6 +676,7 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "You have no maximum hand size.\n{T}: Add {C}.",
       "keywords": [],
@@ -673,6 +709,10 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{1}{B}{G}",
       "oracle_text": "Destroy target artifact or creature. It can't be regenerated.",
       "keywords": [],
@@ -708,6 +748,9 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Myr",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add {B}.",
       "keywords": [],
@@ -740,6 +783,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "{1}: This creature becomes all colors until end of turn.",
       "keywords": [],
@@ -772,6 +816,10 @@
       "rarity": "common",
       "type_line": "Artifact Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nIndestructible\n{T}: Add {B} or {G}.",
       "keywords": [
@@ -806,6 +854,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{B/G}, {T}: Add {B}{B}, {B}{G}, or {G}{G}.",
       "keywords": [],
@@ -838,6 +890,10 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. Activate only if you control a Swamp.",
       "keywords": [],
@@ -870,6 +926,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Reach\n{1}: Add one mana of any color. Activate only once each turn.",
       "keywords": [
@@ -904,6 +961,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Golem",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\nWhen this creature dies, you may draw a card.",
       "keywords": [],
@@ -939,6 +997,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Thopter",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Flying\n{T}: Add one mana of any color.",
       "keywords": [
@@ -973,6 +1032,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Swamp or a Forest.\n{T}: Add {B} or {G}.",
       "keywords": [],
@@ -1005,6 +1068,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Artifact Creature — Scarecrow",
       "cmc": 5,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{3}{B}{G}",
       "oracle_text": "Reach, menace\nWhen Rendmaw enters and whenever you play a card with two or more card types, each player creates a tapped 2/2 black Bird creature token with flying. The tokens are goaded for the rest of the game. (They attack each combat if able and attack a player other than you if able.)",
       "keywords": [
@@ -1045,6 +1112,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Construct",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Artifact spells you cast cost {1} less to cast.",
       "keywords": [],
@@ -1077,6 +1145,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{1}, {T}: Add {B}{G}.",
       "keywords": [],
@@ -1109,6 +1181,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Vampire",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
       "keywords": [],
@@ -1147,6 +1222,9 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
       "keywords": [],
@@ -1179,6 +1257,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "Wing Storm deals damage to each player equal to twice the number of creatures that player controls with flying.",
       "keywords": [],
@@ -1211,6 +1292,9 @@
       "rarity": "rare",
       "type_line": "Land Creature — Forest Dryad",
       "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "(This land isn't a spell, it's affected by summoning sickness, and it has \"{T}: Add {G}.\")",
       "keywords": [],
@@ -1246,6 +1330,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Defender\nCreatures with flying your opponents control get -1/-0.",
       "keywords": [
@@ -1280,6 +1365,10 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{1}{B}{G}",
       "oracle_text": "When this creature enters, put a -1/-1 counter on target creature.\nWhenever a creature with a -1/-1 counter on it dies, you may put a land card from your hand or graveyard onto the battlefield tapped.",
       "keywords": [],
@@ -1312,6 +1401,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "This creature has flying as long as you control a blue creature.\nThis creature has persist as long as you control a black creature. (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
       "keywords": [],
@@ -1344,6 +1434,9 @@
       "rarity": "rare",
       "type_line": "Enchantment Creature — Human Citizen",
       "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{B}",
       "oracle_text": "{1}{B}, Sacrifice an artifact or creature: Draw a card.",
       "keywords": [],
@@ -1379,6 +1472,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Bird",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Flying\nWhen this creature enters, scry 1.",
       "keywords": [
@@ -1414,6 +1508,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Bird",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Flying\nWhen this creature dies, return another target artifact card from your graveyard to your hand.",
       "keywords": [
@@ -1448,6 +1543,9 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "{2}, {T}: Add {B} for each Swamp you control.",
       "keywords": [],
@@ -1486,6 +1584,9 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Insect",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}",
       "oracle_text": "When this creature dies, you gain 2 life.\n{G}, Sacrifice this creature: Exile target noncreature artifact or noncreature enchantment.",
       "keywords": [],
@@ -1518,6 +1619,9 @@
       "rarity": "mythic",
       "type_line": "Artifact Creature — Construct",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{4}{B}{B}",
       "oracle_text": "Menace\nWhen this creature enters, you may destroy another target creature. If a creature is destroyed this way, you gain life equal to its toughness.",
       "keywords": [
@@ -1552,6 +1656,7 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
       "keywords": [],
@@ -1584,6 +1689,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Construct",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "{0}",
       "oracle_text": "",
       "keywords": [],
@@ -1616,6 +1722,7 @@
       "rarity": "rare",
       "type_line": "Artifact Creature — Elk",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "{3}, Sacrifice this creature: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
       "keywords": [],
@@ -1651,6 +1758,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Myr",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "When this creature dies, return another target artifact card from your graveyard to your hand.",
       "keywords": [],
@@ -1683,6 +1791,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Bird",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Flying\nThis creature enters with three +1/+1 counters on it.\nWhenever this creature attacks or blocks, remove a +1/+1 counter from it at end of combat.",
       "keywords": [
@@ -1717,6 +1826,9 @@
       "rarity": "rare",
       "type_line": "Enchantment",
       "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{4}{G}",
       "oracle_text": "If one or more tokens would be created, twice that many of those tokens are created instead.\nIf one or more +1/+1 counters would be put on a creature, twice that many +1/+1 counters are put on that creature instead.",
       "keywords": [],
@@ -1756,6 +1868,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "As this creature enters, choose a color.\nWhen you control no permanents of the chosen color, sacrifice this creature.",
       "keywords": [],
@@ -1788,6 +1901,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 5,
+      "color_identity": [],
       "mana_cost": "{5}",
       "oracle_text": "{6}, {T}: Prevent all damage that would be dealt to you this turn by creatures with flying.",
       "keywords": [],
@@ -1820,6 +1934,9 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Return up to X target cards from your graveyard to your hand, where X is the number of black permanents target opponent controls as you cast this spell.",
       "keywords": [],
@@ -1852,6 +1969,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Enchantment",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{X}{B}{B}",
       "oracle_text": "When The Meathook Massacre enters, each creature gets -X/-X until end of turn.\nWhenever a creature you control dies, each opponent loses 1 life.\nWhenever a creature an opponent controls dies, you gain 1 life.",
       "keywords": [],
@@ -1893,6 +2013,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Construct",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add {C}.",
       "keywords": [],
@@ -1925,6 +2046,9 @@
       "rarity": "rare",
       "type_line": "Enchantment Creature — Elk Glimmer",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "Vigilance\nCreatures you control have \"{T}: Add one mana of any color.\"\nWhen Enduring Vitality dies, if it was a creature, return it to the battlefield under its owner's control. It's an enchantment. (It's not a creature.)",
       "keywords": [
@@ -1962,6 +2086,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Phyrexian Wurm",
       "cmc": 6,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}{B}{B}",
       "oracle_text": "When this creature enters, creatures your opponents control get -2/-2 until end of turn.\nWhenever a creature an opponent controls dies, that player loses 2 life.",
       "keywords": [],
@@ -2000,6 +2127,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Bird",
       "cmc": 4,
+      "color_identity": [],
       "mana_cost": "{4}",
       "oracle_text": "Flying\nFirst strike (This creature deals combat damage before creatures without first strike.)",
       "keywords": [
@@ -2035,6 +2163,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Enchantment Creature — God",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}",
       "oracle_text": "Indestructible\nAs long as your devotion to black is less than five, Erebos isn't a creature. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)\nYour opponents can't gain life.\n{1}{B}, Pay 2 life: Draw a card.",
       "keywords": [
@@ -2075,6 +2206,9 @@
       "rarity": "common",
       "type_line": "Kindred Enchantment — Treefolk Aura",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Enchant creature\nEnchanted creature is a Treefolk with base power and toughness 0/4 and loses all abilities.",
       "keywords": [
@@ -2112,6 +2246,9 @@
       "rarity": "common",
       "type_line": "Creature — Kavu",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "When this creature enters, draw a card for each black creature your opponents control.",
       "keywords": [],
@@ -2144,6 +2281,9 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "Delirium — Whenever this creature attacks, if there are four or more card types among cards in your graveyard, look at the top card of your library. If it's a land card, you may put it onto the battlefield. If you don't put the card onto the battlefield, put it into your hand.",
       "keywords": [
@@ -2178,6 +2318,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Defender\n{1}: Add one mana of any color. Activate only once each turn.",
       "keywords": [
@@ -2215,6 +2356,9 @@
       "rarity": "rare",
       "type_line": "Legendary Enchantment Artifact",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "Creatures you control have lifelink.\n{2}{B}{B}, {T}: Return target creature card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step. If it would leave the battlefield, exile it instead of putting it anywhere else. Activate only as a sorcery.",
       "keywords": [],
@@ -2250,6 +2394,9 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{3}{B}",
       "oracle_text": "You may cast this card from your graveyard by paying 2 life and sacrificing an artifact or creature in addition to paying its other costs.",
       "keywords": [],
@@ -2282,6 +2429,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Bird",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Flying\nWhenever this creature attacks, if you control three or more tokens, this creature gets +2/+0 and gains first strike until end of turn.",
       "keywords": [
@@ -2316,6 +2464,7 @@
       "rarity": "rare",
       "type_line": "Artifact Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "Indestructible\n{T}: Add {C}.",
       "keywords": [
@@ -2356,6 +2505,9 @@
       "rarity": "rare",
       "type_line": "Land // Legendary Creature — Demon",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "keywords": [
         "Flying",
         "Lifelink",
@@ -2413,6 +2565,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {G}.",
       "keywords": [],
@@ -2448,6 +2604,9 @@
       "rarity": "uncommon",
       "type_line": "Enchantment",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "Whenever a creature with flying attacks you, this enchantment deals 4 damage to it.",
       "keywords": [],
@@ -2480,6 +2639,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Flying\nThis creature can't have counters put on it.",
       "keywords": [
@@ -2514,6 +2674,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Phyrexian Myr",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\n{T}: Add {C}.",
       "keywords": [
@@ -2548,6 +2709,9 @@
       "rarity": "uncommon",
       "type_line": "Artifact Creature — Bird",
       "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}{B}",
       "oracle_text": "Flying\nModular 3 (This creature enters with three +1/+1 counters on it. When it dies, you may put its +1/+1 counters on target artifact creature.)\nWhenever another artifact you control enters, target creature an opponent controls gets -1/-1 until end of turn.",
       "keywords": [
@@ -2583,6 +2747,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "When this creature enters, you gain 2 life.\n{T}: Add one mana of any color.",
       "keywords": [],
@@ -2615,6 +2780,7 @@
       "rarity": "rare",
       "type_line": "Artifact Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.",
       "keywords": [
@@ -2649,6 +2815,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Scarecrow",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "When this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\n{1}: Add one mana of any color. This creature becomes that color until end of turn. Activate only once each turn.",
       "keywords": [
@@ -2683,6 +2850,10 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {B}{G}.",
       "keywords": [],
@@ -2721,6 +2892,7 @@
       "rarity": "common",
       "type_line": "Artifact Creature — Gargoyle",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nFlying, defender\nIf this creature was kicked, it enters with two +1/+1 counters on it.\nAs long as this creature has a +1/+1 counter on it, it can attack as though it didn't have defender.",
       "keywords": [
@@ -2757,6 +2929,9 @@
       "rarity": "common",
       "type_line": "Creature — Vampire Shaman",
       "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{1}{B}",
       "oracle_text": "Whenever a creature an opponent controls enters, you may have that player lose 1 life.",
       "keywords": [],

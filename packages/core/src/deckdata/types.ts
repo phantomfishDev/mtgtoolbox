@@ -35,6 +35,7 @@ export const STORED_CARD_FIELDS = [
   'rarity',
   'type_line',
   'cmc',
+  'color_identity',
   'mana_cost',
   'oracle_text',
   'keywords',

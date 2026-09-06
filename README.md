@@ -76,7 +76,8 @@ pnpm --filter @mtgproxy/web dev
 ```
 
 Then open <http://localhost:5173>. The **Decks** tab lists every decklist in
-[`examples/`](examples) with its commander and card count. **View cards** opens the deck
+[`examples/`](examples) with its commander's card image, colour identity, Commander
+bracket, and how many of its cards you already own. **View cards** opens the deck
 card by card — grouped by type, with every printing exactly as it would be printed, and
 click any card for a full-size look. **Print** sends it straight to the printer.
 
@@ -130,7 +131,18 @@ machine. With it, that becomes a single local read.
 mtgproxy sync                 # store data for every deck
 mtgproxy sync my-new-deck.txt # copy a new deck in and store its data too
 mtgproxy sync --force         # re-resolve even when the stored data looks current
+mtgproxy sync --refresh       # re-read the chosen printings, to pick up new card fields
 ```
+
+`sync` also writes `decks.index.json`, a summary the deck list reads: commander images,
+colours, brackets and enough of each card to count what you own. Without it the list
+would have to load every deck's card data — about a megabyte — before it could render.
+
+`--refresh` exists because this project occasionally starts reading a card field it did
+not store before. Re-resolving to fill that in would cost one request per card for no
+benefit, since the printings were already chosen; looking those exact printings up by id
+costs one request per seventy-five. Adding colour identity across eight decks took four
+seconds this way, against roughly ten minutes for a full re-resolve.
 
 Passing a decklist from outside the decks directory copies it in, so a new deck and its
 data end up side by side. `--decks <dir>` or `$MTGPROXY_DECKS` moves the directory.

@@ -8,7 +8,15 @@ import {
   diffDeck,
   assessBracket,
   buildDeckData,
+  buildDeckIndex,
+  buildDeckIndexEntry,
   isBasicLand,
+  mergeEntries,
+  parseDecklist,
+  refreshDeckData,
+  resolveFromDeckData,
+  totalCards,
+  type DeckIndexEntry,
   manaCurve,
   missingOnly,
   normalizeName,
@@ -22,6 +30,8 @@ import { renderPdf } from '@mtgproxy/core/pdf';
 import {
   DECK_DATA_SUFFIX,
   adoptDeck,
+  loadDeckData,
+  saveDeckIndex,
   cacheStats,
   clearCache,
   deckId,
@@ -33,7 +43,14 @@ import {
   saveDeckData,
 } from '@mtgproxy/node';
 import { collectionCommand } from './collection-cmd.js';
-import { fetchImages, loadDeck, makeClient, ownedKeysOf, reportResolve } from './deck.js';
+import {
+  fetchImages,
+  loadDeck,
+  makeClient,
+  ownedKeysOf,
+  readDeckSource,
+  reportResolve,
+} from './deck.js';
 import { collect, resolveProfile, type ProfileFlags } from './prefs.js';
 import { bold, cyan, dim, done, fail, formatBytes, green, info, yellow } from './ui.js';
 
@@ -432,63 +449,97 @@ withDeckOptions(
       'gap between requests; syncing many decks is bulk work and a 429 costs a full minute',
       (value) => Number.parseInt(value, 10),
       SYNC_RATE_LIMIT_MS,
+    )
+    .option(
+      '--refresh',
+      're-fetch the already chosen printings by id, to pick up newly stored card fields',
     ),
 ).action(
-  async (files: string[], flags: DeckFlags & { decks?: string; force?: boolean; rate: number }) => {
-  const dir = decksDir(flags.decks);
-  const { data: collection } = await loadCollection(flags.collection);
-  const { profile } = await resolveProfile(flags);
-  const config = (await loadConfig(flags.config)).data;
-  const client = makeClient(true, flags.rate);
+  async (
+    files: string[],
+    flags: DeckFlags & { decks?: string; force?: boolean; rate: number; refresh?: boolean },
+  ) => {
+    const dir = decksDir(flags.decks);
+    const { data: collection } = await loadCollection(flags.collection);
+    const { profile } = await resolveProfile(flags);
+    const config = (await loadConfig(flags.config)).data;
+    const client = makeClient(true, flags.rate);
+    const owned = ownedKeysOf(collection);
 
-  // A file given from outside the decks directory is a new deck: copy it in so
-  // its data has somewhere to live beside it.
-  const targets: string[] = [];
-  for (const file of files.length > 0 ? files : await listDecks(dir)) {
-    const adopted = await adoptDeck(file, dir);
-    if (resolvePath(adopted) !== resolvePath(file)) {
-      done(`added ${cyan(adopted)}`);
+    // A file given from outside the decks directory is a new deck: copy it in
+    // so its data has somewhere to live beside it.
+    const targets: string[] = [];
+    for (const file of files.length > 0 ? files : await listDecks(dir)) {
+      const adopted = await adoptDeck(file, dir);
+      if (resolvePath(adopted) !== resolvePath(file)) done(`added ${cyan(adopted)}`);
+      targets.push(adopted);
     }
-    targets.push(adopted);
-  }
 
-  if (targets.length === 0) {
-    info(dim(`no decklists found in ${dir}`));
-    return;
-  }
+    if (targets.length === 0) {
+      info(dim(`no decklists found in ${dir}`));
+      return;
+    }
 
-  let written = 0;
-  for (const target of targets) {
-    const name = deckId(target);
-    try {
-      const loaded = await loadDeck(target, client, {
-        profile,
-        collection,
-        pins: config.pins ?? {},
-        ignoreStored: flags.force ?? false,
-      });
+    let written = 0;
+    const indexEntries: DeckIndexEntry[] = [];
 
-      if (loaded.resolve.unresolved.length > 0) {
-        for (const item of loaded.resolve.unresolved) fail(`${name}: ${item.reason}`);
-        info(yellow(`${name}: skipped, ${loaded.resolve.unresolved.length} card(s) unresolved`));
-        continue;
+    for (const target of targets) {
+      const name = deckId(target);
+      try {
+        const source = await readDeckSource(target);
+        const parsed = parseDecklist(source.text, { markdown: source.markdown });
+        const merged = mergeEntries(parsed.entries);
+        const cardCount = totalCards(parsed.entries);
+
+        let data = null;
+        let resolved = null;
+
+        // Refresh keeps the chosen printings and only re-reads the card data
+        // for them, which is one request per 75 cards rather than per card.
+        const stored = flags.refresh ? await loadDeckData(target) : null;
+        if (stored) {
+          const ids = stored.cards.map((card) => ({ id: card.id }));
+          const fresh = await client.collection(ids);
+          data = refreshDeckData(stored, fresh.data);
+          resolved = resolveFromDeckData(merged, data, profile, owned)?.result.resolved ?? null;
+        }
+
+        if (!data || !resolved) {
+          const loaded = await loadDeck(target, client, {
+            profile,
+            collection,
+            pins: config.pins ?? {},
+            ignoreStored: (flags.force ?? false) || (flags.refresh ?? false),
+          });
+          if (loaded.resolve.unresolved.length > 0) {
+            for (const item of loaded.resolve.unresolved) fail(`${name}: ${item.reason}`);
+            info(yellow(`${name}: skipped, ${loaded.resolve.unresolved.length} card(s) unresolved`));
+            continue;
+          }
+          resolved = loaded.resolve.resolved;
+          data = buildDeckData(name, resolved, profile, owned);
+        }
+
+        const changed = await saveDeckData(target, data);
+        written += changed ? 1 : 0;
+        indexEntries.push(buildDeckIndexEntry(name, parsed.entries, resolved, cardCount));
+        info(
+          `  ${changed ? green('updated') : dim('current')} ${name.padEnd(24)} ` +
+            dim(`${data.cards.length} printings`),
+        );
+      } catch (error) {
+        fail(`${name}: ${error instanceof Error ? error.message : String(error)}`);
       }
-
-      const data = buildDeckData(name, loaded.resolve.resolved, profile, ownedKeysOf(collection));
-      const changed = await saveDeckData(target, data);
-      written += changed ? 1 : 0;
-      info(
-        `  ${changed ? green('updated') : dim('current')} ${name.padEnd(24)} ` +
-          dim(`${data.cards.length} printings`),
-      );
-    } catch (error) {
-      fail(`${name}: ${error instanceof Error ? error.message : String(error)}`);
     }
-  }
 
-  info('');
-  done(`${written} of ${targets.length} deck${targets.length === 1 ? '' : 's'} written to ${cyan(dir)}`);
-  info(dim(`  data files are named <deck>${DECK_DATA_SUFFIX}`));
+    const indexChanged = await saveDeckIndex(dir, buildDeckIndex(indexEntries, profile));
+
+    info('');
+    done(
+      `${written} of ${targets.length} deck${targets.length === 1 ? '' : 's'} written to ${cyan(dir)}`,
+    );
+    info(dim(`  data files are named <deck>${DECK_DATA_SUFFIX}`));
+    info(dim(`  deck index ${indexChanged ? 'updated' : 'unchanged'}`));
   },
 );
 

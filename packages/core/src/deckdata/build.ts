@@ -117,6 +117,26 @@ export function buildDeckData(
   };
 }
 
+/**
+ * Replace the stored cards with freshly fetched ones, keeping the choices.
+ *
+ * When this project starts reading a card field it did not store before, every
+ * existing file is missing it. Re-running preference resolution to fill that in
+ * would cost one request per distinct card for no benefit — the printings were
+ * already chosen. Looking those exact printings up by id costs one request per
+ * seventy-five cards and changes nothing else about the file.
+ */
+export function refreshDeckData(data: DeckData, fresh: readonly ScryfallCard[]): DeckData {
+  const byId = new Map(fresh.map((card) => [card.id, trimCard(card)]));
+  return {
+    ...data,
+    generatedAt: new Date().toISOString(),
+    cards: data.cards
+      .map((card) => byId.get(card.id) ?? card)
+      .sort((a, b) => a.id.localeCompare(b.id)),
+  };
+}
+
 export interface ApplyResult {
   result: ResolveResult;
   /** Entries the stored data did not cover; empty when it fully applied. */

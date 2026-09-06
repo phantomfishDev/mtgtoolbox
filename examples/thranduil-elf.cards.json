@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "thranduil-elf",
-  "generatedAt": "2026-09-05T21:48:38.293Z",
+  "generatedAt": "2026-09-06T00:50:22.149Z",
   "profile": "n76cg",
   "owned": "w7k42t",
   "cards": [
@@ -19,6 +19,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you have two or more opponents.\n{T}: Add {G} or {U}.",
       "keywords": [],
@@ -57,6 +61,9 @@
       "rarity": "common",
       "type_line": "Creature — Elf Druid",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "{T}: Add {G}.",
       "keywords": [],
@@ -95,6 +102,10 @@
       "rarity": "uncommon",
       "type_line": "Legendary Creature — Elf Noble // Sorcery — Adventure",
       "cmc": 4,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{2}{G/U}{G/U} // {1}{G/U}{G/U}",
       "keywords": [
         "Mill",
@@ -150,6 +161,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Elf Druid",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Vivid — {T}: For each color among permanents you control, add one mana of that color.",
       "keywords": [
@@ -191,6 +205,9 @@
       "rarity": "mythic",
       "type_line": "Enchantment",
       "cmc": 5,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{3}{U}{U}",
       "oracle_text": "As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.",
       "keywords": [],
@@ -230,6 +247,9 @@
       "rarity": "rare",
       "type_line": "Artifact — Equipment",
       "cmc": 2,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{1}{U}",
       "oracle_text": "Equipped creature has prowess. (Whenever its controller casts a noncreature spell, that creature gets +1/+1 until end of turn.)\nIf a triggered ability of equipped creature triggers, that ability triggers an additional time.\nEquip Wizard {1}\nEquip {3}",
       "keywords": [
@@ -267,6 +287,9 @@
       "rarity": "common",
       "type_line": "Creature — Elf Ranger",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "Return a Forest you control to its owner's hand: Untap target creature. Activate only once each turn.",
       "keywords": [],
@@ -299,6 +322,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Archer",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "Reach\nLegolas can't be blocked by creatures with power 2 or less.\nWhenever another legendary creature you control enters, put a +1/+1 counter on Legolas.\nWhenever Legolas deals combat damage to a player, draw a card.",
       "keywords": [
@@ -339,6 +365,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 1,
+      "color_identity": [],
       "mana_cost": "{1}",
       "oracle_text": "{T}: Add {C}{C}.",
       "keywords": [],
@@ -374,6 +401,10 @@
       "rarity": "rare",
       "type_line": "Land — Forest Island",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {G} or {U}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.",
       "keywords": [],
@@ -413,6 +444,7 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
       "keywords": [],
@@ -451,6 +483,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Elf Druid",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "{T}: Add {G}.\nPut a -1/-1 counter on this creature: Untap this creature.",
       "keywords": [],
@@ -489,6 +524,9 @@
       "rarity": "common",
       "type_line": "Sorcery",
       "cmc": 5,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{3}{U}{U}",
       "oracle_text": "Draw three cards.\nIslandcycling {1} ({1}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)",
       "keywords": [
@@ -529,6 +567,10 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Troll",
       "cmc": 5,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{3}{B}{G}",
       "oracle_text": "{1}, Sacrifice another creature: Draw cards equal to the sacrificed creature's power, then discard a card.\nWhen Tom, Bert, and William die, if they were a creature, return them to the battlefield. They're an artifact. (They're no longer a creature.)",
       "keywords": [],
@@ -567,6 +609,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Island",
       "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {U}.)",
       "keywords": [],
@@ -599,6 +644,9 @@
       "rarity": "common",
       "type_line": "Creature — Elf Druid",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "{T}: Add {G}.",
       "keywords": [],
@@ -628,6 +676,10 @@
       "set_type": "expansion",
       "collector_number": "350",
       "rarity": "rare",
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -681,6 +733,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Elf Scout",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "Whenever another creature enters, its controller may draw a card if its power is greater than each other creature's power.\n{G}, {T}: Add X mana in any combination of colors, where X is the greatest power among creatures you control.",
       "keywords": [],
@@ -721,6 +776,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Scout",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "When this creature enters, search your library for a Forest card, put that card onto the battlefield, then shuffle.",
       "keywords": [],
@@ -756,6 +814,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Druid",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "Other Elf creatures you control get +1/+1.\n{T}: Add {G} for each Elf you control.",
       "keywords": [],
@@ -791,6 +852,10 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{1}{B}{G}",
       "oracle_text": "Destroy target artifact or creature. It can't be regenerated.",
       "keywords": [],
@@ -826,6 +891,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Warrior",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Whenever one or more other Elves you control enter, create a 1/1 green Elf Warrior creature token. This ability triggers only once each turn.\n{5}{G}{G}: Elves you control get +2/+2 and gain deathtouch until end of turn.",
       "keywords": [],
@@ -858,6 +926,10 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 3,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{1}{G}{U}",
       "oracle_text": "Whenever the Ring tempts you, if you chose a creature other than Galadriel as your Ring-bearer, scry 3.\nWhenever you scry, you may reveal the top card of your library. If a land card is revealed this way, put it onto the battlefield tapped.",
       "keywords": [
@@ -901,6 +973,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Soldier",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{X}{G}",
       "oracle_text": "Haldir enters with X +1/+1 counters on it.\nVigilance\n{5}{G}: Until end of turn, other Elves you control gain vigilance and get +1/+1 for each +1/+1 counter on Haldir.",
       "keywords": [
@@ -941,6 +1016,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Shaman",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "{G}, {T}, Discard a creature card: Search your library for a creature card, reveal it, put it into your hand, then shuffle.",
       "keywords": [],
@@ -976,6 +1054,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Swamp or a Forest.\n{T}: Add {B} or {G}.",
       "keywords": [],
@@ -1008,6 +1090,9 @@
       "rarity": "rare",
       "type_line": "Enchantment",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
       "keywords": [],
@@ -1043,6 +1128,9 @@
       "rarity": "common",
       "type_line": "Creature — Elf Druid",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "{T}: Add {G}.",
       "keywords": [],
@@ -1075,6 +1163,7 @@
       "rarity": "rare",
       "type_line": "Artifact",
       "cmc": 2,
+      "color_identity": [],
       "mana_cost": "{2}",
       "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
       "keywords": [],
@@ -1110,6 +1199,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Elf Druid",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "When this creature enters, you may search your library for an Elf card, reveal it, then shuffle and put that card on top.\n{T}: Add one mana of any color.",
       "keywords": [],
@@ -1142,6 +1234,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "Each other creature you control enters with a number of additional +1/+1 counters on it equal to Arwen's toughness.",
       "keywords": [],
@@ -1181,6 +1276,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 5,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{3}{G}{U}",
       "oracle_text": "Other Elves you control have \"{T}: Add {G} or {U}.\"\nLandfall — Whenever a land you control enters, create a 1/1 green Elf creature token.",
       "keywords": [
@@ -1222,6 +1321,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control an Island or a Swamp.\n{T}: Add {U} or {B}.",
       "keywords": [],
@@ -1257,6 +1360,9 @@
       "rarity": "uncommon",
       "type_line": "Sorcery",
       "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{2}{B}",
       "oracle_text": "Search your library for up to three creature cards, put them into your graveyard, then shuffle.",
       "keywords": [],
@@ -1289,6 +1395,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {G} or {U}. This land deals 1 damage to you.",
       "keywords": [],
@@ -1327,6 +1437,7 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
       "keywords": [],
@@ -1359,6 +1470,7 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
       "keywords": [
@@ -1399,6 +1511,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Elf Warrior",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "Other Elves you control get +1/+1.\n{G}, {T}: Create a 1/1 green Elf Warrior creature token.",
       "keywords": [],
@@ -1434,6 +1549,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{U}",
       "oracle_text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
       "keywords": [],
@@ -1466,6 +1584,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you have two or more opponents.\n{T}: Add {B} or {G}.",
       "keywords": [],
@@ -1504,6 +1626,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nUntap target creature. Until end of turn, it gains reach, hexproof, and \"Whenever this creature becomes tapped, it deals damage equal to its power to up to one target creature.\"",
       "keywords": [
@@ -1545,6 +1670,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{U}{U}",
       "oracle_text": "Counter target spell.",
       "keywords": [],
@@ -1580,6 +1708,10 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 4,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{2}{G}{U}",
       "oracle_text": "Will of the council — At the beginning of combat on your turn, if another Elf entered the battlefield under your control this turn, starting with you, each player votes for dominion or guidance. If dominion gets more votes, the Ring tempts you, then you put a +1/+1 counter on your Ring-bearer. If guidance gets more votes or the vote is tied, draw a card.",
       "keywords": [
@@ -1620,6 +1752,10 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Druid",
       "cmc": 1,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "{T}: Add {B}. This creature deals 1 damage to you.",
       "keywords": [],
@@ -1655,6 +1791,9 @@
       "rarity": "uncommon",
       "type_line": "Legendary Creature — Elf Advisor",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}{G}",
       "oracle_text": "Whenever Galion attacks, choose up to one other target creature you control. Its base power and toughness become equal to Galion's power and toughness until end of turn.",
       "keywords": [],
@@ -1693,6 +1832,9 @@
       "rarity": "mythic",
       "type_line": "Sorcery",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{X}{G}{G}",
       "oracle_text": "Search your library and/or graveyard for a creature card with mana value X or less and put it onto the battlefield. If you search your library this way, shuffle. If X is 10 or more, creatures you control get +X/+X and gain haste until end of turn.",
       "keywords": [],
@@ -1731,6 +1873,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Druid",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "Whenever another Elf you control enters, put a +1/+1 counter on Marwyn.\n{T}: Add an amount of {G} equal to Marwyn's power.",
       "keywords": [],
@@ -1767,6 +1912,9 @@
       "rarity": "common",
       "type_line": "Creature — Elf Bard",
       "cmc": 2,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{1}{U}",
       "oracle_text": "{4}{U}: Target creature can't be blocked this turn.",
       "keywords": [],
@@ -1802,6 +1950,7 @@
       "rarity": "mythic",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
       "keywords": [],
@@ -1840,6 +1989,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
       "keywords": [],
@@ -1875,6 +2027,11 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 5,
+      "color_identity": [
+        "B",
+        "G",
+        "U"
+      ],
       "mana_cost": "{2}{B}{G}{U}",
       "oracle_text": "Thranduil has all activated abilities of all Elf cards in your graveyard.\nWhenever another legendary Elf you control enters, draw two cards, then discard a card.",
       "keywords": [],
@@ -1915,6 +2072,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}",
       "oracle_text": "{T}: Target creature gets +X/+X until end of turn, where X is the number of Elves on the battlefield.",
       "keywords": [],
@@ -1953,6 +2113,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 3,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{2}{U}",
       "oracle_text": "Look at the top four cards of your library and separate them into a face-down pile and a face-up pile. An opponent chooses one of the piles. Put that pile into your hand and the other into your graveyard.",
       "keywords": [],
@@ -1988,6 +2151,7 @@
       "rarity": "uncommon",
       "type_line": "Artifact — Equipment",
       "cmc": 3,
+      "color_identity": [],
       "mana_cost": "{3}",
       "oracle_text": "Equipped creature has \"{3}, {Q}: This creature gets +2/+2 until end of turn.\" ({Q} is the untap symbol.)\nEquip {0}",
       "keywords": [
@@ -2022,6 +2186,9 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Warrior",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}{G}",
       "oracle_text": "{G}: Regenerate another target Elf.\n{2}{G}{G}{G}: Elf creatures you control get +3/+3 and gain trample until end of turn.",
       "keywords": [
@@ -2056,6 +2223,9 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 7,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "{5}{B}{B}",
       "oracle_text": "Choose a creature type. Destroy all creatures that aren't of the chosen type.",
       "keywords": [],
@@ -2094,6 +2264,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Elf Druid",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}{G}",
       "oracle_text": "Other Elves you control get +1/+1.\nWhenever you cast an Elf spell, you may pay {G}. If you do, draw a card.",
       "keywords": [],
@@ -2132,6 +2305,7 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
       "keywords": [],
@@ -2167,6 +2341,10 @@
       "rarity": "rare",
       "type_line": "Land — Island Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {U} or {B}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.",
       "keywords": [],
@@ -2206,6 +2384,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Shaman",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "{T}: Put a +1/+1 counter on target creature for each Elf you control.",
       "keywords": [],
@@ -2238,6 +2419,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {G} or {U}.",
       "keywords": [],
@@ -2273,6 +2458,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Forest",
       "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {G}.)",
       "keywords": [],
@@ -2305,6 +2493,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Elf Druid",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "{T}: Add X mana of any one color, where X is the number of Elves on the battlefield.",
       "keywords": [],
@@ -2337,6 +2528,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Druid",
       "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}{G}{G}",
       "oracle_text": "{T}: Add {G} for each creature you control.",
       "keywords": [],
@@ -2369,6 +2563,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
       "keywords": [],
@@ -2401,6 +2599,10 @@
       "rarity": "uncommon",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 2,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{G}{U}",
       "oracle_text": "Whenever you scry, put a +1/+1 counter on target creature.\n{4}{G}{U}: Scry 2.",
       "keywords": [
@@ -2441,6 +2643,10 @@
       "rarity": "rare",
       "type_line": "Sorcery",
       "cmc": 4,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{2}{B}{G}",
       "oracle_text": "Search your library for up to two creature cards and reveal them. Put one into your hand and the other into your graveyard. Then shuffle.",
       "keywords": [],
@@ -2473,6 +2679,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Druid",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{2}{G}{G}",
       "oracle_text": "Whenever you cast a creature spell, draw a card.",
       "keywords": [],
@@ -2508,6 +2717,7 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
       "oracle_text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. You may behold an Elf. If you do, untap that land. (To behold an Elf, choose an Elf you control or reveal an Elf card from your hand.)",
       "keywords": [
@@ -2548,6 +2758,10 @@
       "rarity": "common",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped.\n{T}: Add {G} or {U}.\n{2}{G}{U}, {T}, Sacrifice this land: Put two +1/+1 counters on target Elf you control. Activate only as a sorcery.",
       "keywords": [],
@@ -2583,6 +2797,9 @@
       "rarity": "mythic",
       "type_line": "Enchantment",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "You may look at the top card of your library any time.\nYou may cast creature spells from the top of your library.\nCreatures you control have \"{T}: Add one mana of any color.\"",
       "keywords": [],
@@ -2622,6 +2839,9 @@
       "rarity": "uncommon",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{G}, {T}: Untap target Elf.",
       "keywords": [],
@@ -2654,6 +2874,10 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{B}{G}",
       "oracle_text": "Destroy target permanent an opponent controls. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.",
       "keywords": [],
@@ -2689,6 +2913,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Insect",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "Return an Elf you control to its owner's hand: Untap target creature. Activate only once each turn.",
       "keywords": [],
@@ -2721,6 +2948,9 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Druid",
       "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{G}",
       "oracle_text": "{T}: Untap target Forest.",
       "keywords": [],
@@ -2756,6 +2986,9 @@
       "rarity": "mythic",
       "type_line": "Creature — Beast",
       "cmc": 8,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{5}{G}{G}{G}",
       "oracle_text": "Haste\nWhen this creature enters, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control.",
       "keywords": [
@@ -2794,6 +3027,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. This land deals 1 damage to you.",
       "keywords": [],
@@ -2832,6 +3069,10 @@
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "",
       "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {G}.",
       "keywords": [],
@@ -2867,6 +3108,9 @@
       "rarity": "mythic",
       "type_line": "Enchantment",
       "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{3}{G}",
       "oracle_text": "Whenever a nontoken creature you control enters, if it doesn't have the same name as another creature you control or a creature card in your graveyard, draw a card.",
       "keywords": [],
@@ -2902,6 +3146,9 @@
       "rarity": "rare",
       "type_line": "Instant",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Permanents you control gain hexproof and indestructible until end of turn.",
       "keywords": [],
@@ -2934,6 +3181,9 @@
       "rarity": "uncommon",
       "type_line": "Instant",
       "cmc": 6,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{4}{U}{U}",
       "oracle_text": "Counter target spell. If a permanent spell is countered this way, exile it instead of putting it into its owner's graveyard. You may cast that card without paying its mana cost for as long as it remains exiled.",
       "keywords": [],
@@ -2969,6 +3219,9 @@
       "rarity": "rare",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}.)",
       "keywords": [],
@@ -3001,6 +3254,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Elf Druid",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "{T}: Add {G} for each Elf on the battlefield.",
       "keywords": [],
@@ -3033,6 +3289,10 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Shaman",
       "cmc": 1,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{B/G}",
       "oracle_text": "{T}: Exile target land card from a graveyard. Add one mana of any color. (Activate only as an instant.)\n{B}, {T}: Exile target instant or sorcery card from a graveyard. Each opponent loses 2 life.\n{G}, {T}: Exile target creature card from a graveyard. You gain 2 life.",
       "keywords": [],
@@ -3068,6 +3328,10 @@
       "rarity": "rare",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 4,
+      "color_identity": [
+        "B",
+        "G"
+      ],
       "mana_cost": "{2}{B}{G}",
       "oracle_text": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever Lathril deals combat damage to a player, create that many 1/1 green Elf Warrior creature tokens.\n{T}, Tap ten untapped Elves you control: Each opponent loses 10 life and you gain 10 life.",
       "keywords": [
@@ -3106,6 +3370,11 @@
       "rarity": "rare",
       "type_line": "Land — Swamp Forest Island",
       "cmc": 0,
+      "color_identity": [
+        "B",
+        "G",
+        "U"
+      ],
       "mana_cost": "",
       "oracle_text": "({T}: Add {B}, {G}, or {U}.)\nThis land enters tapped.\nCycling {3} ({3}, Discard this card: Draw a card.)",
       "keywords": [
@@ -3147,6 +3416,9 @@
       "rarity": "mythic",
       "type_line": "Legendary Creature — Elf Noble",
       "cmc": 3,
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "{2}{U}",
       "oracle_text": "Whenever you activate an ability of a creature, draw a card. This ability triggers only once each turn.\n{5}{U}{U}: Exile up to two other target nonland permanents you control. Return those cards to the battlefield under their owner's control at the beginning of the next end step.",
       "keywords": [],
@@ -3185,6 +3457,10 @@
       "rarity": "rare",
       "type_line": "Creature — Elf Soldier",
       "cmc": 4,
+      "color_identity": [
+        "G",
+        "U"
+      ],
       "mana_cost": "{2}{G}{U}",
       "oracle_text": "As long as you control another Elf, you may play an additional land on each of your turns.\nLandfall — Whenever a land you control enters, put two +1/+1 counters on target creature you control. It gains vigilance until end of turn.",
       "keywords": [
@@ -3225,6 +3501,9 @@
       "rarity": "uncommon",
       "type_line": "Creature — Elf Druid",
       "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
       "mana_cost": "{1}{G}",
       "oracle_text": "Vigilance\nWhenever another Elf you control enters, this creature gets +1/+1 until end of turn.\n{T}: Add X mana of any one color, where X is this creature's power. Spend this mana only to cast Elf spells and activate abilities of Elf sources.",
       "keywords": [

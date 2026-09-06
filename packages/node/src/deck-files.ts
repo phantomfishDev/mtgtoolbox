@@ -1,6 +1,12 @@
 import { copyFile, mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import { basename, dirname, extname, join, resolve } from 'node:path';
-import { parseDeckData, type DeckData } from '@mtgproxy/core';
+import {
+  DECK_INDEX_FILENAME,
+  parseDeckData,
+  parseDeckIndex,
+  type DeckData,
+  type DeckIndex,
+} from '@mtgproxy/core';
 
 /**
  * Decklists and their stored card data, side by side on disk.
@@ -70,6 +76,38 @@ export async function saveDeckData(deckPath: string, data: DeckData): Promise<bo
     if (strip(existing) === strip(serialized)) return false;
   } catch {
     // No existing file; fall through and write.
+  }
+
+  await mkdir(dirname(path), { recursive: true });
+  const temporary = `${path}.${process.pid}.tmp`;
+  await writeFile(temporary, serialized, 'utf8');
+  await rename(temporary, path);
+  return true;
+}
+
+export function deckIndexPath(dir: string): string {
+  return join(dir, DECK_INDEX_FILENAME);
+}
+
+export async function loadDeckIndex(dir: string): Promise<DeckIndex | null> {
+  try {
+    return parseDeckIndex(JSON.parse(await readFile(deckIndexPath(dir), 'utf8')));
+  } catch {
+    // A missing or unreadable index just means the list falls back to parsing.
+    return null;
+  }
+}
+
+/** Write the deck index, skipping the write when nothing but the clock changed. */
+export async function saveDeckIndex(dir: string, index: DeckIndex): Promise<boolean> {
+  const path = deckIndexPath(dir);
+  const serialized = `${JSON.stringify(index, null, 2)}\n`;
+  const strip = (text: string) => text.replace(/^\s*"generatedAt".*$/m, '');
+
+  try {
+    if (strip(await readFile(path, 'utf8')) === strip(serialized)) return false;
+  } catch {
+    // No existing index; fall through and write.
   }
 
   await mkdir(dirname(path), { recursive: true });
