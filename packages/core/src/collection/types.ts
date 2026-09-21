@@ -17,6 +17,8 @@ export const CollectionEntrySchema = z.object({
   collectorNumber: z.string().min(1),
   finish: z.enum(FINISHES).default('nonfoil'),
   quantity: z.number().int().positive(),
+  /** Scryfall language code. Absent means English, which is the common case. */
+  language: z.string().min(1).toLowerCase().optional(),
   scryfallId: z.string().optional(),
   addedAt: z.string().optional(),
   tags: z.array(z.string()).optional(),
@@ -60,13 +62,29 @@ export function parseCollection(data: unknown): Collection {
   throw new Error(`collection file is invalid:\n${lines.join('\n')}`);
 }
 
-/** Identity of a specific printing in a specific finish. */
-export function entryKey(entry: Pick<CollectionEntry, 'name' | 'set' | 'collectorNumber' | 'finish'>): string {
+export const DEFAULT_LANGUAGE = 'en';
+
+/** The language an entry is in, with the English default made explicit. */
+export function entryLanguage(entry: Pick<CollectionEntry, 'language'>): string {
+  return entry.language?.toLowerCase() || DEFAULT_LANGUAGE;
+}
+
+/**
+ * Identity of a specific printing in a specific finish and language.
+ *
+ * A Japanese copy shares its set and collector number with the English one but
+ * is a different physical card, and Scryfall treats it as a different printing,
+ * so the language belongs in the key.
+ */
+export function entryKey(
+  entry: Pick<CollectionEntry, 'name' | 'set' | 'collectorNumber' | 'finish' | 'language'>,
+): string {
   return [
     normalizeName(entry.name),
     entry.set.toLowerCase(),
     entry.collectorNumber.toLowerCase(),
     entry.finish,
+    entryLanguage(entry),
   ].join('|');
 }
 
@@ -94,7 +112,8 @@ export function sortEntries(entries: readonly CollectionEntry[]): CollectionEntr
       normalizeName(a.name).localeCompare(normalizeName(b.name)) ||
       a.set.localeCompare(b.set) ||
       compareCollectorNumbers(a.collectorNumber, b.collectorNumber) ||
-      a.finish.localeCompare(b.finish),
+      a.finish.localeCompare(b.finish) ||
+      entryLanguage(a).localeCompare(entryLanguage(b)),
   );
 }
 

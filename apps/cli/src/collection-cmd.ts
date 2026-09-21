@@ -1,25 +1,33 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { extname, resolve as resolvePath } from 'node:path';
 import { Command } from 'commander';
 import {
   addEntry,
   collectionStats,
   entryFromCard,
   findByName,
+  mergeIntoCollection,
+  parseCollection,
+  parseManaboxCsv,
   removeEntry,
   searchCollection,
   sortEntries,
+  toManaboxCsv,
+  type Collection,
   type CollectionEntry,
   type Finish,
 } from '@mtgproxy/core';
 import { loadCollection, saveCollection } from '@mtgproxy/node';
 import { makeClient } from './deck.js';
-import { bold, cyan, dim, done, fail, info } from './ui.js';
+import { bold, cyan, dim, done, fail, info, warn, yellow } from './ui.js';
 
 /** `mtgproxy collection ...` */
 
 function formatEntry(entry: CollectionEntry): string {
   const finish = entry.finish === 'nonfoil' ? '' : dim(` ${entry.finish}`);
+  const language = entry.language ? dim(` ${entry.language}`) : '';
   const printing = dim(`${entry.set.toUpperCase()} ${entry.collectorNumber}`);
-  return `  ${String(entry.quantity).padStart(3)} ${entry.name.padEnd(36)} ${printing}${finish}`;
+  return `  ${String(entry.quantity).padStart(3)} ${entry.name.padEnd(36)} ${printing}${finish}${language}`;
 }
 
 export function collectionCommand(): Command {
@@ -155,6 +163,57 @@ export function collectionCommand(): Command {
     });
 
   collection
+    .command('import')
+    .description('Import a ManaBox CSV export (or a collection.json)')
+    .argument('<file>', 'path to the exported file')
+    .option('--replace', 'replace the collection instead of adding to it')
+    .option('--dry-run', 'report what would change without writing')
+    .option('--no-binder-tags', 'do not tag cards with their ManaBox binder')
+    .action(async function (this: Command, file: string, options) {
+      const path = filePath(this);
+      const source = resolvePath(file);
+      const text = await readFile(source, 'utf8');
+      const { data: existing } = await loadCollection(path);
+
+      const before = collectionStats(existing).totalCards;
+      const next = isJson(source, text)
+        ? importJson(existing, text, options.replace === true)
+        : importCsv(existing, text, options);
+      const after = collectionStats(next).totalCards;
+
+      const change = options.replace ? after : after - before;
+      if (options.dryRun) {
+        const verb = options.replace ? 'replaces the collection with' : 'adds';
+        info(dim(`dry run: ${verb} ${change} copies, leaving ${after} in total; nothing written`));
+        return;
+      }
+
+      const saved = await saveCollection(next, path);
+      const verb = options.replace ? 'replaced the collection with' : 'added';
+      done(`${verb} ${change} copies ${dim(`-> ${saved}`)}`);
+      info(dim(`  ${after} cards now, ${collectionStats(next).distinctNames} distinct names`));
+    });
+
+  collection
+    .command('export')
+    .description('Export the collection as a ManaBox CSV')
+    .argument('[file]', 'write here instead of standard output')
+    .option('--json', 'write the native collection JSON instead')
+    .action(async function (this: Command, file: string | undefined, options) {
+      const { data, existed, path } = await loadCollection(filePath(this));
+      if (!existed) warn(`no collection yet at ${path}; exporting an empty one`);
+
+      const text = options.json ? `${JSON.stringify(data, null, 2)}\n` : toManaboxCsv(data);
+      if (!file) {
+        process.stdout.write(text);
+        return;
+      }
+      const target = resolvePath(file);
+      await writeFile(target, text, 'utf8');
+      done(`wrote ${data.cards.length} entries ${dim(`-> ${cyan(target)}`)}`);
+    });
+
+  collection
     .command('path')
     .description('Print the collection file path')
     .action(async function (this: Command) {
@@ -163,6 +222,54 @@ export function collectionCommand(): Command {
     });
 
   return collection;
+}
+
+/**
+ * Tell the two importable formats apart.
+ *
+ * The extension decides when it can, because a `.csv` whose first cell happens
+ * to start with a brace is still a CSV; sniffing is the fallback for files
+ * named something else entirely.
+ */
+function isJson(path: string, text: string): boolean {
+  const extension = extname(path).toLowerCase();
+  if (extension === '.json') return true;
+  if (extension === '.csv') return false;
+  return text.trimStart().startsWith('{');
+}
+
+/** Import this tool's own export, which is a whole collection rather than rows. */
+function importJson(existing: Collection, text: string, replace: boolean): Collection {
+  const incoming = parseCollection(JSON.parse(text));
+  info(dim(`  reading a collection.json with ${incoming.cards.length} entries`));
+  return replace ? incoming : mergeIntoCollection(existing, incoming.cards);
+}
+
+/**
+ * Import a ManaBox CSV, reporting the rows it could not use.
+ *
+ * Skipped rows are warned about rather than thrown on: one unreadable line in a
+ * scan of several thousand cards should not cost you the other several thousand.
+ */
+function importCsv(
+  existing: Collection,
+  text: string,
+  options: { replace?: boolean; binderTags?: boolean },
+): Collection {
+  const result = parseManaboxCsv(text, { tagBinders: options.binderTags !== false });
+  info(dim(`  read ${result.rows} rows, ${result.entries.length} usable`));
+
+  if (result.skipped.length > 0) {
+    warn(`skipped ${result.skipped.length} rows:`);
+    for (const row of result.skipped.slice(0, 10)) {
+      info(`  ${yellow(`line ${row.line}`)} ${row.name ?? dim('(unnamed)')}: ${row.reason}`);
+    }
+    if (result.skipped.length > 10) info(dim(`  ...and ${result.skipped.length - 10} more`));
+  }
+
+  return mergeIntoCollection(existing, result.entries, {
+    mode: options.replace ? 'replace' : 'merge',
+  });
 }
 
 export { fail };

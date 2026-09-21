@@ -3,12 +3,17 @@ import {
   addEntry,
   collectionStats,
   entryFromCard,
+  entryKey,
+  mergeIntoCollection,
   parseCollection,
+  parseManaboxCsv,
   removeEntry,
   searchCollection,
   sortEntries,
+  toManaboxCsv,
   type CollectionEntry,
   type Finish,
+  type SkippedRow,
 } from '@mtgproxy/core';
 import { getClient } from '../platform/client.js';
 import { useApp } from '../state.js';
@@ -23,6 +28,9 @@ export function CollectionView() {
   const [finish, setFinish] = useState<Finish>('nonfoil');
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [transfer, setTransfer] = useState<string | null>(null);
+  const [skipped, setSkipped] = useState<SkippedRow[]>([]);
+  const [importMode, setImportMode] = useState<'merge' | 'replace'>('merge');
   const fileInput = useRef<HTMLInputElement>(null);
 
   const stats = useMemo(() => collectionStats(collection), [collection]);
@@ -55,25 +63,52 @@ export function CollectionView() {
     await saveCollection(removeEntry(collection, entry, count).collection);
   }
 
-  function exportFile() {
-    const blob = new Blob([JSON.stringify(collection, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+  function download(text: string, filename: string, type: string) {
+    const url = URL.createObjectURL(new Blob([text], { type }));
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = 'collection.json';
+    anchor.download = filename;
     anchor.click();
     URL.revokeObjectURL(url);
   }
 
+  /**
+   * Import a ManaBox CSV export, or this app's own collection.json.
+   *
+   * The extension decides which, because a CSV whose first cell starts with a
+   * brace is still a CSV; sniffing is only the fallback for a file named
+   * something else.
+   */
   async function importFile(file: File) {
-    setMessage(null);
+    setTransfer(null);
+    setSkipped([]);
     try {
-      // Validate before replacing: a bad import must not destroy what is there.
-      const parsed = parseCollection(JSON.parse(await file.text()));
-      await saveCollection(parsed);
-      setMessage(`Imported ${parsed.cards.length} entries`);
+      const text = await file.text();
+      const extension = file.name.toLowerCase().replace(/^.*\./, '');
+      const json =
+        extension === 'json' || (extension !== 'csv' && text.trimStart().startsWith('{'));
+
+      if (json) {
+        // Validate before replacing: a bad import must not destroy what is there.
+        const incoming = parseCollection(JSON.parse(text));
+        await saveCollection(
+          importMode === 'replace' ? incoming : mergeIntoCollection(collection, incoming.cards),
+        );
+        setTransfer(`Imported ${incoming.cards.length} entries from ${file.name}`);
+        return;
+      }
+
+      const result = parseManaboxCsv(text);
+      await saveCollection(mergeIntoCollection(collection, result.entries, { mode: importMode }));
+      // A few unreadable lines should not cost you the rest of the scan, so the
+      // usable rows are kept and the others are listed for you to fix by hand.
+      setSkipped(result.skipped);
+      setTransfer(
+        `Imported ${result.entries.length} of ${result.rows} rows from ${file.name}` +
+          (result.skipped.length ? `, skipping ${result.skipped.length}:` : '.'),
+      );
     } catch (cause) {
-      setMessage(cause instanceof Error ? cause.message : String(cause));
+      setTransfer(cause instanceof Error ? cause.message : String(cause));
     }
   }
 
@@ -130,23 +165,67 @@ export function CollectionView() {
             <Row label="Printings" value={String(stats.distinctPrintings)} />
             <Row label="Stored in" value={store.location} />
           </dl>
-          <div className="mt-3 flex gap-2">
-            <Button onClick={exportFile}>Export</Button>
-            <Button onClick={() => fileInput.current?.click()}>Import</Button>
+          <div className="mt-4 space-y-2">
+            <p className="text-xs font-medium text-muted">Export</p>
+            <div className="flex gap-2">
+              <Button onClick={() => download(toManaboxCsv(collection), 'manabox-collection.csv', 'text/csv')}>
+                ManaBox CSV
+              </Button>
+              <Button
+                onClick={() =>
+                  download(
+                    `${JSON.stringify(collection, null, 2)}\n`,
+                    'collection.json',
+                    'application/json',
+                  )
+                }
+              >
+                JSON
+              </Button>
+            </div>
+
+            <p className="pt-2 text-xs font-medium text-muted">Import</p>
+            <div className="flex gap-2">
+              <Select
+                value={importMode}
+                onChange={setImportMode}
+                options={[
+                  { value: 'merge', label: 'Add to collection' },
+                  { value: 'replace', label: 'Replace collection' },
+                ]}
+              />
+              <Button onClick={() => fileInput.current?.click()}>Choose file</Button>
+            </div>
             <input
               ref={fileInput}
               type="file"
-              accept="application/json,.json"
+              accept=".csv,.json,text/csv,application/json"
               className="hidden"
               onChange={(event) => {
                 const file = event.target.files?.[0];
                 if (file) void importFile(file);
+                // Clear it so choosing the same file twice fires again.
                 event.target.value = '';
               }}
             />
+            <p className="text-xs text-muted">
+              A ManaBox CSV export, or a <code className="rounded bg-edge px-1">collection.json</code>{' '}
+              from this app.
+            </p>
+            {transfer && <p className="text-xs text-muted">{transfer}</p>}
+            {skipped.length > 0 && (
+              <ul className="space-y-0.5 text-xs text-muted">
+                {skipped.slice(0, 5).map((row) => (
+                  <li key={row.line}>
+                    Line {row.line} {row.name ?? '(unnamed)'}: {row.reason}
+                  </li>
+                ))}
+                {skipped.length > 5 && <li>&hellip;and {skipped.length - 5} more</li>}
+              </ul>
+            )}
           </div>
           {store.kind === 'browser' && (
-            <p className="mt-2 text-xs text-muted">
+            <p className="mt-3 text-xs text-muted">
               Stored in this browser only. Export to keep a copy, or run{' '}
               <code className="rounded bg-edge px-1">mtgproxy serve</code> to share the CLI&rsquo;s
               file.
@@ -184,13 +263,18 @@ export function CollectionView() {
             </thead>
             <tbody>
               {visible.map((entry) => (
-                <tr key={`${entry.name}|${entry.set}|${entry.collectorNumber}|${entry.finish}`} className="border-b border-edge/50">
+                <tr key={entryKey(entry)} className="border-b border-edge/50">
                   <td className="py-1.5 tabular-nums">{entry.quantity}</td>
                   <td className="py-1.5">
                     {entry.name}
                     {entry.finish !== 'nonfoil' && (
                       <span className="ml-2">
                         <Badge>{entry.finish}</Badge>
+                      </span>
+                    )}
+                    {entry.language && (
+                      <span className="ml-2">
+                        <Badge>{entry.language}</Badge>
                       </span>
                     )}
                   </td>

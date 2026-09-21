@@ -104,8 +104,9 @@ owned/missing badges, click any card to browse and pick a different printing, an
 download the PDF — all generated in the browser by the same code the CLI runs.
 
 The app works entirely offline of any backend. It stores your collection and
-preferences in the browser (IndexedDB), with import/export to move a `collection.json`
-in and out. When `mtgproxy serve` is running it will instead read and write the same
+preferences in the browser (IndexedDB). The **Collection** tab imports a ManaBox CSV
+export or a `collection.json` — choosing whether to add to or replace what is there, and
+listing any rows it could not read — and exports either format back out. When `mtgproxy serve` is running it will instead read and write the same
 files the CLI uses; the header always says which of the two is in effect.
 
 Card data, printing lists and images are cached in the browser (IndexedDB), and the
@@ -224,6 +225,42 @@ mtgproxy print my-deck.md --missing-only
 Basic lands count as owned by default, since most people have plenty; pass
 `--no-assume-basics` to include them. Any printing of a card counts as owning it unless
 you pass `--strict-printing`.
+
+### ManaBox import and export
+
+If you have scanned your cards into [ManaBox](https://www.manabox.app), export the
+collection from its Collection tab and read the CSV straight in:
+
+```bash
+mtgproxy collection import ~/Downloads/ManaBox_Collection.csv
+mtgproxy collection export manabox-collection.csv
+```
+
+Import **adds** the copies to what you already hold; pass `--replace` to swap the
+collection out instead, and `--dry-run` to see the effect first. Columns are matched by
+name in any order, so a file that has been through a spreadsheet — or that came from a
+neighbouring tracker using the same shape — still lands. Repeated printings merge, and
+each card's ManaBox binder becomes a tag you can search on (`--no-binder-tags` to skip
+it).
+
+A row that cannot identify a printing is reported with its line number and left out,
+rather than throwing away the rest of the file:
+
+```
+  read 1204 rows, 1203 usable
+warning skipped 1 rows:
+  line 5 Lightning Greaves: no collector number
+```
+
+The same command reads this tool's own `collection.json`, chosen by file extension, so
+one import path covers both. Export writes ManaBox's own CSV by default and
+`--json` for the native file; with no filename it goes to standard output, so it pipes.
+
+Set code, collector number, finish, quantity, language and Scryfall id survive the round
+trip in both directions. Condition, grading and purchase price do not: this tool has no
+use for them, and the export leaves those columns blank rather than inventing a
+`near_mint` it has never seen. Foil, etched and non-English copies of one printing are
+tracked as separate entries, because they are separate physical cards.
 
 ## Printing preferences
 

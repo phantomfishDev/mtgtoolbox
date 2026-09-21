@@ -1,5 +1,6 @@
 import type { ScryfallCard } from '../scryfall/types.js';
 import {
+  DEFAULT_LANGUAGE,
   entryKey,
   normalizeName,
   sortEntries,
@@ -35,6 +36,7 @@ export function entryFromCard(card: ScryfallCard, options: AddOptions = {}): Col
     collectorNumber: card.collector_number,
     finish: options.finish ?? 'nonfoil',
     quantity: options.quantity ?? 1,
+    ...(card.lang && card.lang !== DEFAULT_LANGUAGE ? { language: card.lang } : {}),
     scryfallId: card.id,
     addedAt: new Date().toISOString(),
     ...(options.tags?.length ? { tags: options.tags } : {}),
@@ -64,7 +66,7 @@ export function addEntry(collection: Collection, entry: CollectionEntry): Collec
  */
 export function removeEntry(
   collection: Collection,
-  target: Pick<CollectionEntry, 'name' | 'set' | 'collectorNumber' | 'finish'>,
+  target: Pick<CollectionEntry, 'name' | 'set' | 'collectorNumber' | 'finish' | 'language'>,
   quantity = Number.POSITIVE_INFINITY,
 ): { collection: Collection; removed: number } {
   const key = entryKey(target);
