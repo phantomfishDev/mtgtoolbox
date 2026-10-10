@@ -4,10 +4,10 @@ import {
   ScryfallClient,
   buildDeckData,
   resolveFromDeckData,
-  frontImageUrl,
   hasActivePreferences,
   mergeEntries,
   parseDecklist,
+  printPlacements,
   resolveDeck,
   resolveDeckWithPreferences,
   totalCards,
@@ -73,8 +73,13 @@ export function reportParse(result: ParseResult, path: string): void {
   }
 }
 
-export function reportResolve(result: ResolveResult): void {
-  for (const warning of result.warnings) warn(warning.message);
+export function reportResolve(result: ResolveResult, options: { bothFaces?: boolean } = {}): void {
+  for (const warning of result.warnings) {
+    // The front-face-only warning is the whole point of --both-faces; repeating
+    // it once per card when the backs are being printed is just noise.
+    if (options.bothFaces && warning.code === 'double-faced') continue;
+    warn(warning.message);
+  }
   for (const item of result.unresolved) fail(`line ${item.entry.line}: ${item.reason}`);
   if (result.unresolved.length > 0) {
     info(yellow(`${result.unresolved.length} card(s) could not be resolved and will be skipped`));
@@ -170,45 +175,28 @@ export { buildDeckData };
  *
  * Distinct printings are fetched once even when the deck lists several copies;
  * the quantity rides along so the renderer knows how many placements to make.
+ * With `bothFaces`, a double-faced card contributes its back as a second image.
  */
 export async function fetchImages(
   resolve: ResolveResult,
   client: ScryfallClient,
   quality: ImageQuality,
+  bothFaces = false,
 ): Promise<{ items: PrintItem[]; skipped: string[] }> {
-  const byPrinting = new Map<string, PrintItem & { url: string }>();
-  const skipped: string[] = [];
+  const { placements, skipped } = printPlacements(resolve.resolved, { quality, bothFaces });
 
-  for (const item of resolve.resolved) {
-    const existing = byPrinting.get(item.card.id);
-    if (existing) {
-      existing.quantity += item.entry.quantity;
-      continue;
-    }
-    const url = frontImageUrl(item.card, quality);
-    if (!url) {
-      skipped.push(`${item.card.name} (${item.card.set.toUpperCase()}) has no printable image`);
-      continue;
-    }
-    byPrinting.set(item.card.id, {
-      key: item.card.id,
-      url,
-      bytes: new Uint8Array(),
-      quantity: item.entry.quantity,
-      name: item.card.name,
+  const items: PrintItem[] = [];
+  const progress = new Progress('downloading images', placements.length);
+  for (const placement of placements) {
+    items.push({
+      key: placement.key,
+      bytes: await client.image(placement.url, `${placement.key}:${quality}`),
+      quantity: placement.quantity,
+      name: placement.name,
     });
-  }
-
-  const pending = [...byPrinting.values()];
-  const progress = new Progress('downloading images', pending.length);
-  for (const item of pending) {
-    item.bytes = await client.image(item.url, `${item.key}:${quality}`);
     progress.tick();
   }
   progress.stop();
 
-  return {
-    items: pending.map(({ key, bytes, quantity, name }) => ({ key, bytes, quantity, name })),
-    skipped,
-  };
+  return { items, skipped };
 }

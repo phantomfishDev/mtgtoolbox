@@ -15,6 +15,8 @@ export interface PrintOptions {
   quality: ImageQuality;
   missingOnly: boolean;
   assumeBasics: boolean;
+  /** Print the back of each double-faced card as a card of its own. */
+  bothFaces: boolean;
   gap: number;
 }
 
@@ -50,6 +52,7 @@ export const initialSession: PrintSession = {
     quality: 'png',
     missingOnly: false,
     assumeBasics: true,
+    bothFaces: false,
     gap: 0,
   },
 };

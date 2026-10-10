@@ -1,0 +1,86 @@
+# The Hare Apparent — Kwain, Itinerant Meddler (Azorius rabbits, bracket 3 or under).
+#
+# Twenty-two Hare Apparents, each one a courtier you can name on the blank
+# of its own print. Kwain hands the table a card a turn so nobody minds the
+# rabbits multiplying; blinks and bounces re-trigger the Hares for more.
+#
+# Balthier and Fran is {1}{R}{G} — Gruul — so it cannot sit in an Azorius
+# colour identity. Left out rather than making the deck illegal.
+#
+# Theming picks, in list order:
+#   Ambling Stormshell ....... the giant tortoise (mountain-sized shell, no house on it)
+#   Bill Ferny, Bree Swindler  the "Fern" card, and a swindler besides
+#   Claim Jumper ............. a Rabbit outlaw — no Rabbit Rogue exists in Magic
+#   Daring Apprentice ........ pinned to 8ED for the flavour: "I've seen my master
+#                              do this a hundred times. How hard can it be?"
+#   Dramatic Accusation ...... the framing; Sakashima the Impostor is the man
+#                              who walked away wearing someone else's face
+#   First Response ........... a house burning, and a soldier running at it
+#   Portal of Sanctuary ...... the magic portal
+#   Syndicate Messenger ...... a crime syndicate operating in mono-white — the Plains
+#   Vampire Slayer, Wooden Stake  no vampires here, but somebody is expecting them
+#   Warren Elder ............. the father of the warren, a Rabbit Cleric
+
+#   Printings are pinned where the automatic pick landed on a Secret Lair
+#   (the text-only "YOU ARE EXILED" Path to Exile, and friends) — swapped for
+#   painted fantasy versions: Lockwood, Ejsing, Giancola, Palumbo, rk post.
+
+Commander
+1 Kwain, Itinerant Meddler
+
+Deck
+1 Adarkar Wastes
+1 Anointed Procession (AKH) 2
+1 Arcane Signet (ECC) 56
+1 Azorius Signet
+1 Bill Ferny, Bree Swindler
+1 Brave-Kin Duo
+1 Castle Ardenvale
+1 Cathars' Crusade (AVR) 10
+1 Ceremonial Knife (VOW) 254
+1 Claim Jumper
+1 Command Tower (SOC) 129
+1 Counterspell (EMA) 43
+1 Daring Apprentice (8ED) 73
+1 Door of Destinies (MOR) 143
+1 Escape Artist
+1 First Response
+1 Glacial Fortress (XLN) 255
+1 Grimoire of the Dead
+1 Hallowed Fountain (RVR) 280
+24 Hare Apparent
+1 Harvestrite Host
+1 Hinterland Sanctifier
+1 Intrepid Rabbit
+1 Irrigated Farmland (AKH) 245
+7 Island (SLP) 32
+1 Jacked Rabbit
+1 Jinxed Idol (M11) 208
+1 Kindred Discovery (CLB) 565
+1 Lore Broker
+1 March of Otherworldly Light
+1 Mistford River Turtle
+1 Mobile Homestead
+1 Negate (RIX) 44
+1 Ojer Taq, Deepest Foundation
+1 Overwhelmed Apprentice
+1 Panharmonicon
+1 Path to Exile (F15) 7
+16 Plains (2XM) 373
+1 Port Town
+1 Portal of Sanctuary
+1 Prairie Stream (PIP) 1031
+1 Seasoned Warrenguard
+1 Sol Ring (MPS) 24
+1 Swiftfoot Boots (PL23) 4
+1 Swords to Plowshares (BLC) 109
+1 Syndicate Messenger
+1 Syphon Essence (VOW) 84
+1 Teleportation Circle
+1 Three Tree City
+1 Valley Questcaller
+1 Voldaren Estate (VOW) 267
+1 Warren Elder
+1 Winds of Abandon (MH1) 37
+1 Wishing Well
+1 Wooden Stake (ISD) 237

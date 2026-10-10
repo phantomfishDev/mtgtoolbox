@@ -95,12 +95,10 @@ export function isDoubleFaced(card: ScryfallCard): boolean {
   return TWO_FACED_LAYOUTS.has(card.layout) && (card.card_faces?.length ?? 0) >= 2;
 }
 
-/**
- * The front-face image URL at the requested quality, falling back through
- * progressively lower sizes rather than failing outright.
- */
-export function frontImageUrl(card: ScryfallCard, quality: ImageQuality): string | null {
-  const uris = card.image_uris ?? card.card_faces?.[0]?.image_uris;
+/** Which side of a card to print. */
+export type CardFaceSide = 'front' | 'back';
+
+function pickSize(uris: ScryfallImageUris | undefined, quality: ImageQuality): string | null {
   if (!uris) return null;
   const order: ImageQuality[] =
     quality === 'png' ? ['png', 'large', 'normal'] : quality === 'large' ? ['large', 'png', 'normal'] : ['normal', 'large', 'png'];
@@ -109,4 +107,35 @@ export function frontImageUrl(card: ScryfallCard, quality: ImageQuality): string
     if (url) return url;
   }
   return null;
+}
+
+/**
+ * One face's image URL at the requested quality, falling back through
+ * progressively lower sizes rather than failing outright.
+ *
+ * A single-faced card carries `image_uris` itself; a two-faced one carries
+ * nothing at the top level and one set per face. Asking a single-faced card for
+ * its back is not an error — there simply isn't one, so this returns null and
+ * the caller prints the front alone.
+ */
+export function faceImageUrl(
+  card: ScryfallCard,
+  quality: ImageQuality,
+  side: CardFaceSide = 'front',
+): string | null {
+  if (side === 'back') {
+    if (!isDoubleFaced(card)) return null;
+    return pickSize(card.card_faces?.[1]?.image_uris, quality);
+  }
+  return pickSize(card.image_uris ?? card.card_faces?.[0]?.image_uris, quality);
+}
+
+/** The front-face image URL at the requested quality. */
+export function frontImageUrl(card: ScryfallCard, quality: ImageQuality): string | null {
+  return faceImageUrl(card, quality, 'front');
+}
+
+/** The back-face image URL, or null for a card that has only one face. */
+export function backImageUrl(card: ScryfallCard, quality: ImageQuality): string | null {
+  return faceImageUrl(card, quality, 'back');
 }

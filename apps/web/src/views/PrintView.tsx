@@ -5,10 +5,12 @@ import {
   comparePrintings,
   computeLayout,
   diffDeck,
-  frontImageUrl,
   isBasicLand,
+  isDoubleFaced,
   missingOnly,
   parseDecklist,
+  placementCount,
+  printPlacements,
   scorePrinting,
   totalCards,
   type PaperName,
@@ -175,29 +177,27 @@ export function PrintView({
         return;
       }
 
-      // One download per distinct printing, however many copies the deck runs.
-      const unique = new Map<string, { card: ScryfallCard; quantity: number }>();
-      for (const item of toPrint) {
-        const existing = unique.get(item.card.id);
-        if (existing) existing.quantity += item.entry.quantity;
-        else unique.set(item.card.id, { card: item.card, quantity: item.entry.quantity });
-      }
+      // One download per distinct printing and face, however many copies the
+      // deck runs. The CLI builds its sheets from the same helper.
+      const { placements, skipped } = printPlacements(toPrint, {
+        quality: options.quality,
+        bothFaces: options.bothFaces,
+      });
 
       const client = getClient();
       const items = [];
       let done = 0;
-      for (const { card, quantity } of unique.values()) {
-        setBusy(`Downloading images ${done + 1}/${unique.size}`);
-        const url = frontImageUrl(card, options.quality);
-        if (!url) continue;
+      for (const placement of placements) {
+        setBusy(`Downloading images ${done + 1}/${placements.length}`);
         items.push({
-          key: card.id,
-          bytes: await client.image(url, `${card.id}:${options.quality}`),
-          quantity,
-          name: card.name,
+          key: placement.key,
+          bytes: await client.image(placement.url, `${placement.key}:${options.quality}`),
+          quantity: placement.quantity,
+          name: placement.name,
         });
         done += 1;
       }
+      if (skipped.length > 0) setNotice(skipped.join('; '));
 
       setBusy('Building PDF');
       // pdf-lib is a large dependency and is only needed once someone actually
@@ -225,12 +225,24 @@ export function PrintView({
 
   const pageCount = useMemo(() => {
     const layout = computeLayout({ paper: options.paper, gapMm: options.gap });
-    const cards = (options.missingOnly ? missingOnly(effective, diff) : effective).reduce(
-      (sum, item) => sum + item.entry.quantity,
-      0,
-    );
+    const toPrint = options.missingOnly ? missingOnly(effective, diff) : effective;
+    const { placements } = printPlacements(toPrint, {
+      quality: options.quality,
+      bothFaces: options.bothFaces,
+    });
+    const cards = placementCount(placements);
     return { pages: Math.ceil(cards / layout.perPage), cards, perPage: layout.perPage };
   }, [effective, diff, options]);
+
+  /** Backs available to print, so the toggle can say what it would add. */
+  const backCount = useMemo(
+    () =>
+      (options.missingOnly ? missingOnly(effective, diff) : effective).reduce(
+        (sum, item) => (isDoubleFaced(item.card) ? sum + item.entry.quantity : sum),
+        0,
+      ),
+    [effective, diff, options.missingOnly],
+  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -289,7 +301,7 @@ export function PrintView({
           </Panel>
         )}
 
-        {result && <Warnings result={result} />}
+        {result && <Warnings result={result} bothFaces={options.bothFaces} />}
 
         {result && slots.length > 0 && (
           <CardGrid
@@ -351,6 +363,16 @@ export function PrintView({
               onChange={(assumeBasics) => setOptions({ ...options, assumeBasics })}
               label="Assume I have basic lands"
             />
+            <Toggle
+              checked={options.bothFaces}
+              onChange={(bothFaces) => setOptions({ ...options, bothFaces })}
+              label="Print both sides of double-faced cards"
+              hint={
+                backCount === 0
+                  ? 'No double-faced cards in this list'
+                  : `${backCount} back face${backCount === 1 ? '' : 's'} to print`
+              }
+            />
           </div>
 
           <div className="mt-4 border-t border-edge pt-3 text-sm text-muted">
@@ -397,8 +419,13 @@ export function PrintView({
   );
 }
 
-function Warnings({ result }: { result: ResolveResult }) {
-  if (result.warnings.length === 0 && result.unresolved.length === 0) return null;
+function Warnings({ result, bothFaces }: { result: ResolveResult; bothFaces: boolean }) {
+  // The front-face-only warning is exactly what the both-sides toggle answers,
+  // so leave it off once that is on rather than contradicting the sheet.
+  const warnings = bothFaces
+    ? result.warnings.filter((warning) => warning.code !== 'double-faced')
+    : result.warnings;
+  if (warnings.length === 0 && result.unresolved.length === 0) return null;
   return (
     <Panel className="border-amber-500/40">
       {result.unresolved.map((item) => (
@@ -406,7 +433,7 @@ function Warnings({ result }: { result: ResolveResult }) {
           Line {item.entry.line}: {item.reason}
         </p>
       ))}
-      {result.warnings.map((warning, index) => (
+      {warnings.map((warning, index) => (
         <p key={index} className="text-sm text-muted">
           {warning.message}
         </p>

@@ -131,6 +131,7 @@ interface PrintFlags extends DeckFlags {
   missingOnly?: boolean;
   strictPrinting?: boolean;
   assumeBasics: boolean;
+  bothFaces?: boolean;
 }
 
 withDeckOptions(
@@ -144,11 +145,12 @@ withDeckOptions(
     .option('-q, --quality <level>', 'image quality: png, large, normal', choice(['png', 'large', 'normal'] as const), 'png')
     .option('--gap <mm>', 'gap between cards in millimetres', Number.parseFloat, 0)
     .option('-m, --missing-only', 'print only the cards not already in your collection')
+    .option('--both-faces', 'also print the back of each double-faced card')
     .option('--strict-printing', 'only count the exact printing as owned')
     .option('--no-assume-basics', 'do not treat basic lands as already owned'),
 ).action(async (file: string, flags: PrintFlags) => {
   const { resolve, collection, client } = await prepare(file, flags);
-  reportResolve(resolve);
+  reportResolve(resolve, { bothFaces: flags.bothFaces ?? false });
   if (resolve.resolved.length === 0) throw new Error('nothing to print: no cards resolved');
 
   let toPrint = resolve.resolved;
@@ -168,7 +170,12 @@ withDeckOptions(
     }
   }
 
-  const { items, skipped } = await fetchImages({ ...resolve, resolved: toPrint }, client, flags.quality);
+  const { items, skipped } = await fetchImages(
+    { ...resolve, resolved: toPrint },
+    client,
+    flags.quality,
+    flags.bothFaces ?? false,
+  );
   for (const message of skipped) fail(message);
 
   const layout = computeLayout({ paper: flags.paper, gapMm: flags.gap });
