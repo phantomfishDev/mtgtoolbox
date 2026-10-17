@@ -1,0 +1,142 @@
+# Beorn the Fierce — mono-green Bear typal, built to the top of bracket 2 ("Core").
+#
+# Beorn counts himself, and his combat trigger turns its target into a Bear
+# *before* the three-Bear check — so one other Bear on board is enough to draw
+# two every turn. The type change is permanent, which is why a few strong
+# non-Bears ride along for Beorn to convert: The Earth King, Radagast of
+# Rhosgobel, Caller of the Claw.
+#
+# The anthem is the other half of the engine. +2/+2 makes every vanilla 2/2
+# Bear a 4/4, which switches on the power-4 and power-3 payoffs: Garruk's
+# Uprising, Tribute to the World Tree, The Earth King, Goreclaw. Note Goreclaw's
+# cost reduction reads *printed* power, not the buffed number.
+#
+# Sequencing: the trigger is at beginning of combat, so cast Bears precombat
+# and flash Bears (Caller of the Claw, Mother Bear's escape) at the end of an
+# opponent's turn. Roaming Throne naming Bear doubles the trigger — draw four,
+# convert two.
+#
+# Changelings count as Bears in the library as well as on board, which is what
+# makes Kindred Summons and Herald's Horn reliable: Chomping Changeling,
+# Mutable Explorer, Vastlands Scavenger.
+#
+# Bracket 2 means zero Game Changers, no mass land denial, no extra turns and
+# no two-card infinites. Deliberately left out on those grounds: Worldly Tutor,
+# Natural Order, Seedborn Muse, Gaea's Cradle, Crop Rotation, Ancient Tomb,
+# Craterhoof Behemoth, and the Kudo + Ayula + Scurry Oak loop.
+#
+# Two more traps, excluded on card text rather than power:
+#   Fade from History ..... destroys ALL artifacts and enchantments, and this
+#                           deck runs fourteen of them
+#   Ruxa, Patient Professor  only helps creatures with no abilities, and Beorn
+#                           hands out trample everywhere
+
+#
+# Four cards added because they are already owned in paper, and four cut to
+# stay at 100:
+#   + Ulvenwald Bear ..... a real Bear at {2}{G}, 4/4 under Beorn, with morbid
+#                          upside; it replaces Striped Bears one slot cheaper
+#   + Loot, the Nexus .... not a Bear, but a body Beorn converts permanently,
+#                          and its mana scales with the spread of powers that
+#                          the +2/+2 anthem creates
+#   + Giant Growth ....... a Ram Through enabler as much as a combat trick —
+#                          pump first, then fire the damage off the new power
+#   + Fog ................ the deck taps out and attacks; this covers the
+#                          crack-back on the turn that leaves it open
+#   - Chronicle of Victory  six mana for a fourth anthem
+#   - Kindred Summons ..... seven mana, and it is already won when it is good
+#   - Rampant Growth ...... redundant: Studious First-Year's other half IS
+#                           Rampant Growth, and Loot adds mana besides
+#   - Striped Bears ....... four mana for a 2/2 that cantrips, the worst rate
+#                           in the deck
+#
+#   Printings are pinned wherever the automatic pick landed on a Secret Lair —
+#   the MSCHF Grizzly Bears among them — or on art that is not painted high
+#   fantasy: the Edge of Eternities Mutavault and the Cowboy Bebop Snakeskin
+#   Veil. Middle-earth printings are used where one exists at print
+#   resolution — Arcane Signet and Rogue's Passage from The Hobbit Eternal,
+#   and all 26 Forests from HOB 198, Mirkwood with the spider cocoons. Every
+#   Tales of Middle-earth Commander scan on Scryfall is lowres, so the rest
+#   of the staples take painted reprints instead: Ejsing, Palumbo, Danner,
+#   Belledin, and the Kaladesh Inventions Sol Ring. Giant Growth is pinned to
+#   BRO 183 (Raoul Vitale) because the automatic pick was the Strixhaven
+#   Mystical Archive squirrel — flat, graphic and joking about spelltrap nets.
+
+Commander
+1 Beorn the Fierce (HOB) 119
+
+Deck
+1 Arcane Signet (PIP) 224
+1 Ashcoat Bear
+1 Ayula, Queen Among Bears
+1 Balduvian Bears (ICE) 226
+1 Bear Cub
+1 Bear Umbra (WOC) 121
+1 Beast Within (LTC) 234
+1 Beorn's Hospitality
+1 Beorn, Reluctant Host
+1 Caller of the Claw
+1 Castle Garenbrig (ELD) 388
+1 Chomping Changeling
+1 Cultivate (CMM) 889
+1 Dancing from Dark to Dawn (HOB) 123
+1 Emerald Medallion
+1 Evercoat Ursine
+1 Evolving Wilds
+1 Fabled Passage (ELD) 244
+1 Fog
+26 Forest (HOB) 198
+1 Garruk's Uprising
+1 Giant Growth (FDN) 223
+1 Gigantic Big Bear
+1 Goreclaw, Terror of Qal Sisma (MUL) 27
+1 Grizzly Bears (10E) 268
+1 Grizzly Fate
+1 Herald's Horn
+1 Heroic Intervention
+1 Kodama's Reach
+1 Krosan Grip
+1 Large Bear
+1 Little Bear
+1 Loot, the Nexus
+1 Lumra, Bellow of the Woods
+1 Masked Vandal (KHM) 405
+1 Mosswort Bridge
+1 Mother Bear
+1 Mutable Explorer
+1 Mutavault (CLB) 903
+1 Myriad Landscape
+1 Nature's Claim (IMA) 177
+1 Nature's Lore (CMM) 904
+1 Necklace of Girion
+1 Oran-Rief, the Vastwood
+1 Ordinary Bear
+1 Overwhelming Stampede
+1 Owlbear
+1 Owlbear Cub (CLB) 592
+1 Patchwork Banner
+1 Path of Ancestry (M3C) 363
+1 Radagast of Rhosgobel (HOB) 309
+1 Ram Through
+1 Rampaging Yao Guai
+1 Return of the Wildspeaker
+1 Roaming Throne (LCI) 258
+1 Rogue's Passage (HOC) 212
+1 Runeclaw Bear
+1 Shamanic Revelation (C19) 180
+1 Skyshroud Claim (CMM) 321
+1 Snakeskin Veil (STA) 57
+1 Sol Ring (MPS) 24
+1 Studious First-Year
+1 Surrak and Goreclaw
+1 Swiftfoot Boots
+1 The Earth King (TLA) 172
+1 Three Tree City
+1 Three Visits (SLD) 1676
+1 Titania's Command
+1 Tribute to the World Tree
+1 Ulvenwald Bear
+1 Vastlands Scavenger
+1 Vivien's Grizzly
+1 Werebear
+1 Wilson, Refined Grizzly

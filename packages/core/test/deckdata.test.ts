@@ -205,6 +205,29 @@ describe('resolveFromDeckData', () => {
     expect(resolveFromDeckData(grown, data, profile, new Set())).toBeNull();
   });
 
+  it('refuses stored data that contradicts a pinned printing', () => {
+    // Editing `(SET) NUM` in a decklist has to take effect even though a data
+    // file sits beside it; matching on the name alone would ignore the edit.
+    const pinned = [{ ...entries[0]!, set: 'ltc', collectorNumber: '284' }, entries[1]!];
+    expect(resolveFromDeckData(pinned, data, profile, new Set())).toBeNull();
+  });
+
+  it('accepts stored data that is the pinned printing', () => {
+    const chosen = [at('Sol Ring', 1, { set: 'ltc', collector_number: '284' })];
+    const stored = buildDeckData('deck', chosen, profile, new Set());
+    const pinned = [{ ...chosen[0]!.entry, set: 'ltc', collectorNumber: '284' }];
+    const applied = resolveFromDeckData(pinned, stored, profile, new Set());
+    expect(applied?.result.resolved[0]?.card.collector_number).toBe('284');
+    expect(applied?.result.resolved[0]?.via).toBe('printing');
+  });
+
+  it('matches a pinned set code regardless of case', () => {
+    const chosen = [at('Sol Ring', 1, { set: 'ltc', collector_number: '284' })];
+    const stored = buildDeckData('deck', chosen, profile, new Set());
+    const pinned = [{ ...chosen[0]!.entry, set: 'LTC', collectorNumber: '284' }];
+    expect(resolveFromDeckData(pinned, stored, profile, new Set())).not.toBeNull();
+  });
+
   it('refuses data chosen against a different collection', () => {
     // preferOwned makes ownership decide printings, so reusing data built
     // against someone else's shelf would silently contradict the setting.

@@ -1,0 +1,2979 @@
+{
+  "version": 1,
+  "deck": "beorn-bears",
+  "generatedAt": "2026-10-10T19:11:31.534Z",
+  "profile": "n76cg",
+  "owned": "w7k42t",
+  "cards": [
+    {
+      "id": "06869588-eb99-43b4-9521-948ca9f27c3e",
+      "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
+      "name": "Path of Ancestry",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-06-14",
+      "set": "m3c",
+      "set_name": "Modern Horizons 3 Commander",
+      "set_type": "commander",
+      "collector_number": "363",
+      "rarity": "common",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "ripplefoil"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "588f6d6f-e78a-4468-8067-dfbdf29c5a49",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/6/06869588-eb99-43b4-9521-948ca9f27c3e.png?1783911326",
+        "large": "https://cards.scryfall.io/large/front/0/6/06869588-eb99-43b4-9521-948ca9f27c3e.jpg?1783911326",
+        "normal": "https://cards.scryfall.io/normal/front/0/6/06869588-eb99-43b4-9521-948ca9f27c3e.jpg?1783911326"
+      }
+    },
+    {
+      "id": "07e40ddc-0483-4a2e-a776-807b37bada7f",
+      "oracle_id": "1b882a0e-0ede-4d1a-bd1a-9b7cffbcde8e",
+      "name": "Three Visits",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-07-29",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "1676",
+      "rarity": "rare",
+      "type_line": "Sorcery",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Search your library for a Forest card, put it onto the battlefield, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "357ecb15-fed2-4d0a-97b3-d7d0f80102ac",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/7/07e40ddc-0483-4a2e-a776-807b37bada7f.png?1783910870",
+        "large": "https://cards.scryfall.io/large/front/0/7/07e40ddc-0483-4a2e-a776-807b37bada7f.jpg?1783910870",
+        "normal": "https://cards.scryfall.io/normal/front/0/7/07e40ddc-0483-4a2e-a776-807b37bada7f.jpg?1783910870"
+      }
+    },
+    {
+      "id": "0feb9817-56e1-465a-851c-b2fe202aa8ae",
+      "oracle_id": "89a2fab8-b074-42aa-a871-d9c5de2d0895",
+      "name": "Ordinary Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "133",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "da9782a4-7995-4a58-b8c5-bc9f87569ef1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/f/0feb9817-56e1-465a-851c-b2fe202aa8ae.png?1785323277",
+        "large": "https://cards.scryfall.io/large/front/0/f/0feb9817-56e1-465a-851c-b2fe202aa8ae.jpg?1785323277",
+        "normal": "https://cards.scryfall.io/normal/front/0/f/0feb9817-56e1-465a-851c-b2fe202aa8ae.jpg?1785323277"
+      }
+    },
+    {
+      "id": "153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9",
+      "oracle_id": "d9ed7252-11d1-432b-9101-ac08cd28826d",
+      "name": "Beorn's Hospitality",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "120",
+      "rarity": "uncommon",
+      "type_line": "Enchantment",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Landfall — Whenever a land you control enters, put a +1/+1 counter on target creature you control.\n{5}{G}{G}: This enchantment becomes a Bear creature in addition to its other types and gains \"This creature's power and toughness are each equal to the number of lands you control.\" (This effect doesn't end.)",
+      "keywords": [
+        "Landfall"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "enchantment"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ef877d86-2fb5-4ce9-9d75-d9b80f23cf8d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.png?1785152153",
+        "large": "https://cards.scryfall.io/large/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.jpg?1785152153",
+        "normal": "https://cards.scryfall.io/normal/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.jpg?1785152153"
+      }
+    },
+    {
+      "id": "205c527c-0055-4d2a-86b1-18d1c58a898d",
+      "oracle_id": "4fb00dbe-1f82-4ba6-b18c-97e816d10d3a",
+      "name": "Patchwork Banner",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "279",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 3,
+      "color_identity": [],
+      "mana_cost": "{3}",
+      "oracle_text": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\n{T}: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "2b93720c-97d1-4e28-b05a-4b7ca975585d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/0/205c527c-0055-4d2a-86b1-18d1c58a898d.png?1789753341",
+        "large": "https://cards.scryfall.io/large/front/2/0/205c527c-0055-4d2a-86b1-18d1c58a898d.jpg?1789753341",
+        "normal": "https://cards.scryfall.io/normal/front/2/0/205c527c-0055-4d2a-86b1-18d1c58a898d.jpg?1789753341"
+      }
+    },
+    {
+      "id": "24f888dd-785c-4089-a89c-03f9080130ed",
+      "oracle_id": "58b0c737-0a84-4f9a-b3b7-300c5de43874",
+      "name": "Studious First-Year // Rampant Growth",
+      "lang": "en",
+      "layout": "prepare",
+      "released_at": "2026-04-24",
+      "set": "sos",
+      "set_name": "Secrets of Strixhaven",
+      "set_type": "expansion",
+      "collector_number": "162",
+      "rarity": "common",
+      "type_line": "Creature — Bear Wizard // Sorcery",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G} // {1}{G}",
+      "keywords": [
+        "Prepared"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a45226bf-82bb-4845-9374-8e17cf200031",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/4/24f888dd-785c-4089-a89c-03f9080130ed.png?1783903652",
+        "large": "https://cards.scryfall.io/large/front/2/4/24f888dd-785c-4089-a89c-03f9080130ed.jpg?1783903652",
+        "normal": "https://cards.scryfall.io/normal/front/2/4/24f888dd-785c-4089-a89c-03f9080130ed.jpg?1783903652"
+      },
+      "card_faces": [
+        {
+          "name": "Studious First-Year",
+          "type_line": "Creature — Bear Wizard",
+          "mana_cost": "{G}",
+          "oracle_text": "This creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)"
+        },
+        {
+          "name": "Rampant Growth",
+          "type_line": "Sorcery",
+          "mana_cost": "{1}{G}",
+          "oracle_text": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+        }
+      ]
+    },
+    {
+      "id": "2ace8e69-7550-4c40-bf63-59cb95603391",
+      "oracle_id": "210940f1-3c11-4877-bbfc-2429c03f98ee",
+      "name": "Masked Vandal",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2021-02-05",
+      "set": "khm",
+      "set_name": "Kaldheim",
+      "set_type": "expansion",
+      "collector_number": "405",
+      "rarity": "common",
+      "type_line": "Creature — Shapeshifter",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Changeling (This card is every creature type.)\nWhen this creature enters, you may exile a creature card from your graveyard. If you do, exile target artifact or enchantment an opponent controls.",
+      "keywords": [
+        "Changeling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": true,
+      "promo_types": [
+        "promopack"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "67fc96b7-7609-4b7a-9a30-cf5f3b165e53",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/a/2ace8e69-7550-4c40-bf63-59cb95603391.png?1783928110",
+        "large": "https://cards.scryfall.io/large/front/2/a/2ace8e69-7550-4c40-bf63-59cb95603391.jpg?1783928110",
+        "normal": "https://cards.scryfall.io/normal/front/2/a/2ace8e69-7550-4c40-bf63-59cb95603391.jpg?1783928110"
+      }
+    },
+    {
+      "id": "2baf505b-ea99-470b-ac87-fd4fb8f5f322",
+      "oracle_id": "7735eeba-693b-47e2-bd51-414379cf1016",
+      "name": "Beast Within",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-06-23",
+      "set": "ltc",
+      "set_name": "Tales of Middle-earth Commander",
+      "set_type": "commander",
+      "collector_number": "234",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "4123c71e-fc68-489d-936c-e387dddd061c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/b/2baf505b-ea99-470b-ac87-fd4fb8f5f322.png?1783915927",
+        "large": "https://cards.scryfall.io/large/front/2/b/2baf505b-ea99-470b-ac87-fd4fb8f5f322.jpg?1783915927",
+        "normal": "https://cards.scryfall.io/normal/front/2/b/2baf505b-ea99-470b-ac87-fd4fb8f5f322.jpg?1783915927"
+      }
+    },
+    {
+      "id": "2dd48f09-e9c7-4e93-b811-2158ae24c9fc",
+      "oracle_id": "e1e96802-fd0c-41f1-aa21-3287d75a0e88",
+      "name": "Overwhelming Stampede",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "218",
+      "rarity": "rare",
+      "type_line": "Sorcery",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Until end of turn, creatures you control gain trample and get +X/+X, where X is the greatest power among creatures you control.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "506fb908-94a8-4875-8ebd-edb28a7f15d8",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/d/2dd48f09-e9c7-4e93-b811-2158ae24c9fc.png?1789753286",
+        "large": "https://cards.scryfall.io/large/front/2/d/2dd48f09-e9c7-4e93-b811-2158ae24c9fc.jpg?1789753286",
+        "normal": "https://cards.scryfall.io/normal/front/2/d/2dd48f09-e9c7-4e93-b811-2158ae24c9fc.jpg?1789753286"
+      }
+    },
+    {
+      "id": "2fa1dac5-51ba-403e-b48b-d2c0d23a8146",
+      "oracle_id": "2b76f9e9-cd28-4eaf-8674-215c34263f96",
+      "name": "Return of the Wildspeaker",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-01-23",
+      "set": "ecc",
+      "set_name": "Lorwyn Eclipsed Commander",
+      "set_type": "commander",
+      "collector_number": "115",
+      "rarity": "rare",
+      "type_line": "Instant",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G}",
+      "oracle_text": "Choose one —\n• Draw cards equal to the greatest power among non-Human creatures you control.\n• Non-Human creatures you control get +3/+3 until end of turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e83973f2-5e30-491e-b15b-82d77bef0a77",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.png?1783904544",
+        "large": "https://cards.scryfall.io/large/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.jpg?1783904544",
+        "normal": "https://cards.scryfall.io/normal/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.jpg?1783904544"
+      }
+    },
+    {
+      "id": "30e8a00f-8131-470d-8072-4c23b812281a",
+      "oracle_id": "0fab815f-bccf-40ef-95e9-ba64b137fb8c",
+      "name": "Owlbear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2021-07-23",
+      "set": "afr",
+      "set_name": "Adventures in the Forgotten Realms",
+      "set_type": "expansion",
+      "collector_number": "198",
+      "rarity": "common",
+      "type_line": "Creature — Bird Bear",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Trample\nKeen Senses — When this creature enters, draw a card.",
+      "keywords": [
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "0a197b35-65ed-4279-a7ce-adc45fe4ea54",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.png?1783926456",
+        "large": "https://cards.scryfall.io/large/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.jpg?1783926456",
+        "normal": "https://cards.scryfall.io/normal/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.jpg?1783926456"
+      }
+    },
+    {
+      "id": "32fd8b7c-baf3-4d3d-be6f-044a917b11a0",
+      "oracle_id": "3640c29b-1534-4952-b297-619ade948431",
+      "name": "Roaming Throne",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-11-17",
+      "set": "lci",
+      "set_name": "The Lost Caverns of Ixalan",
+      "set_type": "expansion",
+      "collector_number": "258",
+      "rarity": "rare",
+      "type_line": "Artifact Creature — Golem",
+      "cmc": 4,
+      "color_identity": [],
+      "mana_cost": "{4}",
+      "oracle_text": "Ward {2}\nAs this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nIf a triggered ability of another creature you control of the chosen type triggers, it triggers an additional time.",
+      "keywords": [
+        "Ward"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "300529e1-8916-4dd1-8563-22067d5e0a16",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/2/32fd8b7c-baf3-4d3d-be6f-044a917b11a0.png?1783913723",
+        "large": "https://cards.scryfall.io/large/front/3/2/32fd8b7c-baf3-4d3d-be6f-044a917b11a0.jpg?1783913723",
+        "normal": "https://cards.scryfall.io/normal/front/3/2/32fd8b7c-baf3-4d3d-be6f-044a917b11a0.jpg?1783913723"
+      }
+    },
+    {
+      "id": "33516226-4b97-4cd1-a47f-a9b40631daea",
+      "oracle_id": "4b1befff-48fa-47a3-832e-bdaf43495c02",
+      "name": "Ram Through",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "221",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Target creature you control deals damage equal to its power to target creature you don't control. If the creature you control has trample, excess damage is dealt to that creature's controller instead.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "820603e6-81b9-4b05-a17f-936e595696fe",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/3/33516226-4b97-4cd1-a47f-a9b40631daea.png?1789753289",
+        "large": "https://cards.scryfall.io/large/front/3/3/33516226-4b97-4cd1-a47f-a9b40631daea.jpg?1789753289",
+        "normal": "https://cards.scryfall.io/normal/front/3/3/33516226-4b97-4cd1-a47f-a9b40631daea.jpg?1789753289"
+      }
+    },
+    {
+      "id": "367d5f8b-77ee-47f7-bc71-972d62c280a9",
+      "oracle_id": "30ca8e92-5955-46a1-86c1-094a873f518f",
+      "name": "Beorn the Fierce",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "119",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Bear Shapeshifter Warrior",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Trample\nOther Bears you control get +2/+2.\nAt the beginning of combat on your turn, put a trample counter on up to one target creature you control. It becomes a Bear in addition to its other types. Then if you control three or more Bears, draw two cards.",
+      "keywords": [
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "14dc7658-3f02-4cc3-a233-43e131f6aa1e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/6/367d5f8b-77ee-47f7-bc71-972d62c280a9.png?1784632151",
+        "large": "https://cards.scryfall.io/large/front/3/6/367d5f8b-77ee-47f7-bc71-972d62c280a9.jpg?1784632151",
+        "normal": "https://cards.scryfall.io/normal/front/3/6/367d5f8b-77ee-47f7-bc71-972d62c280a9.jpg?1784632151"
+      }
+    },
+    {
+      "id": "3cfa4fc6-4d90-4576-a83f-6496c7f21104",
+      "oracle_id": "a99ce9db-9b7d-45a0-bee7-0875fc62ca48",
+      "name": "Loot, the Nexus",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "262",
+      "rarity": "uncommon",
+      "type_line": "Legendary Creature — Beast Noble",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "{T}: Choose a color. Add one mana of that color for each different power among creatures you control.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "9350b29b-45db-4c14-a10c-0dadf1f9659f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/c/3cfa4fc6-4d90-4576-a83f-6496c7f21104.png?1789614764",
+        "large": "https://cards.scryfall.io/large/front/3/c/3cfa4fc6-4d90-4576-a83f-6496c7f21104.jpg?1789614764",
+        "normal": "https://cards.scryfall.io/normal/front/3/c/3cfa4fc6-4d90-4576-a83f-6496c7f21104.jpg?1789614764"
+      }
+    },
+    {
+      "id": "3d99587a-7fb1-41fc-b7ea-1178f9625081",
+      "oracle_id": "97a84e9d-bfc4-4ca2-b1e8-908dba56ccdb",
+      "name": "Lumra, Bellow of the Woods",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "blb",
+      "set_name": "Bloomburrow",
+      "set_type": "expansion",
+      "collector_number": "293",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Elemental Bear",
+      "cmc": 6,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G}{G}",
+      "oracle_text": "Reach, vigilance\nLumra's power and toughness are each equal to the number of lands you control.\nWhen Lumra enters, mill four cards. Then return all land cards from your graveyard to the battlefield tapped.",
+      "keywords": [
+        "Reach",
+        "Vigilance",
+        "Mill"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "eba36c4e-6b7d-418a-933c-7e8a33d4f43a",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/d/3d99587a-7fb1-41fc-b7ea-1178f9625081.png?1783910772",
+        "large": "https://cards.scryfall.io/large/front/3/d/3d99587a-7fb1-41fc-b7ea-1178f9625081.jpg?1783910772",
+        "normal": "https://cards.scryfall.io/normal/front/3/d/3d99587a-7fb1-41fc-b7ea-1178f9625081.jpg?1783910772"
+      }
+    },
+    {
+      "id": "3e9b53da-4744-429d-97c6-f7ee4d568731",
+      "oracle_id": "c8b143ad-43ec-4e0d-a440-e348daa31391",
+      "name": "Swiftfoot Boots",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-11-15",
+      "set": "fdn",
+      "set_name": "Foundations",
+      "set_type": "core",
+      "collector_number": "355",
+      "rarity": "uncommon",
+      "type_line": "Artifact — Equipment",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "keywords": [
+        "Equip"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "startercollection",
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8cd30edb-e2bc-4fe9-a5fc-ce643000de1f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.png?1783909017",
+        "large": "https://cards.scryfall.io/large/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.jpg?1783909017",
+        "normal": "https://cards.scryfall.io/normal/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.jpg?1783909017"
+      }
+    },
+    {
+      "id": "3ea01785-add0-487d-b708-5bbf71033899",
+      "oracle_id": "84d648c7-655e-4590-a3e0-366a8a4a4cb3",
+      "name": "Radagast of Rhosgobel",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "309",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Avatar Wizard",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}{G}",
+      "oracle_text": "The first creature spell you cast each turn costs {2} less to cast and can be cast as though it had flash.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "extendedart"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "af106cda-2fc0-4a64-ab4a-26005d84c8a7",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/e/3ea01785-add0-487d-b708-5bbf71033899.png?1787204737",
+        "large": "https://cards.scryfall.io/large/front/3/e/3ea01785-add0-487d-b708-5bbf71033899.jpg?1787204737",
+        "normal": "https://cards.scryfall.io/normal/front/3/e/3ea01785-add0-487d-b708-5bbf71033899.jpg?1787204737"
+      }
+    },
+    {
+      "id": "409f9b88-f03e-40b6-9883-68c14c37c0de",
+      "oracle_id": "14c8f55d-d177-4c25-a931-ebeb9e6062a0",
+      "name": "Grizzly Bears",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2007-07-13",
+      "set": "10e",
+      "set_name": "Tenth Edition",
+      "set_type": "core",
+      "collector_number": "268",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2003",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "066bfe81-0f53-43da-a074-b2ecc5dcda72",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/0/409f9b88-f03e-40b6-9883-68c14c37c0de.png?1783943001",
+        "large": "https://cards.scryfall.io/large/front/4/0/409f9b88-f03e-40b6-9883-68c14c37c0de.jpg?1783943001",
+        "normal": "https://cards.scryfall.io/normal/front/4/0/409f9b88-f03e-40b6-9883-68c14c37c0de.jpg?1783943001"
+      }
+    },
+    {
+      "id": "4493b62b-f354-47ff-9dcf-cc6e29de77c6",
+      "oracle_id": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
+      "name": "Rogue's Passage",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hoc",
+      "set_name": "The Hobbit Eternal",
+      "set_type": "eternal",
+      "collector_number": "212",
+      "rarity": "uncommon",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "d9a91704-8f09-44f3-aba4-c905dd835a65",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.png?1785497634",
+        "large": "https://cards.scryfall.io/large/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.jpg?1785497634",
+        "normal": "https://cards.scryfall.io/normal/front/4/4/4493b62b-f354-47ff-9dcf-cc6e29de77c6.jpg?1785497634"
+      }
+    },
+    {
+      "id": "476b6a4d-cc05-4e98-8a45-a5c6582ec514",
+      "oracle_id": "3a97bc8d-bd81-468e-9277-eba4fac11ee0",
+      "name": "Vastlands Scavenger // Bind to Life",
+      "lang": "en",
+      "layout": "prepare",
+      "released_at": "2026-04-24",
+      "set": "sos",
+      "set_name": "Secrets of Strixhaven",
+      "set_type": "expansion",
+      "collector_number": "166",
+      "rarity": "rare",
+      "type_line": "Creature — Bear Druid // Instant",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}{G} // {4}{G}",
+      "keywords": [
+        "Prepared",
+        "Mill",
+        "Deathtouch"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4aa53035-fd7e-46ce-82bb-789162ad859e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/7/476b6a4d-cc05-4e98-8a45-a5c6582ec514.png?1783903652",
+        "large": "https://cards.scryfall.io/large/front/4/7/476b6a4d-cc05-4e98-8a45-a5c6582ec514.jpg?1783903652",
+        "normal": "https://cards.scryfall.io/normal/front/4/7/476b6a4d-cc05-4e98-8a45-a5c6582ec514.jpg?1783903652"
+      },
+      "card_faces": [
+        {
+          "name": "Vastlands Scavenger",
+          "type_line": "Creature — Bear Druid",
+          "mana_cost": "{1}{G}{G}",
+          "oracle_text": "Deathtouch\nThis creature enters prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)"
+        },
+        {
+          "name": "Bind to Life",
+          "type_line": "Instant",
+          "mana_cost": "{4}{G}",
+          "oracle_text": "Mill seven cards. Then put a creature card from among them onto the battlefield."
+        }
+      ]
+    },
+    {
+      "id": "50202288-f433-4b56-8f60-349bda7b4f6b",
+      "oracle_id": "73346137-3117-4dc3-b5a4-1aca1da54548",
+      "name": "Large Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "159",
+      "rarity": "uncommon",
+      "type_line": "Creature — Bear",
+      "cmc": 5,
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "mana_cost": "{3}{B/G}{B/G}",
+      "oracle_text": "Reach, trample, haste",
+      "keywords": [
+        "Reach",
+        "Haste",
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "bcfedfff-bcea-4b85-910e-43b8e9c1475a",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/0/50202288-f433-4b56-8f60-349bda7b4f6b.png?1785323294",
+        "large": "https://cards.scryfall.io/large/front/5/0/50202288-f433-4b56-8f60-349bda7b4f6b.jpg?1785323294",
+        "normal": "https://cards.scryfall.io/normal/front/5/0/50202288-f433-4b56-8f60-349bda7b4f6b.jpg?1785323294"
+      }
+    },
+    {
+      "id": "52cc2f10-142d-4e6a-984e-b25f566cc960",
+      "oracle_id": "6b3cc59a-7ea5-4eb5-9bf9-5a9c07f80e2b",
+      "name": "Mutavault",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-06-10",
+      "set": "clb",
+      "set_name": "Commander Legends: Battle for Baldur's Gate",
+      "set_type": "draft_innovation",
+      "collector_number": "903",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {C}.\n{1}: This land becomes a 2/2 creature with all creature types until end of turn. It's still a land.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b04d9fa2-170a-470e-833b-aaea9b08d4e1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/2/52cc2f10-142d-4e6a-984e-b25f566cc960.png?1783922371",
+        "large": "https://cards.scryfall.io/large/front/5/2/52cc2f10-142d-4e6a-984e-b25f566cc960.jpg?1783922371",
+        "normal": "https://cards.scryfall.io/normal/front/5/2/52cc2f10-142d-4e6a-984e-b25f566cc960.jpg?1783922371"
+      }
+    },
+    {
+      "id": "550cd0b6-ca61-4db7-9d20-0b68c48066f9",
+      "oracle_id": "5ba482e9-fbb0-4d9f-a3a9-414892bcdfed",
+      "name": "Dancing from Dark to Dawn",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "123",
+      "rarity": "mythic",
+      "type_line": "Enchantment",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Whenever you cast a creature spell, put X +1/+1 counters on target creature you control, where X is that spell's mana value.\nLandfall — Whenever a land you control enters, create a 2/2 green Bear creature token.",
+      "keywords": [
+        "Landfall"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "enchantment"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e2cbad3b-e127-4055-b636-f5f9807885b3",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/5/550cd0b6-ca61-4db7-9d20-0b68c48066f9.png?1785236704",
+        "large": "https://cards.scryfall.io/large/front/5/5/550cd0b6-ca61-4db7-9d20-0b68c48066f9.jpg?1785236704",
+        "normal": "https://cards.scryfall.io/normal/front/5/5/550cd0b6-ca61-4db7-9d20-0b68c48066f9.jpg?1785236704"
+      }
+    },
+    {
+      "id": "558f5534-3a21-4f8d-89e1-c972dc018f35",
+      "oracle_id": "ec49dfcf-d16d-4621-af4b-4a6f09043221",
+      "name": "Runeclaw Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-11-07",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "M15-197",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "0bb0db79-2039-4f8b-a8ac-d7c952f07ba5",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/5/558f5534-3a21-4f8d-89e1-c972dc018f35.png?1783931788",
+        "large": "https://cards.scryfall.io/large/front/5/5/558f5534-3a21-4f8d-89e1-c972dc018f35.jpg?1783931788",
+        "normal": "https://cards.scryfall.io/normal/front/5/5/558f5534-3a21-4f8d-89e1-c972dc018f35.jpg?1783931788"
+      }
+    },
+    {
+      "id": "56b34b52-7a67-44b4-82e7-2860729ba410",
+      "oracle_id": "8b755881-a72d-4e21-a369-d2924eb4585a",
+      "name": "Cultivate",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "889",
+      "rarity": "common",
+      "type_line": "Sorcery",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "185ef21e-5abe-4825-bd38-8f9a2e61045e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/6/56b34b52-7a67-44b4-82e7-2860729ba410.png?1783915426",
+        "large": "https://cards.scryfall.io/large/front/5/6/56b34b52-7a67-44b4-82e7-2860729ba410.jpg?1783915426",
+        "normal": "https://cards.scryfall.io/normal/front/5/6/56b34b52-7a67-44b4-82e7-2860729ba410.jpg?1783915426"
+      }
+    },
+    {
+      "id": "5efb9b5a-f904-4934-9530-87d752eeae75",
+      "oracle_id": "2549bc57-9ffb-4053-9f10-f2a5f792b845",
+      "name": "Myriad Landscape",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "660",
+      "rarity": "uncommon",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "2794b1b5-2635-4409-bc29-2f11ad417a20",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.png?1783915504",
+        "large": "https://cards.scryfall.io/large/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.jpg?1783915504",
+        "normal": "https://cards.scryfall.io/normal/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.jpg?1783915504"
+      }
+    },
+    {
+      "id": "5f533364-0f91-4e49-aaeb-83c4c1f6d316",
+      "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+      "name": "Forest",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "198",
+      "rarity": "common",
+      "type_line": "Basic Land — Forest",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {G}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e1cccc04-7f39-4872-9eff-2e958621326f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.png?1783902781",
+        "large": "https://cards.scryfall.io/large/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.jpg?1783902781",
+        "normal": "https://cards.scryfall.io/normal/front/5/f/5f533364-0f91-4e49-aaeb-83c4c1f6d316.jpg?1783902781"
+      }
+    },
+    {
+      "id": "6031f855-a27c-459b-9126-bec909d84200",
+      "oracle_id": "95be5f72-1f81-4ec6-9bd9-f0b07bfc874b",
+      "name": "Surrak and Goreclaw",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-11-09",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "MOM-337",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Human Bear",
+      "cmc": 6,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G}{G}",
+      "oracle_text": "Trample\nOther creatures you control have trample.\nWhenever another nontoken creature you control enters, put a +1/+1 counter on it. It gains haste until end of turn.",
+      "keywords": [
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "08ee445a-7635-4f9c-b2dc-0daa4ebba608",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/0/6031f855-a27c-459b-9126-bec909d84200.png?1787700154",
+        "large": "https://cards.scryfall.io/large/front/6/0/6031f855-a27c-459b-9126-bec909d84200.jpg?1787700154",
+        "normal": "https://cards.scryfall.io/normal/front/6/0/6031f855-a27c-459b-9126-bec909d84200.jpg?1787700154"
+      }
+    },
+    {
+      "id": "63619236-a27a-4fdd-add6-7a295901f906",
+      "oracle_id": "d37e8f75-c7cb-4270-bb2f-0125e972ed15",
+      "name": "Rampaging Yao Guai",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-03-08",
+      "set": "pip",
+      "set_name": "Fallout",
+      "set_type": "commander",
+      "collector_number": "82",
+      "rarity": "rare",
+      "type_line": "Creature — Bear Mutant",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{X}{G}{G}{G}",
+      "oracle_text": "Vigilance, trample\nThis creature enters with X +1/+1 counters on it.\nWhen this creature enters, destroy any number of target artifacts and/or enchantments with total mana value X or less.",
+      "keywords": [
+        "Vigilance",
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8605ca1c-0ebd-4d15-ad3f-f71b21204505",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/3/63619236-a27a-4fdd-add6-7a295901f906.png?1783912397",
+        "large": "https://cards.scryfall.io/large/front/6/3/63619236-a27a-4fdd-add6-7a295901f906.jpg?1783912397",
+        "normal": "https://cards.scryfall.io/normal/front/6/3/63619236-a27a-4fdd-add6-7a295901f906.jpg?1783912397"
+      }
+    },
+    {
+      "id": "67c30782-0d28-4ce7-ad5b-ffbffeb97584",
+      "oracle_id": "9f970385-e7c6-40bf-999e-7015693c2250",
+      "name": "Necklace of Girion",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hoc",
+      "set_name": "The Hobbit Eternal",
+      "set_type": "eternal",
+      "collector_number": "12",
+      "rarity": "rare",
+      "type_line": "Legendary Artifact",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Whenever you cast a green spell and whenever a Forest you control enters, put a +1/+1 counter on target creature you control.\n{T}: Add {G}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "81a0ebd4-6c60-4303-9a7d-4bdb72230fe3",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/7/67c30782-0d28-4ce7-ad5b-ffbffeb97584.png?1784377248",
+        "large": "https://cards.scryfall.io/large/front/6/7/67c30782-0d28-4ce7-ad5b-ffbffeb97584.jpg?1784377248",
+        "normal": "https://cards.scryfall.io/normal/front/6/7/67c30782-0d28-4ce7-ad5b-ffbffeb97584.jpg?1784377248"
+      }
+    },
+    {
+      "id": "683084e1-e6c4-4bf4-8355-395f841c1694",
+      "oracle_id": "6dbd0764-4bfe-4a58-905d-aeee70ceb798",
+      "name": "Vivien's Grizzly",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "WAR-182",
+      "rarity": "common",
+      "type_line": "Creature — Bear Spirit",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "{3}{G}: Look at the top card of your library. If it's a creature or planeswalker card, you may reveal it and put it into your hand. If you don't put the card into your hand, put it on the bottom of your library.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "6cb9f8c8-e18c-45dc-9f08-652e2c1721f2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/8/683084e1-e6c4-4bf4-8355-395f841c1694.png?1783910083",
+        "large": "https://cards.scryfall.io/large/front/6/8/683084e1-e6c4-4bf4-8355-395f841c1694.jpg?1783910083",
+        "normal": "https://cards.scryfall.io/normal/front/6/8/683084e1-e6c4-4bf4-8355-395f841c1694.jpg?1783910083"
+      }
+    },
+    {
+      "id": "753567c7-c484-4c0d-8128-7710e23c428f",
+      "oracle_id": "7aae0a3d-8882-4485-a126-f06ea6593dcb",
+      "name": "Titania's Command",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-11-18",
+      "set": "bro",
+      "set_name": "The Brothers' War",
+      "set_type": "expansion",
+      "collector_number": "194",
+      "rarity": "rare",
+      "type_line": "Sorcery",
+      "cmc": 6,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G}{G}",
+      "oracle_text": "Choose two —\n• Exile target player's graveyard. You gain 1 life for each card exiled this way.\n• Search your library for up to two land cards, put them onto the battlefield tapped, then shuffle.\n• Create two 2/2 green Bear creature tokens.\n• Put two +1/+1 counters on each creature you control.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b19c6e69-4094-4f98-8bd1-53e6144f0084",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/5/753567c7-c484-4c0d-8128-7710e23c428f.png?1783920039",
+        "large": "https://cards.scryfall.io/large/front/7/5/753567c7-c484-4c0d-8128-7710e23c428f.jpg?1783920039",
+        "normal": "https://cards.scryfall.io/normal/front/7/5/753567c7-c484-4c0d-8128-7710e23c428f.jpg?1783920039"
+      }
+    },
+    {
+      "id": "75d22bb3-824e-4699-8352-42392af307d1",
+      "oracle_id": "f3073e4f-ca7e-4fde-88a4-bd7b6ebfbc8c",
+      "name": "Grizzly Fate",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2020-09-01",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "JUD-119",
+      "rarity": "uncommon",
+      "type_line": "Sorcery",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Create two 2/2 green Bear creature tokens.\nThreshold — Create four 2/2 green Bear creature tokens instead if there are seven or more cards in your graveyard.\nFlashback {5}{G}{G} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+      "keywords": [
+        "Threshold",
+        "Flashback"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1997",
+      "frame_effects": [
+        "tombstone"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "6380ba53-91eb-411e-b605-a1e8dc177c91",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/5/75d22bb3-824e-4699-8352-42392af307d1.png?1783929674",
+        "large": "https://cards.scryfall.io/large/front/7/5/75d22bb3-824e-4699-8352-42392af307d1.jpg?1783929674",
+        "normal": "https://cards.scryfall.io/normal/front/7/5/75d22bb3-824e-4699-8352-42392af307d1.jpg?1783929674"
+      }
+    },
+    {
+      "id": "7931a072-b688-4a0b-a32e-9a2082738745",
+      "oracle_id": "3127ae9b-a7a7-43ec-89d7-688f8445b33d",
+      "name": "Garruk's Uprising",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-09-08",
+      "set": "wot",
+      "set_name": "Wilds of Eldraine: Enchanting Tales",
+      "set_type": "masterpiece",
+      "collector_number": "53",
+      "rarity": "uncommon",
+      "type_line": "Enchantment",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card.\nCreatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever a creature you control with power 4 or greater enters, draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "showcase",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "39fadd7c-428b-4148-9354-46a7d173a05b",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/9/7931a072-b688-4a0b-a32e-9a2082738745.png?1783914918",
+        "large": "https://cards.scryfall.io/large/front/7/9/7931a072-b688-4a0b-a32e-9a2082738745.jpg?1783914918",
+        "normal": "https://cards.scryfall.io/normal/front/7/9/7931a072-b688-4a0b-a32e-9a2082738745.jpg?1783914918"
+      }
+    },
+    {
+      "id": "7d6ece3d-8e7a-41ad-974f-3c9748de4825",
+      "oracle_id": "88d7bd11-7b1d-426c-8552-01448531c6ad",
+      "name": "Gigantic Big Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "126",
+      "rarity": "rare",
+      "type_line": "Creature — Bear",
+      "cmc": 7,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{5}{G}{G}",
+      "oracle_text": "This spell can't be countered.\nHexproof, haste",
+      "keywords": [
+        "Hexproof",
+        "Haste"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "98d00353-4c59-47d9-ab55-60f9189690f1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/d/7d6ece3d-8e7a-41ad-974f-3c9748de4825.png?1785323269",
+        "large": "https://cards.scryfall.io/large/front/7/d/7d6ece3d-8e7a-41ad-974f-3c9748de4825.jpg?1785323269",
+        "normal": "https://cards.scryfall.io/normal/front/7/d/7d6ece3d-8e7a-41ad-974f-3c9748de4825.jpg?1785323269"
+      }
+    },
+    {
+      "id": "804589b7-3ef9-473d-97cc-c61a2d41f70d",
+      "oracle_id": "288da486-393c-4995-ad02-c5093a71970d",
+      "name": "Beorn, Reluctant Host // Till and Tend",
+      "lang": "en",
+      "layout": "adventure",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "118",
+      "rarity": "common",
+      "type_line": "Legendary Creature — Human Bear Shapeshifter // Sorcery — Adventure",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G} // {1}{G}",
+      "keywords": [
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "72278333-ebd7-4f78-b92d-e96fe9b11dd2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/0/804589b7-3ef9-473d-97cc-c61a2d41f70d.png?1785323267",
+        "large": "https://cards.scryfall.io/large/front/8/0/804589b7-3ef9-473d-97cc-c61a2d41f70d.jpg?1785323267",
+        "normal": "https://cards.scryfall.io/normal/front/8/0/804589b7-3ef9-473d-97cc-c61a2d41f70d.jpg?1785323267"
+      },
+      "card_faces": [
+        {
+          "name": "Beorn, Reluctant Host",
+          "type_line": "Legendary Creature — Human Bear Shapeshifter",
+          "mana_cost": "{4}{G}",
+          "oracle_text": "Trample"
+        },
+        {
+          "name": "Till and Tend",
+          "type_line": "Sorcery — Adventure",
+          "mana_cost": "{1}{G}",
+          "oracle_text": "You may play an additional land this turn. (Then exile this card. You may cast the creature later from exile.)"
+        }
+      ]
+    },
+    {
+      "id": "82d503c7-d392-4fab-aace-26b3c8afa888",
+      "oracle_id": "96cf3320-c730-4618-8768-28a179f4d9c0",
+      "name": "Werebear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "ODY-282",
+      "rarity": "common",
+      "type_line": "Creature — Human Bear Druid",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "{T}: Add {G}.\nThreshold — This creature gets +3/+3 as long as there are seven or more cards in your graveyard.",
+      "keywords": [
+        "Threshold"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1997",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "75a195c6-d94f-4b9e-add0-9de860587e81",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/2/82d503c7-d392-4fab-aace-26b3c8afa888.png?1783910007",
+        "large": "https://cards.scryfall.io/large/front/8/2/82d503c7-d392-4fab-aace-26b3c8afa888.jpg?1783910007",
+        "normal": "https://cards.scryfall.io/normal/front/8/2/82d503c7-d392-4fab-aace-26b3c8afa888.jpg?1783910007"
+      }
+    },
+    {
+      "id": "880711b0-da06-4c4f-aa4e-1be58fc0bc67",
+      "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "name": "Sol Ring",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2016-09-30",
+      "set": "mps",
+      "set_name": "Kaladesh Inventions",
+      "set_type": "masterpiece",
+      "collector_number": "24",
+      "rarity": "special",
+      "type_line": "Artifact",
+      "cmc": 1,
+      "color_identity": [],
+      "mana_cost": "{1}",
+      "oracle_text": "{T}: Add {C}{C}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "272adbe6-5e91-4220-8505-962a5dd9370e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/8/880711b0-da06-4c4f-aa4e-1be58fc0bc67.png?1783937248",
+        "large": "https://cards.scryfall.io/large/front/8/8/880711b0-da06-4c4f-aa4e-1be58fc0bc67.jpg?1783937248",
+        "normal": "https://cards.scryfall.io/normal/front/8/8/880711b0-da06-4c4f-aa4e-1be58fc0bc67.jpg?1783937248"
+      }
+    },
+    {
+      "id": "8a50858a-33b5-4c45-9c31-5956ae5a33a6",
+      "oracle_id": "53c6c6bf-0256-424d-b937-1cc7d9e2d574",
+      "name": "Little Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-14",
+      "set": "hob",
+      "set_name": "The Hobbit",
+      "set_type": "expansion",
+      "collector_number": "128",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Flash\nWhen this creature enters, untap another target creature you control. If that creature is a Bear, put a +1/+1 counter on it.",
+      "keywords": [
+        "Flash"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e9ed1989-6177-4f16-bf70-f0c8ed770378",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/a/8a50858a-33b5-4c45-9c31-5956ae5a33a6.png?1785323276",
+        "large": "https://cards.scryfall.io/large/front/8/a/8a50858a-33b5-4c45-9c31-5956ae5a33a6.jpg?1785323276",
+        "normal": "https://cards.scryfall.io/normal/front/8/a/8a50858a-33b5-4c45-9c31-5956ae5a33a6.jpg?1785323276"
+      }
+    },
+    {
+      "id": "8bafeaa8-5e77-4303-b30a-23fd137b7c35",
+      "oracle_id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
+      "name": "Arcane Signet",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-03-08",
+      "set": "pip",
+      "set_name": "Fallout",
+      "set_type": "commander",
+      "collector_number": "224",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4f4b9ece-395e-46ca-938d-bd01fe830099",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/b/8bafeaa8-5e77-4303-b30a-23fd137b7c35.png?1783912349",
+        "large": "https://cards.scryfall.io/large/front/8/b/8bafeaa8-5e77-4303-b30a-23fd137b7c35.jpg?1783912349",
+        "normal": "https://cards.scryfall.io/normal/front/8/b/8bafeaa8-5e77-4303-b30a-23fd137b7c35.jpg?1783912349"
+      }
+    },
+    {
+      "id": "8c632984-5176-4c37-91df-6577cc294b85",
+      "oracle_id": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+      "name": "Evolving Wilds",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-01-23",
+      "set": "ecl",
+      "set_name": "Lorwyn Eclipsed",
+      "set_type": "expansion",
+      "collector_number": "264",
+      "rarity": "common",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "0a479b9c-586f-4e65-86bd-0349935b86cc",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.png?1783904395",
+        "large": "https://cards.scryfall.io/large/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.jpg?1783904395",
+        "normal": "https://cards.scryfall.io/normal/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.jpg?1783904395"
+      }
+    },
+    {
+      "id": "8d10a060-5abd-4982-996c-a8fc420e44ba",
+      "oracle_id": "34b93a66-de1e-4133-a479-e0d90ba94a3a",
+      "name": "Mutable Explorer",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-01-23",
+      "set": "ecl",
+      "set_name": "Lorwyn Eclipsed",
+      "set_type": "expansion",
+      "collector_number": "327",
+      "rarity": "rare",
+      "type_line": "Creature — Shapeshifter",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Changeling (This card is every creature type.)\nWhen this creature enters, create a tapped Mutavault token. (It's a land with \"{T}: Add {C}\" and \"{1}: This token becomes a 2/2 creature with all creature types until end of turn. It's still a land.\")",
+      "keywords": [
+        "Changeling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "showcase"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "f8c7e6a8-ff83-422f-a856-295e83a13f6a",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/d/8d10a060-5abd-4982-996c-a8fc420e44ba.png?1783904373",
+        "large": "https://cards.scryfall.io/large/front/8/d/8d10a060-5abd-4982-996c-a8fc420e44ba.jpg?1783904373",
+        "normal": "https://cards.scryfall.io/normal/front/8/d/8d10a060-5abd-4982-996c-a8fc420e44ba.jpg?1783904373"
+      }
+    },
+    {
+      "id": "917c5e37-c15e-4260-b380-f1c73df2bf41",
+      "oracle_id": "ec79255f-4b4d-4a0a-89d8-c59ba640275b",
+      "name": "Caller of the Claw",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2015-11-13",
+      "set": "c15",
+      "set_name": "Commander 2015",
+      "set_type": "commander",
+      "collector_number": "177",
+      "rarity": "rare",
+      "type_line": "Creature — Elf",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Flash\nWhen this creature enters, create a 2/2 green Bear creature token for each nontoken creature put into your graveyard from the battlefield this turn.",
+      "keywords": [
+        "Flash"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7a765bb4-09ca-4e7f-8137-9383fb828d2f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/1/917c5e37-c15e-4260-b380-f1c73df2bf41.png?1783938071",
+        "large": "https://cards.scryfall.io/large/front/9/1/917c5e37-c15e-4260-b380-f1c73df2bf41.jpg?1783938071",
+        "normal": "https://cards.scryfall.io/normal/front/9/1/917c5e37-c15e-4260-b380-f1c73df2bf41.jpg?1783938071"
+      }
+    },
+    {
+      "id": "94aff478-6040-4a13-be89-24e0edf1ffe5",
+      "oracle_id": "7cb9e29f-835f-4155-a2a5-4b778866c773",
+      "name": "Mosswort Bridge",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "307",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {G}.\n{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+      "keywords": [
+        "Hideaway"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "eaf15887-1d9f-48eb-9849-9b24ea9f3930",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/4/94aff478-6040-4a13-be89-24e0edf1ffe5.png?1789753447",
+        "large": "https://cards.scryfall.io/large/front/9/4/94aff478-6040-4a13-be89-24e0edf1ffe5.jpg?1789753447",
+        "normal": "https://cards.scryfall.io/normal/front/9/4/94aff478-6040-4a13-be89-24e0edf1ffe5.jpg?1789753447"
+      }
+    },
+    {
+      "id": "9b7a6ab5-8a8f-492c-8484-3089354ce8cf",
+      "oracle_id": "e6d13c0d-23ed-41f5-a726-f18d4bb44c9a",
+      "name": "Ashcoat Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2006-10-06",
+      "set": "tsp",
+      "set_name": "Time Spiral",
+      "set_type": "expansion",
+      "collector_number": "190",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)",
+      "keywords": [
+        "Flash"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2003",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "9922e3f4-000b-44bf-a3cf-a9dd2bb5db3f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/b/9b7a6ab5-8a8f-492c-8484-3089354ce8cf.png?1783943213",
+        "large": "https://cards.scryfall.io/large/front/9/b/9b7a6ab5-8a8f-492c-8484-3089354ce8cf.jpg?1783943213",
+        "normal": "https://cards.scryfall.io/normal/front/9/b/9b7a6ab5-8a8f-492c-8484-3089354ce8cf.jpg?1783943213"
+      }
+    },
+    {
+      "id": "9e3837a7-854a-440d-93d7-d36f50149346",
+      "oracle_id": "2a79c29c-e539-49c5-b10c-1d5fd77842c9",
+      "name": "Ulvenwald Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2012-02-03",
+      "set": "dka",
+      "set_name": "Dark Ascension",
+      "set_type": "expansion",
+      "collector_number": "129",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Morbid — When this creature enters, if a creature died this turn, put two +1/+1 counters on target creature.",
+      "keywords": [
+        "Morbid"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2003",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e4075e3f-0ba5-4e55-8aff-6d5bedf8c5c9",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/e/9e3837a7-854a-440d-93d7-d36f50149346.png?1783940802",
+        "large": "https://cards.scryfall.io/large/front/9/e/9e3837a7-854a-440d-93d7-d36f50149346.jpg?1783940802",
+        "normal": "https://cards.scryfall.io/normal/front/9/e/9e3837a7-854a-440d-93d7-d36f50149346.jpg?1783940802"
+      }
+    },
+    {
+      "id": "9e85f2ce-1910-41fa-9908-bdb14da123bb",
+      "oracle_id": "27e9db49-7af7-4bef-ad4c-bf5dfb92030d",
+      "name": "Fog",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-11-07",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "EMA-167",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}",
+      "oracle_text": "Prevent all combat damage that would be dealt this turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "04b4bb07-1571-49c6-855c-36b08c32c0d2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/e/9e85f2ce-1910-41fa-9908-bdb14da123bb.png?1783932016",
+        "large": "https://cards.scryfall.io/large/front/9/e/9e85f2ce-1910-41fa-9908-bdb14da123bb.jpg?1783932016",
+        "normal": "https://cards.scryfall.io/normal/front/9/e/9e85f2ce-1910-41fa-9908-bdb14da123bb.jpg?1783932016"
+      }
+    },
+    {
+      "id": "9fe8f2a7-70cd-41e9-b87d-16dc44c21537",
+      "oracle_id": "44661108-d72f-4d02-9303-7e4b0ecf7e9c",
+      "name": "Bear Umbra",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-09-08",
+      "set": "woc",
+      "set_name": "Wilds of Eldraine Commander",
+      "set_type": "commander",
+      "collector_number": "121",
+      "rarity": "rare",
+      "type_line": "Enchantment — Aura",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}{G}",
+      "oracle_text": "Enchant creature\nEnchanted creature gets +2/+2 and has \"Whenever this creature attacks, untap all lands you control.\"\nUmbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+      "keywords": [
+        "Umbra armor",
+        "Enchant"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "0c6d36e6-0c74-4bda-9be2-5cc7309c0a86",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/f/9fe8f2a7-70cd-41e9-b87d-16dc44c21537.png?1783914952",
+        "large": "https://cards.scryfall.io/large/front/9/f/9fe8f2a7-70cd-41e9-b87d-16dc44c21537.jpg?1783914952",
+        "normal": "https://cards.scryfall.io/normal/front/9/f/9fe8f2a7-70cd-41e9-b87d-16dc44c21537.jpg?1783914952"
+      }
+    },
+    {
+      "id": "a0e12f0e-ab41-4413-8b88-9bde907fab22",
+      "oracle_id": "376c9d3f-21d3-4251-bb6a-026fa9e1b0e1",
+      "name": "Skyshroud Claim",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "321",
+      "rarity": "common",
+      "type_line": "Sorcery",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}",
+      "oracle_text": "Search your library for up to two Forest cards, put them onto the battlefield, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "094f9ed1-fb65-403b-8bf6-c08ad55153e1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/0/a0e12f0e-ab41-4413-8b88-9bde907fab22.png?1783915621",
+        "large": "https://cards.scryfall.io/large/front/a/0/a0e12f0e-ab41-4413-8b88-9bde907fab22.jpg?1783915621",
+        "normal": "https://cards.scryfall.io/normal/front/a/0/a0e12f0e-ab41-4413-8b88-9bde907fab22.jpg?1783915621"
+      }
+    },
+    {
+      "id": "a5f3fddf-a82e-4297-8ee5-458981700d9e",
+      "oracle_id": "befb211f-37ca-4083-98d4-9ff1f28be3f2",
+      "name": "Goreclaw, Terror of Qal Sisma",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-04-21",
+      "set": "mul",
+      "set_name": "Multiverse Legends",
+      "set_type": "masterpiece",
+      "collector_number": "27",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Bear",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}",
+      "oracle_text": "Creature spells you cast with power 4 or greater cost {2} less to cast.\nWhenever Goreclaw attacks, each creature you control with power 4 or greater gets +1/+1 and gains trample until end of turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "showcase",
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "552dcdf5-d17d-4931-a03a-25439b7111f5",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/5/a5f3fddf-a82e-4297-8ee5-458981700d9e.png?1783916869",
+        "large": "https://cards.scryfall.io/large/front/a/5/a5f3fddf-a82e-4297-8ee5-458981700d9e.jpg?1783916869",
+        "normal": "https://cards.scryfall.io/normal/front/a/5/a5f3fddf-a82e-4297-8ee5-458981700d9e.jpg?1783916869"
+      }
+    },
+    {
+      "id": "a78584e8-bb82-4977-a27d-68b1befe9b3b",
+      "oracle_id": "78826359-fe63-44ad-adc4-a17ffcd710e4",
+      "name": "Nature's Lore",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "904",
+      "rarity": "common",
+      "type_line": "Sorcery",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e29c8506-e58a-4bdf-8d52-8d5a6b5dd75c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/7/a78584e8-bb82-4977-a27d-68b1befe9b3b.png?1783915421",
+        "large": "https://cards.scryfall.io/large/front/a/7/a78584e8-bb82-4977-a27d-68b1befe9b3b.jpg?1783915421",
+        "normal": "https://cards.scryfall.io/normal/front/a/7/a78584e8-bb82-4977-a27d-68b1befe9b3b.jpg?1783915421"
+      }
+    },
+    {
+      "id": "a8d5dca6-381a-4361-b265-27de8d04335c",
+      "oracle_id": "d5770b0f-4493-42e9-a2d7-0e74a28da4ba",
+      "name": "The Earth King",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2025-11-21",
+      "set": "tla",
+      "set_name": "Avatar: The Last Airbender",
+      "set_type": "expansion",
+      "collector_number": "172",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Human Noble Ally",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}",
+      "oracle_text": "When The Earth King enters, create a 4/4 green Bear creature token.\nWhenever one or more creatures you control with power 4 or greater attack, search your library for up to that many basic land cards, put them onto the battlefield tapped, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "27f38611-9d82-484c-8a99-dd9da122abfd",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/8/a8d5dca6-381a-4361-b265-27de8d04335c.png?1783904945",
+        "large": "https://cards.scryfall.io/large/front/a/8/a8d5dca6-381a-4361-b265-27de8d04335c.jpg?1783904945",
+        "normal": "https://cards.scryfall.io/normal/front/a/8/a8d5dca6-381a-4361-b265-27de8d04335c.jpg?1783904945"
+      }
+    },
+    {
+      "id": "ac906fdc-a871-4bf8-8b23-6baed64926c6",
+      "oracle_id": "d1d171de-1c6d-4fb9-817a-9c689c709f3d",
+      "name": "Shamanic Revelation",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-08-23",
+      "set": "c19",
+      "set_name": "Commander 2019",
+      "set_type": "commander",
+      "collector_number": "180",
+      "rarity": "rare",
+      "type_line": "Sorcery",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{3}{G}{G}",
+      "oracle_text": "Draw a card for each creature you control.\nFerocious — You gain 4 life for each creature you control with power 4 or greater.",
+      "keywords": [
+        "Ferocious"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "3482958c-8362-4be7-9dcb-48f1609d2c1d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/c/ac906fdc-a871-4bf8-8b23-6baed64926c6.png?1783932739",
+        "large": "https://cards.scryfall.io/large/front/a/c/ac906fdc-a871-4bf8-8b23-6baed64926c6.jpg?1783932739",
+        "normal": "https://cards.scryfall.io/normal/front/a/c/ac906fdc-a871-4bf8-8b23-6baed64926c6.jpg?1783932739"
+      }
+    },
+    {
+      "id": "aca10c34-010a-4a9f-a747-2592c4d58c5d",
+      "oracle_id": "de75e5dd-8a52-406c-b55c-96d686885500",
+      "name": "Castle Garenbrig",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-10-04",
+      "set": "eld",
+      "set_name": "Throne of Eldraine",
+      "set_type": "expansion",
+      "collector_number": "388",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped unless you control a Forest.\n{T}: Add {G}.\n{2}{G}{G}, {T}: Add six {G}. Spend this mana only to cast creature spells or activate abilities of creatures.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "extendedart"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "01d1e1c4-3751-4551-bf6e-6974d5bca502",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/c/aca10c34-010a-4a9f-a747-2592c4d58c5d.png?1783932522",
+        "large": "https://cards.scryfall.io/large/front/a/c/aca10c34-010a-4a9f-a747-2592c4d58c5d.jpg?1783932522",
+        "normal": "https://cards.scryfall.io/normal/front/a/c/aca10c34-010a-4a9f-a747-2592c4d58c5d.jpg?1783932522"
+      }
+    },
+    {
+      "id": "ad7eac9d-31e3-480e-92fa-58458d6f83b2",
+      "oracle_id": "a79d2fc8-467f-464d-9e73-2dae4b059628",
+      "name": "Ayula, Queen Among Bears",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2021-06-18",
+      "set": "h1r",
+      "set_name": "Modern Horizons 1 Timeshifts",
+      "set_type": "draft_innovation",
+      "collector_number": "19",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Whenever another Bear you control enters, choose one —\n• Put two +1/+1 counters on target Bear.\n• Target Bear you control fights target creature you don't control.",
+      "keywords": [
+        "Fight"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1997",
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "5afa7c7e-8064-4b9b-9b00-18c122fa356d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/d/ad7eac9d-31e3-480e-92fa-58458d6f83b2.png?1783926905",
+        "large": "https://cards.scryfall.io/large/front/a/d/ad7eac9d-31e3-480e-92fa-58458d6f83b2.jpg?1783926905",
+        "normal": "https://cards.scryfall.io/normal/front/a/d/ad7eac9d-31e3-480e-92fa-58458d6f83b2.jpg?1783926905"
+      }
+    },
+    {
+      "id": "b0506e30-ed0d-4838-97b1-55900ad633b5",
+      "oracle_id": "1593ea18-2f2f-4ab4-83fb-6ccc0bec8a90",
+      "name": "Kodama's Reach",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "649",
+      "rarity": "common",
+      "type_line": "Sorcery — Arcane",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "01b04a61-6fa2-45e5-be81-3a613d1d5ed2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/0/b0506e30-ed0d-4838-97b1-55900ad633b5.png?1783915507",
+        "large": "https://cards.scryfall.io/large/front/b/0/b0506e30-ed0d-4838-97b1-55900ad633b5.jpg?1783915507",
+        "normal": "https://cards.scryfall.io/normal/front/b/0/b0506e30-ed0d-4838-97b1-55900ad633b5.jpg?1783915507"
+      }
+    },
+    {
+      "id": "b0d58d50-875c-498e-bdde-ffda391ce839",
+      "oracle_id": "d683024d-8fe7-4509-851b-7655fadc1de7",
+      "name": "Emerald Medallion",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-06-14",
+      "set": "mh3",
+      "set_name": "Modern Horizons 3",
+      "set_type": "draft_innovation",
+      "collector_number": "345",
+      "rarity": "rare",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "Green spells you cast cost {1} less to cast.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "14095a27-cc4f-44d0-ad4f-7a0ece370300",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/0/b0d58d50-875c-498e-bdde-ffda391ce839.png?1783911193",
+        "large": "https://cards.scryfall.io/large/front/b/0/b0d58d50-875c-498e-bdde-ffda391ce839.jpg?1783911193",
+        "normal": "https://cards.scryfall.io/normal/front/b/0/b0d58d50-875c-498e-bdde-ffda391ce839.jpg?1783911193"
+      }
+    },
+    {
+      "id": "b299d768-b171-47e5-b69d-82ce13917c43",
+      "oracle_id": "65c32889-3d70-449f-af76-05385c78c5a9",
+      "name": "Evercoat Ursine",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "blc",
+      "set_name": "Bloomburrow Commander",
+      "set_type": "commander",
+      "collector_number": "30",
+      "rarity": "rare",
+      "type_line": "Creature — Elemental Bear",
+      "cmc": 5,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{4}{G}",
+      "oracle_text": "Trample\nHideaway 3, hideaway 3 (When this creature enters, look at the top three cards of your library, exile one face down, then put the rest on the bottom in a random order. Then do it again.)\nWhenever this creature deals combat damage to a player, if there are cards exiled with it, you may play one of them without paying its mana cost.",
+      "keywords": [
+        "Trample",
+        "Hideaway"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "dd6778c0-df88-4800-be32-8bfb2d830f4d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/2/b299d768-b171-47e5-b69d-82ce13917c43.png?1783910727",
+        "large": "https://cards.scryfall.io/large/front/b/2/b299d768-b171-47e5-b69d-82ce13917c43.jpg?1783910727",
+        "normal": "https://cards.scryfall.io/normal/front/b/2/b299d768-b171-47e5-b69d-82ce13917c43.jpg?1783910727"
+      }
+    },
+    {
+      "id": "b841bfa8-7c17-4df2-8466-780ab9a4a53a",
+      "oracle_id": "0c85b8f7-0bd0-4680-9ec5-d4b110460a54",
+      "name": "Fabled Passage",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-10-04",
+      "set": "eld",
+      "set_name": "Throne of Eldraine",
+      "set_type": "expansion",
+      "collector_number": "244",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ef88ab15-30ec-4dbc-874f-713d34867ac0",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/8/b841bfa8-7c17-4df2-8466-780ab9a4a53a.png?1783932578",
+        "large": "https://cards.scryfall.io/large/front/b/8/b841bfa8-7c17-4df2-8466-780ab9a4a53a.jpg?1783932578",
+        "normal": "https://cards.scryfall.io/normal/front/b/8/b841bfa8-7c17-4df2-8466-780ab9a4a53a.jpg?1783932578"
+      }
+    },
+    {
+      "id": "bd0bf74e-14c1-4428-88d8-2181a080b5d0",
+      "oracle_id": "5748ebf1-24e3-499d-ab7c-c2cebd462a24",
+      "name": "Giant Growth",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-11-15",
+      "set": "fdn",
+      "set_name": "Foundations",
+      "set_type": "core",
+      "collector_number": "223",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}",
+      "oracle_text": "Target creature gets +3/+3 until end of turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "beginnerbox",
+        "startercollection"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ee1355e2-23a9-4cc5-9543-750100de724e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/d/bd0bf74e-14c1-4428-88d8-2181a080b5d0.png?1783909057",
+        "large": "https://cards.scryfall.io/large/front/b/d/bd0bf74e-14c1-4428-88d8-2181a080b5d0.jpg?1783909057",
+        "normal": "https://cards.scryfall.io/normal/front/b/d/bd0bf74e-14c1-4428-88d8-2181a080b5d0.jpg?1783909057"
+      }
+    },
+    {
+      "id": "c0cdeaba-fc21-44e6-bf99-aa1ff379401b",
+      "oracle_id": "72deedab-7c17-4505-aeca-4bc8596d80a5",
+      "name": "Tribute to the World Tree",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-04-21",
+      "set": "mom",
+      "set_name": "March of the Machine",
+      "set_type": "expansion",
+      "collector_number": "211",
+      "rarity": "rare",
+      "type_line": "Enchantment",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}{G}{G}",
+      "oracle_text": "Whenever a creature you control enters, draw a card if its power is 3 or greater. Otherwise, put two +1/+1 counters on it.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b85b65fc-23a3-46e4-819b-fd7ea1f9f16b",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/0/c0cdeaba-fc21-44e6-bf99-aa1ff379401b.png?1783916960",
+        "large": "https://cards.scryfall.io/large/front/c/0/c0cdeaba-fc21-44e6-bf99-aa1ff379401b.jpg?1783916960",
+        "normal": "https://cards.scryfall.io/normal/front/c/0/c0cdeaba-fc21-44e6-bf99-aa1ff379401b.jpg?1783916960"
+      }
+    },
+    {
+      "id": "cb40eff5-e444-4572-a25f-ff7ddfb4f13e",
+      "oracle_id": "d740dbd9-8e90-4121-8d53-c6ddf5178d58",
+      "name": "Chomping Changeling",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-11-09",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "ECL-172",
+      "rarity": "uncommon",
+      "type_line": "Creature — Shapeshifter",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Changeling (This card is every creature type.)\nWhen this creature enters, destroy up to one target artifact or enchantment.",
+      "keywords": [
+        "Changeling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4a35e979-c40a-4152-9c49-1bdafe40034d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/b/cb40eff5-e444-4572-a25f-ff7ddfb4f13e.png?1787680299",
+        "large": "https://cards.scryfall.io/large/front/c/b/cb40eff5-e444-4572-a25f-ff7ddfb4f13e.jpg?1787680299",
+        "normal": "https://cards.scryfall.io/normal/front/c/b/cb40eff5-e444-4572-a25f-ff7ddfb4f13e.jpg?1787680299"
+      }
+    },
+    {
+      "id": "d0dc39cc-c5ae-4e6e-ba31-f30841d49351",
+      "oracle_id": "0c92432d-ac76-47d2-af7a-fdffd4b546a2",
+      "name": "Owlbear Cub",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-06-10",
+      "set": "clb",
+      "set_name": "Commander Legends: Battle for Baldur's Gate",
+      "set_type": "draft_innovation",
+      "collector_number": "592",
+      "rarity": "rare",
+      "type_line": "Creature — Bird Bear",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Mama's Coming — Whenever this creature attacks a player who controls eight or more lands, look at the top eight cards of your library. You may put a creature card from among them onto the battlefield tapped and attacking that player. Put the rest on the bottom of your library in a random order.",
+      "keywords": [
+        "Mama's Coming"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "extendedart"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4af2e325-91a0-42f1-96d6-d8266c98786c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/0/d0dc39cc-c5ae-4e6e-ba31-f30841d49351.png?1783922554",
+        "large": "https://cards.scryfall.io/large/front/d/0/d0dc39cc-c5ae-4e6e-ba31-f30841d49351.jpg?1783922554",
+        "normal": "https://cards.scryfall.io/normal/front/d/0/d0dc39cc-c5ae-4e6e-ba31-f30841d49351.jpg?1783922554"
+      }
+    },
+    {
+      "id": "d24b6640-ef2f-4c92-beb3-afdf78f9c2d5",
+      "oracle_id": "6d4e558e-9109-4918-a082-fdcbaffd516b",
+      "name": "Nature's Claim",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2017-11-17",
+      "set": "ima",
+      "set_name": "Iconic Masters",
+      "set_type": "masters",
+      "collector_number": "177",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}",
+      "oracle_text": "Destroy target artifact or enchantment. Its controller gains 4 life.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "fd7eab73-271d-49a6-a99a-6cdda1108af8",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/2/d24b6640-ef2f-4c92-beb3-afdf78f9c2d5.png?1783935517",
+        "large": "https://cards.scryfall.io/large/front/d/2/d24b6640-ef2f-4c92-beb3-afdf78f9c2d5.jpg?1783935517",
+        "normal": "https://cards.scryfall.io/normal/front/d/2/d24b6640-ef2f-4c92-beb3-afdf78f9c2d5.jpg?1783935517"
+      }
+    },
+    {
+      "id": "d46d3ef7-b81f-42f4-9c1b-fa53f11eae65",
+      "oracle_id": "e88027a6-24cc-4a8b-86db-734f26149ea8",
+      "name": "Oran-Rief, the Vastwood",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-24",
+      "set": "soc",
+      "set_name": "Secrets of Strixhaven Commander",
+      "set_type": "commander",
+      "collector_number": "391",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\n{T}: Add {G}.\n{T}: Put a +1/+1 counter on each green creature that entered this turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "76a20bdd-443e-4a77-bfe4-8149db1a3625",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/4/d46d3ef7-b81f-42f4-9c1b-fa53f11eae65.png?1783903728",
+        "large": "https://cards.scryfall.io/large/front/d/4/d46d3ef7-b81f-42f4-9c1b-fa53f11eae65.jpg?1783903728",
+        "normal": "https://cards.scryfall.io/normal/front/d/4/d46d3ef7-b81f-42f4-9c1b-fa53f11eae65.jpg?1783903728"
+      }
+    },
+    {
+      "id": "d5ba6786-c812-4744-bb2e-f180010b18b7",
+      "oracle_id": "c02c5547-b9c9-4b2d-9d12-e87bfba8f2d2",
+      "name": "Herald's Horn",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "264",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 3,
+      "color_identity": [],
+      "mana_cost": "{3}",
+      "oracle_text": "As this artifact enters, choose a creature type.\nCreature spells you cast of the chosen type cost {1} less to cast.\nAt the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "839cb1cd-4571-4ccd-9be5-3be2251e4df3",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/5/d5ba6786-c812-4744-bb2e-f180010b18b7.png?1789753327",
+        "large": "https://cards.scryfall.io/large/front/d/5/d5ba6786-c812-4744-bb2e-f180010b18b7.jpg?1789753327",
+        "normal": "https://cards.scryfall.io/normal/front/d/5/d5ba6786-c812-4744-bb2e-f180010b18b7.jpg?1789753327"
+      }
+    },
+    {
+      "id": "d8662ebb-068b-41d2-b504-4b5854e4d4aa",
+      "oracle_id": "ed206651-3d9b-4546-8d45-0682817192fd",
+      "name": "Bear Cub",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-11-15",
+      "set": "fdn",
+      "set_name": "Foundations",
+      "set_type": "core",
+      "collector_number": "552",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "beginnerbox"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "808de0eb-5a0e-4b2a-bcd4-155059c9ecb3",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/8/d8662ebb-068b-41d2-b504-4b5854e4d4aa.png?1783908951",
+        "large": "https://cards.scryfall.io/large/front/d/8/d8662ebb-068b-41d2-b504-4b5854e4d4aa.jpg?1783908951",
+        "normal": "https://cards.scryfall.io/normal/front/d/8/d8662ebb-068b-41d2-b504-4b5854e4d4aa.jpg?1783908951"
+      }
+    },
+    {
+      "id": "d96b0f9e-fa3b-4a40-acea-b6ecc584a79f",
+      "oracle_id": "da3b17a2-e1e1-44e9-b9b1-ae54a92037db",
+      "name": "Three Tree City",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "blb",
+      "set_name": "Bloomburrow",
+      "set_type": "expansion",
+      "collector_number": "337",
+      "rarity": "rare",
+      "type_line": "Legendary Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "As Three Tree City enters, choose a creature type.\n{T}: Add {C}.\n{2}, {T}: Choose a color. Add an amount of mana of that color equal to the number of creatures you control of the chosen type.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "d65c2849-6432-48ed-8cf0-0713e5cf09f6",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/9/d96b0f9e-fa3b-4a40-acea-b6ecc584a79f.png?1783910758",
+        "large": "https://cards.scryfall.io/large/front/d/9/d96b0f9e-fa3b-4a40-acea-b6ecc584a79f.jpg?1783910758",
+        "normal": "https://cards.scryfall.io/normal/front/d/9/d96b0f9e-fa3b-4a40-acea-b6ecc584a79f.jpg?1783910758"
+      }
+    },
+    {
+      "id": "d9849b22-1fba-4f6a-bd94-df1bc1764e6b",
+      "oracle_id": "1e6a24be-8281-41c1-a5ba-b68f0ef1d7b8",
+      "name": "Snakeskin Veil",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2021-04-23",
+      "set": "sta",
+      "set_name": "Strixhaven Mystical Archive",
+      "set_type": "masterpiece",
+      "collector_number": "57",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}",
+      "oracle_text": "Put a +1/+1 counter on target creature you control. It gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "showcase"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "3edb1d20-5ed9-40f4-941f-7cc07f8a05dd",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/9/d9849b22-1fba-4f6a-bd94-df1bc1764e6b.png?1783927424",
+        "large": "https://cards.scryfall.io/large/front/d/9/d9849b22-1fba-4f6a-bd94-df1bc1764e6b.jpg?1783927424",
+        "normal": "https://cards.scryfall.io/normal/front/d/9/d9849b22-1fba-4f6a-bd94-df1bc1764e6b.jpg?1783927424"
+      }
+    },
+    {
+      "id": "dfe0daf8-43da-484b-baa1-76f8313c5a0c",
+      "oracle_id": "d2766fd7-5cf9-4037-9f34-9ae3982c613a",
+      "name": "Wilson, Refined Grizzly",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-06-10",
+      "set": "clb",
+      "set_name": "Commander Legends: Battle for Baldur's Gate",
+      "set_type": "draft_innovation",
+      "collector_number": "261",
+      "rarity": "uncommon",
+      "type_line": "Legendary Creature — Bear Warrior",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "This spell can't be countered.\nReach, vigilance, trample\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nChoose a Background (You can have a Background as a second commander.)",
+      "keywords": [
+        "Reach",
+        "Vigilance",
+        "Choose a background",
+        "Trample",
+        "Ward"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "beb985d1-e38f-4f77-944a-97a3ae27b0f1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/f/dfe0daf8-43da-484b-baa1-76f8313c5a0c.png?1783922700",
+        "large": "https://cards.scryfall.io/large/front/d/f/dfe0daf8-43da-484b-baa1-76f8313c5a0c.jpg?1783922700",
+        "normal": "https://cards.scryfall.io/normal/front/d/f/dfe0daf8-43da-484b-baa1-76f8313c5a0c.jpg?1783922700"
+      }
+    },
+    {
+      "id": "e32c67d1-187f-40df-b3b3-6036f5c92834",
+      "oracle_id": "24882fa2-3fe9-4c1b-aa3d-0e6488b9db27",
+      "name": "Heroic Intervention",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "295",
+      "rarity": "rare",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "Permanents you control gain hexproof and indestructible until end of turn.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "16b9c334-bec0-4911-aecf-93c420e4e53d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.png?1783915629",
+        "large": "https://cards.scryfall.io/large/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.jpg?1783915629",
+        "normal": "https://cards.scryfall.io/normal/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.jpg?1783915629"
+      }
+    },
+    {
+      "id": "ef5297cb-e763-4871-9cd3-0e2dbcc52095",
+      "oracle_id": "32c10a3e-85b0-49af-9b23-81d0b7e407df",
+      "name": "Balduvian Bears",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "1995-06-03",
+      "set": "ice",
+      "set_name": "Ice Age",
+      "set_type": "expansion",
+      "collector_number": "226",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1993",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a884ef63-3182-482d-9d58-b983c20340f4",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/f/ef5297cb-e763-4871-9cd3-0e2dbcc52095.png?1783947481",
+        "large": "https://cards.scryfall.io/large/front/e/f/ef5297cb-e763-4871-9cd3-0e2dbcc52095.jpg?1783947481",
+        "normal": "https://cards.scryfall.io/normal/front/e/f/ef5297cb-e763-4871-9cd3-0e2dbcc52095.jpg?1783947481"
+      }
+    },
+    {
+      "id": "efae4d84-8134-461a-a352-a5bdff7259a7",
+      "oracle_id": "fe742976-ef13-4c25-972f-254b1ed436de",
+      "name": "Mother Bear",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-06-14",
+      "set": "mh1",
+      "set_name": "Modern Horizons",
+      "set_type": "draft_innovation",
+      "collector_number": "171",
+      "rarity": "common",
+      "type_line": "Creature — Bear",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "{3}{G}{G}, Exile this card from your graveyard: Create two 2/2 green Bear creature tokens. Activate only as a sorcery.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7d6e080a-9367-4071-af11-e83656641ad0",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/f/efae4d84-8134-461a-a352-a5bdff7259a7.png?1783933094",
+        "large": "https://cards.scryfall.io/large/front/e/f/efae4d84-8134-461a-a352-a5bdff7259a7.jpg?1783933094",
+        "normal": "https://cards.scryfall.io/normal/front/e/f/efae4d84-8134-461a-a352-a5bdff7259a7.jpg?1783933094"
+      }
+    },
+    {
+      "id": "f847439f-a9b6-4a3c-abd1-76d54e0aed99",
+      "oracle_id": "3e39224c-72ce-4ecc-aa17-12c071ea1f3e",
+      "name": "Krosan Grip",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2021-04-23",
+      "set": "sta",
+      "set_name": "Strixhaven Mystical Archive",
+      "set_type": "masterpiece",
+      "collector_number": "53",
+      "rarity": "rare",
+      "type_line": "Instant",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{2}{G}",
+      "oracle_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nDestroy target artifact or enchantment.",
+      "keywords": [
+        "Split second"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "showcase"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "bf3a9bd9-3a7d-4f21-9baf-b9ad0a44b423",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/8/f847439f-a9b6-4a3c-abd1-76d54e0aed99.png?1783927424",
+        "large": "https://cards.scryfall.io/large/front/f/8/f847439f-a9b6-4a3c-abd1-76d54e0aed99.jpg?1783927424",
+        "normal": "https://cards.scryfall.io/normal/front/f/8/f847439f-a9b6-4a3c-abd1-76d54e0aed99.jpg?1783927424"
+      }
+    }
+  ],
+  "chosen": {
+    "arcane signet": "8bafeaa8-5e77-4303-b30a-23fd137b7c35",
+    "ashcoat bear": "9b7a6ab5-8a8f-492c-8484-3089354ce8cf",
+    "ayula, queen among bears": "ad7eac9d-31e3-480e-92fa-58458d6f83b2",
+    "balduvian bears": "ef5297cb-e763-4871-9cd3-0e2dbcc52095",
+    "bear cub": "d8662ebb-068b-41d2-b504-4b5854e4d4aa",
+    "bear umbra": "9fe8f2a7-70cd-41e9-b87d-16dc44c21537",
+    "beast within": "2baf505b-ea99-470b-ac87-fd4fb8f5f322",
+    "beorn the fierce": "367d5f8b-77ee-47f7-bc71-972d62c280a9",
+    "beorn, reluctant host": "804589b7-3ef9-473d-97cc-c61a2d41f70d",
+    "beorn's hospitality": "153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9",
+    "caller of the claw": "917c5e37-c15e-4260-b380-f1c73df2bf41",
+    "castle garenbrig": "aca10c34-010a-4a9f-a747-2592c4d58c5d",
+    "chomping changeling": "cb40eff5-e444-4572-a25f-ff7ddfb4f13e",
+    "cultivate": "56b34b52-7a67-44b4-82e7-2860729ba410",
+    "dancing from dark to dawn": "550cd0b6-ca61-4db7-9d20-0b68c48066f9",
+    "emerald medallion": "b0d58d50-875c-498e-bdde-ffda391ce839",
+    "evercoat ursine": "b299d768-b171-47e5-b69d-82ce13917c43",
+    "evolving wilds": "8c632984-5176-4c37-91df-6577cc294b85",
+    "fabled passage": "b841bfa8-7c17-4df2-8466-780ab9a4a53a",
+    "fog": "9e85f2ce-1910-41fa-9908-bdb14da123bb",
+    "forest": "5f533364-0f91-4e49-aaeb-83c4c1f6d316",
+    "garruk's uprising": "7931a072-b688-4a0b-a32e-9a2082738745",
+    "giant growth": "bd0bf74e-14c1-4428-88d8-2181a080b5d0",
+    "gigantic big bear": "7d6ece3d-8e7a-41ad-974f-3c9748de4825",
+    "goreclaw, terror of qal sisma": "a5f3fddf-a82e-4297-8ee5-458981700d9e",
+    "grizzly bears": "409f9b88-f03e-40b6-9883-68c14c37c0de",
+    "grizzly fate": "75d22bb3-824e-4699-8352-42392af307d1",
+    "herald's horn": "d5ba6786-c812-4744-bb2e-f180010b18b7",
+    "heroic intervention": "e32c67d1-187f-40df-b3b3-6036f5c92834",
+    "kodama's reach": "b0506e30-ed0d-4838-97b1-55900ad633b5",
+    "krosan grip": "f847439f-a9b6-4a3c-abd1-76d54e0aed99",
+    "large bear": "50202288-f433-4b56-8f60-349bda7b4f6b",
+    "little bear": "8a50858a-33b5-4c45-9c31-5956ae5a33a6",
+    "loot, the nexus": "3cfa4fc6-4d90-4576-a83f-6496c7f21104",
+    "lumra, bellow of the woods": "3d99587a-7fb1-41fc-b7ea-1178f9625081",
+    "masked vandal": "2ace8e69-7550-4c40-bf63-59cb95603391",
+    "mosswort bridge": "94aff478-6040-4a13-be89-24e0edf1ffe5",
+    "mother bear": "efae4d84-8134-461a-a352-a5bdff7259a7",
+    "mutable explorer": "8d10a060-5abd-4982-996c-a8fc420e44ba",
+    "mutavault": "52cc2f10-142d-4e6a-984e-b25f566cc960",
+    "myriad landscape": "5efb9b5a-f904-4934-9530-87d752eeae75",
+    "nature's claim": "d24b6640-ef2f-4c92-beb3-afdf78f9c2d5",
+    "nature's lore": "a78584e8-bb82-4977-a27d-68b1befe9b3b",
+    "necklace of girion": "67c30782-0d28-4ce7-ad5b-ffbffeb97584",
+    "oran-rief, the vastwood": "d46d3ef7-b81f-42f4-9c1b-fa53f11eae65",
+    "ordinary bear": "0feb9817-56e1-465a-851c-b2fe202aa8ae",
+    "overwhelming stampede": "2dd48f09-e9c7-4e93-b811-2158ae24c9fc",
+    "owlbear": "30e8a00f-8131-470d-8072-4c23b812281a",
+    "owlbear cub": "d0dc39cc-c5ae-4e6e-ba31-f30841d49351",
+    "patchwork banner": "205c527c-0055-4d2a-86b1-18d1c58a898d",
+    "path of ancestry": "06869588-eb99-43b4-9521-948ca9f27c3e",
+    "radagast of rhosgobel": "3ea01785-add0-487d-b708-5bbf71033899",
+    "ram through": "33516226-4b97-4cd1-a47f-a9b40631daea",
+    "rampaging yao guai": "63619236-a27a-4fdd-add6-7a295901f906",
+    "return of the wildspeaker": "2fa1dac5-51ba-403e-b48b-d2c0d23a8146",
+    "roaming throne": "32fd8b7c-baf3-4d3d-be6f-044a917b11a0",
+    "rogue's passage": "4493b62b-f354-47ff-9dcf-cc6e29de77c6",
+    "runeclaw bear": "558f5534-3a21-4f8d-89e1-c972dc018f35",
+    "shamanic revelation": "ac906fdc-a871-4bf8-8b23-6baed64926c6",
+    "skyshroud claim": "a0e12f0e-ab41-4413-8b88-9bde907fab22",
+    "snakeskin veil": "d9849b22-1fba-4f6a-bd94-df1bc1764e6b",
+    "sol ring": "880711b0-da06-4c4f-aa4e-1be58fc0bc67",
+    "studious first-year": "24f888dd-785c-4089-a89c-03f9080130ed",
+    "surrak and goreclaw": "6031f855-a27c-459b-9126-bec909d84200",
+    "swiftfoot boots": "3e9b53da-4744-429d-97c6-f7ee4d568731",
+    "the earth king": "a8d5dca6-381a-4361-b265-27de8d04335c",
+    "three tree city": "d96b0f9e-fa3b-4a40-acea-b6ecc584a79f",
+    "three visits": "07e40ddc-0483-4a2e-a776-807b37bada7f",
+    "titania's command": "753567c7-c484-4c0d-8128-7710e23c428f",
+    "tribute to the world tree": "c0cdeaba-fc21-44e6-bf99-aa1ff379401b",
+    "ulvenwald bear": "9e3837a7-854a-440d-93d7-d36f50149346",
+    "vastlands scavenger": "476b6a4d-cc05-4e98-8a45-a5c6582ec514",
+    "vivien's grizzly": "683084e1-e6c4-4bf4-8355-395f841c1694",
+    "werebear": "82d503c7-d392-4fab-aace-26b3c8afa888",
+    "wilson, refined grizzly": "dfe0daf8-43da-484b-baa1-76f8313c5a0c"
+  }
+}

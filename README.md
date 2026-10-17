@@ -4,9 +4,10 @@ A local-first Magic: the Gathering proxy print-sheet generator — a CLI that tu
 decklist into a print-ready PDF at true card size, a web app for browsing and tweaking,
 and a plain-file collection tracker so you only proxy the cards you don't already own.
 
-> **Status:** M3 complete — everything works from the CLI, and the web app runs the
-> same engine in the browser. Next is `mtgproxy serve`, which lets the web app read and
-> write the CLI's files. See [docs/PLAN.md](docs/PLAN.md) for the full architecture.
+> **Status:** M4 complete — everything works from the CLI, the web app runs the same
+> engine in the browser, and `mtgproxy serve` lets that app read and write the CLI's
+> own files, decklists included. Next is bulk-data ingestion and the Pages deploy.
+> See [docs/PLAN.md](docs/PLAN.md) for the full architecture.
 
 ## Install
 
@@ -103,6 +104,14 @@ On the **Print** tab you can paste a decklist, see every card resolved with
 owned/missing badges, click any card to browse and pick a different printing, and
 download the PDF — all generated in the browser by the same code the CLI runs.
 
+On a **deck** page the same picker is behind each card's *art* link, and the choice is
+kept. A pin is written into the decklist itself as `1 Sol Ring (LTC) 284`, because that
+file is what gets committed, diffed and pasted elsewhere — so a pin set in the browser
+is a pin the CLI obeys, and one typed by hand shows up in the browser. Under
+`mtgproxy serve` the rewrite lands in `examples/<deck>.txt`; without it, the same
+overlay is kept in your browser and applied in memory, leaving the repository alone.
+The line under the deck title always says which of the two you are getting.
+
 The app works entirely offline of any backend. It stores your collection and
 preferences in the browser (IndexedDB). The **Collection** tab imports a ManaBox CSV
 export or a `collection.json` — choosing whether to add to or replace what is there, and
@@ -120,6 +129,20 @@ so changing a preference produces a fresh resolution instead of a stale hit.
 When Scryfall rate-limits a request or the connection drops, the app waits and retries
 rather than losing a long resolution, and says so on screen instead of appearing to
 hang. If it does fail, **Try again** re-runs it and bypasses the cache.
+
+## Serving the app against your own files
+
+```bash
+mtgproxy serve                    # http://127.0.0.1:5174
+mtgproxy serve --port 8080 --decks ~/decks
+mtgproxy serve --site apps/web/dist   # serve a built app too, one process
+```
+
+It binds the loopback interface, because it writes to your collection, your config and
+your decklists and nothing about it belongs on a network. In development run the web app
+with `pnpm --filter @mtgproxy/web dev` and it proxies `/api` here; the app probes
+`/api/health` at boot and falls back to browser storage when nothing answers, which is
+exactly what a static deployment gets.
 
 ## Stored card data
 

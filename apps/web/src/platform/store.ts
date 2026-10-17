@@ -1,10 +1,14 @@
 import {
   emptyCollection,
   emptyConfig,
+  normalizeName,
   parseCollection,
   parseConfig,
   type Collection,
   type Config,
+  type DeckPin,
+  type DeckPinOverlay,
+  type DeckPins,
 } from '@mtgproxy/core';
 import { idbGet, idbSet } from './idb.js';
 
@@ -24,6 +28,30 @@ export interface DataStore {
   saveCollection(collection: Collection): Promise<void>;
   loadConfig(): Promise<Config>;
   saveConfig(config: Config): Promise<void>;
+  /** Pinned printings for every deck, keyed by deck id. */
+  loadDeckPins(): Promise<AllDeckPins>;
+  /** Pin one card in one deck, or clear it with `null`. */
+  saveDeckPin(deckId: string, cardName: string, pin: DeckPin | null): Promise<void>;
+  /** What saving a pin actually does here, for the UI to say out loud. */
+  readonly pinTarget: string;
+}
+
+/** Deck id -> the pins layered over that deck's list. */
+export type AllDeckPins = Record<string, DeckPinOverlay>;
+
+/** Apply one pin to a map without mutating it. */
+export function withPin(
+  all: AllDeckPins,
+  deckId: string,
+  cardName: string,
+  pin: DeckPin | null,
+): AllDeckPins {
+  const key = normalizeName(cardName);
+  // A cleared pin is stored as null rather than dropped: with no server, the
+  // decklist still names a printing, and only an explicit null overrides it.
+  const deck: Record<string, DeckPin | null> = { ...(all[deckId] ?? {}) };
+  deck[key] = pin;
+  return { ...all, [deckId]: deck };
 }
 
 export class BrowserStore implements DataStore {
@@ -59,9 +87,23 @@ export class BrowserStore implements DataStore {
   async saveConfig(config: Config): Promise<void> {
     await idbSet('data', 'config', config);
   }
+
+  async loadDeckPins(): Promise<AllDeckPins> {
+    const stored = await idbGet<AllDeckPins>('data', 'deckPins');
+    return stored?.value ?? {};
+  }
+
+  async saveDeckPin(deckId: string, cardName: string, pin: DeckPin | null): Promise<void> {
+    // Read-modify-write rather than holding a copy in the store: two tabs on
+    // the same deck would otherwise overwrite each other's pins wholesale.
+    const current = await this.loadDeckPins();
+    await idbSet('data', 'deckPins', withPin(current, deckId, cardName, pin));
+  }
+
+  readonly pinTarget = 'this browser';
 }
 
-/** Talks to the local API exposed by `mtgproxy serve` (wired up in M4). */
+/** Talks to the local API exposed by `mtgproxy serve`. */
 export class ServerStore implements DataStore {
   readonly kind = 'server' as const;
   readonly location: string;
@@ -94,6 +136,20 @@ export class ServerStore implements DataStore {
   async saveConfig(config: Config): Promise<void> {
     await this.request('/api/config', { method: 'PUT', body: JSON.stringify(config) });
   }
+
+  async loadDeckPins(): Promise<AllDeckPins> {
+    const body = await this.request<{ decks?: { id: string; pins: DeckPins }[] }>('/api/decks');
+    return Object.fromEntries((body.decks ?? []).map((deck) => [deck.id, deck.pins]));
+  }
+
+  async saveDeckPin(deckId: string, cardName: string, pin: DeckPin | null): Promise<void> {
+    await this.request(`/api/decks/${encodeURIComponent(deckId)}/pins`, {
+      method: 'PUT',
+      body: JSON.stringify({ name: cardName, pin }),
+    });
+  }
+
+  readonly pinTarget = 'the decklist files';
 }
 
 /**

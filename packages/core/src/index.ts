@@ -1,4 +1,5 @@
 export * from './decklist/parse.js';
+export * from './decklist/pin.js';
 export * from './scryfall/types.js';
 export * from './scryfall/client.js';
 export * from './scryfall/resolve.js';

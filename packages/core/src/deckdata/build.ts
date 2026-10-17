@@ -137,6 +137,13 @@ export function refreshDeckData(data: DeckData, fresh: readonly ScryfallCard[]):
   };
 }
 
+/** Is the stored card the printing this line pinned? */
+function sameFacePrinting(card: ScryfallCard, entry: DeckEntry): boolean {
+  if (card.set.toLowerCase() !== entry.set?.toLowerCase()) return false;
+  if (!entry.collectorNumber) return true;
+  return card.collector_number.toLowerCase() === entry.collectorNumber.toLowerCase();
+}
+
 export interface ApplyResult {
   result: ResolveResult;
   /** Entries the stored data did not cover; empty when it fully applied. */
@@ -174,7 +181,14 @@ export function resolveFromDeckData(
       missing.push(entry);
       continue;
     }
-    resolved.push({ entry, card, via: 'name' });
+    // A line that names a printing outranks whatever was stored. Without this
+    // check, editing a pin in the decklist would appear to do nothing for as
+    // long as a data file sat beside it, because the name still matched.
+    if (entry.set && !sameFacePrinting(card, entry)) {
+      missing.push(entry);
+      continue;
+    }
+    resolved.push({ entry, card, via: entry.set ? 'printing' : 'name' });
   }
 
   if (missing.length > 0) return null;

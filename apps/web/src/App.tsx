@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Collection, Config } from '@mtgproxy/core';
-import { detectStore, type DataStore } from './platform/store.js';
+import { detectStore, withPin, type AllDeckPins, type DataStore } from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
 import { DecksView } from './views/DecksView.js';
@@ -29,6 +29,7 @@ export function App() {
   const [store, setStore] = useState<DataStore | null>(null);
   const [collection, setCollection] = useState<Collection | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
+  const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -36,14 +37,18 @@ export function App() {
     // determines where everything is read from and written to for the session.
     void (async () => {
       const detected = await detectStore();
-      const [loadedCollection, loadedConfig] = await Promise.all([
+      const [loadedCollection, loadedConfig, loadedPins] = await Promise.all([
         detected.loadCollection(),
         detected.loadConfig(),
+        // Pins must not be able to keep the app from booting: a deck with no
+        // pins is the normal case, so an empty map is a fine answer.
+        detected.loadDeckPins().catch(() => ({}) as AllDeckPins),
       ]);
       if (cancelled) return;
       setStore(detected);
       setCollection(loadedCollection);
       setConfig(loadedConfig);
+      setDeckPins(loadedPins);
     })();
     return () => {
       cancelled = true;
@@ -51,11 +56,12 @@ export function App() {
   }, []);
 
   const state = useMemo<AppState | null>(() => {
-    if (!store || !collection || !config) return null;
+    if (!store || !collection || !config || !deckPins) return null;
     return {
       store,
       collection,
       config,
+      deckPins,
       // Persist first, then update state, so a failed write never leaves the UI
       // claiming a change that did not reach storage.
       saveCollection: async (next) => {
@@ -66,8 +72,12 @@ export function App() {
         await store.saveConfig(next);
         setConfig(next);
       },
+      saveDeckPin: async (deckId, cardName, pin) => {
+        await store.saveDeckPin(deckId, cardName, pin);
+        setDeckPins((current) => withPin(current ?? {}, deckId, cardName, pin));
+      },
     };
-  }, [store, collection, config]);
+  }, [store, collection, config, deckPins]);
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.

@@ -64,6 +64,67 @@ const PRINTING_RE = /\s*\(([A-Za-z0-9]{2,6})\)\s*([A-Za-z0-9★-]+)\s*$/;
 /** Arena appends foil/rarity markers such as `*F*`. */
 const TRAILING_MARKER_RE = /\s*\*[A-Za-z]\*\s*$/;
 
+/**
+ * One card line broken into its parts, or null when the line is not one.
+ *
+ * Exported so that code which *rewrites* a decklist — pinning a printing —
+ * splits lines with exactly the same rules the parser reads them by. A second
+ * copy of these regexes would be free to drift, and a drifted rewriter
+ * corrupts the file it is editing.
+ */
+export interface CardLineParts {
+  indent: string;
+  /** The quantity exactly as written, e.g. `26 ` or `1x `; '' when absent. */
+  quantityText: string;
+  quantity: number;
+  /** The card name as written, with no printing suffix. */
+  name: string;
+  set?: string;
+  collectorNumber?: string;
+  /** Whitespace between the card text and any trailing comment. */
+  gap: string;
+  /** A trailing `# ...` comment, kept so a rewrite does not discard it. */
+  comment: string;
+}
+
+export function splitCardLine(raw: string): CardLineParts | null {
+  const body = stripComment(raw);
+  if (body.trim() === '') return null;
+  const comment = raw.slice(body.length);
+
+  const indent = body.match(/^\s*/)?.[0] ?? '';
+  // Kept so that `1 Forest # note` does not come back as `1 Forest# note`.
+  const gap = body.slice(body.trimEnd().length);
+  let working = body.trim();
+
+  // Section headers name no card, in either the bare or the labelled form.
+  if (SECTION_HEADERS.has(working.replace(/[:\s]+$/, '').toLowerCase())) return null;
+  const labelled = working.match(/^([A-Za-z]+)\s*:\s*(.+)$/);
+  if (labelled && SECTION_HEADERS.has((labelled[1] ?? '').toLowerCase())) return null;
+
+  working = working.replace(TRAILING_MARKER_RE, '');
+
+  let set: string | undefined;
+  let collectorNumber: string | undefined;
+  const printing = working.match(PRINTING_RE);
+  if (printing) {
+    set = (printing[1] ?? '').toLowerCase();
+    collectorNumber = printing[2];
+    working = working.slice(0, printing.index).trim();
+  }
+
+  const match = working.match(/^(?:(\d+)\s*[xX]?\s+)?(.*?)\s*$/);
+  const name = (match?.[2] ?? '').trim();
+  if (name === '') return null;
+  const quantity = match?.[1] ? Number.parseInt(match[1], 10) : 1;
+  if (!Number.isFinite(quantity) || quantity < 1) return null;
+
+  // Everything the quantity consumed, so a rewrite reproduces `1x ` as written.
+  const quantityText = match?.[1] ? working.slice(0, working.length - name.length) : '';
+
+  return { indent, quantityText, quantity, name, set, collectorNumber, gap, comment };
+}
+
 function stripComment(line: string): string {
   // `//` is also the double-faced card separator, so only treat it as a comment
   // when it starts the line.

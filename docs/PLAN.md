@@ -203,8 +203,29 @@ At boot the app probes `GET /api/health`.
 The UI is identical either way, because both satisfy `CollectionStore`. Three views:
 **Print** (paste, resolve, owned/missing badges, options, in-browser PDF download),
 **Collection** (searchable table, autocomplete add, import/export), and **Deck** (drop a
-skill `.md`, see the diff). The server is a small localhost-bound Hono app serving the
-static build plus `/api/collection`.
+skill `.md`, see the diff). The server is a small localhost-bound app serving the
+static build plus `/api/collection`, `/api/config` and `/api/decks` — built on
+`node:http` in the end rather than Hono, because six routes did not justify a
+dependency in a tool whose appeal is that it runs straight from a checkout.
+
+### Pinning a printing from the UI
+
+The deck view's picker writes its choice into the decklist as `(SET) NUM` —
+the list is the source of truth, so a pin is a text rewrite and resolution, the
+cache key and the PDF all follow without knowing pins exist. Under
+`mtgproxy serve` that rewrite reaches `examples/<deck>.txt`; with no server the
+same overlay is kept in IndexedDB and applied to the text in memory. One code
+path, and the only difference is whether it lands on disk.
+
+An overlay entry of `null` means *explicitly unpinned*, which absence cannot
+express: the file may already name a printing, so removing one has to be
+recorded rather than forgotten.
+
+**Found while building it:** `resolveFromDeckData` matched stored cards by name
+alone, so editing a pin did nothing for as long as a `.cards.json` sat beside
+the deck — the stale printing kept winning. It now refuses stored data that
+contradicts a line's explicit printing, which is what lets a pin take effect
+without a re-sync.
 
 ## 8. Milestones
 
@@ -213,8 +234,8 @@ static build plus `/api/collection`.
 | M1 | done | Scaffold, parser, Scryfall client, layout, PDF, `mtgproxy print` — end-to-end printable deck |
 | M2 | done | Collection file and commands, diff, `--missing-only`, preference engine, profiles, `prints` / `pin` / `prefs` |
 | M3 | done | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
-| M4 | next | `mtgproxy serve` and disk-backed collection sync |
-| M5 | | CSV importers, bulk-data ingestion, Pages deploy |
+| M4 | done | `mtgproxy serve`, disk-backed collection sync, and pinning printings from the deck view |
+| M5 | next | CSV importers, bulk-data ingestion, Pages deploy |
 
 Designs for work beyond these — Moxfield export, mana curve, deck brackets and
 Pages hosting — live in [ROADMAP.md](ROADMAP.md).

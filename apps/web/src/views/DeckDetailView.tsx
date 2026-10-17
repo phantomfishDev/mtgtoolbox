@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
+  applyPins,
   assessBracket,
   diffDeck,
   manaCurve,
   normalizeName,
+  readPins,
   type ResolveResult,
   type ResolvedCard,
   type ScryfallCard,
@@ -20,6 +22,7 @@ import {
   type CardCategory,
 } from '../resolve.js';
 import { BracketPanel } from '../components/BracketPanel.js';
+import { PrintingPicker } from '../components/PrintingPicker.js';
 import { ManaCurveChart } from '../components/ManaCurveChart.js';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
@@ -40,11 +43,14 @@ export function DeckDetailView({
   onBack: () => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { collection, config } = useApp();
+  const { collection, config, deckPins, saveDeckPin, store } = useApp();
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [busy, setBusy] = useState<string | null>('Loading');
   const [error, setError] = useState<string | null>(null);
   const [zoomed, setZoomed] = useState<ScryfallCard | null>(null);
+  /** The card whose printing is being chosen; null when the picker is shut. */
+  const [picking, setPicking] = useState<ScryfallCard | null>(null);
+  const [pinError, setPinError] = useState<string | null>(null);
   /** Bumped to force a fresh resolution, bypassing the cache. */
   const [reloadToken, setReloadToken] = useState(0);
   const retryNotice = useRetryNotice();
@@ -52,13 +58,35 @@ export function DeckDetailView({
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
   const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
 
+  const overlay = useMemo(() => deckPins[deck.id] ?? {}, [deckPins, deck.id]);
+
+  /**
+   * The decklist with this deck's pins applied.
+   *
+   * Pins are expressed as `(SET) NUM` in the list itself, so applying them is a
+   * text rewrite and everything downstream — resolution, the cache key, the
+   * PDF — follows without knowing pins exist. Under `mtgproxy serve` the file
+   * on disk already says this; re-applying it is a no-op, which is what keeps
+   * the two modes identical.
+   */
+  const text = useMemo(() => applyPins(deck.text, overlay), [deck.text, overlay]);
+
+  /**
+   * What is pinned, read back off the list rather than off the overlay.
+   *
+   * The list is the source of truth, and it arrives already carrying pins that
+   * were set in a previous session or typed by hand. Counting only this
+   * session's overlay would report a fully pinned deck as having none.
+   */
+  const pins = useMemo(() => readPins(text), [text]);
+
   useEffect(() => {
     let cancelled = false;
     setResult(null);
     setError(null);
     setBusy('Loading');
 
-    resolveText(deck.text, {
+    resolveText(text, {
       profile,
       collection,
       config,
@@ -81,7 +109,7 @@ export function DeckDetailView({
     return () => {
       cancelled = true;
     };
-  }, [deck.text, profile, collection, config, ownedKeys, reloadToken]);
+  }, [text, profile, collection, config, ownedKeys, reloadToken]);
 
   const diff = useMemo(
     () => (result ? diffDeck(result.resolved, collection, { assumeBasics: true }) : null),
@@ -110,8 +138,31 @@ export function DeckDetailView({
     }));
   }, [result, commanderNames]);
 
+  /**
+   * Save a pin, or clear it.
+   *
+   * The write is awaited before the picker closes so that a failure — a server
+   * that stopped, a read-only file — is reported rather than leaving the UI
+   * showing a choice that never landed.
+   */
+  const pin = async (cardName: string, choice: ScryfallCard | null): Promise<void> => {
+    setPinError(null);
+    try {
+      await saveDeckPin(
+        deck.id,
+        cardName,
+        choice ? { set: choice.set.toLowerCase(), collectorNumber: choice.collector_number } : null,
+      );
+      setPicking(null);
+      setZoomed(null);
+    } catch (cause: unknown) {
+      setPinError(cause instanceof Error ? cause.message : String(cause));
+    }
+  };
+
   const total = result?.resolved.reduce((sum, item) => sum + item.entry.quantity, 0) ?? 0;
   const curve = useMemo(() => (result ? manaCurve(result.resolved) : null), [result]);
+  const pinCount = Object.keys(pins).length;
   const bracket = useMemo(() => (result ? assessBracket(result.resolved) : null), [result]);
 
   return (
@@ -139,6 +190,17 @@ export function DeckDetailView({
                 </span>
               </>
             )}
+            {pinCount > 0 && (
+              <>
+                <span>&middot;</span>
+                <span>
+                  {pinCount} pinned printing{pinCount === 1 ? '' : 's'}
+                </span>
+              </>
+            )}
+          </p>
+          <p className="mt-1 text-xs text-muted">
+            Click a card to change its printing. Pins are saved to {store.pinTarget}.
           </p>
         </div>
         <Button variant="primary" onClick={() => onPrint(deck)}>
@@ -159,6 +221,12 @@ export function DeckDetailView({
           <div className="mt-3">
             <Button onClick={() => setReloadToken((n) => n + 1)}>Try again</Button>
           </div>
+        </Panel>
+      )}
+
+      {pinError && (
+        <Panel className="border-amber-500/40">
+          <p className="text-sm text-amber-600">Could not save that pin: {pinError}</p>
         </Panel>
       )}
 
@@ -206,14 +274,38 @@ export function DeckDetailView({
                 key={`${item.card.id}-${item.entry.line}`}
                 item={item}
                 missing={diff?.rows.find((row) => row.card.id === item.card.id)?.missing ?? 0}
+                pinned={pins[normalizeName(item.card.name)] !== undefined}
                 onZoom={() => setZoomed(item.card)}
+                onChangePrinting={() => setPicking(item.card)}
               />
             ))}
           </div>
         </section>
       ))}
 
-      {zoomed && <Lightbox card={zoomed} onClose={() => setZoomed(null)} />}
+      {zoomed && (
+        <Lightbox
+          card={zoomed}
+          pinned={pins[normalizeName(zoomed.name)] !== undefined}
+          onChangePrinting={() => {
+            setPicking(zoomed);
+            setZoomed(null);
+          }}
+          onUnpin={() => void pin(zoomed.name, null)}
+          onClose={() => setZoomed(null)}
+        />
+      )}
+
+      {picking && (
+        <PrintingPicker
+          card={picking}
+          profile={profile}
+          ownedKeys={ownedKeys}
+          scope={`every copy in ${deck.name}`}
+          onPick={(chosen) => void pin(picking.name, chosen)}
+          onClose={() => setPicking(null)}
+        />
+      )}
     </div>
   );
 }
@@ -221,11 +313,15 @@ export function DeckDetailView({
 function CardTile({
   item,
   missing,
+  pinned,
   onZoom,
+  onChangePrinting,
 }: {
   item: ResolvedCard;
   missing: number;
+  pinned: boolean;
   onZoom: () => void;
+  onChangePrinting: () => void;
 }) {
   const image = item.card.image_uris?.normal ?? item.card.card_faces?.[0]?.image_uris?.normal;
   return (
@@ -258,16 +354,46 @@ function CardTile({
             owned
           </span>
         )}
+        {pinned && (
+          <span
+            title={`Pinned to ${item.card.set.toUpperCase()} ${item.card.collector_number}`}
+            className="absolute bottom-1 left-1 rounded bg-accent/90 px-1 py-0.5 text-[10px] font-semibold text-surface"
+          >
+            pinned
+          </span>
+        )}
       </button>
-      <p className="truncate text-[11px] text-muted" title={item.card.name}>
-        {item.card.name}
-      </p>
+      <div className="flex items-baseline justify-between gap-1">
+        <p className="truncate text-[11px] text-muted" title={item.card.name}>
+          {item.card.name}
+        </p>
+        <button
+          type="button"
+          onClick={onChangePrinting}
+          title={`Change the printing of ${item.card.name}`}
+          className="shrink-0 text-[11px] text-muted underline hover:text-accent"
+        >
+          art
+        </button>
+      </div>
     </div>
   );
 }
 
 /** Full-size look at one card, since the grid tiles are small by design. */
-function Lightbox({ card, onClose }: { card: ScryfallCard; onClose: () => void }) {
+function Lightbox({
+  card,
+  pinned,
+  onChangePrinting,
+  onUnpin,
+  onClose,
+}: {
+  card: ScryfallCard;
+  pinned: boolean;
+  onChangePrinting: () => void;
+  onUnpin: () => void;
+  onClose: () => void;
+}) {
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -304,8 +430,15 @@ function Lightbox({ card, onClose }: { card: ScryfallCard; onClose: () => void }
         <p className="text-white/70">
           {card.set_name} &middot; {card.set.toUpperCase()} {card.collector_number}
         </p>
-        <div className="mt-2 flex items-center justify-center gap-2">
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
           {card.image_status !== 'highres_scan' && <Badge tone="warn">{card.image_status}</Badge>}
+          {pinned && <Badge tone="good">pinned</Badge>}
+          <Button onClick={onChangePrinting}>Change printing</Button>
+          {pinned && (
+            <Button variant="ghost" onClick={onUnpin}>
+              Remove pin
+            </Button>
+          )}
           <Button variant="ghost" onClick={onClose}>
             Close
           </Button>

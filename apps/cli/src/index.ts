@@ -27,6 +27,7 @@ import {
   type PaperName,
 } from '@mtgproxy/core';
 import { renderPdf } from '@mtgproxy/core/pdf';
+import { serve } from './serve.js';
 import {
   DECK_DATA_SUFFIX,
   adoptDeck,
@@ -34,6 +35,8 @@ import {
   saveDeckIndex,
   cacheStats,
   clearCache,
+  collectionPath,
+  configPath,
   deckId,
   decksDir,
   listDecks,
@@ -549,6 +552,37 @@ withDeckOptions(
     info(dim(`  deck index ${indexChanged ? 'updated' : 'unchanged'}`));
   },
 );
+
+program
+  .command('serve')
+  .description('Serve the web app against your real collection, config and decklists')
+  .option('--port <n>', 'port to listen on', (value) => Number.parseInt(value, 10), 5174)
+  .option('--host <host>', 'interface to bind', '127.0.0.1')
+  .option('--decks <dir>', 'decks directory (default: ./examples)')
+  .option('-c, --collection <path>', 'collection file')
+  .option('--config <path>', 'config file')
+  .option('--site <dir>', 'serve a built web app from this directory too')
+  .action(async (options: {
+    port: number;
+    host: string;
+    decks?: string;
+    collection?: string;
+    config?: string;
+    site?: string;
+  }) => {
+    const running = await serve(options);
+    info(`${bold('mtgproxy serve')} ${running.url}`);
+    info(dim(`  decks       ${decksDir(options.decks)}`));
+    info(dim(`  collection  ${collectionPath(options.collection)}`));
+    info(dim(`  config      ${configPath(options.config)}`));
+    if (options.site) info(dim(`  site        ${resolvePath(options.site)}`));
+    else info(dim('  run the web app with `pnpm --filter @mtgproxy/web dev`; it proxies /api here'));
+    info('');
+    info(dim('  The web app writes pinned printings straight into the decklists above.'));
+    info(dim('  Ctrl-C to stop.'));
+    // Nothing further to do on this tick; the server holds the process open.
+    await new Promise(() => {});
+  });
 
 const prefs = program.command('prefs').description('Inspect printing preference profiles');
 
