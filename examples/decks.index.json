@@ -4421,6 +4421,590 @@
       ]
     },
     {
+      "id": "short-king-loot",
+      "cardCount": 100,
+      "colorIdentity": [
+        "B"
+      ],
+      "bracket": 2,
+      "bracketName": "Core",
+      "commanders": [
+        {
+          "name": "Loot, the Anomaly",
+          "image": "https://cards.scryfall.io/normal/front/4/f/4f6fd2fa-8bc8-4743-bbc8-b56475d64eff.jpg?1789568430"
+        }
+      ],
+      "cards": [
+        {
+          "name": "Loot, the Anomaly",
+          "quantity": 1,
+          "set": "fra",
+          "collectorNumber": "232",
+          "typeLine": "Legendary Creature — Beast Horror"
+        },
+        {
+          "name": "Agatha's Soul Cauldron",
+          "quantity": 1,
+          "set": "woe",
+          "collectorNumber": "242",
+          "typeLine": "Legendary Artifact"
+        },
+        {
+          "name": "Arcane Signet",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "820",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Basilisk Collar",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1920",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Belbe's Armor",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "NEM-126",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Blood Artist",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "352",
+          "typeLine": "Creature — Vampire"
+        },
+        {
+          "name": "Bloodghast",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2351",
+          "typeLine": "Creature — Vampire Spirit"
+        },
+        {
+          "name": "Bojuka Bog",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "296",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Cabal Coffers",
+          "quantity": 1,
+          "set": "mh2",
+          "collectorNumber": "325",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Cabal Trainee",
+          "quantity": 1,
+          "set": "jud",
+          "collectorNumber": "63",
+          "typeLine": "Creature — Human Minion"
+        },
+        {
+          "name": "Call of the Ring",
+          "quantity": 1,
+          "set": "ltr",
+          "collectorNumber": "766",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Castle Locthwain",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "299",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Charcoal Diamond",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "248",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Claim the Precious",
+          "quantity": 1,
+          "set": "ltr",
+          "collectorNumber": "81",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Clinging Darkness",
+          "quantity": 1,
+          "set": "rav",
+          "collectorNumber": "80",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Crypt Ghast",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "169",
+          "typeLine": "Creature — Spirit"
+        },
+        {
+          "name": "Cursed Flesh",
+          "quantity": 1,
+          "set": "inv",
+          "collectorNumber": "98",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Darkblast",
+          "quantity": 1,
+          "set": "rvr",
+          "collectorNumber": "454",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Deadly Dispute",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1980",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Death's-Head Buzzard",
+          "quantity": 1,
+          "set": "a25",
+          "collectorNumber": "84",
+          "typeLine": "Creature — Bird"
+        },
+        {
+          "name": "Despondency",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "USG-129",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Disfigure",
+          "quantity": 1,
+          "set": "j25",
+          "collectorNumber": "424",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Dismember",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "321",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Dragon-Cursed Halls",
+          "quantity": 1,
+          "set": "hoc",
+          "collectorNumber": "8",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Endling",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MH1-89",
+          "typeLine": "Creature — Zombie Shapeshifter"
+        },
+        {
+          "name": "Erebos, God of the Dead",
+          "quantity": 1,
+          "set": "ths",
+          "collectorNumber": "85",
+          "typeLine": "Legendary Enchantment Creature — God"
+        },
+        {
+          "name": "Feed the Swarm",
+          "quantity": 1,
+          "set": "znr",
+          "collectorNumber": "102",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Feign Death",
+          "quantity": 1,
+          "set": "afr",
+          "collectorNumber": "103",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Garruk, Veiled Butcher",
+          "quantity": 1,
+          "set": "fra",
+          "collectorNumber": "303",
+          "typeLine": "Legendary Planeswalker — Garruk"
+        },
+        {
+          "name": "Ghosts of the Damned",
+          "quantity": 1,
+          "set": "leg",
+          "collectorNumber": "98",
+          "typeLine": "Creature — Spirit"
+        },
+        {
+          "name": "Gnashing of Teeth",
+          "quantity": 1,
+          "set": "hob",
+          "collectorNumber": "69",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Go for the Throat",
+          "quantity": 1,
+          "set": "bro",
+          "collectorNumber": "102",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Greel's Caress",
+          "quantity": 1,
+          "set": "pcy",
+          "collectorNumber": "67",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Hyalopterous Lemure",
+          "quantity": 1,
+          "set": "dmr",
+          "collectorNumber": "89",
+          "typeLine": "Creature — Spirit"
+        },
+        {
+          "name": "Ichor Slick",
+          "quantity": 1,
+          "set": "dmr",
+          "collectorNumber": "90",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Inherited Envelope",
+          "quantity": 1,
+          "set": "ltr",
+          "collectorNumber": "242",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Jet Medallion",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "346",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Key to the Side-Door",
+          "quantity": 1,
+          "set": "hob",
+          "collectorNumber": "175",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Last Gasp",
+          "quantity": 1,
+          "set": "fra",
+          "collectorNumber": "56",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Marsh Gas",
+          "quantity": 1,
+          "set": "4ed",
+          "collectorNumber": "146",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Meekstone",
+          "quantity": 1,
+          "set": "mb2",
+          "collectorNumber": "227",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Mind Stone",
+          "quantity": 1,
+          "set": "mbc",
+          "collectorNumber": "76",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Morgul-Knife Wound",
+          "quantity": 1,
+          "set": "ltr",
+          "collectorNumber": "98",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Mortuary Mire",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "817",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Mourning",
+          "quantity": 1,
+          "set": "inv",
+          "collectorNumber": "111",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "My Precious // Allure of Power",
+          "quantity": 1,
+          "set": "hob",
+          "collectorNumber": "235",
+          "typeLine": "Legendary Artifact — Equipment"
+        },
+        {
+          "name": "Myriad Landscape",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "660",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Night's Whisper",
+          "quantity": 1,
+          "set": "hoc",
+          "collectorNumber": "189",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Nirkana Revenant",
+          "quantity": 1,
+          "set": "roe",
+          "collectorNumber": "120",
+          "typeLine": "Creature — Vampire Shade"
+        },
+        {
+          "name": "Not Dead After All",
+          "quantity": 1,
+          "set": "woe",
+          "collectorNumber": "101",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Nykthos, Shrine to Nyx",
+          "quantity": 1,
+          "set": "ths",
+          "collectorNumber": "223",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "One Ring to Rule Them All",
+          "quantity": 1,
+          "set": "pltr",
+          "collectorNumber": "102s",
+          "typeLine": "Enchantment — Saga"
+        },
+        {
+          "name": "Ophiomancer",
+          "quantity": 1,
+          "set": "c13",
+          "collectorNumber": "84",
+          "typeLine": "Creature — Human Shaman"
+        },
+        {
+          "name": "Phyresis",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MBS-49",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Phyrexian Arena",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "322",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Phyrexian Defiler",
+          "quantity": 1,
+          "set": "dde",
+          "collectorNumber": "12",
+          "typeLine": "Creature — Phyrexian Carrier"
+        },
+        {
+          "name": "Phyrexian Tower",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "355",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Proft, Sinister Mastermind",
+          "quantity": 1,
+          "set": "fra",
+          "collectorNumber": "235",
+          "typeLine": "Legendary Creature — Human Rogue"
+        },
+        {
+          "name": "Qarsi Revenant",
+          "quantity": 1,
+          "set": "ptdm",
+          "collectorNumber": "86s",
+          "typeLine": "Creature — Vampire"
+        },
+        {
+          "name": "Reassembling Skeleton",
+          "quantity": 1,
+          "set": "arc",
+          "collectorNumber": "22",
+          "typeLine": "Creature — Skeleton Warrior"
+        },
+        {
+          "name": "Rogue's Passage",
+          "quantity": 1,
+          "set": "hoc",
+          "collectorNumber": "212",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Shirei, Shizo's Caretaker",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "676",
+          "typeLine": "Legendary Creature — Spirit"
+        },
+        {
+          "name": "Shizo, Death's Storehouse",
+          "quantity": 1,
+          "set": "dmc",
+          "collectorNumber": "233",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Sinister Gnarlbark",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "12",
+          "typeLine": "Creature — Treefolk Warlock"
+        },
+        {
+          "name": "Skeleton Key",
+          "quantity": 1,
+          "set": "soi",
+          "collectorNumber": "263",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Slagwurm Armor",
+          "quantity": 1,
+          "set": "mrd",
+          "collectorNumber": "243",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Sol Ring",
+          "quantity": 1,
+          "set": "cc2",
+          "collectorNumber": "7",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Stinkweed Imp",
+          "quantity": 1,
+          "set": "rav",
+          "collectorNumber": "107",
+          "typeLine": "Creature — Imp"
+        },
+        {
+          "name": "Stronghold Overseer",
+          "quantity": 1,
+          "set": "tsp",
+          "collectorNumber": "133",
+          "typeLine": "Creature — Demon"
+        },
+        {
+          "name": "Supernatural Stamina",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "GN3-62",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Swamp",
+          "quantity": 20,
+          "set": "fra",
+          "collectorNumber": "388",
+          "typeLine": "Basic Land — Swamp"
+        },
+        {
+          "name": "Swiftfoot Boots",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "355",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Takenuma, Abandoned Mire",
+          "quantity": 1,
+          "set": "neo",
+          "collectorNumber": "416",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Thieves' Tools",
+          "quantity": 1,
+          "set": "j25",
+          "collectorNumber": "126",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Torment",
+          "quantity": 1,
+          "set": "sth",
+          "collectorNumber": "73",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Tragic Slip",
+          "quantity": 1,
+          "set": "dka",
+          "collectorNumber": "76",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Trigon of Corruption",
+          "quantity": 1,
+          "set": "som",
+          "collectorNumber": "213",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Urborg, Tomb of Yawgmoth",
+          "quantity": 1,
+          "set": "plc",
+          "collectorNumber": "165",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Viscid Lemures",
+          "quantity": 1,
+          "set": "tsp",
+          "collectorNumber": "141",
+          "typeLine": "Creature — Spirit"
+        },
+        {
+          "name": "Volrath's Stronghold",
+          "quantity": 1,
+          "set": "sth",
+          "collectorNumber": "143",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Witch's Cottage",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "319",
+          "typeLine": "Land — Swamp"
+        }
+      ]
+    },
+    {
       "id": "thranduil-elf",
       "cardCount": 100,
       "colorIdentity": [

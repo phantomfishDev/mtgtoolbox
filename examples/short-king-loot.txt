@@ -1,0 +1,485 @@
+# ============================================================================
+# SHORT KING LOOT — mono-black voltron on Loot, the Anomaly
+# ============================================================================
+#
+# Loot, the Anomaly  {2}{B}  Legendary Creature — Beast Horror  -2/4
+#
+#   If Loot's power is negative, he assigns combat damage as though his
+#   power were positive.
+#
+#   Threshold — Sacrifice another creature or planeswalker: Loot gets -2/-0
+#   until end of turn. Activate only if there are seven or more cards in
+#   your graveyard.
+#
+#
+# ---------------------------------------------------------------------------
+# 1. THE RULES THAT DECIDE EVERY CARD CHOICE
+# ---------------------------------------------------------------------------
+#
+# 1. The loophole: every power-reduction effect in Magic is a pump spell.
+#    Loot at -12/4 assigns twelve combat damage. Thirty years of black
+#    "shrink a creature" cards — a design space nobody has ever wanted — are
+#    suddenly the best cards available to you. Loot is the ONLY card in Magic
+#    whose oracle text contains the phrase "power is negative." The deck
+#    cannot be built with anyone else.
+#
+# 2. -X/-0 is the pump. -X/-X is removal, and never points at Loot. He has
+#    four toughness, and a creature with zero toughness dies as a state-based
+#    action — which means INDESTRUCTIBLE DOES NOT SAVE HIM. Darksteel Plate
+#    is a trap here. This one distinction decides roughly twenty slots:
+#    Torment (-3/-0) is a build-around, Clinging Darkness (-4/-1) is
+#    excellent, Dismember (-5/-5) is a removal spell you point at the table.
+#
+# 3. -X/+X is the best line of text in the format for him, and there is
+#    exactly one card with it. Belbe's Armor — "{X}, {T}: Target creature
+#    gets -X/+X until end of turn" — scales with your mana AND raises his
+#    toughness out of burn and sweeper range. It is the best card in the deck
+#    and the reason the big-mana package is here.
+#
+# 4. Skulk is unconditional evasion on him. "Can't be blocked by creatures
+#    with greater power" means nothing above power -2 may block, which is
+#    every creature anyone will ever cast. Skeleton Key grants it, The Ring's
+#    first level grants it, and Thieves' Tools reads "can't be blocked as
+#    long as its power is 3 or less" — permanently true.
+#
+# 5. Grant hexproof, never shroud. Whispersilk Cloak and Lightning Greaves
+#    would stop YOU targeting Loot with Belbe's Armor and all seven auras.
+#    Swiftfoot Boots and My Precious grant hexproof instead; both are in.
+#
+# 6. Meekstone is one-sided. "Creatures with power 3 or greater don't untap."
+#    Loot never qualifies. Your only attacker keeps untapping while the
+#    table's fatties stay down — and since Loot has four toughness and cannot
+#    profitably block, a card that keeps attackers tapped is defence.
+#
+# 7. Infect skips two thirds of the work. Loot's damage becomes poison, and
+#    ten poison kills a player. Twenty-one commander damage needs him at -21
+#    or three connections; Phyresis needs him at -10 once. One copy, so it is
+#    reach rather than a plan.
+#
+# 8. Threshold wants seven cards in the graveyard, so self-mill is free
+#    value. Darkblast's dredge, Ichor Slick's cycling, Stinkweed Imp,
+#    Skeleton Key's loot trigger and The Ring's second level all switch on
+#    Loot's own -2/-0 ability as a side effect of doing their jobs.
+#
+# 9. Loot is legendary, which makes One Ring to Rule Them All a one-sided
+#    wrath — chapter II destroys all NONLEGENDARY creatures. In a deck that
+#    needs one creature, that is a Plague Wind.
+#
+#
+# ---------------------------------------------------------------------------
+# 2. THE CARDS THAT CARRY THE DECK
+# ---------------------------------------------------------------------------
+#
+# S tier — the deck does not work without these
+#
+#   Belbe's Armor ......... the only -X/+X in Magic. {X},{T} turns your whole
+#                           mana pool into damage and raises his toughness.
+#   Thieves' Tools ........ "can't be blocked as long as its power is 3 or
+#                           less." On Loot that can never be false.
+#   Phyresis .............. turns a -10 swing into a dead player.
+#   Clinging Darkness ..... -4/-1, the best rate on a two-mana aura in black.
+#   Torment ............... -3/-0. No toughness cost at all.
+#   Skeleton Key .......... skulk for one mana, plus a loot trigger each hit
+#                           that fills the graveyard for Threshold.
+#   Call of the Ring ...... tempts you EVERY upkeep. Level 1 is skulk, level 4
+#                           drains 3 per opponent per hit, and it draws a card
+#                           each time. Free evasion, nothing on the board.
+#   Cabal Coffers+Urborg .. Belbe's Armor's X. Urborg makes every land a
+#                           Swamp, so Coffers and Crypt Ghast both go vertical.
+#   Meekstone ............. one-sided stax for a commander never at power 3+.
+#   My Precious ........... hexproof AND can't be blocked, on one card.
+#
+# A tier — the engines and the resilience
+#
+#   Agatha's Soul Cauldron  exile a Lemure, get a +1/+1 counter on Loot, and
+#                           he now has "{0}: gets -1/-0 and gains flying."
+#                           Unlimited and free. One tap sets up both halves.
+#   Hyalopterous Lemure ... the Cauldron target. The {0} is on ITSELF on the
+#                           battlefield, which is useless — its whole value is
+#                           being in the graveyard.
+#   Garruk, Veiled Butcher  +2 for -4/-1 that lasts UNTIL YOUR NEXT TURN, so
+#                           it is live during your combat. Free every turn,
+#                           and legal fodder for Loot's own Threshold ability.
+#   Greel's Caress ........ -3/-0 with flash. Ambush blocker math.
+#   Shirei ................ returns everything with power 1 or less at the
+#                           next end step. Cabal Trainee, Reassembling
+#                           Skeleton and Ophiomancer's Snakes all recur.
+#   Cabal Trainee ......... sac for -2/-0. With Shirei that is every turn.
+#   Ghosts of the Damned .. {T}: -1/-0, forever, for nothing. A 0/2 nobody
+#                           bothers to kill.
+#   Morgul-Knife Wound .... -3/-0 for two. The 2 life per upkeep is cheap at
+#                           that rate.
+#   Reassembling Skeleton . the mana sink. {1}{B} to return, sac to Loot for
+#                           -2/-0, repeat as deep as your mana goes.
+#   Stronghold Overseer ... {B}{B}: creatures without shadow get -1/-0 —
+#                           activate as often as you can pay, and Loot has no
+#                           shadow. Also a 5/5 flier that cannot be blocked.
+#   Slagwurm Armor ........ +0/+6 for one mana. Takes Loot out of range of
+#                           Languish, Blasphemous Act and every -X/-X spell.
+#   Swiftfoot Boots ....... hexproof and haste. Hexproof, not shroud.
+#   One Ring to Rule ...... chapter II is a wrath that spares your commander.
+#   Proft ................. {B}, discard him from hand: -3/-1. A pump spell
+#                           that costs no board slot and fuels Threshold.
+#   Crypt Ghast /
+#   Nirkana Revenant ...... double your black. Both exist to make Belbe's
+#                           Armor lethal in one activation.
+#
+# B tier — good, swappable
+#
+#   Despondency ........... -2/-0, and it returns to hand from the graveyard,
+#                           so removal on Loot does not eat it.
+#   Mourning .............. -2/-0, and {B} returns it to hand — pick it up in
+#                           response to removal.
+#   Ophiomancer ........... a 1/1 deathtouch Snake every upkeep: free
+#                           Threshold fodder and a blocker Loot badly wants.
+#   Qarsi Revenant ........ renew puts flying, deathtouch and lifelink
+#                           COUNTERS on Loot. Removal cannot strip those.
+#   Key to the Side-Door .. {2},{T}: unblockable, repeatable, one mana.
+#   Endling ............... through the Cauldron it hands Loot menace,
+#                           deathtouch AND undying.
+#   Trigon of Corruption .. three -1/-1 counters, rechargeable with {B}{B}.
+#   Sinister Gnarlbark .... a card every end step, and blight 1 can go on a
+#                           Snake when you do not want it on Loot.
+#   Marsh Gas ............. -2/-0 to all creatures for {B} at instant speed.
+#                           Shrinks blockers and pumps Loot in one breath.
+#   Cursed Flesh .......... -1/-1 AND fear for one mana. The only card here
+#                           that is a pump spell and an evasion source at once.
+#   Basilisk Collar ....... deathtouch and lifelink for one. Mostly a "please
+#                           do not block" sign.
+#   Phyrexian Defiler ..... -3/-3 at instant speed, or three more damage.
+#   Death's-Head Buzzard .. a flier that sweeps x/1s when it dies, and it dies
+#                           to Loot's own ability.
+#   Viscid Lemures ........ redundancy for the Cauldron line.
+#   Inherited Envelope .... mana plus a Ring tempt, which is the skulk.
+#
+#
+# ---------------------------------------------------------------------------
+# 3. TRAPS — popular or obvious here, and wrong
+# ---------------------------------------------------------------------------
+#
+#   Transmutation ........ switches power and toughness. Loot becomes 4/-2
+#                          and dies on the spot. There is no state in this
+#                          deck where it helps — his power is negative by
+#                          design, so switching always puts the negative
+#                          number on toughness.
+#   Depressurize ......... -3/-0, "then if that creature's power is 0 or less,
+#                          destroy it." Reads like the pump spell you want and
+#                          kills him instead.
+#   Multiply by Zero ..... base 0/0 until end of turn. Dies. (Good removal.)
+#   Darksteel Plate ...... indestructible does NOT stop a creature with 0
+#                          toughness dying — that is a state-based action, not
+#                          destruction. Useless against how Loot actually dies.
+#   Whispersilk Cloak,
+#   Lightning Greaves .... shroud. Stops you targeting your own commander with
+#                          Belbe's Armor and all seven auras.
+#   Behind the Scenes .... skulk for the whole team and perfect on paper, but
+#                          its {4}{W} ability makes the colour identity W/B.
+#                          ILLEGAL under a mono-black commander.
+#   Grafted Exoskeleton .. +2/+2 is two damage OFF, and it sacrifices Loot
+#                          when it becomes unattached. Phyresis is clean.
+#   Minas Morgul ......... the shadow counter grants the WRAITH TYPE, not
+#                          shadow. The reminder text misleads; no evasion.
+#   Exotic Curse,
+#   Drag Down ............ domain, and this deck has one basic land type.
+#   Pith Driller ......... five mana for one -1/-1 counter, wrong axis.
+#   Languish,
+#   Night of Souls'
+#   Betrayal ............. kill Loot through toughness.
+#   Liliana of the Dark
+#   Realms ............... her -3 is -X/-X, so the "pump" mode kills him
+#                          unless his toughness is already padded.
+#   Azula Always Lies .... cut on the art rule — Avatar: The Last Airbender
+#                          does not sit with the LOTR and Phyrexian frames.
+#   Mechanical Glider .... one-mana flying and you own it, but it exists only
+#                          in the Avatar set, same problem as Azula. Cursed
+#                          Flesh took the slot. Swap it back if you prefer.
+#   Malakir Rebirth ...... cut at your request. Feign Death took the slot:
+#                          same {B} save, and the +1/+1 counter it leaves
+#                          switches on Agatha's Soul Cauldron, which Malakir
+#                          Rebirth did not. The cost is the land on its back,
+#                          so this is 34 lands rather than an effective 35 —
+#                          turn Feign Death into a 21st Swamp if the mana ever
+#                          feels short.
+#
+#
+# ---------------------------------------------------------------------------
+# 4. MANA CURVE — 66 spells, 34 lands, average mana value 2.50
+# ---------------------------------------------------------------------------
+#
+#    1  ###############  15
+#    2  #######################  23
+#    3  ################  16
+#    4  ######  6
+#    5  ####  4
+#    6  ##  2
+#   7+  0
+#
+# The shape is deliberate. Voltron wants to cast the commander plus two things
+# in the same turn from turn four onward, because the clock is "Loot connects
+# three times" and each connection needs a new pump or a new piece of evasion.
+# Thirty-eight cards at one or two mana is what lets you redeploy after a
+# removal spell in a single turn instead of two.
+#
+# Where the printed curve lies to you:
+#   - Belbe's Armor is an X-cost engine, not a three-drop. Its real cost is
+#     however much mana you have, frequently ten or more with Coffers.
+#   - Reassembling Skeleton is a repeatable {1}{B}, the deck's mana sink.
+#   - Hyalopterous Lemure and Viscid Lemures cost nothing in practice — you
+#     want them in the graveyard, so the five-mana price is irrelevant.
+#   - Proft is a one-mana instant most games; you discard him, not cast him.
+#   - Jet Medallion is the one cost reducer, and 23 cards sit at MV 2.
+#   - Feign Death is a one-mana Cauldron enabler as well as a save: the +1/+1
+#     counter is exactly what the Cauldron needs to switch on the Lemure.
+#
+#
+# ---------------------------------------------------------------------------
+# 5. GAME PLAN
+# ---------------------------------------------------------------------------
+#
+# Turns 1-3 — build mana, hold Loot. Sol Ring, a Signet, Mind Stone. Do NOT
+# jam Loot into an open board on turn three unless you can protect him or you
+# are happy to recast; he is a -2/4 and the table will point removal at him.
+# Cabal Trainee, Skeleton Key, Meekstone and Slagwurm Armor are all one mana.
+#
+# Turn 3-4 — Loot plus a pump, and start the clock. The ideal first attack is
+# Loot + Thieves' Tools (unblockable) + Clinging Darkness: a -6/3 connecting
+# for six, a quarter of a commander-damage kill on turn four.
+#
+# Turns 5-7 — the engine turns, in rough order of preference:
+#
+#   1. Belbe's Armor with Coffers mana. Tap for -8/+8 or more; Loot is -10/12,
+#      swings for ten, and is out of every sweeper's range. With Phyresis that
+#      is a dead player on the spot.
+#   2. The Cauldron line. Tap Agatha's Soul Cauldron exiling Hyalopterous
+#      Lemure from your graveyard, putting a +1/+1 counter on Loot. He now has
+#      "{0}: gets -1/-0 and gains flying." No cost, no limit. Announce the
+#      number and attack in the air.
+#   3. Aura stacking. Torment, Greel's Caress and Morgul-Knife Wound put him
+#      at -11/4 for six mana across two turns.
+#   4. The grind. Shirei + Cabal Trainee is -2/-0 every turn forever, Garruk's
+#      +2 is another -4/-1 every turn, Ghosts of the Damned taps for -1/-0.
+#
+# Sequencing that is not obvious:
+#   - Evasion before pump. A -14/4 Loot chump-blocked by a 1/1 did nothing.
+#   - Belbe's Armor and Greel's Caress go AFTER blockers are declared. The
+#     Armor is an activated ability and Greel's Caress has flash; holding them
+#     hides the damage and dodges a response.
+#   - Loot's Threshold ability is instant speed and costs no mana. Count your
+#     graveyard before combat, then sac Snakes and Skeletons after blockers.
+#   - Hold one protection spell. Feign Death, Not Dead After All and
+#     Supernatural Stamina for {B} are the difference between a lost commander
+#     and a lost turn. Hold Feign Death if the Cauldron is out — Loot comes
+#     back with the +1/+1 counter it needs.
+#   - Mourning can be picked up. {B} returns it to hand in response to removal
+#     aimed at Loot, so the aura survives even when he does not.
+#
+# Main weakness: it is one creature. Loot is a three-mana legend with four
+# toughness in a format full of edicts, Swords to Plowshares and -X/-X. The
+# answers are Swiftfoot Boots, My Precious, Slagwurm Armor, Feign Death, Not
+# Dead After All and Supernatural Stamina — six cards, and expect to need all
+# of them. Recasting Loot costs three mana, which is the real reason the curve
+# is this low.
+#
+# Second weakness: enchantment removal aimed at you. Pacifism, Imprisoned in
+# the Moon and Darksteel Mutation shut the deck off cold and black cannot
+# answer most of them. FEED THE SWARM is the only card here that kills an
+# enchantment. Do not spend it on something else.
+#
+# Threat assessment: Loot looks absurd and reads as a joke until he hits once,
+# so you usually get a free turn or two. Spend them. Once someone has seen a
+# -12 swing you are archenemy, and Meekstone plus Snakes plus the -X/-X
+# removal is the whole defence. Win from 40 life, not from 15.
+#
+#
+# ---------------------------------------------------------------------------
+# 6. MANABASE — 34 lands
+# ---------------------------------------------------------------------------
+#
+# Two below a normal mono-black count, deliberately. The curve tops out at six
+# with two cards there, average MV is 2.50, and seven nonlands are mana
+# sources. What this deck cannot afford is a flooded hand when the plan is
+# "recast a three-mana commander and equip something."
+#
+#   Big mana ........ Cabal Coffers, Urborg, Nykthos, Myriad Landscape
+#   Evasion ......... Rogue's Passage, Shizo
+#   Recursion ....... Volrath's Stronghold, Mortuary Mire, Witch's Cottage,
+#                     Takenuma
+#   Card advantage .. Castle Locthwain
+#   Sac outlet ...... Phyrexian Tower
+#   Utility ......... Bojuka Bog, Dragon-Cursed Halls
+#   Basics .......... 20 Swamp
+#
+# Black sources: 32 of 34 (all but Rogue's Passage and Dragon-Cursed Halls),
+# plus Charcoal Diamond, Arcane Signet, Jet Medallion and Inherited Envelope.
+#
+# Urborg does more than it looks like: it makes all 34 lands Swamps, which
+# turns Cabal Coffers into a real engine, makes Crypt Ghast trigger off every
+# land, and switches on Shizo and Witch's Cottage whatever else you drew.
+#
+# Lands to skip: Minas Morgul (Wraith type, not shadow), Crypt of Agadeem
+# (enters tapped, wants a wide creature graveyard this deck lacks), Blast Zone
+# (kills Loot). Dragon-Cursed Halls is a real cost and is in because you own
+# it and the Marta Nael art fits — a colourless-only land in a Cabal Coffers
+# deck is the weakest land here, and the first Swamp swap if mana feels short.
+#
+#
+# ---------------------------------------------------------------------------
+# 7. BRACKET 3, AND UPGRADE PATHS
+# ---------------------------------------------------------------------------
+#
+# `mtgproxy bracket` assesses this as bracket 2 on contents: zero Game
+# Changers, no mass land denial, no extra turns. Call it a 3 at the table
+# anyway, because of one thing the tool explicitly does not check — Agatha's
+# Soul Cauldron plus a Lemure in the graveyard produces unlimited free power
+# reduction, and with Phyresis that one-shots a player from an empty board.
+# It is not infinite (no mana, no cards) but it ends someone.
+#
+# Honest table pitch: "mono-black voltron, no Game Changers, there's one
+# two-card line that can one-shot someone through poison."
+#
+# To play it as a true bracket 2: cut Agatha's Soul Cauldron, Hyalopterous
+# Lemure, Viscid Lemures and Phyresis for Bone Flute, Staff of Zegon,
+# Feebleness and Serrated Arrows. Slower, wins by plain commander damage.
+#
+# Upgrades, by goal:
+#   speed ....... Buried Alive finds both Lemures and puts them straight in
+#                 the graveyard, turning the Cauldron line into a reliable
+#                 turn-five kill with Phyresis. Entomb does it for one mana.
+#                 Both were left out on purpose — you asked for the combo as a
+#                 natural draw. This is the single biggest power jump here.
+#   consistency . Tainted Strike is a second infect outlet for {B}. Staff of
+#                 Zegon and Bone Flute are two more repeatable -X/-0 engines
+#                 if the pump ever feels thin.
+#   resilience .. Whip of Erebos, Undying Malice (a functional reprint of
+#                 Feign Death), Imp's Mischief to redirect the removal that
+#                 matters. Vampiric Link turns a -12 connection into 12 life,
+#                 which answers "win from 40, not 15" directly.
+#   grind ....... Zulaport Cutthroat and Bastion of Remembrance alongside
+#                 Blood Artist make the sacrifice engine a second win
+#                 condition that never needs Loot to connect.
+#
+# Cards you listed that did not make it:
+#   Pith Driller ........... five mana, one -1/-1 counter, wrong axis.
+#   Exotic Curse, Drag Down  domain, one basic land type.
+#   Afflict ................ -1/-1 and a card is fine, 66th-best here.
+#   Toxin Analysis ......... Basilisk Collar does deathtouch permanently, and
+#                            deathtouch is near-dead on an unblockable body.
+#   Feebleness ............. -2/-1 is worse than Despondency/Mourning at -2/-0.
+#   Gideon the Oathless,
+#   Sanctum Lurker,
+#   Cast Away Doubt,
+#   Extended Absence ....... no planeswalker synergy, and Cast Away Doubt's
+#                            symmetric damage points the wrong way in a deck
+#                            that wants to win at high life.
+#   Gollum Patient Plotter,
+#   Sam's Desperate Rescue,
+#   Gollum's Bite .......... all fine, all 100th-best. Gollum is the first
+#                            card back in if you want more Ring tempts.
+#
+#
+# ---------------------------------------------------------------------------
+# 8. PRINTING NOTES
+# ---------------------------------------------------------------------------
+#
+# Sixteen cards are pinned to a set below, because the default profile reached
+# for Secret Lair versions of Sol Ring, Urborg, Erebos, Ophiomancer,
+# Reassembling Skeleton, Stinkweed Imp, Tragic Slip, Rogue's Passage, Nirkana
+# Revenant, Night's Whisper, Go for the Throat and Feed the Swarm. All are now
+# painted printings and `mtgproxy resolve` reports no warnings at all.
+#
+# Universes Beyond (8): Claim the Precious, Dragon-Cursed Halls, Gnashing of
+# Teeth, Inherited Envelope, Key to the Side-Door, Morgul-Knife Wound, My
+# Precious, One Ring to Rule Them All — all Middle-earth frames, which is the
+# look this deck is going for. Night's Whisper and Rogue's Passage are
+# ordinary cards pinned to Hobbit Eternal printings so they match; any other
+# printing plays identically.
+#
+# The list below is the paste list. Strip the "(SET) NUM" suffixes if a site
+# rejects them; the names alone resolve fine.
+#
+# ============================================================================
+
+Commander
+1 Loot, the Anomaly
+
+Deck
+1 Agatha's Soul Cauldron
+1 Arcane Signet
+1 Basilisk Collar
+1 Belbe's Armor
+1 Blood Artist
+1 Bloodghast
+1 Bojuka Bog
+1 Cabal Coffers
+1 Cabal Trainee
+1 Call of the Ring
+1 Castle Locthwain
+1 Charcoal Diamond
+1 Claim the Precious
+1 Clinging Darkness
+1 Crypt Ghast
+1 Cursed Flesh (INV) 98
+1 Darkblast
+1 Deadly Dispute
+1 Death's-Head Buzzard
+1 Despondency
+1 Disfigure
+1 Dismember
+1 Dragon-Cursed Halls
+1 Endling
+1 Erebos, God of the Dead (THS) 85
+1 Feed the Swarm (ZNR) 102
+1 Feign Death (AFR) 103
+1 Garruk, Veiled Butcher
+1 Ghosts of the Damned
+1 Gnashing of Teeth
+1 Go for the Throat (BRO) 102
+1 Greel's Caress
+1 Hyalopterous Lemure
+1 Ichor Slick
+1 Inherited Envelope
+1 Jet Medallion
+1 Key to the Side-Door
+1 Last Gasp
+1 Marsh Gas
+1 Meekstone
+1 Mind Stone
+1 Morgul-Knife Wound
+1 Mortuary Mire
+1 Mourning
+1 My Precious
+1 Myriad Landscape
+1 Night's Whisper (HOC) 189
+1 Nirkana Revenant (ROE) 120
+1 Not Dead After All
+1 Nykthos, Shrine to Nyx (THS) 223
+1 One Ring to Rule Them All (PLTR) 102s
+1 Ophiomancer (C13) 84
+1 Phyresis
+1 Phyrexian Arena
+1 Phyrexian Defiler
+1 Phyrexian Tower
+1 Proft, Sinister Mastermind
+1 Qarsi Revenant (PTDM) 86s
+1 Reassembling Skeleton (ARC) 22
+1 Rogue's Passage (HOC) 212
+1 Shirei, Shizo's Caretaker
+1 Shizo, Death's Storehouse
+1 Sinister Gnarlbark
+1 Skeleton Key
+1 Slagwurm Armor
+1 Sol Ring (CC2) 7
+1 Stinkweed Imp (RAV) 107
+1 Stronghold Overseer
+1 Supernatural Stamina
+20 Swamp
+1 Swiftfoot Boots
+1 Takenuma, Abandoned Mire
+1 Thieves' Tools
+1 Torment
+1 Tragic Slip (DKA) 76
+1 Trigon of Corruption
+1 Urborg, Tomb of Yawgmoth (PLC) 165
+1 Viscid Lemures
+1 Volrath's Stronghold
+1 Witch's Cottage
