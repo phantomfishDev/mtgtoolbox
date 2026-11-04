@@ -1174,6 +1174,598 @@
       ]
     },
     {
+      "id": "kibo-banana",
+      "cardCount": 100,
+      "colorIdentity": [
+        "R",
+        "G"
+      ],
+      "bracket": 2,
+      "bracketName": "Core",
+      "commanders": [
+        {
+          "name": "Kibo, Uktabi Prince",
+          "image": "https://cards.scryfall.io/normal/front/d/a/da105c2f-017e-4df0-b45e-a9482c02a29d.jpg?1783918780"
+        }
+      ],
+      "cards": [
+        {
+          "name": "Kibo, Uktabi Prince",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "835",
+          "typeLine": "Legendary Creature — Monkey Noble"
+        },
+        {
+          "name": "Abrade",
+          "quantity": 1,
+          "set": "lci",
+          "collectorNumber": "131",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Ancient Silverback",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "M15-168",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Arcane Signet",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "299",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Bane of Progress",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "99",
+          "typeLine": "Creature — Elemental"
+        },
+        {
+          "name": "Beast Whisperer",
+          "quantity": 1,
+          "set": "c20",
+          "collectorNumber": "167",
+          "typeLine": "Creature — Elf Druid"
+        },
+        {
+          "name": "Beast Within",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "233",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Bestial Fury",
+          "quantity": 1,
+          "set": "all",
+          "collectorNumber": "67a",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Blasphemous Act",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "216",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Cankerbloom",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "ONE-161",
+          "typeLine": "Creature — Phyrexian Fungus"
+        },
+        {
+          "name": "Cinder Glade",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "146",
+          "typeLine": "Land — Mountain Forest"
+        },
+        {
+          "name": "Command Tower",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "325",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Commander's Sphere",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "655",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Cultivate",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "235",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Declare Dominance",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "646",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Echoing Ruin",
+          "quantity": 1,
+          "set": "dst",
+          "collectorNumber": "59",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Evolving Wilds",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "LCC-328",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Familiar Ground",
+          "quantity": 1,
+          "set": "7ed",
+          "collectorNumber": "243",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Fangren Marauder",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MBS-79",
+          "typeLine": "Creature — Beast"
+        },
+        {
+          "name": "Ferocious Tigorilla",
+          "quantity": 1,
+          "set": "iko",
+          "collectorNumber": "115",
+          "typeLine": "Creature — Cat Ape"
+        },
+        {
+          "name": "Fire Diamond",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "257",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Forest",
+          "quantity": 10,
+          "set": "lci",
+          "collectorNumber": "402",
+          "typeLine": "Basic Land — Forest"
+        },
+        {
+          "name": "Game Trail",
+          "quantity": 1,
+          "set": "blc",
+          "collectorNumber": "306",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Gearbane Orangutan",
+          "quantity": 1,
+          "set": "mkm",
+          "collectorNumber": "129",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Gorilla Shaman",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MH2-280",
+          "typeLine": "Creature — Ape Shaman"
+        },
+        {
+          "name": "Grunn, the Lonely King",
+          "quantity": 1,
+          "set": "dom",
+          "collectorNumber": "165",
+          "typeLine": "Legendary Creature — Ape Warrior"
+        },
+        {
+          "name": "Gruul Turf",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "407",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Guardian Gladewalker",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "KHM-174",
+          "typeLine": "Creature — Shapeshifter"
+        },
+        {
+          "name": "Hardened Scales",
+          "quantity": 1,
+          "set": "wot",
+          "collectorNumber": "55",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Harmonize",
+          "quantity": 1,
+          "set": "sta",
+          "collectorNumber": "52",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Hunter's Insight",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "296",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Inspiring Call",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "226",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Invigorating Hot Spring",
+          "quantity": 1,
+          "set": "neo",
+          "collectorNumber": "223",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Kenrith's Transformation",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "212",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Kird Ape",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "EMA-137",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Kird Chieftain",
+          "quantity": 1,
+          "set": "m15",
+          "collectorNumber": "151",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Kodama's Reach",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "649",
+          "typeLine": "Sorcery — Arcane"
+        },
+        {
+          "name": "Kogla and Yidaro",
+          "quantity": 1,
+          "set": "mom",
+          "collectorNumber": "311",
+          "typeLine": "Legendary Creature — Ape Dinosaur Turtle"
+        },
+        {
+          "name": "Kogla, the Titan Ape",
+          "quantity": 1,
+          "set": "iko",
+          "collectorNumber": "328",
+          "typeLine": "Legendary Creature — Ape"
+        },
+        {
+          "name": "Magewright's Stone",
+          "quantity": 1,
+          "set": "rvr",
+          "collectorNumber": "462",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Masked Vandal",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "KHM-184",
+          "typeLine": "Creature — Shapeshifter"
+        },
+        {
+          "name": "Maskwood Nexus",
+          "quantity": 1,
+          "set": "khm",
+          "collectorNumber": "240",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Monkey Cage",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "787",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Moss Diamond",
+          "quantity": 1,
+          "set": "clb",
+          "collectorNumber": "327",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Mossfire Valley",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MKC-274",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Mosswort Bridge",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "307",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Mountain",
+          "quantity": 10,
+          "set": "lci",
+          "collectorNumber": "400",
+          "typeLine": "Basic Land — Mountain"
+        },
+        {
+          "name": "Myriad Landscape",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "660",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Overrun",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "230",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Pain Distributor",
+          "quantity": 1,
+          "set": "moc",
+          "collectorNumber": "33",
+          "typeLine": "Creature — Devil Citizen"
+        },
+        {
+          "name": "Path of Ancestry",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "363",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Primal Vigor",
+          "quantity": 1,
+          "set": "wot",
+          "collectorNumber": "59",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Rampant Growth",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "248",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Realmwalker",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "250",
+          "typeLine": "Creature — Shapeshifter"
+        },
+        {
+          "name": "Rhythm of the Wild",
+          "quantity": 1,
+          "set": "rvr",
+          "collectorNumber": "217",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Rishkar's Expertise",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "226",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Rockfall Vale",
+          "quantity": 1,
+          "set": "mid",
+          "collectorNumber": "266",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Rogue's Passage",
+          "quantity": 1,
+          "set": "hoc",
+          "collectorNumber": "212",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Saryth, the Viper's Fang",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MKC-185",
+          "typeLine": "Legendary Creature — Human Warlock"
+        },
+        {
+          "name": "Scrounging Bandar",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "726",
+          "typeLine": "Creature — Cat Monkey"
+        },
+        {
+          "name": "Seeker of Skybreak",
+          "quantity": 1,
+          "set": "mb2",
+          "collectorNumber": "213",
+          "typeLine": "Creature — Elf"
+        },
+        {
+          "name": "Shamanic Revelation",
+          "quantity": 1,
+          "set": "soa",
+          "collectorNumber": "57",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Silverback Elder",
+          "quantity": 1,
+          "set": "dmu",
+          "collectorNumber": "177",
+          "typeLine": "Creature — Ape Shaman"
+        },
+        {
+          "name": "Silverback Shaman",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "728",
+          "typeLine": "Creature — Ape Shaman"
+        },
+        {
+          "name": "Simian Sling",
+          "quantity": 1,
+          "set": "neo",
+          "collectorNumber": "163",
+          "typeLine": "Artifact Creature — Equipment Monkey"
+        },
+        {
+          "name": "Sol Ring",
+          "quantity": 1,
+          "set": "mps",
+          "collectorNumber": "24",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Summit Apes",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "WWK-114",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Terramorphic Expanse",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "BLC-345",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Thousand-Year Elixir",
+          "quantity": 1,
+          "set": "spg",
+          "collectorNumber": "148",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Thriving Grove",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "171",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Towering Gibbon",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "46",
+          "typeLine": "Creature — Ape"
+        },
+        {
+          "name": "Tree Monkey",
+          "quantity": 1,
+          "set": "9ed",
+          "collectorNumber": "275",
+          "typeLine": "Creature — Monkey"
+        },
+        {
+          "name": "Treetop Village",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "ULG-143",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Tribute to the Wild",
+          "quantity": 1,
+          "set": "c20",
+          "collectorNumber": "193",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Unclaimed Territory",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "175",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Universal Automaton",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "J22-803",
+          "typeLine": "Artifact Creature — Shapeshifter"
+        },
+        {
+          "name": "Vandalblast",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "267",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Viridian Revel",
+          "quantity": 1,
+          "set": "som",
+          "collectorNumber": "132",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Wily Bandar",
+          "quantity": 1,
+          "set": "j22",
+          "collectorNumber": "739",
+          "typeLine": "Creature — Cat Monkey"
+        },
+        {
+          "name": "Wooded Ridgeline",
+          "quantity": 1,
+          "set": "blc",
+          "collectorNumber": "353",
+          "typeLine": "Land — Mountain Forest"
+        },
+        {
+          "name": "Yavimaya Steelcrusher",
+          "quantity": 1,
+          "set": "dmu",
+          "collectorNumber": "152",
+          "typeLine": "Creature — Ape Warrior"
+        },
+        {
+          "name": "Zodiac Monkey",
+          "quantity": 1,
+          "set": "9ed",
+          "collectorNumber": "285",
+          "typeLine": "Creature — Monkey"
+        }
+      ]
+    },
+    {
       "id": "kwain-hare-apparent",
       "cardCount": 100,
       "colorIdentity": [

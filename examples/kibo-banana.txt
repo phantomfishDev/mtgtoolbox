@@ -1,0 +1,98 @@
+# Kibo, Uktabi Prince — Gruul Ape typal, imported from
+# https://archidekt.com/decks/6434579/banana (owner: swebb).
+#
+# Kibo gives every player a Banana token at each upkeep and gets +2/+2 for each
+# Banana sacrificed, so the deck's own artifact removal doubles as a pump engine:
+# Gorilla Shaman, Gearbane Orangutan, Vandalblast and Bane of Progress all eat
+# the table's mana rocks AND the Bananas nobody cashed in. Hardened Scales and
+# Primal Vigor turn the +2/+2 into something larger; Rhythm of the Wild and
+# Saryth keep the Apes alive through the removal that follows.
+#
+# Imported as-is apart from printings — the Archidekt list's own printings were
+# dropped so the local preference profile picks the art.
+
+Commander
+1 Kibo, Uktabi Prince (J22) 835
+
+Deck
+1 Abrade (LCI) 131
+1 Ancient Silverback
+1 Arcane Signet (LCC) 299
+1 Bane of Progress
+1 Beast Whisperer (C20) 167
+1 Beast Within (LCC) 233
+1 Bestial Fury
+1 Blasphemous Act (LCC) 216
+1 Cankerbloom
+1 Cinder Glade
+1 Command Tower (LCC) 325
+1 Commander's Sphere
+1 Cultivate (LCC) 235
+1 Declare Dominance
+1 Echoing Ruin
+1 Evolving Wilds
+1 Familiar Ground
+1 Fangren Marauder
+1 Ferocious Tigorilla
+1 Fire Diamond
+10 Forest (LCI) 402
+1 Game Trail
+1 Gearbane Orangutan
+1 Gorilla Shaman
+1 Grunn, the Lonely King
+1 Gruul Turf
+1 Guardian Gladewalker
+1 Hardened Scales
+1 Harmonize
+1 Hunter's Insight
+1 Inspiring Call
+1 Invigorating Hot Spring
+1 Kenrith's Transformation
+1 Kird Ape
+1 Kird Chieftain
+1 Kodama's Reach
+1 Kogla and Yidaro
+1 Kogla, the Titan Ape (IKO) 328
+1 Magewright's Stone
+1 Masked Vandal
+1 Maskwood Nexus (KHM) 240
+1 Monkey Cage
+1 Moss Diamond
+1 Mossfire Valley
+1 Mosswort Bridge
+10 Mountain (LCI) 400
+1 Myriad Landscape
+1 Overrun
+1 Pain Distributor
+1 Path of Ancestry (M3C) 363
+1 Primal Vigor
+1 Rampant Growth (LCC) 248
+1 Realmwalker (LCC) 250
+1 Rhythm of the Wild
+1 Rishkar's Expertise
+1 Rockfall Vale (MID) 266
+1 Rogue's Passage (HOC) 212
+1 Saryth, the Viper's Fang
+1 Scrounging Bandar
+1 Seeker of Skybreak
+1 Shamanic Revelation
+1 Silverback Elder
+1 Silverback Shaman
+1 Simian Sling
+1 Sol Ring (MPS) 24
+1 Summit Apes
+1 Terramorphic Expanse
+1 Thousand-Year Elixir
+1 Thriving Grove
+1 Towering Gibbon
+1 Tree Monkey
+1 Treetop Village
+1 Tribute to the Wild
+1 Unclaimed Territory
+1 Universal Automaton
+1 Vandalblast (CMM) 267
+1 Viridian Revel (SOM) 132
+1 Wily Bandar
+1 Wooded Ridgeline
+1 Yavimaya Steelcrusher
+1 Zodiac Monkey
