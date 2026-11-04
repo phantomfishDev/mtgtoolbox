@@ -1,0 +1,103 @@
+# Nazgûl, rebuilt as a spellslinger-token deck (see nazgul-deck-guide.md).
+# Lord of the Nazgûl triggers on CASTING instants and sorceries, so the list is
+# built around cheap spell density, not around blinking ETB creatures.
+# Three Game Changers (Cyclonic Rift, Fierce Guardianship, The One Ring) -> bracket 3.
+
+Commander
+1 Lord of the Nazgûl
+
+Deck
+# -- Wraith count + Ring-tempt counters (the 9/9 threshold) --
+9 Nazgûl
+1 Witch-king, Bringer of Ruin
+
+# -- Engine creatures: more tokens per cast, cheaper casts, extra casts --
+1 Archmage of Runes
+1 Talrand, Sky Summoner
+1 Ojer Pakpatiq, Deepest Epoch
+1 Rona, Sheoldred's Faithful
+1 Wonder
+
+# -- Cast-trigger payoffs and mass evasion --
+1 Trail of Evidence
+1 Jace's Sanctum
+1 Cover of Darkness
+1 Levitation
+1 Reconnaissance Mission
+1 Call of the Ring
+1 The One Ring
+
+# -- Mana --
+1 Sol Ring
+1 Arcane Signet
+1 Dimir Signet
+1 Talisman of Dominance
+1 Fellwar Stone
+1 Sapphire Medallion
+1 Jet Medallion
+
+# -- One-mana spells: the engine fuel --
+1 Brainstorm
+1 Opt
+1 Consider
+1 Ponder
+1 Preordain
+1 Serum Visions
+1 Birthday Escape
+1 An Offer You Can't Refuse
+1 Swan Song
+1 Dispel
+1 Slip Out the Back
+1 Gollum's Bite
+1 Tragic Slip
+1 Village Rites
+1 Sam's Desperate Rescue
+1 Dark Ritual
+1 Unearth
+
+# -- Two- and three-mana interaction and value --
+1 Counterspell
+1 Arcane Denial
+1 Negate
+1 Cyclonic Rift
+1 Go for the Throat
+1 Infernal Grasp
+1 Bitter Triumph
+1 Soothing of Sméagol
+1 Night's Whisper
+1 Cabal Ritual
+1 Frantic Search
+1 Claim the Precious
+1 Ringsight
+1 Victimize
+1 Saw in Half
+1 Deep Analysis
+
+# -- Free spells (cast off the commander / off life) --
+1 Fierce Guardianship
+1 Deadly Rollick
+1 Snuff Out
+
+# -- Lands (34) --
+1 Command Tower
+1 Sunken Hollow
+1 Underground River
+1 Choked Estuary
+1 Drowned Catacomb
+1 Morphic Pool
+1 Darkslick Shores
+1 River of Tears
+1 Shipwreck Marsh
+1 Temple of Deceit
+1 Clearwater Pathway
+1 Undercity Sewers
+1 Fetid Pools
+1 Darkwater Catacombs
+1 Mystic Sanctuary
+1 Witch's Cottage
+1 Bojuka Bog
+1 Otawara, Soaring City
+1 Takenuma, Abandoned Mire
+1 Minas Morgul, Dark Fortress
+7 Island
+7 Swamp
