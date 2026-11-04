@@ -209,7 +209,7 @@ describe('resolveFromDeckData', () => {
   });
 
   it('refuses a file from a future version', () => {
-    expect(resolveFromDeckData(entries, { ...data, version: 99 as never }, profile, new Set())).toBeNull();
+    expect(resolveFromDeckData(entries, { ...data, version: 99 as never }, profile)).toBeNull();
   });
 
   it('still applies when the decklist only loses a card', () => {
@@ -222,5 +222,79 @@ describe('resolveFromDeckData', () => {
     const stored = buildDeckData('d', lowres, profile);
     const applied = resolveFromDeckData([lowres[0]!.entry], stored, profile, new Set());
     expect(applied?.result.warnings.map((w) => w.code)).toContain('low-resolution');
+  });
+});
+
+describe('a card and a token of the same name', () => {
+  // beorn-bears runs the Mutavault land and the Mutavault token;
+  // kwain-hare-apparent runs the Intrepid Rabbit creature and its token.
+  // Keyed by bare name these overwrite each other, and the stored data ends up
+  // pointing a token at a land.
+  const land = at('Mutavault', 1, { set: 'eos', collector_number: '28', type_line: 'Land' });
+  const token: ResolvedCard = {
+    entry: { quantity: 1, name: 'Mutavault', line: 2, raw: '1 Mutavault', section: 'tokens' },
+    card: card({
+      id: 'tok-mutavault',
+      name: 'Mutavault',
+      set: 'tecl',
+      collector_number: '11',
+      layout: 'token',
+    }),
+    via: 'name',
+  };
+
+  it('keeps both printings, under separate keys', () => {
+    const data = buildDeckData('beorn-bears', [land, token], profile);
+    expect(Object.keys(data.chosen).sort()).toEqual(['mutavault', 'token:mutavault']);
+    expect(data.cards).toHaveLength(2);
+  });
+
+  it('gives each entry back its own printing, not the other one', () => {
+    const data = buildDeckData('beorn-bears', [land, token], profile);
+    const applied = resolveFromDeckData([land.entry, token.entry], data, profile);
+    expect(applied).not.toBeNull();
+    const [first, second] = applied!.result.resolved;
+    expect(first?.card.type_line).toBe('Land');
+    expect(second?.card.layout).toBe('token');
+  });
+
+  it('re-resolves rather than guessing when the data predates token keys', () => {
+    const data = buildDeckData('beorn-bears', [land], profile);
+    expect(resolveFromDeckData([land.entry, token.entry], data, profile)).toBeNull();
+  });
+});
+
+describe('two tokens of the same name', () => {
+  // beorn-bears lists a 2/2 Bear and a 4/4 Bear; rats two different 1/1 Rats;
+  // prismari-artistry four different Elementals. Keyed by name alone they
+  // collapse into one stored choice and the rest inherit the wrong art.
+  const bear = (set: string, number: string, id: string): ResolvedCard => ({
+    entry: {
+      quantity: 1,
+      name: 'Bear',
+      set,
+      collectorNumber: number,
+      line: 1,
+      raw: `1 Bear (${set.toUpperCase()}) ${number}`,
+      section: 'tokens',
+    },
+    card: card({ id, name: 'Bear', set, collector_number: number, layout: 'token' }),
+    via: 'printing',
+  });
+
+  const small = bear('thob', '7', 'bear-2-2');
+  const big = bear('ttla', '12', 'bear-4-4');
+
+  it('stores a choice for each, keyed by its pin', () => {
+    const data = buildDeckData('beorn-bears', [small, big], profile);
+    expect(Object.keys(data.chosen).sort()).toEqual(['token:bear|thob|7', 'token:bear|ttla|12']);
+    expect(data.cards).toHaveLength(2);
+  });
+
+  it('reads each row back at its own art, so stored data is still usable', () => {
+    const data = buildDeckData('beorn-bears', [small, big], profile);
+    const applied = resolveFromDeckData([small.entry, big.entry], data, profile);
+    expect(applied).not.toBeNull();
+    expect(applied!.result.resolved.map((item) => item.card.id)).toEqual(['bear-2-2', 'bear-4-4']);
   });
 });

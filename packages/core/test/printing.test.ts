@@ -12,7 +12,7 @@ import {
   profileFor,
   type PreferenceProfile,
 } from '../src/printing/profile.js';
-import { hasActivePreferences } from '../src/printing/resolve.js';
+import { hasActivePreferences, resolveDeckWithPreferences } from '../src/printing/resolve.js';
 import { card } from './helpers.js';
 
 const chosenSet = (profile: PreferenceProfile, cards: ReturnType<typeof card>[]) =>
@@ -197,5 +197,50 @@ describe('hasActivePreferences', () => {
 
   it('ignores rules explicitly set to ignore', () => {
     expect(hasActivePreferences({ fullArt: 'ignore', borderless: 'ignore' })).toBe(false);
+  });
+});
+
+describe('a card and a token of the same name', () => {
+  // The printing cache used to be keyed by bare name, so these two entries
+  // shared one fetch and whichever came first decided whether tokens were
+  // looked up at all. The token then inherited the card's printings and its
+  // pin missed, so a Mutavault token resolved to the Mutavault land.
+  const landEntry = { quantity: 1, name: 'Mutavault', line: 1, raw: '1 Mutavault' };
+  const tokenEntry = {
+    quantity: 1,
+    name: 'Mutavault',
+    set: 'tecl',
+    collectorNumber: '11',
+    line: 2,
+    raw: '1 Mutavault (TECL) 11',
+    section: 'tokens' as const,
+  };
+
+  const realCard = card({ id: 'land', name: 'Mutavault', set: 'eos', collector_number: '28', type_line: 'Land' });
+  const tokenCard = card({ id: 'tok', name: 'Mutavault', set: 'tecl', collector_number: '11', layout: 'token' });
+
+  function clientFor(seen: string[]) {
+    return {
+      async prints(name: string, options?: { extras?: boolean }) {
+        seen.push(options?.extras ? `${name}+extras` : name);
+        return options?.extras ? [tokenCard, realCard] : [realCard];
+      },
+      async named() {
+        return null;
+      },
+    } as unknown as Parameters<typeof resolveDeckWithPreferences>[1];
+  }
+
+  it('fetches each separately and gives each its own printing', async () => {
+    const seen: string[] = [];
+    const result = await resolveDeckWithPreferences([landEntry, tokenEntry], clientFor(seen), {
+      profile: {},
+    });
+
+    expect(seen).toEqual(['Mutavault', 'Mutavault+extras']);
+    expect(result.unresolved).toHaveLength(0);
+    expect(result.resolved.map((item) => item.card.id)).toEqual(['land', 'tok']);
+    // No pin-missed warning: the token's pin was found among token printings.
+    expect(result.warnings.filter((w) => w.code === 'pin-missed')).toHaveLength(0);
   });
 });

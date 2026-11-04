@@ -62,7 +62,7 @@ import {
   reportResolve,
 } from './deck.js';
 import { collect, resolveProfile, type ProfileFlags } from './prefs.js';
-import { bold, cyan, dim, done, fail, formatBytes, green, info, yellow } from './ui.js';
+import { bold, cyan, dim, done, fail, formatBytes, green, info, warn, yellow } from './ui.js';
 
 const VERSION = '0.2.0';
 
@@ -556,6 +556,13 @@ withDeckOptions(
             for (const item of loaded.resolve.unresolved) fail(`${name}: ${item.reason}`);
             info(yellow(`${name}: skipped, ${loaded.resolve.unresolved.length} card(s) unresolved`));
             continue;
+          }
+          // A missed pin is the one warning worth breaking sync's quiet for: it
+          // means the stored file is about to disagree with the decklist, and
+          // the file is what every later run reads. The noisier warnings
+          // (lowres scans, double faces) stay out of a ten-deck run.
+          for (const warning of loaded.resolve.warnings) {
+            if (warning.code === 'pin-missed') warn(`${name}: ${warning.message}`);
           }
           resolved = loaded.resolve.resolved;
           data = buildDeckData(name, resolved, profile);

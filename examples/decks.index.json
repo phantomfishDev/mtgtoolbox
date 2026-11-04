@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-04T18:41:17.691Z",
-  "profile": "n76cg",
+  "generatedAt": "2026-11-04T22:13:21.566Z",
+  "profile": "1aquj5n",
   "decks": [
     {
       "id": "beorn-bears",
@@ -140,8 +140,8 @@
         {
           "name": "Evolving Wilds",
           "quantity": 1,
-          "set": "ecl",
-          "collectorNumber": "264",
+          "set": "plst",
+          "collectorNumber": "LCC-328",
           "typeLine": "Land"
         },
         {
@@ -504,8 +504,8 @@
         {
           "name": "Tribute to the World Tree",
           "quantity": 1,
-          "set": "mom",
-          "collectorNumber": "211",
+          "set": "sld",
+          "collectorNumber": "2708",
           "typeLine": "Enchantment"
         },
         {
@@ -1020,8 +1020,8 @@
         {
           "name": "Canopy Vista",
           "quantity": 1,
-          "set": "blc",
-          "collectorNumber": "296",
+          "set": "plst",
+          "collectorNumber": "LCC-321",
           "typeLine": "Land — Forest Plains"
         },
         {
@@ -1034,8 +1034,8 @@
         {
           "name": "Evolving Wilds",
           "quantity": 1,
-          "set": "ecl",
-          "collectorNumber": "264",
+          "set": "plst",
+          "collectorNumber": "LCC-328",
           "typeLine": "Land"
         },
         {
@@ -1048,8 +1048,8 @@
         {
           "name": "Forest",
           "quantity": 8,
-          "set": "sld",
-          "collectorNumber": "2544",
+          "set": "fra",
+          "collectorNumber": "394",
           "typeLine": "Basic Land — Forest"
         },
         {
@@ -1069,15 +1069,15 @@
         {
           "name": "Graypelt Refuge",
           "quantity": 1,
-          "set": "scd",
-          "collectorNumber": "303",
+          "set": "plst",
+          "collectorNumber": "C19-249",
           "typeLine": "Land"
         },
         {
           "name": "Isolated Chapel",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "382",
+          "set": "frc",
+          "collectorNumber": "74",
           "typeLine": "Land"
         },
         {
@@ -1097,15 +1097,15 @@
         {
           "name": "Path of Ancestry",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "661",
+          "set": "sld",
+          "collectorNumber": "2684",
           "typeLine": "Land"
         },
         {
           "name": "Plains",
           "quantity": 4,
-          "set": "sld",
-          "collectorNumber": "2540",
+          "set": "fra",
+          "collectorNumber": "382",
           "typeLine": "Basic Land — Plains"
         },
         {
@@ -1160,8 +1160,8 @@
         {
           "name": "Swamp",
           "quantity": 4,
-          "set": "sld",
-          "collectorNumber": "2542",
+          "set": "fra",
+          "collectorNumber": "388",
           "typeLine": "Basic Land — Swamp"
         },
         {
@@ -1262,8 +1262,8 @@
         {
           "name": "Claim Jumper",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "140",
+          "set": "plst",
+          "collectorNumber": "OTJ-8",
           "typeLine": "Creature — Rabbit Mercenary"
         },
         {
@@ -2240,8 +2240,8 @@
         {
           "name": "Big Score",
           "quantity": 1,
-          "set": "soa",
-          "collectorNumber": "38",
+          "set": "sld",
+          "collectorNumber": "2903",
           "typeLine": "Instant"
         },
         {
@@ -2275,8 +2275,8 @@
         {
           "name": "Chain Reaction",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "121",
+          "set": "fdc",
+          "collectorNumber": "144",
           "typeLine": "Sorcery"
         },
         {
@@ -2317,8 +2317,8 @@
         {
           "name": "Cursed Mirror",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "242",
+          "set": "frc",
+          "collectorNumber": "49",
           "typeLine": "Artifact"
         },
         {
@@ -2450,8 +2450,8 @@
         {
           "name": "Island",
           "quantity": 8,
-          "set": "sld",
-          "collectorNumber": "2541",
+          "set": "fra",
+          "collectorNumber": "385",
           "typeLine": "Basic Land — Island"
         },
         {
@@ -2506,8 +2506,8 @@
         {
           "name": "Mountain",
           "quantity": 7,
-          "set": "sld",
-          "collectorNumber": "2543",
+          "set": "fra",
+          "collectorNumber": "391",
           "typeLine": "Basic Land — Mountain"
         },
         {
@@ -2520,8 +2520,8 @@
         {
           "name": "Path of Ancestry",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "661",
+          "set": "sld",
+          "collectorNumber": "2684",
           "typeLine": "Land"
         },
         {
@@ -2695,8 +2695,8 @@
         {
           "name": "Sulfur Falls",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "408",
+          "set": "frc",
+          "collectorNumber": "84",
           "typeLine": "Land"
         },
         {
@@ -2730,8 +2730,8 @@
         {
           "name": "Terramorphic Expanse",
           "quantity": 1,
-          "set": "sos",
-          "collectorNumber": "265",
+          "set": "plst",
+          "collectorNumber": "BLC-345",
           "typeLine": "Land"
         },
         {
@@ -2832,8 +2832,8 @@
         {
           "name": "Archfiend of Despair",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "137",
+          "set": "frc",
+          "collectorNumber": "46",
           "typeLine": "Creature — Demon"
         },
         {
@@ -2902,8 +2902,8 @@
         {
           "name": "Bojuka Bog",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "363",
+          "set": "fdc",
+          "collectorNumber": "296",
           "typeLine": "Land"
         },
         {
@@ -2916,8 +2916,8 @@
         {
           "name": "Bontu's Monument",
           "quantity": 1,
-          "set": "drc",
-          "collectorNumber": "124",
+          "set": "fdc",
+          "collectorNumber": "247",
           "typeLine": "Legendary Artifact"
         },
         {
@@ -2937,8 +2937,8 @@
         {
           "name": "Castle Locthwain",
           "quantity": 1,
-          "set": "clb",
-          "collectorNumber": "884",
+          "set": "fdc",
+          "collectorNumber": "299",
           "typeLine": "Land"
         },
         {
@@ -3056,8 +3056,8 @@
         {
           "name": "Haunted Ridge",
           "quantity": 1,
-          "set": "mid",
-          "collectorNumber": "282",
+          "set": "fra",
+          "collectorNumber": "398",
           "typeLine": "Land"
         },
         {
@@ -3070,8 +3070,8 @@
         {
           "name": "Herald's Horn",
           "quantity": 1,
-          "set": "m3c",
-          "collectorNumber": "296",
+          "set": "fdc",
+          "collectorNumber": "264",
           "typeLine": "Artifact"
         },
         {
@@ -3161,8 +3161,8 @@
         {
           "name": "Mountain",
           "quantity": 4,
-          "set": "sld",
-          "collectorNumber": "2543",
+          "set": "fra",
+          "collectorNumber": "391",
           "typeLine": "Basic Land — Mountain"
         },
         {
@@ -3182,8 +3182,8 @@
         {
           "name": "Path of Ancestry",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "661",
+          "set": "sld",
+          "collectorNumber": "2684",
           "typeLine": "Land"
         },
         {
@@ -3224,8 +3224,8 @@
         {
           "name": "Rakdos Signet",
           "quantity": 1,
-          "set": "dsc",
-          "collectorNumber": "250",
+          "set": "frc",
+          "collectorNumber": "60",
           "typeLine": "Artifact"
         },
         {
@@ -3252,8 +3252,8 @@
         {
           "name": "Read the Bones",
           "quantity": 1,
-          "set": "j25",
-          "collectorNumber": "479",
+          "set": "plst",
+          "collectorNumber": "MOC-267",
           "typeLine": "Sorcery"
         },
         {
@@ -3301,8 +3301,8 @@
         {
           "name": "Sign in Blood",
           "quantity": 1,
-          "set": "sta",
-          "collectorNumber": "32",
+          "set": "sld",
+          "collectorNumber": "2712",
           "typeLine": "Sorcery"
         },
         {
@@ -3357,8 +3357,8 @@
         {
           "name": "Swamp",
           "quantity": 7,
-          "set": "sld",
-          "collectorNumber": "2542",
+          "set": "fra",
+          "collectorNumber": "388",
           "typeLine": "Basic Land — Swamp"
         },
         {
@@ -3479,22 +3479,22 @@
         {
           "name": "Ayara, First of Locthwain",
           "quantity": 1,
-          "set": "mul",
-          "collectorNumber": "13",
+          "set": "fdc",
+          "collectorNumber": "86",
           "typeLine": "Legendary Creature — Elf Noble"
         },
         {
           "name": "Bojuka Bog",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "363",
+          "set": "fdc",
+          "collectorNumber": "296",
           "typeLine": "Land"
         },
         {
           "name": "Bontu's Monument",
           "quantity": 1,
-          "set": "drc",
-          "collectorNumber": "124",
+          "set": "fdc",
+          "collectorNumber": "247",
           "typeLine": "Legendary Artifact"
         },
         {
@@ -3507,15 +3507,15 @@
         {
           "name": "Cabal Stronghold",
           "quantity": 1,
-          "set": "dom",
-          "collectorNumber": "238",
+          "set": "sld",
+          "collectorNumber": "1443",
           "typeLine": "Land"
         },
         {
           "name": "Castle Locthwain",
           "quantity": 1,
-          "set": "clb",
-          "collectorNumber": "884",
+          "set": "fdc",
+          "collectorNumber": "299",
           "typeLine": "Land"
         },
         {
@@ -3598,8 +3598,8 @@
         {
           "name": "Herald's Horn",
           "quantity": 1,
-          "set": "m3c",
-          "collectorNumber": "296",
+          "set": "fdc",
+          "collectorNumber": "264",
           "typeLine": "Artifact"
         },
         {
@@ -3731,8 +3731,8 @@
         {
           "name": "Sign in Blood",
           "quantity": 1,
-          "set": "sta",
-          "collectorNumber": "32",
+          "set": "sld",
+          "collectorNumber": "2712",
           "typeLine": "Sorcery"
         },
         {
@@ -3759,8 +3759,8 @@
         {
           "name": "Swamp",
           "quantity": 23,
-          "set": "sld",
-          "collectorNumber": "2542",
+          "set": "fra",
+          "collectorNumber": "388",
           "typeLine": "Basic Land — Swamp"
         },
         {
@@ -3836,8 +3836,8 @@
         {
           "name": "Witch's Cottage",
           "quantity": 1,
-          "set": "eld",
-          "collectorNumber": "249",
+          "set": "fdc",
+          "collectorNumber": "319",
           "typeLine": "Land — Swamp"
         }
       ]
@@ -3903,8 +3903,8 @@
         {
           "name": "Ornithopter of Paradise",
           "quantity": 1,
-          "set": "drc",
-          "collectorNumber": "133",
+          "set": "fdc",
+          "collectorNumber": "277",
           "typeLine": "Artifact Creature — Thopter"
         },
         {
@@ -4093,14 +4093,14 @@
           "name": "Tree of Tales",
           "quantity": 1,
           "set": "sld",
-          "collectorNumber": "304",
+          "collectorNumber": "2887",
           "typeLine": "Artifact Land"
         },
         {
           "name": "Vault of Whispers",
           "quantity": 2,
           "set": "sld",
-          "collectorNumber": "302",
+          "collectorNumber": "2885",
           "typeLine": "Artifact Land"
         },
         {
@@ -4148,8 +4148,8 @@
         {
           "name": "Palladium Myr",
           "quantity": 1,
-          "set": "pw25",
-          "collectorNumber": "6",
+          "set": "fdc",
+          "collectorNumber": "278",
           "typeLine": "Artifact Creature — Myr"
         },
         {
@@ -4162,8 +4162,8 @@
         {
           "name": "Myr Retriever",
           "quantity": 1,
-          "set": "2xm",
-          "collectorNumber": "277",
+          "set": "fdc",
+          "collectorNumber": "274",
           "typeLine": "Artifact Creature — Myr"
         },
         {
@@ -4309,8 +4309,8 @@
         {
           "name": "Bojuka Bog",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "363",
+          "set": "fdc",
+          "collectorNumber": "296",
           "typeLine": "Land"
         },
         {
@@ -4685,15 +4685,15 @@
         {
           "name": "Forest",
           "quantity": 6,
-          "set": "sld",
-          "collectorNumber": "2544",
+          "set": "fra",
+          "collectorNumber": "394",
           "typeLine": "Basic Land — Forest"
         },
         {
           "name": "Fyndhorn Elves",
           "quantity": 1,
-          "set": "plst",
-          "collectorNumber": "CMR-228",
+          "set": "fdc",
+          "collectorNumber": "204",
           "typeLine": "Creature — Elf Druid"
         },
         {
@@ -4762,8 +4762,8 @@
         {
           "name": "Island",
           "quantity": 4,
-          "set": "sld",
-          "collectorNumber": "2541",
+          "set": "fra",
+          "collectorNumber": "385",
           "typeLine": "Basic Land — Island"
         },
         {
@@ -4853,8 +4853,8 @@
         {
           "name": "Path of Ancestry",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "661",
+          "set": "sld",
+          "collectorNumber": "2684",
           "typeLine": "Land"
         },
         {
@@ -4916,8 +4916,8 @@
         {
           "name": "Swamp",
           "quantity": 4,
-          "set": "sld",
-          "collectorNumber": "2542",
+          "set": "fra",
+          "collectorNumber": "388",
           "typeLine": "Basic Land — Swamp"
         },
         {
@@ -4930,8 +4930,8 @@
         {
           "name": "Sylvan Library",
           "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "2058",
+          "set": "spg",
+          "collectorNumber": "155",
           "typeLine": "Enchantment"
         },
         {
@@ -5148,15 +5148,15 @@
         {
           "name": "Blossoming Bogbeast",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "264",
+          "set": "plst",
+          "collectorNumber": "C21-59",
           "typeLine": "Creature — Beast"
         },
         {
           "name": "Bojuka Bog",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "363",
+          "set": "fdc",
+          "collectorNumber": "296",
           "typeLine": "Land"
         },
         {
@@ -5267,8 +5267,8 @@
         {
           "name": "Forest",
           "quantity": 8,
-          "set": "sld",
-          "collectorNumber": "2544",
+          "set": "fra",
+          "collectorNumber": "394",
           "typeLine": "Basic Land — Forest"
         },
         {
@@ -5421,15 +5421,15 @@
         {
           "name": "Ophiomancer",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "118",
+          "set": "sld",
+          "collectorNumber": "2711",
           "typeLine": "Creature — Human Shaman"
         },
         {
           "name": "Path of Ancestry",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "661",
+          "set": "sld",
+          "collectorNumber": "2684",
           "typeLine": "Land"
         },
         {
@@ -5519,8 +5519,8 @@
         {
           "name": "Swamp",
           "quantity": 8,
-          "set": "sld",
-          "collectorNumber": "2542",
+          "set": "fra",
+          "collectorNumber": "388",
           "typeLine": "Basic Land — Swamp"
         },
         {
@@ -5547,8 +5547,8 @@
         {
           "name": "Terramorphic Expanse",
           "quantity": 1,
-          "set": "sos",
-          "collectorNumber": "265",
+          "set": "plst",
+          "collectorNumber": "BLC-345",
           "typeLine": "Land"
         },
         {

@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "nazgul",
-  "generatedAt": "2026-11-04T18:41:17.597Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:34.313Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "01dc71d4-b443-4580-b16f-9e92750f4a72",
@@ -491,6 +490,43 @@
         "png": "https://cards.scryfall.io/png/front/2/9/29b25772-8512-4270-851b-289cd182d819.png?1783911193",
         "large": "https://cards.scryfall.io/large/front/2/9/29b25772-8512-4270-851b-289cd182d819.jpg?1783911193",
         "normal": "https://cards.scryfall.io/normal/front/2/9/29b25772-8512-4270-851b-289cd182d819.jpg?1783911193"
+      }
+    },
+    {
+      "id": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+      "oracle_id": "ee6f463c-5dd3-4a1d-8543-7f7cf7f27f48",
+      "name": "Bird",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-08-01",
+      "set": "teoc",
+      "set_name": "Edge of Eternities Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
+      "rarity": "common",
+      "type_line": "Token Creature — Bird",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ef597518-594c-4993-a419-75dcb2afab50",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.png?1783905793",
+        "large": "https://cards.scryfall.io/large/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793",
+        "normal": "https://cards.scryfall.io/normal/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793"
       }
     },
     {
@@ -1073,6 +1109,43 @@
       }
     },
     {
+      "id": "5c3a91bf-daa1-4bba-a052-d868700c610c",
+      "oracle_id": "9e266374-80f1-458a-9417-16220d2a013a",
+      "name": "Drake",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-08-04",
+      "set": "tcmm",
+      "set_name": "Commander Masters Tokens",
+      "set_type": "token",
+      "collector_number": "12",
+      "rarity": "common",
+      "type_line": "Token Creature — Drake",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "bd27a16e-6ba3-4966-8d70-9ed6e7f52d62",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.png?1783915258",
+        "large": "https://cards.scryfall.io/large/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.jpg?1783915258",
+        "normal": "https://cards.scryfall.io/normal/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.jpg?1783915258"
+      }
+    },
+    {
       "id": "6002d99a-c7b4-4845-aca9-b55dabb62d9f",
       "oracle_id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
       "name": "Arcane Signet",
@@ -1565,6 +1638,39 @@
       }
     },
     {
+      "id": "861bc4e3-0445-44e6-bf58-a469b4a92192",
+      "oracle_id": "496e1083-c792-40a4-adf4-fec1d559cd5e",
+      "name": "Clue",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-04-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "TMKM-15",
+      "rarity": "common",
+      "type_line": "Token Artifact — Clue",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{2}, Sacrifice this token: Draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "74cdcb48-1772-44c5-b5ce-a451b45bb76c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.png?1783906763",
+        "large": "https://cards.scryfall.io/large/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.jpg?1783906763",
+        "normal": "https://cards.scryfall.io/normal/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.jpg?1783906763"
+      }
+    },
+    {
       "id": "87284999-8b35-4142-a711-0c9e1bdc8e1a",
       "oracle_id": "cc187110-1148-4090-bbb8-e205694a39f5",
       "name": "Counterspell",
@@ -1927,6 +2033,46 @@
         "png": "https://cards.scryfall.io/png/front/9/a/9a9e1edd-2a42-41a8-b089-66f3db080984.png?1784629984",
         "large": "https://cards.scryfall.io/large/front/9/a/9a9e1edd-2a42-41a8-b089-66f3db080984.jpg?1784629984",
         "normal": "https://cards.scryfall.io/normal/front/9/a/9a9e1edd-2a42-41a8-b089-66f3db080984.jpg?1784629984"
+      }
+    },
+    {
+      "id": "9afb58e8-f5a7-49f9-8287-77757bd3268c",
+      "oracle_id": "63c4ffe4-247d-497f-a2d3-c4d91f919d7b",
+      "name": "Wraith",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltc",
+      "set_name": "Tales of Middle-earth Commander Tokens",
+      "set_type": "token",
+      "collector_number": "7",
+      "rarity": "common",
+      "type_line": "Token Creature — Wraith",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Menace",
+      "keywords": [
+        "Menace"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "c6ec6a9a-ef24-4794-a0a8-f60ace2f3c76",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.png?1783916058",
+        "large": "https://cards.scryfall.io/large/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.jpg?1783916058",
+        "normal": "https://cards.scryfall.io/normal/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.jpg?1783916058"
       }
     },
     {
@@ -2407,6 +2553,39 @@
         "png": "https://cards.scryfall.io/png/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.png?1783910565",
         "large": "https://cards.scryfall.io/large/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.jpg?1783910565",
         "normal": "https://cards.scryfall.io/normal/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.jpg?1783910565"
+      }
+    },
+    {
+      "id": "b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-11-13",
+      "set": "ttrk",
+      "set_name": "Star Trek Tokens",
+      "set_type": "token",
+      "collector_number": "26",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "076d31c3-4e92-4209-bd47-3d1b5c76d6b5",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.png?1793364377",
+        "large": "https://cards.scryfall.io/large/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.jpg?1793364377",
+        "normal": "https://cards.scryfall.io/normal/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.jpg?1793364377"
       }
     },
     {
@@ -3180,6 +3359,11 @@
     "talrand, sky summoner": "bbbbfc7f-51b6-4925-a0f7-b2873366653e",
     "temple of deceit": "646a980c-9226-412a-ba58-c2b52a721c99",
     "the one ring": "bdd2c783-1483-490a-ae93-c4664a0a9564",
+    "token:bird|teoc|3": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+    "token:clue|plst|tmkm-15": "861bc4e3-0445-44e6-bf58-a469b4a92192",
+    "token:drake|tcmm|12": "5c3a91bf-daa1-4bba-a052-d868700c610c",
+    "token:treasure|ttrk|26": "b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b",
+    "token:wraith|tltc|7": "9afb58e8-f5a7-49f9-8287-77757bd3268c",
     "tragic slip": "36b9111c-eb78-4f9f-b5e3-81482dff69b8",
     "trail of evidence": "f42bd4af-3c3a-4750-8e21-03d0aba3116f",
     "undercity sewers": "3239a1e5-a002-4389-b9a7-049b1d60e2ac",

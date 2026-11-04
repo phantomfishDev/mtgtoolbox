@@ -1,10 +1,9 @@
-import { isTokenEntry, type DeckEntry } from '../decklist/parse.js';
+import { fetchKey, isTokenEntry, type DeckEntry } from '../decklist/parse.js';
 import type { ScryfallClient } from '../scryfall/client.js';
 import type { ResolveResult, ResolvedCard, UnresolvedCard, ResolveWarning } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
 import { isDoubleFaced, isTokenCard } from '../scryfall/types.js';
 import { isBasicLand } from '../printed/diff.js';
-import { normalizeName } from '../printed/types.js';
 import type { PreferenceProfile } from './profile.js';
 import { selectPrinting, type SelectionResult } from './score.js';
 
@@ -52,12 +51,17 @@ export async function resolveDeckWithPreferences(
   const warnings: ResolveWarning[] = [];
   const selections = new Map<string, SelectionResult>();
 
-  // One fetch per distinct name, however many entries reference it.
-  const distinct = [...new Set(entries.map((entry) => normalizeName(entry.name)))];
+  // One fetch per distinct name, however many entries reference it. Keyed so a
+  // card and a token of the same name do not share one fetch: they need
+  // different queries and must not be offered each other's printings.
+  const byKey = new Map<string, DeckEntry>();
+  for (const entry of entries) {
+    if (!byKey.has(fetchKey(entry))) byKey.set(fetchKey(entry), entry);
+  }
   const printsByName = new Map<string, ScryfallCard[]>();
+  const distinct = [...byKey.keys()];
   let done = 0;
-  for (const name of distinct) {
-    const entry = entries.find((candidate) => normalizeName(candidate.name) === name)!;
+  for (const [name, entry] of byKey) {
     options.onProgress?.(done, distinct.length, entry.name);
     // A token is only visible to the search endpoint with include:extras, and
     // once it is, a real card of the same name must not be allowed to win the
@@ -73,7 +77,7 @@ export async function resolveDeckWithPreferences(
   options.onProgress?.(done, distinct.length, '');
 
   for (const entry of entries) {
-    const key = normalizeName(entry.name);
+    const key = fetchKey(entry);
     let candidates = printsByName.get(key) ?? [];
 
     // A name the search endpoint does not know may still resolve fuzzily.

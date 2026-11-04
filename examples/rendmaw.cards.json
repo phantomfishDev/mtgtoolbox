@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "rendmaw",
-  "generatedAt": "2026-09-06T00:50:21.796Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:35.097Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "0093bdcf-6626-40ab-9b87-8ab9e4a306a4",
@@ -74,43 +73,6 @@
         "png": "https://cards.scryfall.io/png/front/0/3/031c71f7-37a7-4b64-ac18-01f587525df1.png?1787661687",
         "large": "https://cards.scryfall.io/large/front/0/3/031c71f7-37a7-4b64-ac18-01f587525df1.jpg?1787661687",
         "normal": "https://cards.scryfall.io/normal/front/0/3/031c71f7-37a7-4b64-ac18-01f587525df1.jpg?1787661687"
-      }
-    },
-    {
-      "id": "035be14f-57fc-47d4-9710-7f3bc36fcfdb",
-      "oracle_id": "7b0767b8-b504-456e-93bd-218502f73b3d",
-      "name": "Palladium Myr",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-07-25",
-      "set": "pw25",
-      "set_name": "Wizards Play Network 2025",
-      "set_type": "promo",
-      "collector_number": "6",
-      "rarity": "rare",
-      "type_line": "Artifact Creature — Myr",
-      "cmc": 3,
-      "color_identity": [],
-      "mana_cost": "{3}",
-      "oracle_text": "{T}: Add {C}{C}.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "1997",
-      "promo": true,
-      "promo_types": [
-        "commanderparty",
-        "wizardsplaynetwork"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "8c84e1bd-7e79-4536-92df-428c4d4d6c4b",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/0/3/035be14f-57fc-47d4-9710-7f3bc36fcfdb.png?1783906082",
-        "large": "https://cards.scryfall.io/large/front/0/3/035be14f-57fc-47d4-9710-7f3bc36fcfdb.jpg?1783906082",
-        "normal": "https://cards.scryfall.io/normal/front/0/3/035be14f-57fc-47d4-9710-7f3bc36fcfdb.jpg?1783906082"
       }
     },
     {
@@ -337,44 +299,6 @@
       }
     },
     {
-      "id": "1da48f6c-df82-4290-a476-6e4358fac4ff",
-      "oracle_id": "8b4aa971-b919-4750-8388-33d4f42c9280",
-      "name": "Tree of Tales",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2021-10-15",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "304",
-      "rarity": "rare",
-      "type_line": "Artifact Land",
-      "cmc": 0,
-      "color_identity": [
-        "G"
-      ],
-      "mana_cost": "",
-      "oracle_text": "{T}: Add {G}.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "28c13495-407a-4492-8226-71d617fcaf48",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/d/1da48f6c-df82-4290-a476-6e4358fac4ff.png?1783925175",
-        "large": "https://cards.scryfall.io/large/front/1/d/1da48f6c-df82-4290-a476-6e4358fac4ff.jpg?1783925175",
-        "normal": "https://cards.scryfall.io/normal/front/1/d/1da48f6c-df82-4290-a476-6e4358fac4ff.jpg?1783925175"
-      }
-    },
-    {
       "id": "22379f55-dc70-4452-8efe-99fd05c4f6a2",
       "oracle_id": "dd96f145-73eb-4a6d-bcfd-5d6313fac1f9",
       "name": "Revenge of Ravens",
@@ -407,44 +331,6 @@
         "png": "https://cards.scryfall.io/png/front/2/2/22379f55-dc70-4452-8efe-99fd05c4f6a2.png?1783910224",
         "large": "https://cards.scryfall.io/large/front/2/2/22379f55-dc70-4452-8efe-99fd05c4f6a2.jpg?1783910224",
         "normal": "https://cards.scryfall.io/normal/front/2/2/22379f55-dc70-4452-8efe-99fd05c4f6a2.jpg?1783910224"
-      }
-    },
-    {
-      "id": "2320e6f4-ff1f-4c07-86b7-ee0e7904a573",
-      "oracle_id": "09496421-74e4-466a-9546-56f2a0c8eef4",
-      "name": "Vault of Whispers",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2021-10-15",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "302",
-      "rarity": "rare",
-      "type_line": "Artifact Land",
-      "cmc": 0,
-      "color_identity": [
-        "B"
-      ],
-      "mana_cost": "",
-      "oracle_text": "{T}: Add {B}.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "e172db98-2885-4913-ab40-afa797ec6dbe",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/3/2320e6f4-ff1f-4c07-86b7-ee0e7904a573.png?1783925175",
-        "large": "https://cards.scryfall.io/large/front/2/3/2320e6f4-ff1f-4c07-86b7-ee0e7904a573.jpg?1783925175",
-        "normal": "https://cards.scryfall.io/normal/front/2/3/2320e6f4-ff1f-4c07-86b7-ee0e7904a573.jpg?1783925175"
       }
     },
     {
@@ -696,6 +582,39 @@
       }
     },
     {
+      "id": "3679933e-6880-41e3-b9e0-43d002722d4e",
+      "oracle_id": "7b0767b8-b504-456e-93bd-218502f73b3d",
+      "name": "Palladium Myr",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "278",
+      "rarity": "uncommon",
+      "type_line": "Artifact Creature — Myr",
+      "cmc": 3,
+      "color_identity": [],
+      "mana_cost": "{3}",
+      "oracle_text": "{T}: Add {C}{C}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8c84e1bd-7e79-4536-92df-428c4d4d6c4b",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/6/3679933e-6880-41e3-b9e0-43d002722d4e.png?1789753341",
+        "large": "https://cards.scryfall.io/large/front/3/6/3679933e-6880-41e3-b9e0-43d002722d4e.jpg?1789753341",
+        "normal": "https://cards.scryfall.io/normal/front/3/6/3679933e-6880-41e3-b9e0-43d002722d4e.jpg?1789753341"
+      }
+    },
+    {
       "id": "3882ebea-2864-40ef-a21d-6ba80a0bd417",
       "oracle_id": "9b271430-f53d-42d6-a547-2f286dd9bcb6",
       "name": "Putrefy",
@@ -732,6 +651,41 @@
         "png": "https://cards.scryfall.io/png/front/3/8/3882ebea-2864-40ef-a21d-6ba80a0bd417.png?1783927422",
         "large": "https://cards.scryfall.io/large/front/3/8/3882ebea-2864-40ef-a21d-6ba80a0bd417.jpg?1783927422",
         "normal": "https://cards.scryfall.io/normal/front/3/8/3882ebea-2864-40ef-a21d-6ba80a0bd417.jpg?1783927422"
+      }
+    },
+    {
+      "id": "3999a519-bfd5-43cf-b7b1-40ed5eb0a05a",
+      "oracle_id": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
+      "name": "Bojuka Bog",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "296",
+      "rarity": "common",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "3f411487-e24c-45b8-90f4-e195ff208c30",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.png?1789753362",
+        "large": "https://cards.scryfall.io/large/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.jpg?1789753362",
+        "normal": "https://cards.scryfall.io/normal/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.jpg?1789753362"
       }
     },
     {
@@ -984,41 +938,6 @@
       }
     },
     {
-      "id": "47c976ee-7eb3-42bb-8bfb-5eda12417e97",
-      "oracle_id": "3a940dfa-a026-4969-8981-ef90cdfbe9ef",
-      "name": "Ornithopter of Paradise",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-02-14",
-      "set": "drc",
-      "set_name": "Aetherdrift Commander",
-      "set_type": "commander",
-      "collector_number": "133",
-      "rarity": "common",
-      "type_line": "Artifact Creature — Thopter",
-      "cmc": 2,
-      "color_identity": [],
-      "mana_cost": "{2}",
-      "oracle_text": "Flying\n{T}: Add one mana of any color.",
-      "keywords": [
-        "Flying"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "8fd16015-4979-420d-972b-6303c0b86828",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/7/47c976ee-7eb3-42bb-8bfb-5eda12417e97.png?1783907711",
-        "large": "https://cards.scryfall.io/large/front/4/7/47c976ee-7eb3-42bb-8bfb-5eda12417e97.jpg?1783907711",
-        "normal": "https://cards.scryfall.io/normal/front/4/7/47c976ee-7eb3-42bb-8bfb-5eda12417e97.jpg?1783907711"
-      }
-    },
-    {
       "id": "4d6f6c96-f813-4864-b4e1-b2a0aa8be1e8",
       "oracle_id": "c9fe1383-1331-4a58-a45a-3320250221a9",
       "name": "Woodland Cemetery",
@@ -1209,38 +1128,41 @@
       }
     },
     {
-      "id": "55b5b094-9d2d-4d96-b90c-78fecdae725a",
-      "oracle_id": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
-      "name": "Bojuka Bog",
+      "id": "562af1c7-cdcb-4856-99d1-a17387f30864",
+      "oracle_id": "8b4aa971-b919-4750-8388-33d4f42c9280",
+      "name": "Tree of Tales",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-24",
-      "set": "soc",
-      "set_name": "Secrets of Strixhaven Commander",
-      "set_type": "commander",
-      "collector_number": "363",
-      "rarity": "common",
-      "type_line": "Land",
+      "released_at": "2026-10-12",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2887",
+      "rarity": "rare",
+      "type_line": "Artifact Land",
       "cmc": 0,
       "color_identity": [
-        "B"
+        "G"
       ],
       "mana_cost": "",
-      "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+      "oracle_text": "{T}: Add {G}.",
       "keywords": [],
       "game_changer": false,
-      "full_art": false,
+      "full_art": true,
       "textless": false,
-      "border_color": "black",
+      "border_color": "borderless",
       "frame": "2015",
       "promo": false,
+      "promo_types": [
+        "poster"
+      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "3f411487-e24c-45b8-90f4-e195ff208c30",
+      "illustration_id": "36095c75-d220-4dfe-930e-a033ef4c1f1c",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.png?1783903734",
-        "large": "https://cards.scryfall.io/large/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.jpg?1783903734",
-        "normal": "https://cards.scryfall.io/normal/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.jpg?1783903734"
+        "png": "https://cards.scryfall.io/png/front/5/6/562af1c7-cdcb-4856-99d1-a17387f30864.png?1790772782",
+        "large": "https://cards.scryfall.io/large/front/5/6/562af1c7-cdcb-4856-99d1-a17387f30864.jpg?1790772782",
+        "normal": "https://cards.scryfall.io/normal/front/5/6/562af1c7-cdcb-4856-99d1-a17387f30864.jpg?1790772782"
       }
     },
     {
@@ -1606,6 +1528,42 @@
       }
     },
     {
+      "id": "7081602e-84a3-45b0-87f6-f0f236a5264e",
+      "oracle_id": "e649b92c-a1ef-4c72-8f1f-6ac775957294",
+      "name": "Human Cleric",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-01-24",
+      "set": "tinr",
+      "set_name": "Innistrad Remastered Tokens",
+      "set_type": "token",
+      "collector_number": "19",
+      "rarity": "common",
+      "type_line": "Token Creature — Human Cleric",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "6fdbf5d5-8676-4648-9209-599621b82c18",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/0/7081602e-84a3-45b0-87f6-f0f236a5264e.png?1783907967",
+        "large": "https://cards.scryfall.io/large/front/7/0/7081602e-84a3-45b0-87f6-f0f236a5264e.jpg?1783907967",
+        "normal": "https://cards.scryfall.io/normal/front/7/0/7081602e-84a3-45b0-87f6-f0f236a5264e.jpg?1783907967"
+      }
+    },
+    {
       "id": "77741652-d431-440d-8c47-3f95d68e846e",
       "oracle_id": "a77b5be2-f361-4135-ba25-670a74d268ac",
       "name": "Noxious Gearhulk",
@@ -1742,39 +1700,6 @@
         "png": "https://cards.scryfall.io/png/front/7/c/7c990878-50e6-4443-91b6-99c31f85be98.png?1783903469",
         "large": "https://cards.scryfall.io/large/front/7/c/7c990878-50e6-4443-91b6-99c31f85be98.jpg?1783903469",
         "normal": "https://cards.scryfall.io/normal/front/7/c/7c990878-50e6-4443-91b6-99c31f85be98.jpg?1783903469"
-      }
-    },
-    {
-      "id": "7f0149d4-0731-474a-a1c3-28c25e486c14",
-      "oracle_id": "d07d3be3-f69d-4484-8467-cffd43871788",
-      "name": "Myr Retriever",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2020-08-07",
-      "set": "2xm",
-      "set_name": "Double Masters",
-      "set_type": "masters",
-      "collector_number": "277",
-      "rarity": "common",
-      "type_line": "Artifact Creature — Myr",
-      "cmc": 2,
-      "color_identity": [],
-      "mana_cost": "{2}",
-      "oracle_text": "When this creature dies, return another target artifact card from your graveyard to your hand.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "bb48869b-9737-446f-85f7-b2193e57b2b5",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/f/7f0149d4-0731-474a-a1c3-28c25e486c14.png?1783930101",
-        "large": "https://cards.scryfall.io/large/front/7/f/7f0149d4-0731-474a-a1c3-28c25e486c14.jpg?1783930101",
-        "normal": "https://cards.scryfall.io/normal/front/7/f/7f0149d4-0731-474a-a1c3-28c25e486c14.jpg?1783930101"
       }
     },
     {
@@ -1926,7 +1851,7 @@
       "name": "Reap",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-11-09",
+      "released_at": "2026-10-19",
       "set": "plst",
       "set_name": "The List",
       "set_type": "masters",
@@ -2033,6 +1958,39 @@
       }
     },
     {
+      "id": "9bc01feb-9e14-40f1-ba4b-87e109c672e7",
+      "oracle_id": "d07d3be3-f69d-4484-8467-cffd43871788",
+      "name": "Myr Retriever",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "274",
+      "rarity": "uncommon",
+      "type_line": "Artifact Creature — Myr",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "When this creature dies, return another target artifact card from your graveyard to your hand.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "bb48869b-9737-446f-85f7-b2193e57b2b5",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/b/9bc01feb-9e14-40f1-ba4b-87e109c672e7.png?1789753335",
+        "large": "https://cards.scryfall.io/large/front/9/b/9bc01feb-9e14-40f1-ba4b-87e109c672e7.jpg?1789753335",
+        "normal": "https://cards.scryfall.io/normal/front/9/b/9bc01feb-9e14-40f1-ba4b-87e109c672e7.jpg?1789753335"
+      }
+    },
+    {
       "id": "9d76a30c-0431-4334-892a-9822dda9671a",
       "oracle_id": "3577c47e-76d3-4659-b922-31c4b74be3a0",
       "name": "Enduring Vitality",
@@ -2070,6 +2028,41 @@
         "png": "https://cards.scryfall.io/png/front/9/d/9d76a30c-0431-4334-892a-9822dda9671a.png?1783909457",
         "large": "https://cards.scryfall.io/large/front/9/d/9d76a30c-0431-4334-892a-9822dda9671a.jpg?1783909457",
         "normal": "https://cards.scryfall.io/normal/front/9/d/9d76a30c-0431-4334-892a-9822dda9671a.jpg?1783909457"
+      }
+    },
+    {
+      "id": "9e5c677e-397d-4a0c-994e-2f35eadb8a33",
+      "oracle_id": "3a940dfa-a026-4969-8981-ef90cdfbe9ef",
+      "name": "Ornithopter of Paradise",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "277",
+      "rarity": "common",
+      "type_line": "Artifact Creature — Thopter",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "Flying\n{T}: Add one mana of any color.",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8fd16015-4979-420d-972b-6303c0b86828",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/e/9e5c677e-397d-4a0c-994e-2f35eadb8a33.png?1789753338",
+        "large": "https://cards.scryfall.io/large/front/9/e/9e5c677e-397d-4a0c-994e-2f35eadb8a33.jpg?1789753338",
+        "normal": "https://cards.scryfall.io/normal/front/9/e/9e5c677e-397d-4a0c-994e-2f35eadb8a33.jpg?1789753338"
       }
     },
     {
@@ -2381,6 +2374,39 @@
       }
     },
     {
+      "id": "ba7638ef-114b-4055-9855-390f82b7d5c5",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-02-14",
+      "set": "tdft",
+      "set_name": "Aetherdrift Tokens",
+      "set_type": "token",
+      "collector_number": "11",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "fbf6a1f6-a2cd-4b26-bbb4-f5e0f3d7d2bf",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/a/ba7638ef-114b-4055-9855-390f82b7d5c5.png?1783907677",
+        "large": "https://cards.scryfall.io/large/front/b/a/ba7638ef-114b-4055-9855-390f82b7d5c5.jpg?1783907677",
+        "normal": "https://cards.scryfall.io/normal/front/b/a/ba7638ef-114b-4055-9855-390f82b7d5c5.jpg?1783907677"
+      }
+    },
+    {
       "id": "ba78e076-8962-4b3f-b86f-04400b062951",
       "oracle_id": "730d02c7-2f8a-47d3-99f0-e4ada7f6255c",
       "name": "Wickerfolk Indomitable",
@@ -2413,6 +2439,43 @@
         "png": "https://cards.scryfall.io/png/front/b/a/ba78e076-8962-4b3f-b86f-04400b062951.png?1783907888",
         "large": "https://cards.scryfall.io/large/front/b/a/ba78e076-8962-4b3f-b86f-04400b062951.jpg?1783907888",
         "normal": "https://cards.scryfall.io/normal/front/b/a/ba78e076-8962-4b3f-b86f-04400b062951.jpg?1783907888"
+      }
+    },
+    {
+      "id": "c94d14b1-0038-4e90-9335-54aef2890486",
+      "oracle_id": "10f63eb0-b29c-4d9f-a3a0-d93fd767fc65",
+      "name": "Bird",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-09-27",
+      "set": "tdsc",
+      "set_name": "Duskmourn Commander Tokens",
+      "set_type": "token",
+      "collector_number": "5",
+      "rarity": "common",
+      "type_line": "Token Creature — Bird",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "2769a171-ca58-4467-889d-c4caa386c387",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/9/c94d14b1-0038-4e90-9335-54aef2890486.png?1783909277",
+        "large": "https://cards.scryfall.io/large/front/c/9/c94d14b1-0038-4e90-9335-54aef2890486.jpg?1783909277",
+        "normal": "https://cards.scryfall.io/normal/front/c/9/c94d14b1-0038-4e90-9335-54aef2890486.jpg?1783909277"
       }
     },
     {
@@ -2802,6 +2865,39 @@
       }
     },
     {
+      "id": "f4ef9889-e61d-4733-b27c-9e78aea8e84b",
+      "oracle_id": "53ccb03f-a853-4df9-8c00-39279d15f3b2",
+      "name": "Phyrexian Myr",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-08-04",
+      "set": "tcmm",
+      "set_name": "Commander Masters Tokens",
+      "set_type": "token",
+      "collector_number": "44",
+      "rarity": "common",
+      "type_line": "Token Artifact Creature — Phyrexian Myr",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "1fbe3f99-b768-40e7-b8b5-1cef34411651",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/4/f4ef9889-e61d-4733-b27c-9e78aea8e84b.png?1783915243",
+        "large": "https://cards.scryfall.io/large/front/f/4/f4ef9889-e61d-4733-b27c-9e78aea8e84b.jpg?1783915243",
+        "normal": "https://cards.scryfall.io/normal/front/f/4/f4ef9889-e61d-4733-b27c-9e78aea8e84b.jpg?1783915243"
+      }
+    },
+    {
       "id": "f524bc08-caeb-4362-b960-eb8e0e4159d0",
       "oracle_id": "11ceb2db-021e-422d-976e-7bfe3b67a8aa",
       "name": "Foraging Wickermaw",
@@ -2916,6 +3012,44 @@
       }
     },
     {
+      "id": "fd36dbf1-cde7-43d8-b554-40b750b016f7",
+      "oracle_id": "09496421-74e4-466a-9546-56f2a0c8eef4",
+      "name": "Vault of Whispers",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-12",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2885",
+      "rarity": "rare",
+      "type_line": "Artifact Land",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {B}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "poster"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7471a508-bb7e-44d1-830c-ead240681f64",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/d/fd36dbf1-cde7-43d8-b554-40b750b016f7.png?1790772786",
+        "large": "https://cards.scryfall.io/large/front/f/d/fd36dbf1-cde7-43d8-b554-40b750b016f7.jpg?1790772786",
+        "normal": "https://cards.scryfall.io/normal/front/f/d/fd36dbf1-cde7-43d8-b554-40b750b016f7.jpg?1790772786"
+      }
+    },
+    {
       "id": "fe88cbee-5f6c-47e0-8a84-192c4c2ca984",
       "oracle_id": "41087db6-34c4-4e2b-9f54-5e4488ca9c0b",
       "name": "Blood Seeker",
@@ -2958,7 +3092,7 @@
     "bladegriff prototype": "0093bdcf-6626-40ab-9b87-8ab9e4a306a4",
     "blood artist": "5587191b-b56a-452d-8a18-1622df83c267",
     "blood seeker": "fe88cbee-5f6c-47e0-8a84-192c4c2ca984",
-    "bojuka bog": "55b5b094-9d2d-4d96-b90c-78fecdae725a",
+    "bojuka bog": "3999a519-bfd5-43cf-b7b1-40ed5eb0a05a",
     "burnished hart": "7c990878-50e6-4443-91b6-99c31f85be98",
     "cabal coffers": "6cd01460-901c-4d75-bc29-e97ed26afc39",
     "clockwork condor": "84f68c98-7260-43e0-aad4-f3523dff1d8f",
@@ -2986,14 +3120,14 @@
     "manakin": "9990b3d4-50cd-4c54-9068-5403796ab394",
     "massacre wurm": "a0523c0a-b9b6-4946-b90d-ed8e13cf1915",
     "memnite": "7b8f6516-3d00-4deb-b852-bcd3b72e49ea",
-    "myr retriever": "7f0149d4-0731-474a-a1c3-28c25e486c14",
+    "myr retriever": "9bc01feb-9e14-40f1-ba4b-87e109c672e7",
     "myr sire": "11ba43d1-e879-40e0-b49c-e009deb7e3aa",
     "noxious gearhulk": "77741652-d431-440d-8c47-3f95d68e846e",
     "oasis gardener": "ee0dc663-4bfb-46d4-af79-d0143c799487",
     "one-eyed scarecrow": "5d495d85-6458-44d5-b3b4-5e09569057e3",
     "ornithopter": "2ec13f4c-41e4-4297-8c2b-158bbb107671",
-    "ornithopter of paradise": "47c976ee-7eb3-42bb-8bfb-5eda12417e97",
-    "palladium myr": "035be14f-57fc-47d4-9710-7f3bc36fcfdb",
+    "ornithopter of paradise": "9e5c677e-397d-4a0c-994e-2f35eadb8a33",
+    "palladium myr": "3679933e-6880-41e3-b9e0-43d002722d4e",
     "plague myr": "e74be86a-f52e-4537-8f88-ba52618428ee",
     "primal vigor": "86c63e02-41a8-4915-9e0d-fbabd916dbe7",
     "putrefy": "3882ebea-2864-40ef-a21d-6ba80a0bd417",
@@ -3017,12 +3151,16 @@
     "temple of malady": "1ca36218-db87-4e44-8606-2a516504ed20",
     "thaumaturge's familiar": "6a1858f5-16b8-4a58-8f31-b60f926fdbf8",
     "the meathook massacre": "996e6444-66b7-4d92-85f2-4c44d58186fe",
+    "token:bird|tdsc|5": "c94d14b1-0038-4e90-9335-54aef2890486",
+    "token:human cleric|tinr|19": "7081602e-84a3-45b0-87f6-f0f236a5264e",
+    "token:phyrexian myr|tcmm|44": "f4ef9889-e61d-4733-b27c-9e78aea8e84b",
+    "token:treasure|tdft|11": "ba7638ef-114b-4055-9855-390f82b7d5c5",
     "treasure vault": "f183b2d3-961a-499a-aa04-595793f01edc",
-    "tree of tales": "1da48f6c-df82-4290-a476-6e4358fac4ff",
+    "tree of tales": "562af1c7-cdcb-4856-99d1-a17387f30864",
     "twilight mire": "3cc8186b-b46f-46c0-8dfb-9e423e430048",
     "underground mortuary": "0d8938e4-bfa5-47e1-8c71-9c6583346300",
     "urborg, tomb of yawgmoth": "031c71f7-37a7-4b64-ac18-01f587525df1",
-    "vault of whispers": "2320e6f4-ff1f-4c07-86b7-ee0e7904a573",
+    "vault of whispers": "fd36dbf1-cde7-43d8-b554-40b750b016f7",
     "viridescent bog": "54d852fc-0f3a-4791-a147-b21ca6964763",
     "westvale abbey": "d3182b40-a731-4957-9d6e-a1f69c3aeb5e",
     "whip of erebos": "b738612f-4e78-4b19-9392-6c074956d6e4",

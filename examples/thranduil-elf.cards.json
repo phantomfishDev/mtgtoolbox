@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "thranduil-elf",
-  "generatedAt": "2026-09-06T00:50:22.149Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:35.326Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "054a392e-ea3b-4de2-beeb-72772a546070",
@@ -352,6 +351,44 @@
       }
     },
     {
+      "id": "17ed79a4-6c88-4061-8b08-d94ad58d0234",
+      "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
+      "name": "Path of Ancestry",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-07-20",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2684",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "3c0e8913-7f56-4a54-8e36-3a224ff9c3eb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.png?1791470690",
+        "large": "https://cards.scryfall.io/large/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.jpg?1791470690",
+        "normal": "https://cards.scryfall.io/normal/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.jpg?1791470690"
+      }
+    },
+    {
       "id": "193a5688-9e9b-48f4-9904-53134ec73c97",
       "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
       "name": "Sol Ring",
@@ -596,41 +633,6 @@
       }
     },
     {
-      "id": "212e84a3-e028-42a6-a639-f42b64ab7015",
-      "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
-      "name": "Island",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2541",
-      "rarity": "rare",
-      "type_line": "Basic Land — Island",
-      "cmc": 0,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "",
-      "oracle_text": "({T}: Add {U}.)",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "d3e344eb-be17-4231-9b89-44e69e2b9c87",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.png?1783903504",
-        "large": "https://cards.scryfall.io/large/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.jpg?1783903504",
-        "normal": "https://cards.scryfall.io/normal/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.jpg?1783903504"
-      }
-    },
-    {
       "id": "2526a07a-0b92-4e31-81fe-14fb067b5821",
       "oracle_id": "68954295-54e3-4303-a6bc-fc4547a4e3a3",
       "name": "Llanowar Elves",
@@ -663,6 +665,82 @@
         "png": "https://cards.scryfall.io/png/front/2/5/2526a07a-0b92-4e31-81fe-14fb067b5821.png?1787661604",
         "large": "https://cards.scryfall.io/large/front/2/5/2526a07a-0b92-4e31-81fe-14fb067b5821.jpg?1787661604",
         "normal": "https://cards.scryfall.io/normal/front/2/5/2526a07a-0b92-4e31-81fe-14fb067b5821.jpg?1787661604"
+      }
+    },
+    {
+      "id": "26a7c62c-12ed-493c-ba95-0f55fec83686",
+      "oracle_id": "92eed395-62ca-4293-882b-8565c40daab5",
+      "name": "Sylvan Library",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-24",
+      "set": "spg",
+      "set_name": "Special Guests",
+      "set_type": "masterpiece",
+      "collector_number": "155",
+      "rarity": "mythic",
+      "type_line": "Enchantment",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{1}{G}",
+      "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "enchantment",
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "97e960c2-b92d-463f-bb0b-04235bc247eb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/6/26a7c62c-12ed-493c-ba95-0f55fec83686.png?1783903578",
+        "large": "https://cards.scryfall.io/large/front/2/6/26a7c62c-12ed-493c-ba95-0f55fec83686.jpg?1783903578",
+        "normal": "https://cards.scryfall.io/normal/front/2/6/26a7c62c-12ed-493c-ba95-0f55fec83686.jpg?1783903578"
+      }
+    },
+    {
+      "id": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+      "oracle_id": "ee6f463c-5dd3-4a1d-8543-7f7cf7f27f48",
+      "name": "Bird",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-08-01",
+      "set": "teoc",
+      "set_name": "Edge of Eternities Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
+      "rarity": "common",
+      "type_line": "Token Creature — Bird",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ef597518-594c-4993-a419-75dcb2afab50",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.png?1783905793",
+        "large": "https://cards.scryfall.io/large/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793",
+        "normal": "https://cards.scryfall.io/normal/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793"
       }
     },
     {
@@ -760,6 +838,45 @@
         "png": "https://cards.scryfall.io/png/front/3/0/3088aed3-4568-4978-ac4c-6c435b65c083.png?1783915497",
         "large": "https://cards.scryfall.io/large/front/3/0/3088aed3-4568-4978-ac4c-6c435b65c083.jpg?1783915497",
         "normal": "https://cards.scryfall.io/normal/front/3/0/3088aed3-4568-4978-ac4c-6c435b65c083.jpg?1783915497"
+      }
+    },
+    {
+      "id": "315c45f4-7bc9-45d5-bbf5-2533cf80af60",
+      "oracle_id": "dac8a765-6845-4b57-bb79-4ec463436f92",
+      "name": "Elf Warrior",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-11-15",
+      "set": "tfdn",
+      "set_name": "Foundations Tokens",
+      "set_type": "token",
+      "collector_number": "19",
+      "rarity": "common",
+      "type_line": "Token Creature — Elf Warrior",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "beginnerbox",
+        "startercollection"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8250bdd2-9049-4b43-87f9-37e84e794785",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/1/315c45f4-7bc9-45d5-bbf5-2533cf80af60.png?1783908587",
+        "large": "https://cards.scryfall.io/large/front/3/1/315c45f4-7bc9-45d5-bbf5-2533cf80af60.jpg?1783908587",
+        "normal": "https://cards.scryfall.io/normal/front/3/1/315c45f4-7bc9-45d5-bbf5-2533cf80af60.jpg?1783908587"
       }
     },
     {
@@ -1077,79 +1194,6 @@
       }
     },
     {
-      "id": "4ffcef6f-4498-4f2a-8557-caaecb5593a3",
-      "oracle_id": "92eed395-62ca-4293-882b-8565c40daab5",
-      "name": "Sylvan Library",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-06-16",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2058",
-      "rarity": "rare",
-      "type_line": "Enchantment",
-      "cmc": 2,
-      "color_identity": [
-        "G"
-      ],
-      "mana_cost": "{1}{G}",
-      "oracle_text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "bda3d8ae-66f4-4f7e-9824-fffa29136b92",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/f/4ffcef6f-4498-4f2a-8557-caaecb5593a3.png?1783906124",
-        "large": "https://cards.scryfall.io/large/front/4/f/4ffcef6f-4498-4f2a-8557-caaecb5593a3.jpg?1783906124",
-        "normal": "https://cards.scryfall.io/normal/front/4/f/4ffcef6f-4498-4f2a-8557-caaecb5593a3.jpg?1783906124"
-      }
-    },
-    {
-      "id": "53c31b33-d947-4776-8953-da5bc84ca5ca",
-      "oracle_id": "df317532-7d36-40fd-938f-e972749c8792",
-      "name": "Fyndhorn Elves",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-08-02",
-      "set": "plst",
-      "set_name": "The List",
-      "set_type": "masters",
-      "collector_number": "CMR-228",
-      "rarity": "common",
-      "type_line": "Creature — Elf Druid",
-      "cmc": 1,
-      "color_identity": [
-        "G"
-      ],
-      "mana_cost": "{G}",
-      "oracle_text": "{T}: Add {G}.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "591f20ba-804d-4410-9f0c-1ca1306de73e",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/3/53c31b33-d947-4776-8953-da5bc84ca5ca.png?1783910045",
-        "large": "https://cards.scryfall.io/large/front/5/3/53c31b33-d947-4776-8953-da5bc84ca5ca.jpg?1783910045",
-        "normal": "https://cards.scryfall.io/normal/front/5/3/53c31b33-d947-4776-8953-da5bc84ca5ca.jpg?1783910045"
-      }
-    },
-    {
       "id": "6002d99a-c7b4-4845-aca9-b55dabb62d9f",
       "oracle_id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
       "name": "Arcane Signet",
@@ -1382,6 +1426,82 @@
       }
     },
     {
+      "id": "761c7c31-c6c5-44e2-a845-f590542b6eda",
+      "oracle_id": "998df8c1-ef16-4ae2-b34b-125f1c16223b",
+      "name": "Elf",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-08-14",
+      "set": "thob",
+      "set_name": "The Hobbit Tokens",
+      "set_type": "token",
+      "collector_number": "8",
+      "rarity": "common",
+      "type_line": "Token Creature — Elf",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "de61d838-24e9-4195-80a7-2f7e28245fbb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/6/761c7c31-c6c5-44e2-a845-f590542b6eda.png?1785497812",
+        "large": "https://cards.scryfall.io/large/front/7/6/761c7c31-c6c5-44e2-a845-f590542b6eda.jpg?1785497812",
+        "normal": "https://cards.scryfall.io/normal/front/7/6/761c7c31-c6c5-44e2-a845-f590542b6eda.jpg?1785497812"
+      }
+    },
+    {
+      "id": "790dcf48-ab51-4b10-9933-6b7e3baf0f52",
+      "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+      "name": "Forest",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "394",
+      "rarity": "common",
+      "type_line": "Basic Land — Forest",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {G}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "03141016-eaa7-40a6-986b-3ea77bc2db32",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.png?1790137025",
+        "large": "https://cards.scryfall.io/large/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.jpg?1790137025",
+        "normal": "https://cards.scryfall.io/normal/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.jpg?1790137025"
+      }
+    },
+    {
       "id": "79aa9c09-5eeb-466f-a8f5-9898de6e7c88",
       "oracle_id": "40b36bc6-c185-4bda-99e7-0118953c2c97",
       "name": "Yavimaya Coast",
@@ -1454,47 +1574,6 @@
         "png": "https://cards.scryfall.io/png/front/7/a/7ada3564-2d74-465b-a51d-7b0f7023c0ad.png?1787832249",
         "large": "https://cards.scryfall.io/large/front/7/a/7ada3564-2d74-465b-a51d-7b0f7023c0ad.jpg?1787832249",
         "normal": "https://cards.scryfall.io/normal/front/7/a/7ada3564-2d74-465b-a51d-7b0f7023c0ad.jpg?1787832249"
-      }
-    },
-    {
-      "id": "7f3d574a-72b5-43be-b4b5-87865bbc7b5c",
-      "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
-      "name": "Path of Ancestry",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-08-04",
-      "set": "cmm",
-      "set_name": "Commander Masters",
-      "set_type": "masters",
-      "collector_number": "661",
-      "rarity": "common",
-      "type_line": "Land",
-      "cmc": 0,
-      "color_identity": [],
-      "mana_cost": "",
-      "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
-      "keywords": [
-        "Scry"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "017440c8-2904-4f6b-8901-965c15831187",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.png?1783915505",
-        "large": "https://cards.scryfall.io/large/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.jpg?1783915505",
-        "normal": "https://cards.scryfall.io/normal/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.jpg?1783915505"
       }
     },
     {
@@ -2445,38 +2524,41 @@
       }
     },
     {
-      "id": "bc9f3d1b-bb3a-4a78-9031-ed439212a48b",
-      "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
-      "name": "Forest",
+      "id": "bc4cd881-9c34-4cf9-8afe-050e803f34a6",
+      "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2544",
-      "rarity": "rare",
-      "type_line": "Basic Land — Forest",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "385",
+      "rarity": "common",
+      "type_line": "Basic Land — Island",
       "cmc": 0,
       "color_identity": [
-        "G"
+        "U"
       ],
       "mana_cost": "",
-      "oracle_text": "({T}: Add {G}.)",
+      "oracle_text": "({T}: Add {U}.)",
       "keywords": [],
       "game_changer": false,
       "full_art": true,
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "0944cf28-fade-446b-ab01-f7497337b4e7",
+      "illustration_id": "e0711e1b-a045-4187-985d-5837e8bf6253",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.png?1788412661",
-        "large": "https://cards.scryfall.io/large/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.jpg?1788412661",
-        "normal": "https://cards.scryfall.io/normal/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.jpg?1788412661"
+        "png": "https://cards.scryfall.io/png/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.png?1790136912",
+        "large": "https://cards.scryfall.io/large/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.jpg?1790136912",
+        "normal": "https://cards.scryfall.io/normal/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.jpg?1790136912"
       }
     },
     {
@@ -2583,6 +2665,41 @@
         "png": "https://cards.scryfall.io/png/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.png?1783903728",
         "large": "https://cards.scryfall.io/large/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.jpg?1783903728",
         "normal": "https://cards.scryfall.io/normal/front/c/1/c13adc8c-03bb-4088-98af-0c06d83369aa.jpg?1783903728"
+      }
+    },
+    {
+      "id": "c198b9b4-bde6-45ec-9bc7-ae61adad22b3",
+      "oracle_id": "6bb61f34-5d57-4eaa-a02c-f5d08c1ee920",
+      "name": "Beast",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-10-02",
+      "set": "tfdc",
+      "set_name": "Foundations Commander Tokens",
+      "set_type": "token",
+      "collector_number": "10",
+      "rarity": "common",
+      "type_line": "Token Creature — Beast",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "82ea2f33-efce-46cc-9920-3d657b7913ef",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/1/c198b9b4-bde6-45ec-9bc7-ae61adad22b3.png?1789754634",
+        "large": "https://cards.scryfall.io/large/front/c/1/c198b9b4-bde6-45ec-9bc7-ae61adad22b3.jpg?1789754634",
+        "normal": "https://cards.scryfall.io/normal/front/c/1/c198b9b4-bde6-45ec-9bc7-ae61adad22b3.jpg?1789754634"
       }
     },
     {
@@ -3206,17 +3323,17 @@
       }
     },
     {
-      "id": "e9ca6518-aa90-4614-86aa-b972f60cce49",
+      "id": "e8418418-10bb-48e1-83ed-0081390384b4",
       "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
       "name": "Swamp",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2542",
-      "rarity": "rare",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "388",
+      "rarity": "common",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
       "color_identity": [
@@ -3230,14 +3347,17 @@
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "571852a3-ef21-4714-b120-b4dd68e2c05d",
+      "illustration_id": "d8684d46-2947-4d6c-9d0a-0a0b138df880",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.png?1783903503",
-        "large": "https://cards.scryfall.io/large/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503",
-        "normal": "https://cards.scryfall.io/normal/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503"
+        "png": "https://cards.scryfall.io/png/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.png?1790136927",
+        "large": "https://cards.scryfall.io/large/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927",
+        "normal": "https://cards.scryfall.io/normal/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927"
       }
     },
     {
@@ -3403,6 +3523,41 @@
       }
     },
     {
+      "id": "f9f617e9-4142-4c49-ad6e-aaaeee91d59c",
+      "oracle_id": "df317532-7d36-40fd-938f-e972749c8792",
+      "name": "Fyndhorn Elves",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "204",
+      "rarity": "common",
+      "type_line": "Creature — Elf Druid",
+      "cmc": 1,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "{G}",
+      "oracle_text": "{T}: Add {G}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "591f20ba-804d-4410-9f0c-1ca1306de73e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/9/f9f617e9-4142-4c49-ad6e-aaaeee91d59c.png?1789753271",
+        "large": "https://cards.scryfall.io/large/front/f/9/f9f617e9-4142-4c49-ad6e-aaaeee91d59c.jpg?1789753271",
+        "normal": "https://cards.scryfall.io/normal/front/f/9/f9f617e9-4142-4c49-ad6e-aaaeee91d59c.jpg?1789753271"
+      }
+    },
+    {
       "id": "fbcb310c-be73-46f8-8e65-8632454ccc6e",
       "oracle_id": "3f4d6f91-95ad-4687-8899-5a21a0abb49e",
       "name": "Elrond, Moon-Reader",
@@ -3563,8 +3718,8 @@
     "ezuri, renegade leader": "ad74bb11-9e62-49e3-8cd0-5e312dc0bcaa",
     "fauna shaman": "4ccab9dd-95b1-491b-b9d4-da60d87d8edd",
     "finale of devastation": "9a67d30b-7a4f-49b4-bf8b-e9cf8c248e4d",
-    "forest": "bc9f3d1b-bb3a-4a78-9031-ed439212a48b",
-    "fyndhorn elves": "53c31b33-d947-4776-8953-da5bc84ca5ca",
+    "forest": "790dcf48-ab51-4b10-9933-6b7e3baf0f52",
+    "fyndhorn elves": "f9f617e9-4142-4c49-ad6e-aaaeee91d59c",
     "galadriel of lothlórien": "404dcf45-d44b-4e1d-9886-0d1d144a9c8a",
     "galadriel, elven-queen": "8fa46d54-563d-4b5c-9c69-5ab37dd529b3",
     "galion, elvenking's butler": "985bd676-58c4-42c7-a570-1b413e9aa94c",
@@ -3574,7 +3729,7 @@
     "hinterland harbor": "c13adc8c-03bb-4088-98af-0c06d83369aa",
     "immaculate magistrate": "b3a692e0-2e58-4a38-b99e-53c8c245e8bc",
     "imperious perfect": "83b4a09f-ea53-42b4-a41a-4299192a6fd3",
-    "island": "212e84a3-e028-42a6-a639-f42b64ab7015",
+    "island": "bc4cd881-9c34-4cf9-8afe-050e803f34a6",
     "jarad's orders": "c59171ce-7dc6-4dd9-a124-3c2c3028d93d",
     "kindred discovery": "0db7f9e6-4f27-4743-a456-1386f24dbd5f",
     "kindred dominance": "ada27732-0491-4c99-980d-2f3c3230f220",
@@ -3587,7 +3742,7 @@
     "lórien revealed": "209204c7-aae5-4768-91b8-89c8c4d4a97f",
     "marwyn, the nurturer": "9b1718d4-c5cd-43ae-af09-d28ff1c9803e",
     "overgrown tomb": "307fdde3-43f6-4d80-884a-4a85314ab8e4",
-    "path of ancestry": "7f3d574a-72b5-43be-b4b5-87865bbc7b5c",
+    "path of ancestry": "17ed79a4-6c88-4061-8b08-d94ad58d0234",
     "priest of titania": "eb11921b-1b28-483f-a707-4de21a6daa31",
     "putrefy": "3882ebea-2864-40ef-a21d-6ba80a0bd417",
     "quirion ranger": "11da032d-1cd5-48ed-ace7-fc042c4859e8",
@@ -3596,15 +3751,19 @@
     "secluded courtyard": "9ca14d07-2299-4a11-8c59-cb5edb257d72",
     "selvala, heart of the wilds": "3088aed3-4568-4978-ac4c-6c435b65c083",
     "sol ring": "193a5688-9e9b-48f4-9904-53134ec73c97",
-    "swamp": "e9ca6518-aa90-4614-86aa-b972f60cce49",
+    "swamp": "e8418418-10bb-48e1-83ed-0081390384b4",
     "swan song": "83d0b761-d694-4232-9f40-5bd8c82a05f1",
-    "sylvan library": "4ffcef6f-4498-4f2a-8557-caaecb5593a3",
+    "sylvan library": "26a7c62c-12ed-493c-ba95-0f55fec83686",
     "thranduil the strategist": "6b4c1515-6127-4d4b-bdd2-e38bb68693e7",
     "thranduil, sindarin liege": "0992ce8b-7bef-4799-a52d-7a46021a8672",
     "thranduil, the elvenking": "a416ca91-e646-40b4-824c-24aed6b9c683",
     "thranduil's company": "fcdfce79-c8da-4662-93c2-054e5328e18c",
     "thranduil's decree": "e4ded4c1-0e3e-47c5-8fdc-e7c187f68b12",
     "timberwatch elf": "a513bd7e-b843-4bec-a50f-9f014cc86503",
+    "token:beast|tfdc|10": "c198b9b4-bde6-45ec-9bc7-ae61adad22b3",
+    "token:bird|teoc|3": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+    "token:elf warrior|tfdn|19": "315c45f4-7bc9-45d5-bbf5-2533cf80af60",
+    "token:elf|thob|8": "761c7c31-c6c5-44e2-a845-f590542b6eda",
     "tom, bert, and william": "211a9764-3c60-46ba-bb53-e6692640ec8f",
     "umbral mantle": "a8da2a6c-f63e-4724-bbdb-19d35b85a640",
     "undergrowth stadium": "84964ae0-5284-483c-8372-18bb485a25b5",

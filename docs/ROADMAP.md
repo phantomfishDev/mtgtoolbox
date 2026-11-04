@@ -259,6 +259,37 @@ dedupes by name and printed stats, and prints a ready-to-paste section;
 because token names collide — several Wraiths exist and only one is the 3/3 with
 menace.
 
+**Indexing entries by name was wrong in three ways,** and adding tokens to real
+decks surfaced all of them. A name is not unique within a deck:
+
+1. **A card and a token can share one.** beorn-bears runs the Mutavault land
+   *and* the Mutavault token; kwain-hare-apparent the Intrepid Rabbit creature
+   *and* its token. In the resolver they shared one printing fetch, and
+   whichever entry came first decided whether tokens were looked up at all — so
+   the token inherited the card's printings and resolved to the land.
+2. **Two tokens can share one.** beorn-bears lists a 2/2 Bear and a 4/4 Bear,
+   rats two different 1/1 Rats, prismari-artistry four different Elementals.
+   Stored deck data held one choice per name, so the other rows inherited an
+   art they did not ask for.
+3. **So can nine arts of one card** — the split-copies case the printing picker
+   already supports. The same collision, and it predates the token work.
+
+Fixed by splitting one overloaded key into two, both in `decklist/parse.ts`.
+`fetchKey` (the name, with tokens namespaced `token:<name>`) decides *which
+printings to look up*, and deliberately ignores pins, so nine pinned rows still
+cost one fetch. `choiceKey` (that, plus the pinned set and number) identifies
+*one entry's chosen printing* in stored data. Reading falls back from
+`choiceKey` to `fetchKey`, so data written before a pin was added still applies
+when the pin names the printing already chosen; `sameFacePrinting` rejects it
+otherwise.
+
+None of this ever produced a wrong print: the pin check in `resolveFromDeckData`
+turned every mismatch into a re-resolve. What it cost was the stored-data
+optimisation, silently, for three of the ten decks. It stayed invisible because
+`sync` reported unresolved cards but not warnings — so `sync` now surfaces
+pin-missed, the one warning meaning the file it is about to write disagrees with
+the decklist.
+
 **Still open:** some token art is poor and there is nothing to be done about it
 from Scryfall. The Wraith token has exactly one printing and its scan is flagged
 `lowres`; `tokens` marks it, and `resolve` warns, but printing a sheet of nine

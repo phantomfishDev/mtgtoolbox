@@ -1,4 +1,4 @@
-import type { DeckEntry } from '../decklist/parse.js';
+import { choiceKey, fetchKey, type DeckEntry } from '../decklist/parse.js';
 import type { ResolveResult, ResolvedCard } from '../scryfall/resolve.js';
 import { isDoubleFaced, type ScryfallCard } from '../scryfall/types.js';
 import { normalizeName } from '../printed/types.js';
@@ -76,6 +76,20 @@ function hashString(input: string): string {
   return (value >>> 0).toString(36);
 }
 
+/**
+ * Key for the stored entry -> printing map.
+ *
+ * `choiceKey` rather than a bare name, so two Bear tokens or nine arts of one
+ * card each keep their own stored choice. Data written before these keys
+ * existed does not have them, so those entries miss and the caller
+ * re-resolves — which is the right fallback.
+ */
+export function chosenKey(
+  entry: Pick<DeckEntry, 'name' | 'section' | 'set' | 'collectorNumber'>,
+): string {
+  return choiceKey(entry);
+}
+
 export function buildDeckData(
   deck: string,
   resolved: readonly ResolvedCard[],
@@ -86,7 +100,7 @@ export function buildDeckData(
 
   for (const item of resolved) {
     cards.set(item.card.id, trimCard(item.card));
-    chosen[normalizeName(item.entry.name)] = item.card.id;
+    chosen[chosenKey(item.entry)] = item.card.id;
   }
 
   return {
@@ -154,7 +168,11 @@ export function resolveFromDeckData(
   const missing: DeckEntry[] = [];
 
   for (const entry of entries) {
-    const id = data.chosen[normalizeName(entry.name)];
+    // The entry's own key first. Falling back to the unpinned key lets data
+    // written before a pin was added still apply: adding a pin that names the
+    // printing already chosen should not force a re-resolve, and the
+    // `sameFacePrinting` check below rejects it if it names a different one.
+    const id = data.chosen[chosenKey(entry)] ?? data.chosen[fetchKey(entry)];
     const card = id ? byId.get(id) : undefined;
     if (!card) {
       missing.push(entry);

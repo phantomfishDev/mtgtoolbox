@@ -1,3 +1,4 @@
+import { normalizeName } from '../printed/types.js';
 /**
  * Decklist parsing.
  *
@@ -279,6 +280,39 @@ export function isTokenEntry(entry: Pick<DeckEntry, 'section'>): boolean {
 /** The complement of `isTokenEntry`: a line that counts towards the deck. */
 export function isDeckCard(entry: Pick<DeckEntry, 'section'>): boolean {
   return !isTokenEntry(entry);
+}
+
+/**
+ * Key for *which printings to look up*: the name, with tokens namespaced.
+ *
+ * A deck can legitimately run a card and a token of the same name —
+ * beorn-bears has the Mutavault land and the Mutavault token,
+ * kwain-hare-apparent the Intrepid Rabbit creature and its token — and the two
+ * need different queries, so they must not share one lookup. A pin does not
+ * change which printings exist, so it is deliberately not part of this key:
+ * nine rows of one card pinned to nine arts still cost one fetch.
+ */
+export function fetchKey(entry: Pick<DeckEntry, 'name' | 'section'>): string {
+  const name = normalizeName(entry.name);
+  return isTokenEntry(entry) ? `token:${name}` : name;
+}
+
+/**
+ * Key identifying *one entry's chosen printing*, pin included.
+ *
+ * Distinct from `fetchKey` because a name is not unique within a deck once
+ * printings are pinned: beorn-bears lists two different Bear tokens, rats two
+ * different 1/1 Rats, prismari-artistry four different Elementals, and a deck
+ * may run nine copies of one card each pinned to its own art. Keyed by name
+ * alone, those rows collapse into one stored choice and the rest inherit a
+ * printing they did not ask for.
+ */
+export function choiceKey(
+  entry: Pick<DeckEntry, 'name' | 'section' | 'set' | 'collectorNumber'>,
+): string {
+  const base = fetchKey(entry);
+  if (!entry.set || !entry.collectorNumber) return base;
+  return `${base}|${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`;
 }
 
 /** What a command should do with a decklist's `Tokens` section. */
