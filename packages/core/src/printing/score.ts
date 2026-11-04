@@ -1,5 +1,5 @@
 import type { ScryfallCard } from '../scryfall/types.js';
-import { compareCollectorNumbers } from '../collection/types.js';
+import { compareCollectorNumbers } from '../printed/types.js';
 import { profileFor, type PreferenceProfile } from './profile.js';
 
 /**
@@ -14,13 +14,11 @@ import { profileFor, type PreferenceProfile } from './profile.js';
  * Scoring weights, ordered by intent.
  *
  * The hierarchy matters more than the absolute numbers: an explicit `avoid`
- * outranks every positive signal, including `preferOwned`. Someone who asks for
- * no Universes Beyond printings means it even if they happen to own one, so the
- * penalty has to exceed the ownership bonus rather than merely offset it.
+ * outranks every positive signal. Someone who asks for no Universes Beyond
+ * printings means it, so the penalty has to exceed every bonus rather than
+ * merely offset one.
  */
 export const WEIGHTS = {
-  /** Owning a copy is the strongest *positive* signal: proxies match real cards. */
-  owned: 120,
   /** Scaled by position in `preferSets`, so the first listed set dominates. */
   setPreferenceTop: 100,
   setPreferenceStep: 10,
@@ -30,7 +28,7 @@ export const WEIGHTS = {
   frameEffect: 25,
   retroFrame: 20,
   promo: 10,
-  /** Applied per matching `avoid` rule; deliberately beats `owned`. */
+  /** Applied per matching `avoid` rule; deliberately beats every bonus. */
   avoid: -150,
   /** Baseline junk categories such as memorabilia, which are never printable proxies. */
   avoidSetType: -200,
@@ -53,8 +51,6 @@ export interface PrintingScore {
 }
 
 export interface ScoreContext {
-  /** Scryfall ids, or `set|collectorNumber` keys, already held. */
-  ownedKeys?: ReadonlySet<string>;
   isBasic?: boolean;
 }
 
@@ -68,10 +64,6 @@ export function isBorderless(card: ScryfallCard): boolean {
 
 export function isRetroFrame(card: ScryfallCard): boolean {
   return card.frame === '1997';
-}
-
-function ownedKeysFor(card: ScryfallCard): string[] {
-  return [card.id, `${card.set.toLowerCase()}|${card.collector_number.toLowerCase()}`];
 }
 
 /**
@@ -158,12 +150,6 @@ export function scorePrinting(
     const effects = card.frame_effects ?? [];
     const hit = profile.frameEffects.find((effect) => effects.includes(effect));
     if (hit) reasons.push({ rule: 'frame effect', delta: WEIGHTS.frameEffect, detail: hit });
-  }
-
-  if (profile.preferOwned && context.ownedKeys) {
-    if (ownedKeysFor(card).some((key) => context.ownedKeys!.has(key))) {
-      reasons.push({ rule: 'already owned', delta: WEIGHTS.owned });
-    }
   }
 
   const score = reasons.reduce((sum, reason) => sum + reason.delta, 0);

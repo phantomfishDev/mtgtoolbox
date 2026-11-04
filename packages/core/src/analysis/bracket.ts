@@ -1,3 +1,4 @@
+import { isDeckCard } from '../decklist/parse.js';
 import type { ResolvedCard } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
 import { allOracleText } from './mana.js';
@@ -47,10 +48,17 @@ export interface BracketAssessment {
   summary: string;
 }
 
-/** Cards that a bracket cares about; counted once however many copies are run. */
+/**
+ * Cards that a bracket cares about; counted once however many copies are run.
+ *
+ * Tokens are left out: a bracket describes a deck, and a token is not in it.
+ */
 function distinctCards(resolved: readonly ResolvedCard[]): ScryfallCard[] {
   const seen = new Map<string, ScryfallCard>();
-  for (const item of resolved) seen.set(item.card.name, item.card);
+  for (const item of resolved) {
+    if (!isDeckCard(item.entry)) continue;
+    seen.set(item.card.name, item.card);
+  }
   return [...seen.values()];
 }
 

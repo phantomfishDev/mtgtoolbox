@@ -60,35 +60,21 @@ describe('scorePrinting', () => {
     expect(chosenSet({ universesBeyond: 'avoid' }, [ub, normal])).toBe('cmm');
   });
 
-  it('favours printings already owned', () => {
-    const owned = card({ set: 'own', id: 'owned-id' });
-    const other = card({ set: 'oth', id: 'other-id' });
-    const result = selectPrinting([other, owned], { preferOwned: true }, {
-      ownedKeys: new Set(['owned-id']),
-    });
-    expect(result?.chosen.set).toBe('own');
-  });
-
-  it('lets an explicit avoid outrank owning the card', () => {
+  it('lets an explicit avoid outrank every bonus', () => {
     // Asking for no Universes Beyond printings must win even when the UB
-    // printing is the one already in the collection.
-    const ownedUb = card({ set: 'msc', id: 'owned-ub', promo_types: ['universesbeyond'] });
-    const plain = card({ set: 'cmm', id: 'plain' });
-    const result = selectPrinting(
-      [ownedUb, plain],
-      { universesBeyond: 'avoid', preferOwned: true },
-      { ownedKeys: new Set(['owned-ub']) },
-    );
-    expect(result?.chosen.set).toBe('cmm');
-  });
-
-  it('still favours an owned printing when nothing is avoided', () => {
-    const ownedUb = card({ set: 'msc', id: 'owned-ub', promo_types: ['universesbeyond'] });
-    const plain = card({ set: 'cmm', id: 'plain' });
-    const result = selectPrinting([ownedUb, plain], { preferOwned: true }, {
-      ownedKeys: new Set(['owned-ub']),
+    // printing scores better on everything else.
+    const fancyUb = card({
+      set: 'msc',
+      id: 'fancy-ub',
+      promo_types: ['universesbeyond'],
+      full_art: true,
     });
-    expect(result?.chosen.set).toBe('msc');
+    const plain = card({ set: 'cmm', id: 'plain' });
+    const result = selectPrinting([fancyUb, plain], {
+      universesBeyond: 'avoid',
+      fullArt: 'prefer',
+    });
+    expect(result?.chosen.set).toBe('cmm');
   });
 
   it('handles a null frame_effects without crashing', () => {
@@ -202,16 +188,6 @@ describe('hasActivePreferences', () => {
     // Beyond), so every deck resolves through the slower path that fetches all
     // printings. That cost is the price of the default having opinions.
     expect(hasActivePreferences(DEFAULT_PROFILE)).toBe(true);
-  });
-
-  it('stays false for preferOwned with an empty collection', () => {
-    // preferOwned is on by default; with nothing owned it cannot change the
-    // ranking, so it must not force the expensive per-name resolution path.
-    expect(hasActivePreferences({ preferOwned: true }, { hasCollection: false })).toBe(false);
-  });
-
-  it('is true for preferOwned once something is owned', () => {
-    expect(hasActivePreferences({ preferOwned: true }, { hasCollection: true })).toBe(true);
   });
 
   it('is true for any real preference', () => {

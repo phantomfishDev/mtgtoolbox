@@ -1,7 +1,7 @@
 import type { DeckEntry } from '../decklist/parse.js';
 import type { ResolveResult, ResolvedCard } from '../scryfall/resolve.js';
 import { isDoubleFaced, type ScryfallCard } from '../scryfall/types.js';
-import { normalizeName } from '../collection/types.js';
+import { normalizeName } from '../printed/types.js';
 import type { PreferenceProfile } from '../printing/profile.js';
 import { DECK_DATA_VERSION, STORED_CARD_FIELDS, type DeckData } from './types.js';
 
@@ -67,21 +67,6 @@ export function trimCard(card: ScryfallCard): ScryfallCard {
   return out as unknown as ScryfallCard;
 }
 
-/**
- * Fingerprint of the printings a collection holds.
- *
- * Only meaningful when `preferOwned` is on; otherwise ownership cannot change
- * which printing wins and the collection is deliberately left out, so that
- * adding a card does not invalidate every stored deck.
- */
-export function ownedFingerprint(
-  profile: PreferenceProfile,
-  ownedKeys: ReadonlySet<string> | undefined,
-): string | null {
-  if (!profile.preferOwned) return null;
-  return hashString(canonicalJson([...(ownedKeys ?? [])].sort()));
-}
-
 function hashString(input: string): string {
   let value = 0x811c9dc5;
   for (let index = 0; index < input.length; index++) {
@@ -95,7 +80,6 @@ export function buildDeckData(
   deck: string,
   resolved: readonly ResolvedCard[],
   profile: PreferenceProfile,
-  ownedKeys?: ReadonlySet<string>,
 ): DeckData {
   const cards = new Map<string, ScryfallCard>();
   const chosen: Record<string, string> = {};
@@ -110,7 +94,6 @@ export function buildDeckData(
     deck,
     generatedAt: new Date().toISOString(),
     profile: profileFingerprint(profile),
-    owned: ownedFingerprint(profile, ownedKeys),
     // Sorted so regenerating an unchanged deck produces no diff.
     cards: [...cards.values()].sort((a, b) => a.id.localeCompare(b.id)),
     chosen: Object.fromEntries(Object.entries(chosen).sort(([a], [b]) => a.localeCompare(b))),
@@ -162,13 +145,9 @@ export function resolveFromDeckData(
   entries: readonly DeckEntry[],
   data: DeckData,
   profile: PreferenceProfile,
-  ownedKeys?: ReadonlySet<string>,
 ): ApplyResult | null {
   if (data.version !== DECK_DATA_VERSION) return null;
   if (data.profile !== profileFingerprint(profile)) return null;
-  // With preferOwned on, what you own changes which printing wins, so data
-  // chosen against a different collection would quietly contradict the setting.
-  if (data.owned !== ownedFingerprint(profile, ownedKeys)) return null;
 
   const byId = new Map(data.cards.map((card) => [card.id, card]));
   const resolved: ResolvedCard[] = [];

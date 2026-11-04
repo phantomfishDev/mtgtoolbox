@@ -1,5 +1,6 @@
 import type { ResolvedCard } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
+import { isDeckCard } from '../decklist/parse.js';
 import { allOracleText, curveManaValue, hasLandBack, isLandCard } from './mana.js';
 
 /**
@@ -105,7 +106,10 @@ function bucketFor(manaValue: number): number {
  * Lands are excluded — a bar of 38 at zero would drown everything else — and
  * copies are counted rather than distinct cards, so nine of one card is nine.
  */
-export function manaCurve(resolved: readonly ResolvedCard[]): ManaCurve {
+export function manaCurve(input: readonly ResolvedCard[]): ManaCurve {
+  // A token has no mana value, so counting one would drag the average down and
+  // pile every token into the 0 bucket.
+  const resolved = input.filter((item) => isDeckCard(item.entry));
   const buckets: CurveBucket[] = Array.from({ length: CURVE_CAP + 1 }, (_, manaValue) => ({
     manaValue,
     label: manaValue === CURVE_CAP ? `${CURVE_CAP}+` : String(manaValue),

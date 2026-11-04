@@ -189,3 +189,20 @@ describe('curve caveats', () => {
     expect(curve.caveats).toEqual([]);
   });
 });
+
+describe('tokens in the curve', () => {
+  const token = (name: string, quantity: number): ResolvedCard => ({
+    entry: { quantity, name, line: 1, raw: `${quantity} ${name}`, section: 'tokens' },
+    card: card({ name, layout: 'token', type_line: 'Token Creature — Wraith', mana_cost: '' }),
+    via: 'name',
+  });
+
+  it('ignores token entries entirely', () => {
+    const spell = at('Counterspell', 1, { mana_cost: '{U}{U}', type_line: 'Instant' });
+    const withTokens = manaCurve([spell, token('Wraith', 9)]);
+    const without = manaCurve([spell]);
+    expect(withTokens.spells).toBe(without.spells);
+    expect(withTokens.averageManaValue).toBe(without.averageManaValue);
+    expect(withTokens.buckets[0]?.count).toBe(0);
+  });
+});

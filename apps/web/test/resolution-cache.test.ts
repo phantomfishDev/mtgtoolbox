@@ -15,9 +15,8 @@ const result = (label: string) =>
 
 const base = {
   text: '1 Sol Ring',
-  profile: { preferOwned: true } as PreferenceProfile,
+  profile: {} as PreferenceProfile,
   config: {} as Config,
-  ownedKeys: new Set<string>(),
 };
 
 beforeEach(clearResolutionCache);
@@ -32,7 +31,7 @@ describe('makeCacheKey', () => {
   });
 
   it('changes with the preference profile', () => {
-    const other = { ...base, profile: { preferOwned: true, fullArt: 'prefer' } as PreferenceProfile };
+    const other = { ...base, profile: { fullArt: 'prefer' } as PreferenceProfile };
     expect(makeCacheKey(other)).not.toBe(makeCacheKey(base));
   });
 
@@ -42,19 +41,6 @@ describe('makeCacheKey', () => {
       config: { pins: { 'sol ring': { set: 'ltc', collectorNumber: '264' } } } as Config,
     };
     expect(makeCacheKey(pinned)).not.toBe(makeCacheKey(base));
-  });
-
-  it('changes with the collection when preferOwned is on', () => {
-    const owned = { ...base, ownedKeys: new Set(['ltc|264']) };
-    expect(makeCacheKey(owned)).not.toBe(makeCacheKey(base));
-  });
-
-  it('ignores the collection when preferOwned is off', () => {
-    // Otherwise adding any card would discard every cached deck, for a
-    // preference that cannot change which printing wins.
-    const off = { ...base, profile: { preferOwned: false } as PreferenceProfile };
-    const offOwned = { ...off, ownedKeys: new Set(['ltc|264']) };
-    expect(makeCacheKey(offOwned)).toBe(makeCacheKey(off));
   });
 
   it('does not depend on the order cards were added to the collection', () => {

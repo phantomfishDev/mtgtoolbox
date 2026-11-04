@@ -16,7 +16,6 @@ import { useApp } from '../state.js';
 import {
   activeProfile,
   categorise,
-  ownedKeysOf,
   resolveText,
   CATEGORY_ORDER,
   type CardCategory,
@@ -43,7 +42,7 @@ export function DeckDetailView({
   onBack: () => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { collection, config, deckPins, saveDeckPin, store } = useApp();
+  const { printed, config, deckPins, saveDeckPin, store } = useApp();
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [busy, setBusy] = useState<string | null>('Loading');
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +55,6 @@ export function DeckDetailView({
   const retryNotice = useRetryNotice();
 
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
-  const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
 
   const overlay = useMemo(() => deckPins[deck.id] ?? {}, [deckPins, deck.id]);
 
@@ -88,9 +86,7 @@ export function DeckDetailView({
 
     resolveText(text, {
       profile,
-      collection,
       config,
-      ownedKeys,
       force: reloadToken > 0,
       onProgress: (message) => {
         if (!cancelled) setBusy(message);
@@ -109,11 +105,11 @@ export function DeckDetailView({
     return () => {
       cancelled = true;
     };
-  }, [text, profile, collection, config, ownedKeys, reloadToken]);
+  }, [text, profile, config, reloadToken]);
 
   const diff = useMemo(
-    () => (result ? diffDeck(result.resolved, collection, { assumeBasics: true }) : null),
-    [result, collection],
+    () => (result ? diffDeck(result.resolved, printed) : null),
+    [result, printed],
   );
 
   const commanderNames = useMemo(
@@ -186,7 +182,7 @@ export function DeckDetailView({
               <>
                 <span>&middot;</span>
                 <span>
-                  {diff.totalOwned} owned, {diff.totalMissing} to proxy
+                  {diff.totalPrinted} printed, {diff.totalToPrint} to print
                 </span>
               </>
             )}
@@ -273,7 +269,7 @@ export function DeckDetailView({
               <CardTile
                 key={`${item.card.id}-${item.entry.line}`}
                 item={item}
-                missing={diff?.rows.find((row) => row.card.id === item.card.id)?.missing ?? 0}
+                toPrint={diff?.rows.find((row) => row.card.id === item.card.id)?.toPrint ?? 0}
                 pinned={pins[normalizeName(item.card.name)] !== undefined}
                 onZoom={() => setZoomed(item.card)}
                 onChangePrinting={() => setPicking(item.card)}
@@ -300,7 +296,6 @@ export function DeckDetailView({
         <PrintingPicker
           card={picking}
           profile={profile}
-          ownedKeys={ownedKeys}
           scope={`every copy in ${deck.name}`}
           onPick={(chosen) => void pin(picking.name, chosen)}
           onClose={() => setPicking(null)}
@@ -312,13 +307,13 @@ export function DeckDetailView({
 
 function CardTile({
   item,
-  missing,
+  toPrint,
   pinned,
   onZoom,
   onChangePrinting,
 }: {
   item: ResolvedCard;
-  missing: number;
+  toPrint: number;
   pinned: boolean;
   onZoom: () => void;
   onChangePrinting: () => void;
@@ -349,9 +344,9 @@ function CardTile({
             {item.entry.quantity}x
           </span>
         )}
-        {missing === 0 && (
+        {toPrint === 0 && (
           <span className="absolute right-1 top-1 rounded bg-emerald-500/90 px-1 py-0.5 text-[10px] font-semibold text-white">
-            owned
+            printed
           </span>
         )}
         {pinned && (

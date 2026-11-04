@@ -2,7 +2,7 @@
 
 A local-first Magic: the Gathering proxy print-sheet generator — a CLI that turns a
 decklist into a print-ready PDF at true card size, a web app for browsing and tweaking,
-and a plain-file collection tracker so you only proxy the cards you don't already own.
+and a plain-file ledger of what you have already printed so you never proxy the same card twice.
 
 > **Status:** M4 complete — everything works from the CLI, the web app runs the same
 > engine in the browser, and `mtgproxy serve` lets that app read and write the CLI's
@@ -68,7 +68,9 @@ copy-list heading.
 | `-q, --quality <level>` | `png` | `png`, `large`, `normal` |
 | `--gap <mm>` | `0` | space between cards; `0` tiles them so one cut serves two |
 | `--markdown` | auto | force markdown block extraction |
-| `-m, --missing-only` | off | print only cards not already in your collection |
+| `-u, --unprinted` | off | print only cards you have not printed yet |
+| `--record` | off | record what was printed, so `--unprinted` skips it next time |
+| `--tokens <mode>` | `exclude` | `exclude`, `include` or `only` — see [Tokens](#tokens) |
 
 ## Web app
 
@@ -101,7 +103,7 @@ Where a card has fewer distinct artworks than copies, some repeat and the app sa
 naming the preference responsible so you know which setting to relax.
 
 On the **Print** tab you can paste a decklist, see every card resolved with
-owned/missing badges, click any card to browse and pick a different printing, and
+printed/to-print badges, click any card to browse and pick a different printing, and
 download the PDF — all generated in the browser by the same code the CLI runs.
 
 On a **deck** page the same picker is behind each card's *art* link, and the choice is
@@ -112,11 +114,10 @@ is a pin the CLI obeys, and one typed by hand shows up in the browser. Under
 overlay is kept in your browser and applied in memory, leaving the repository alone.
 The line under the deck title always says which of the two you are getting.
 
-The app works entirely offline of any backend. It stores your collection and
-preferences in the browser (IndexedDB). The **Collection** tab imports a ManaBox CSV
-export or a `collection.json` — choosing whether to add to or replace what is there, and
-listing any rows it could not read — and exports either format back out. When `mtgproxy serve` is running it will instead read and write the same
-files the CLI uses; the header always says which of the two is in effect.
+The app works entirely offline of any backend. It stores your printed ledger and
+preferences in the browser (IndexedDB). The **Printed** tab lists everything recorded as
+printed and can clear it. When `mtgproxy serve` is running it will instead read and write
+the same files the CLI uses; the header always says which of the two is in effect.
 
 Card data, printing lists and images are cached in the browser (IndexedDB), and the
 resolved deck itself is cached for the session, so reopening a deck you have already
@@ -138,7 +139,7 @@ mtgproxy serve --port 8080 --decks ~/decks
 mtgproxy serve --site apps/web/dist   # serve a built app too, one process
 ```
 
-It binds the loopback interface, because it writes to your collection, your config and
+It binds the loopback interface, because it writes to your printed ledger, your config and
 your decklists and nothing about it belongs on a network. In development run the web app
 with `pnpm --filter @mtgproxy/web dev` and it proxies `/api` here; the app probes
 `/api/health` at boot and falls back to browser storage when nothing answers, which is
@@ -177,14 +178,14 @@ against 60 KB for the chosen ones; the web app fetches a deck's file only when y
 that deck, rather than bundling them all.
 
 The cost of storing only the chosen printings is that the file is valid only for the
-rules that chose them. Both the preference profile and — when `preferOwned` is on — the
-collection are fingerprinted into the file and checked on load, so changing a preference
-or your collection falls back to resolving properly instead of quietly showing printings
-that contradict your settings. Run `mtgproxy sync` again to regenerate against your own
-setup.
+rules that chose them. The preference profile is fingerprinted into the file and checked
+on load, so changing a preference falls back to resolving properly instead of quietly
+showing printings that contradict your settings. Run `mtgproxy sync` again to regenerate
+against your own setup.
 
-The committed files were generated against an empty collection, which is what a first-time
-visitor has.
+The printed ledger is deliberately *not* part of that fingerprint: what you have printed
+cannot change which printing is correct, so recording a print run must not throw away
+every stored deck.
 
 ## Mana curve
 
@@ -220,70 +221,91 @@ are listed in the output rather than folded silently into the number.
 Tutors are not counted — they stopped being a bracket criterion in the October 2025
 update.
 
-## Your collection
+## What you have already printed
 
-Track what you own so you only proxy the gaps.
+The point of the tool is to print the cards you do not have yet, so it keeps a ledger of
+what has come out of the printer.
+
+Nothing goes in by hand. A print run records itself:
 
 ```bash
-mtgproxy collection add "Sol Ring" --quantity 2
-mtgproxy collection add "Cultivate" --set msc --number 172
-mtgproxy collection list
-mtgproxy collection stats
+mtgproxy print my-deck.md --unprinted --record
 ```
 
-Cards are resolved through Scryfall as they are added, so the stored name and printing
-are canonical rather than however you typed them. The file lives at
-`~/.config/mtgproxy/collection.json` (override with `--collection` or
-`$MTGPROXY_COLLECTION`), sorted stably so it stays readable and diffable under version
+`--unprinted` drops everything already in the ledger from the sheet; `--record` adds what
+it printed, but only *after* the PDF is on disk — a run that failed earlier must not leave
+the ledger claiming those cards exist. Then inspect it:
+
+```bash
+mtgproxy diff my-deck.md     # what is left to print for this deck
+mtgproxy printed list
+mtgproxy printed path
+mtgproxy printed clear --yes
+```
+
+The file lives at `~/.config/mtgproxy/printed.json` (override with `--printed` or
+`$MTGPROXY_PRINTED`), sorted stably so it stays readable and diffable under version
 control. Writes go through a temp file and a rename, keeping the previous version as
 `.bak` — a crash mid-write leaves either the old file or the new one, never a mixture.
 
-Then see what a deck would cost you:
+**Matching is per printing.** Choosing a different art for a card you have already
+printed is a new card to print, not a card you are done with, so the ledger keys on the
+exact set and collector number. Pass `--no-strict-printing` if you would rather any
+printing of a card count.
+
+**Basic lands count as still to print**, because a proxy deck needs its basics along with
+everything else. Pass `--assume-basics` if you print those separately or use real ones.
+
+Rows are matched to copies by position, so a deck running nine copies of one card across
+nine different arts stays nine separate rows rather than collapsing into one — print three
+of them and the ledger knows which three.
+
+## Tokens
+
+A deck can list the tokens it makes, under a `Tokens` header:
+
+```
+Tokens
+12 Wraith (TLTC) 7
+4 Drake (TCMM) 12
+3 Clue (PLST) TMKM-15
+```
+
+The leading number is how many you want, and `(SET) NUM` pins the art — worth
+doing, because token names collide: several different Wraiths exist and only one
+is the 3/3 with menace.
+
+**Tokens are not deck cards.** They do not count towards the 100, they are left
+out of the mana curve, and the bracket check ignores them. A `Tokens` section
+cannot make a legal deck read as 112 cards.
+
+Let the tool work out which tokens a deck can make:
 
 ```bash
-mtgproxy diff my-deck.md
-mtgproxy print my-deck.md --missing-only
+mtgproxy tokens examples/nazgul.txt          # list them, with a paste-ready block
+mtgproxy tokens examples/nazgul.txt --write  # write the section into the decklist
+mtgproxy tokens examples/nazgul.txt -q 12    # a different default quantity
 ```
 
-Basic lands count as owned by default, since most people have plenty; pass
-`--no-assume-basics` to include them. Any printing of a card counts as owning it unless
-you pass `--strict-printing`.
+Nothing is hardcoded: Scryfall's `all_parts` names the tokens each card makes,
+so a deck that gains a Clue-maker gains a Clue the next time you run it. Tokens
+are deduped by name and printed stats, so two cards making the same 2/2 Drake
+produce one line.
 
-### ManaBox import and export
-
-If you have scanned your cards into [ManaBox](https://www.manabox.app), export the
-collection from its Collection tab and read the CSV straight in:
+Then choose what a print run does with them:
 
 ```bash
-mtgproxy collection import ~/Downloads/ManaBox_Collection.csv
-mtgproxy collection export manabox-collection.csv
+mtgproxy print my-deck.txt                     # deck only (the default)
+mtgproxy print my-deck.txt --tokens include    # deck and tokens together
+mtgproxy print my-deck.txt --tokens only       # a token sheet on its own
 ```
 
-Import **adds** the copies to what you already hold; pass `--replace` to swap the
-collection out instead, and `--dry-run` to see the effect first. Columns are matched by
-name in any order, so a file that has been through a spreadsheet — or that came from a
-neighbouring tracker using the same shape — still lands. Repeated printings merge, and
-each card's ManaBox binder becomes a tag you can search on (`--no-binder-tags` to skip
-it).
+The default is `exclude`, so adding a section to a deck never changes what an
+existing command prints. The web app's print view has the same three choices.
 
-A row that cannot identify a printing is reported with its line number and left out,
-rather than throwing away the rest of the file:
-
-```
-  read 1204 rows, 1203 usable
-warning skipped 1 rows:
-  line 5 Lightning Greaves: no collector number
-```
-
-The same command reads this tool's own `collection.json`, chosen by file extension, so
-one import path covers both. Export writes ManaBox's own CSV by default and
-`--json` for the native file; with no filename it goes to standard output, so it pipes.
-
-Set code, collector number, finish, quantity, language and Scryfall id survive the round
-trip in both directions. Condition, grading and purchase price do not: this tool has no
-use for them, and the export leaves those columns blank rather than inventing a
-`near_mint` it has never seen. Foil, etched and non-English copies of one printing are
-tracked as separate entries, because they are separate physical cards.
+One caveat worth knowing before you print a sheet of nine: some tokens have only
+one printing and a poor scan of it. `mtgproxy tokens` marks those `[lowres]`,
+and there is no better printing to fall back on.
 
 ## Printing preferences
 
@@ -305,15 +327,14 @@ mtgproxy prints "Sol Ring" --explain
 | `--retro` | favour retro-frame printings |
 | `--frame-effect <name>` | favour a frame effect, e.g. `showcase`, `extendedart` |
 | `--no-ub` | avoid Universes Beyond printings |
-| `--no-prefer-owned` | stop favouring printings you already own |
 | `--profile <name>` | use a named profile from the config file |
 
 Precedence runs strongest first: a printing named on the decklist line, then a saved
 pin, then command-line flags, then the named profile, then built-in defaults.
 
-An explicit `avoid` outranks every positive signal, including preferring cards you
-already own — asking for no Universes Beyond printings means it even if you happen to
-own one.
+An explicit `avoid` outranks every positive signal — asking for no Universes Beyond
+printings means it even if that printing wins on every other count, so the penalty has to
+exceed the bonuses rather than merely offset one.
 
 Save profiles in `~/.config/mtgproxy/config.json`:
 

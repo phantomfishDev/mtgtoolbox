@@ -30,8 +30,6 @@ const base = {
   /** Reject printings whose scan is not high resolution. */
   requireHighres: z.boolean().optional(),
   lang: z.string().optional(),
-  /** Score printings already held in the collection above others. */
-  preferOwned: z.boolean().optional(),
 };
 
 export const ProfileSchema = z.object({
@@ -67,7 +65,6 @@ export const DEFAULT_PROFILE: PreferenceProfile = {
   lang: 'en',
   textless: 'avoid',
   avoidSetTypes: ['memorabilia', 'funny', 'token'],
-  preferOwned: true,
   fullArt: 'prefer',
   borderless: 'prefer',
   universesBeyond: 'avoid',

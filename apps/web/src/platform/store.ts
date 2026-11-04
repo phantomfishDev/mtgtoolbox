@@ -1,10 +1,10 @@
 import {
-  emptyCollection,
+  emptyLedger,
   emptyConfig,
   normalizeName,
-  parseCollection,
+  parsePrinted,
   parseConfig,
-  type Collection,
+  type PrintedLedger,
   type Config,
   type DeckPin,
   type DeckPinOverlay,
@@ -13,7 +13,7 @@ import {
 import { idbGet, idbSet } from './idb.js';
 
 /**
- * Where the collection and config live.
+ * Where the printed ledger and config live.
  *
  * The same UI runs in two situations: as a static site, where the only durable
  * storage is the browser's, and served by `mtgproxy serve`, where it should read
@@ -24,8 +24,8 @@ export interface DataStore {
   readonly kind: 'browser' | 'server';
   /** Human-readable description of where data is being kept. */
   readonly location: string;
-  loadCollection(): Promise<Collection>;
-  saveCollection(collection: Collection): Promise<void>;
+  loadPrinted(): Promise<PrintedLedger>;
+  savePrinted(ledger: PrintedLedger): Promise<void>;
   loadConfig(): Promise<Config>;
   saveConfig(config: Config): Promise<void>;
   /** Pinned printings for every deck, keyed by deck id. */
@@ -58,20 +58,20 @@ export class BrowserStore implements DataStore {
   readonly kind = 'browser' as const;
   readonly location = 'this browser';
 
-  async loadCollection(): Promise<Collection> {
-    const stored = await idbGet<unknown>('data', 'collection');
-    if (!stored) return emptyCollection();
+  async loadPrinted(): Promise<PrintedLedger> {
+    const stored = await idbGet<unknown>('data', 'printed');
+    if (!stored) return emptyLedger();
     // A hand-imported file can be malformed; fall back rather than trapping the
     // user in an app that will not boot.
     try {
-      return parseCollection(stored.value);
+      return parsePrinted(stored.value);
     } catch {
-      return emptyCollection();
+      return emptyLedger();
     }
   }
 
-  async saveCollection(collection: Collection): Promise<void> {
-    await idbSet('data', 'collection', collection);
+  async savePrinted(ledger: PrintedLedger): Promise<void> {
+    await idbSet('data', 'printed', ledger);
   }
 
   async loadConfig(): Promise<Config> {
@@ -121,12 +121,12 @@ export class ServerStore implements DataStore {
     return (await response.json()) as T;
   }
 
-  async loadCollection(): Promise<Collection> {
-    return parseCollection(await this.request('/api/collection'));
+  async loadPrinted(): Promise<PrintedLedger> {
+    return parsePrinted(await this.request('/api/printed'));
   }
 
-  async saveCollection(collection: Collection): Promise<void> {
-    await this.request('/api/collection', { method: 'PUT', body: JSON.stringify(collection) });
+  async savePrinted(ledger: PrintedLedger): Promise<void> {
+    await this.request('/api/printed', { method: 'PUT', body: JSON.stringify(ledger) });
   }
 
   async loadConfig(): Promise<Config> {
@@ -162,8 +162,8 @@ export async function detectStore(timeoutMs = 800): Promise<DataStore> {
   try {
     const response = await fetch('/api/health', { signal: AbortSignal.timeout(timeoutMs) });
     if (response.ok) {
-      const body = (await response.json()) as { collectionPath?: string };
-      return new ServerStore(body.collectionPath ?? 'local mtgproxy server');
+      const body = (await response.json()) as { printedPath?: string };
+      return new ServerStore(body.printedPath ?? 'local mtgproxy server');
     }
   } catch {
     // No server: fall through to browser storage.

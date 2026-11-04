@@ -21,15 +21,13 @@ export function PrintingPicker({
   card,
   scope,
   profile,
-  ownedKeys,
-  onPick,
+    onPick,
   onClose,
 }: {
   card: ScryfallCard;
   /** What the choice applies to, when the deck runs more than one copy. */
   scope?: string | null;
   profile: PreferenceProfile;
-  ownedKeys: ReadonlySet<string>;
   onPick: (card: ScryfallCard) => void;
   onClose: () => void;
 }) {
@@ -48,7 +46,7 @@ export function PrintingPicker({
         const isBasic = isBasicLand(candidates[0] ?? card);
         setRanked(
           candidates
-            .map((candidate) => scorePrinting(candidate, profile, { ownedKeys, isBasic }))
+            .map((candidate) => scorePrinting(candidate, profile, { isBasic }))
             .sort(comparePrintings),
         );
       })
@@ -59,7 +57,7 @@ export function PrintingPicker({
     return () => {
       cancelled = true;
     };
-  }, [card.name, profile, ownedKeys, card]);
+  }, [card.name, profile, card]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {

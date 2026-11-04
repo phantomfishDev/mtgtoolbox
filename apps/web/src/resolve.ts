@@ -7,9 +7,10 @@ import {
   mergeEntries,
   normalizeName,
   parseDecklist,
+  selectForTokenMode,
+  type TokenMode,
   resolveDeck,
   resolveDeckWithPreferences,
-  type Collection,
   type Config,
   type PreferenceProfile,
   type ResolveResult,
@@ -29,9 +30,9 @@ import { getCached, makeCacheKey, putCached } from './resolution-cache.js';
 
 export interface ResolveTextOptions {
   profile: PreferenceProfile;
-  collection: Collection;
+  /** What to do with the list's `Tokens` section. Default: `exclude`. */
+  tokenMode?: TokenMode;
   config: Config;
-  ownedKeys: ReadonlySet<string>;
   onProgress?: (message: string) => void;
   /** Skip the cache and resolve again — what a retry button wants. */
   force?: boolean;
@@ -41,12 +42,7 @@ export async function resolveText(
   text: string,
   options: ResolveTextOptions,
 ): Promise<ResolveResult> {
-  const key = makeCacheKey({
-    text,
-    profile: options.profile,
-    config: options.config,
-    ownedKeys: options.ownedKeys,
-  });
+  const key = makeCacheKey({ text, profile: options.profile, config: options.config });
 
   if (!options.force) {
     const cached = getCached(key);
@@ -54,7 +50,7 @@ export async function resolveText(
 
     // Card data shipped beside the decklist turns a minute of requests into a
     // single same-origin fetch. It is only used when the profile and the
-    // collection that produced it still apply; resolveFromDeckData refuses
+    // profile that produced it still applies; resolveFromDeckData refuses
     // otherwise, and resolution falls through to the network.
     const stored = await storedResolution(text, options);
     if (stored) {
@@ -79,8 +75,10 @@ async function storedResolution(
   if (!data) return null;
 
   options.onProgress?.('Reading stored card data');
-  const entries = mergeEntries(parseDecklist(text).entries);
-  const applied = resolveFromDeckData(entries, data, options.profile, options.ownedKeys);
+  const entries = mergeEntries(
+    selectForTokenMode(parseDecklist(text).entries, options.tokenMode ?? 'exclude'),
+  );
+  const applied = resolveFromDeckData(entries, data, options.profile);
   return applied?.result ?? null;
 }
 
@@ -91,12 +89,18 @@ async function resolveUncached(
   const parsed = parseDecklist(text);
   if (parsed.entries.length === 0) throw new Error('No cards found in that list.');
 
-  const entries = mergeEntries(parsed.entries);
+  const entries = mergeEntries(selectForTokenMode(parsed.entries, options.tokenMode ?? 'exclude'));
+  if (entries.length === 0) {
+    throw new Error(
+      options.tokenMode === 'only'
+        ? 'That list has no Tokens section, so there is nothing to print.'
+        : 'No cards found in that list.',
+    );
+  }
   const client = getClient();
   const pins = options.config.pins ?? {};
-  const hasCollection = options.collection.cards.length > 0;
   const wantsPreferences =
-    hasActivePreferences(options.profile, { hasCollection }) || Object.keys(pins).length > 0;
+    hasActivePreferences(options.profile) || Object.keys(pins).length > 0;
 
   if (!wantsPreferences) {
     options.onProgress?.('Looking up cards');
@@ -107,20 +111,9 @@ async function resolveUncached(
   options.onProgress?.(`Ranking printings for ${distinct} cards`);
   return resolveDeckWithPreferences(entries, client, {
     profile: options.profile,
-    ownedKeys: options.ownedKeys,
     pins,
     onProgress: (done, total) => options.onProgress?.(`Ranking printings ${done}/${total}`),
   });
-}
-
-/** Every key a collection entry can be recognised by, for `preferOwned`. */
-export function ownedKeysOf(collection: Collection): Set<string> {
-  const keys = new Set<string>();
-  for (const entry of collection.cards) {
-    if (entry.scryfallId) keys.add(entry.scryfallId);
-    keys.add(`${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`);
-  }
-  return keys;
 }
 
 /** The profile in effect, layering the saved default over the built-in baseline. */

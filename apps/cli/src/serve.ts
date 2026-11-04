@@ -2,7 +2,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { readFile, writeFile } from 'node:fs/promises';
 import { extname, join, resolve as resolvePath } from 'node:path';
 import {
-  parseCollection,
+  parsePrinted,
   parseConfig,
   readPins,
   setPinInDecklist,
@@ -12,11 +12,11 @@ import {
   deckId,
   decksDir,
   listDecks,
-  loadCollection,
+  loadPrinted,
   loadConfig,
-  saveCollection,
+  savePrinted,
   saveConfig,
-  collectionPath,
+  printedPath,
   configPath,
 } from '@mtgproxy/node';
 
@@ -25,7 +25,7 @@ import {
  *
  * The same built site runs in two modes: against a static host, where the
  * browser is the only storage there is, and against this server, where the
- * collection, the config and the decklists are the very files the CLI uses.
+ * printed ledger, the config and the decklists are the very files the CLI uses.
  * The app decides which it got by asking `/api/health`, so everything here
  * exists to make that probe succeed and then to be honest about the files.
  *
@@ -37,7 +37,7 @@ export interface ServeOptions {
   port: number;
   host: string;
   decks?: string;
-  collection?: string;
+  printed?: string;
   config?: string;
   /** Directory of a built web app to serve at `/`. Optional. */
   site?: string;
@@ -68,7 +68,7 @@ async function readBody(request: IncomingMessage): Promise<unknown> {
   let size = 0;
   for await (const chunk of request) {
     size += (chunk as Buffer).length;
-    // A collection import is the largest thing posted here; past this it is
+    // A decklist is the largest thing posted here; past this it is
     // something going wrong rather than something worth buffering.
     if (size > 32 * 1024 * 1024) throw new Error('request body too large');
     chunks.push(chunk as Buffer);
@@ -108,20 +108,20 @@ async function handleApi(
   if (pathname === '/api/health') {
     sendJson(response, 200, {
       ok: true,
-      collectionPath: collectionPath(options.collection),
+      printedPath: printedPath(options.printed),
       configPath: configPath(options.config),
       decksDir: dir,
     });
     return true;
   }
 
-  if (pathname === '/api/collection') {
+  if (pathname === '/api/printed') {
     if (method === 'GET') {
-      sendJson(response, 200, (await loadCollection(options.collection)).data);
+      sendJson(response, 200, (await loadPrinted(options.printed)).data);
       return true;
     }
     if (method === 'PUT') {
-      const path = await saveCollection(parseCollection(await readBody(request)), options.collection);
+      const path = await savePrinted(parsePrinted(await readBody(request)), options.printed);
       sendJson(response, 200, { ok: true, path });
       return true;
     }

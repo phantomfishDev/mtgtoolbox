@@ -1,19 +1,19 @@
 import { copyFile, mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import {
-  emptyCollection,
+  emptyLedger,
   emptyConfig,
-  parseCollection,
+  parsePrinted,
   parseConfig,
-  type Collection,
+  type PrintedLedger,
   type Config,
 } from '@mtgproxy/core';
-import { collectionPath, configPath } from './paths.js';
+import { printedPath, configPath } from './paths.js';
 
 /**
  * Reading and writing the two files a user owns.
  *
- * The collection cannot be regenerated from anything else, so writes go through
+ * The printed ledger cannot be regenerated from anything else, so writes go through
  * a temp file and a rename, and the previous contents are kept as `.bak`. A
  * crash mid-write leaves either the old file or the new one, never a truncated
  * mixture.
@@ -42,25 +42,25 @@ export interface LoadResult<T> {
   path: string;
 }
 
-export async function loadCollection(override?: string): Promise<LoadResult<Collection>> {
-  const path = collectionPath(override);
+export async function loadPrinted(override?: string): Promise<LoadResult<PrintedLedger>> {
+  const path = printedPath(override);
   try {
     const raw = await readFile(path, 'utf8');
-    return { data: parseCollection(JSON.parse(raw)), existed: true, path };
+    return { data: parsePrinted(JSON.parse(raw)), existed: true, path };
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-      return { data: emptyCollection(), existed: false, path };
+      return { data: emptyLedger(), existed: false, path };
     }
     if (error instanceof SyntaxError) {
-      throw new Error(`collection file at ${path} is not valid JSON: ${error.message}`);
+      throw new Error(`printed ledger at ${path} is not valid JSON: ${error.message}`);
     }
     throw error;
   }
 }
 
-export async function saveCollection(collection: Collection, override?: string): Promise<string> {
-  const path = collectionPath(override);
-  await writeJsonAtomic(path, collection);
+export async function savePrinted(ledger: PrintedLedger, override?: string): Promise<string> {
+  const path = printedPath(override);
+  await writeJsonAtomic(path, ledger);
   return path;
 }
 

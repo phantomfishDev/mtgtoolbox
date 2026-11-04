@@ -7,7 +7,7 @@ import {
   diffDeck,
   isBasicLand,
   isDoubleFaced,
-  missingOnly,
+  unprintedOnly,
   parseDecklist,
   placementCount,
   printPlacements,
@@ -23,12 +23,12 @@ import {
   activeProfile,
   distinctArtworks,
   expand,
-  ownedKeysOf,
   resolveText,
   slotsToCards,
   type DeckSlot,
 } from '../resolve.js';
 import type { PrintSession } from '../session.js';
+import type { TokenMode } from '@mtgproxy/core';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
@@ -46,7 +46,7 @@ export function PrintView({
   session: PrintSession;
   onChange: (patch: Partial<PrintSession>) => void;
 }) {
-  const { collection, config } = useApp();
+  const { printed, config } = useApp();
   const { text, result, overrides, options } = session;
   // Transient only: these should not survive a tab switch.
   const [busy, setBusy] = useState<string | null>(null);
@@ -60,7 +60,6 @@ export function PrintView({
   const setOptions = (value: typeof options) => onChange({ options: value });
 
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
-  const ownedKeys = useMemo(() => ownedKeysOf(collection), [collection]);
 
   /** One tile per entry, or one per copy where a card has been split. */
   const slots = useMemo(
@@ -71,8 +70,8 @@ export function PrintView({
   const effective = useMemo(() => slotsToCards(slots), [slots]);
 
   const diff = useMemo(
-    () => diffDeck(effective, collection, { assumeBasics: options.assumeBasics }),
-    [effective, collection, options.assumeBasics],
+    () => diffDeck(effective, printed, { assumeBasics: options.assumeBasics }),
+    [effective, printed, options.assumeBasics],
   );
 
   /** Write a printing to one slot: either to every copy, or to just this one. */
@@ -115,7 +114,7 @@ export function PrintView({
       if (candidates.length === 0) throw new Error(`No printings found for ${slot.entry.name}.`);
       const basic = isBasicLand(candidates[0]!);
       const eligible = candidates
-        .map((card) => scorePrinting(card, profile, { ownedKeys, isBasic: basic }))
+        .map((card) => scorePrinting(card, profile, { isBasic: basic }))
         .filter((entry) => !entry.disqualified)
         .sort(comparePrintings)
         .map((entry) => entry.card);
@@ -153,9 +152,8 @@ export function PrintView({
     try {
       const resolved = await resolveText(text, {
         profile,
-        collection,
         config,
-        ownedKeys,
+        tokenMode: options.tokens,
         force,
         onProgress: setBusy,
       });
@@ -171,9 +169,9 @@ export function PrintView({
     if (!result) return;
     setError(null);
     try {
-      const toPrint = options.missingOnly ? missingOnly(effective, diff) : effective;
+      const toPrint = options.unprinted ? unprintedOnly(effective, diff) : effective;
       if (toPrint.length === 0) {
-        setError('Nothing to print: you already own every card in this list.');
+        setError('Nothing to print: you have already printed every card in this list.');
         return;
       }
 
@@ -225,7 +223,7 @@ export function PrintView({
 
   const pageCount = useMemo(() => {
     const layout = computeLayout({ paper: options.paper, gapMm: options.gap });
-    const toPrint = options.missingOnly ? missingOnly(effective, diff) : effective;
+    const toPrint = options.unprinted ? unprintedOnly(effective, diff) : effective;
     const { placements } = printPlacements(toPrint, {
       quality: options.quality,
       bothFaces: options.bothFaces,
@@ -237,11 +235,11 @@ export function PrintView({
   /** Backs available to print, so the toggle can say what it would add. */
   const backCount = useMemo(
     () =>
-      (options.missingOnly ? missingOnly(effective, diff) : effective).reduce(
+      (options.unprinted ? unprintedOnly(effective, diff) : effective).reduce(
         (sum, item) => (isDoubleFaced(item.card) ? sum + item.entry.quantity : sum),
         0,
       ),
-    [effective, diff, options.missingOnly],
+    [effective, diff, options.unprinted],
   );
 
   return (
@@ -352,16 +350,27 @@ export function PrintView({
                 ]}
               />
             </Field>
+            <Field label="Tokens">
+              <Select
+                value={options.tokens}
+                onChange={(tokens) => setOptions({ ...options, tokens: tokens as TokenMode })}
+                options={[
+                  { value: 'exclude', label: 'Exclude - deck only' },
+                  { value: 'include', label: 'Include - deck and tokens' },
+                  { value: 'only', label: 'Only - tokens on their own sheet' },
+                ]}
+              />
+            </Field>
             <Toggle
-              checked={options.missingOnly}
-              onChange={(missingOnly) => setOptions({ ...options, missingOnly })}
-              label="Only print what I don't own"
-              hint={`${diff.totalMissing} of ${diff.totalNeeded} missing`}
+              checked={options.unprinted}
+              onChange={(unprinted) => setOptions({ ...options, unprinted })}
+              label="Only print what I haven't printed"
+              hint={`${diff.totalToPrint} of ${diff.totalNeeded} still to print`}
             />
             <Toggle
               checked={options.assumeBasics}
               onChange={(assumeBasics) => setOptions({ ...options, assumeBasics })}
-              label="Assume I have basic lands"
+              label="Treat basic lands as already printed"
             />
             <Toggle
               checked={options.bothFaces}
@@ -407,7 +416,6 @@ export function PrintView({
               : `copy ${picking.copyIndex + 1} of ${picking.totalCopies}`
           }
           profile={profile}
-          ownedKeys={ownedKeys}
           onPick={(card) => {
             choosePrinting(picking, card);
             setPicking(null);
@@ -510,10 +518,10 @@ function CardGrid({
                 <span>
                   {slot.card.set.toUpperCase()} {slot.card.collector_number}
                 </span>
-                {row && row.missing === 0 && <Badge tone="good">owned</Badge>}
-                {row && row.missing > 0 && row.owned > 0 && (
+                {row && row.toPrint === 0 && <Badge tone="good">printed</Badge>}
+                {row && row.toPrint > 0 && row.printed > 0 && (
                   <Badge tone="warn">
-                    {row.owned}/{row.needed}
+                    {row.printed}/{row.needed}
                   </Badge>
                 )}
               </div>

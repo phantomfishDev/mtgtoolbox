@@ -145,3 +145,16 @@ describe('assessBracket', () => {
     expect(BRACKET_NAMES[4]).toBe('Optimized');
   });
 });
+
+describe('tokens and the bracket', () => {
+  it('ignores token entries, which are not part of the deck', () => {
+    const tokenOfAGameChanger: ResolvedCard = {
+      entry: { quantity: 9, name: 'Wraith', line: 1, raw: '9 Wraith', section: 'tokens' },
+      card: card({ name: 'Wraith', layout: 'token', game_changer: true }),
+      via: 'name',
+    };
+    const assessment = assessBracket([vanilla('Grizzly Bears'), tokenOfAGameChanger]);
+    expect(assessment.bracket).toBe(2);
+    expect(assessment.signals).toHaveLength(0);
+  });
+});

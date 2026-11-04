@@ -85,11 +85,6 @@ export const DeckDataSchema = z.object({
   generatedAt: z.string(),
   /** Fingerprint of the preference profile that chose these printings. */
   profile: z.string(),
-  /**
-   * Fingerprint of the collection the printings were chosen against, or null
-   * when `preferOwned` was off and ownership could not have influenced them.
-   */
-  owned: z.string().nullable(),
   /** Distinct printings, so a deck running nine copies stores one card. */
   cards: z.array(StoredCard),
   /** Normalised card name -> the id of the printing chosen for it. */
@@ -109,8 +104,6 @@ export interface DeckData {
   generatedAt: string;
   /** Fingerprint of the preference profile that chose these printings. */
   profile: string;
-  /** Fingerprint of the collection used, or null when ownership was ignored. */
-  owned: string | null;
   cards: ScryfallCard[];
   /** Normalised card name -> the id of the printing chosen for it. */
   chosen: Record<string, string>;

@@ -7,7 +7,7 @@ import { join } from 'node:path';
  * Follows the XDG base directory variables when they are set, and falls back to
  * the conventional `~/.cache` and `~/.config` otherwise. macOS gets the same
  * treatment as Linux deliberately: these are developer-facing dotfiles, and a
- * collection under `~/.config` is far easier to find and back up than one
+ * ledger under `~/.config` is far easier to find and back up than one
  * buried in `~/Library/Application Support`.
  */
 
@@ -39,8 +39,8 @@ export function printsCacheDir(): string {
 }
 
 /** Resolution order: explicit flag, then environment, then the default path. */
-export function collectionPath(override?: string): string {
-  return override ?? env('MTGPROXY_COLLECTION') ?? join(configDir(), 'collection.json');
+export function printedPath(override?: string): string {
+  return override ?? env('MTGPROXY_PRINTED') ?? join(configDir(), 'printed.json');
 }
 
 export function configPath(override?: string): string {
