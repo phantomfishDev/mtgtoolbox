@@ -16,7 +16,7 @@ guide were checked against Scryfall, not recalled.
 
 Measured from `examples/nazgul.txt`:
 
-| | Current list | Rebuild (`nazgul-rebuild.txt`) |
+| | Current list | Rebuild (`nazgul.txt`) |
 |---|---|---|
 | Instants + sorceries | **27** | **36** |
 | Spells at MV 1–2 | 22 | 36 |
@@ -58,7 +58,7 @@ weakness. They crowd out the cheap spells the commander actually converts into a
 | **B — Rebuild** *(recommended)* | Same commander, same 9 Nazgûl, same Ring-tempt core; the engine and mana base rebuilt around casting spells | **45** | 4 → **3** | You want the deck to actually win games |
 | **C — Bracket 2** | Option B with the three remaining Game Changers swapped out | 48 | 4 → **2** | Your table plays precons and you want to bring this to it |
 
-Option B is written out below and saved as `examples/nazgul-rebuild.txt`. Options A and C are
+Option B is written out below and is now the list in `examples/nazgul.txt`. Options A and C are
 exact swap lists in [section 7](#7-upgrade-paths).
 
 ---
@@ -386,7 +386,7 @@ draw engine in the format, and the "nobody blocks this turn" button. It is still
 | Option B (rebuild) | Cyclonic Rift, Fierce Guardianship, The One Ring | **3 — Upgraded** |
 | Option C | none | **2 — Core** |
 
-Verified with `node apps/cli/dist/index.js bracket examples/nazgul-rebuild.txt`. No mass land
+Verified with `node apps/cli/dist/index.js bracket examples/nazgul.txt`. No mass land
 denial, no extra turns and no two-card infinite combo in any version. Game Changers list as of
 the 9 February 2026 brackets update (53 cards); tutors stopped being a bracket criterion in
 October 2025, which is why nine Nazgûl and Ringsight cost the deck nothing.
