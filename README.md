@@ -39,6 +39,12 @@ Pipe a list in from anywhere:
 pbpaste | mtgproxy print -
 ```
 
+Build a new deck with an agent, a card at a time, in the browser:
+
+```bash
+mtgproxy workshop start thranduil-elf
+```
+
 ### Deck list formats
 
 The parser accepts all of these, and will report every bad line at once rather than
@@ -123,6 +129,10 @@ Card data, printing lists and images are cached in the browser (IndexedDB), and 
 resolved deck itself is cached for the session, so reopening a deck you have already
 looked at is instant rather than a repeat of the work.
 
+The list of *other* printings of a card is fetched only when you open the picker for
+that one card. Opening a deck never fetches them: it reads the chosen printings from the
+stored card data beside the decklist.
+
 The cache key covers everything that can change the answer — the decklist, your
 preference profile, pinned printings, and (only when `preferOwned` is on) what you own —
 so changing a preference produces a fresh resolution instead of a stale hit.
@@ -145,6 +155,59 @@ with `pnpm --filter @mtgproxy/web dev` and it proxies `/api` here; the app probe
 `/api/health` at boot and falls back to browser storage when nothing answers, which is
 exactly what a static deployment gets.
 
+## Building a deck with an agent
+
+A deck is easier to build with two people than one: whoever owns the deck knows which
+cards they want and what it should feel like, and the other half is ninety cards of
+legwork. `mtgproxy workshop` is that conversation, held over one session file.
+
+```bash
+mtgproxy workshop start thranduil-elf --title "Thranduil, Elvenking"
+```
+
+It serves a page — card search with real art and text, a commander picker, a bracket
+ceiling, the cards you already know you want and the ones to keep out — and prints its
+URL. The port is whatever the OS had free, so several of these run side by side without
+colliding.
+
+Everything after that is turns, tracked by the session's phase:
+
+| phase      | whose turn | what happens                                   |
+| ---------- | ---------- | ---------------------------------------------- |
+| `intake`   | you        | fill in the brief in the page                  |
+| `briefed`  | the agent  | it reads the brief and builds a list           |
+| `proposed` | you        | the page becomes a review screen               |
+| `reviewed` | the agent  | it reads your cuts and comments, and revises   |
+| `accepted` | done       | the list can be exported                       |
+
+The agent's side is four commands:
+
+```bash
+mtgproxy workshop wait thranduil-elf      # blocks until it is its turn
+mtgproxy workshop show thranduil-elf      # the brief, the cuts, the comments
+mtgproxy workshop propose thranduil-elf   # put a decklist on the table
+mtgproxy workshop export thranduil-elf    # write examples/thranduil-elf.txt
+```
+
+`propose` reads `.workshop/<deck>/proposal.json` — a list of cards with a role and a
+line on why each one is there — looks every card up in one batch, and reports the mana
+curve, the land count, the bracket it assesses at and any name that does not exist. The
+page an open browser is showing switches to the review screen on its own.
+
+`propose --replace` corrects the round already on the table rather than starting a new
+one — for a wrong card note or a miscount. It leaves the round number, the phase and any
+half-written review alone, which a second `propose` would not.
+
+The review screen shows the deck as cards, grouped by role. Click any card to read it
+full size and arrow-key through the rest of the list. Cutting one strikes it through;
+every card takes a comment, kept or cut, and those comments are the most useful thing the
+agent gets back. Accepting writes the list out with `export`, and from there it
+is an ordinary decklist: `sync` it, then pick the printings.
+
+Proposed cards are deliberately left unpinned, so the printing is chosen by your
+preference profile at sync time rather than by whatever Scryfall happened to return. The
+art in the review screen is only there to recognise the card by.
+
 ## Stored card data
 
 Every decklist in [`examples/`](examples) has a `<deck>.cards.json` beside it holding the
@@ -162,6 +225,13 @@ mtgproxy sync --refresh       # re-read the chosen printings, to pick up new car
 `sync` also writes `decks.index.json`, a summary the deck list reads: commander images,
 colours, brackets and enough of each card to count what you own. Without it the list
 would have to load every deck's card data — about a megabyte — before it could render.
+
+Stored data stays in play when you pin a printing. A pin rewrites the list as
+`1 Fog (M14) 171`, which the file — written before the pin existed — has no card for.
+Rather than give up and send the whole deck back through ranking to re-decide
+ninety-nine printings that did not change, the pinned line is looked up by set and
+number directly: one batched request, however many pins are new. Changing an artwork in
+the deck browser therefore costs a single request instead of one per distinct card.
 
 `--refresh` exists because this project occasionally starts reading a card field it did
 not store before. Re-resolving to fill that in would cost one request per card for no

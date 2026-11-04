@@ -315,6 +315,58 @@ export class ScryfallClient {
     return all;
   }
 
+  /**
+   * Name suggestions for a partial name, as the search-as-you-type endpoint
+   * returns them: at most 20 names, no card data.
+   *
+   * Deliberately uncached. The cache is keyed by card, and a prefix is not a
+   * card; caching prefixes would fill it with every keystroke a person types.
+   */
+  async autocomplete(query: string): Promise<string[]> {
+    const trimmed = query.trim();
+    if (trimmed.length < 2) return [];
+    const response = await this.request(
+      `${API}/cards/autocomplete?q=${encodeURIComponent(trimmed)}`,
+    );
+    const body = (await response.json()) as { data?: string[] };
+    return body.data ?? [];
+  }
+
+  /**
+   * Full-text card search, one printing per card.
+   *
+   * This is the picker's data source: a person typing half a name wants to see
+   * the card and confirm it, which needs the whole object rather than a name.
+   * Each result is cached by id and by name, so choosing one and then resolving
+   * the deck it lands in costs nothing further.
+   */
+  async search(
+    query: string,
+    options: { unique?: 'cards' | 'prints' | 'art'; order?: string; limit?: number } = {},
+  ): Promise<ScryfallCard[]> {
+    const trimmed = query.trim();
+    if (trimmed === '') return [];
+    const { unique = 'cards', order = 'name', limit = 24 } = options;
+    const url =
+      `${API}/cards/search?q=${encodeURIComponent(trimmed)}` +
+      `&unique=${unique}&order=${encodeURIComponent(order)}`;
+
+    try {
+      const response = await this.request(url);
+      const body = (await response.json()) as { data: ScryfallCard[] };
+      const cards = body.data.slice(0, limit);
+      for (const card of cards) {
+        await this.cardCache.set(identifierKey({ id: card.id }), card);
+        await this.cardCache.set(identifierKey({ name: card.name }), card);
+      }
+      return cards;
+    } catch (error) {
+      // A search that matches nothing is a 404 here, not an empty page.
+      if (error instanceof ScryfallError && error.status === 404) return [];
+      throw error;
+    }
+  }
+
   /** Fetch card image bytes, reading through the image cache when present. */
   async image(url: string, cacheKey: string): Promise<Uint8Array> {
     const cached = await this.imageCache?.get(cacheKey);

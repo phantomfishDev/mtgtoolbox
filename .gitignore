@@ -10,3 +10,6 @@ out/
 *.pdf
 .cache/
 dist-types/
+
+# workshop sessions: scratch shared between the UI and the agent
+.workshop/

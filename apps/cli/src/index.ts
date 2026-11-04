@@ -54,6 +54,7 @@ import {
   saveDeckData,
 } from '@mtgproxy/node';
 import { printedCommand } from './printed-cmd.js';
+import { workshopCommand } from './workshop/index.js';
 import {
   fetchImages,
   loadDeck,
@@ -797,6 +798,7 @@ withDeckOptions(
 );
 
 program.addCommand(printedCommand());
+program.addCommand(workshopCommand());
 
 const cache = program.command('cache').description('Inspect or clear the local Scryfall cache');
 

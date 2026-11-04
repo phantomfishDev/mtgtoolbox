@@ -128,3 +128,37 @@ describe('rate limiting', () => {
     expect(calls).toHaveLength(1);
   });
 });
+
+describe('search', () => {
+  it('returns the cards a query matched and caches each one', async () => {
+    const { impl, calls } = stubFetch([
+      json({ data: [card({ name: 'Sol Ring', id: 'sol-1' })], has_more: false }),
+    ]);
+    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0 });
+
+    const found = await client.search('name:/sol ring/');
+    expect(found.map((item) => item.name)).toEqual(['Sol Ring']);
+    expect(calls[0]).toContain('unique=cards');
+
+    // Cached by id and by name, so choosing a result and then resolving the
+    // deck it lands in costs no further requests.
+    const again = await client.collection([{ name: 'Sol Ring' }, { id: 'sol-1' }]);
+    expect(again.data).toHaveLength(2);
+    expect(calls).toHaveLength(1);
+  });
+
+  it('treats a query that matched nothing as empty rather than failing', async () => {
+    const { impl } = stubFetch([
+      new Response(JSON.stringify({ details: 'no cards found' }), { status: 404 }),
+    ]);
+    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0, retryBackoffMs: 0 });
+    await expect(client.search('name:/qqqq/')).resolves.toEqual([]);
+  });
+
+  it('does not ask Scryfall about a one-letter prefix', async () => {
+    const { impl, calls } = stubFetch([]);
+    const client = new ScryfallClient({ fetchImpl: impl, rateLimitMs: 0 });
+    await expect(client.autocomplete('s')).resolves.toEqual([]);
+    expect(calls).toHaveLength(0);
+  });
+});

@@ -1,0 +1,1315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mtgproxy workshop</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0e1014;
+        --panel: #171a21;
+        --panel-2: #1f232c;
+        --line: #2b303b;
+        --text: #e6e8ee;
+        --muted: #9aa3b2;
+        --accent: #d8a657;
+        --accent-dim: #8a6a33;
+        --cut: #e06c75;
+        --ok: #8ec07c;
+        --radius: 10px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.5 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      a { color: var(--accent); }
+      header.top {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 14px 24px;
+        background: rgba(14, 16, 20, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      header.top h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: 0.02em; }
+      header.top h1 span { color: var(--muted); font-weight: 400; }
+      .grow { flex: 1; }
+      .badge {
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .badge.turn-user { border-color: var(--accent-dim); color: var(--accent); }
+      .badge.turn-agent { border-color: #3d4a63; color: #8fb3e8; }
+      main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+      section.panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        margin-bottom: 18px;
+      }
+      section.panel > h2 {
+        margin: 0 0 4px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+      .hint { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+      label.field { display: block; margin-bottom: 14px; }
+      label.field > span {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 5px;
+      }
+      input[type="text"], textarea, select {
+        width: 100%;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        color: var(--text);
+        border-radius: 8px;
+        padding: 9px 11px;
+        font: inherit;
+        resize: vertical;
+      }
+      input[type="text"]:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: var(--accent-dim);
+      }
+      textarea { min-height: 78px; }
+      .row { display: flex; gap: 14px; flex-wrap: wrap; }
+      .row > * { flex: 1 1 240px; }
+      button {
+        font: inherit;
+        background: var(--panel-2);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+      button:hover { border-color: var(--accent-dim); }
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #16181d;
+        font-weight: 600;
+      }
+      button.primary:hover { filter: brightness(1.08); }
+      button.ghost { background: transparent; }
+      button.danger:hover { border-color: var(--cut); color: var(--cut); }
+      button:disabled { opacity: 0.45; cursor: not-allowed; }
+      .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+      .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .cardtile {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cardtile img {
+        width: 100%;
+        aspect-ratio: 488 / 680;
+        object-fit: cover;
+        border-radius: 5px;
+        background: #0a0b0e;
+      }
+      .cardtile .nm { font-size: 13px; font-weight: 600; line-height: 1.25; }
+      .cardtile .meta { font-size: 11px; color: var(--muted); }
+      .cardtile .pick { display: flex; gap: 6px; }
+      .cardtile .pick button { flex: 1; padding: 5px 0; font-size: 12px; }
+      .picklist { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+      .pickrow {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 7px 10px;
+      }
+      .pickrow img { width: 34px; border-radius: 3px; }
+      .pickrow .nm { font-weight: 600; font-size: 13px; min-width: 190px; }
+      .pickrow input[type="text"] { flex: 1; padding: 6px 9px; font-size: 13px; }
+      .pips { display: inline-flex; gap: 3px; vertical-align: middle; }
+      .pip {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid rgba(0, 0, 0, 0.45);
+      }
+      .pip-W { background: #f8f3e0; }
+      .pip-U { background: #4a7fc1; }
+      .pip-B { background: #4c4448; }
+      .pip-R { background: #c45c4a; }
+      .pip-G { background: #5a9a62; }
+      .pip-C { background: #8a8d94; }
+      .commanderbox { display: flex; gap: 14px; align-items: flex-start; }
+      .commanderbox img { width: 132px; border-radius: 7px; }
+      .group { margin-top: 20px; }
+      .group > h3 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 10px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 6px;
+      }
+      .deckgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+        gap: 12px;
+      }
+      .deckcard {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .deckcard .top { display: flex; gap: 9px; padding: 9px; }
+      .deckcard img { width: 62px; border-radius: 4px; align-self: flex-start; }
+      .deckcard .nm { font-size: 13px; font-weight: 600; line-height: 1.25; }
+      .deckcard .note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+      /* Pushed to the bottom so every tile in a row ends on the same line. */
+      .deckcard .bar { display: flex; gap: 6px; padding: 0 9px 9px; margin-top: auto; }
+      .deckcard .bar button { padding: 4px 9px; font-size: 12px; }
+      .deckcard textarea {
+        border: 0;
+        border-top: 1px solid var(--line);
+        /* Sits in the tile's bottom corners, so it has to match their radius. */
+        border-radius: 0 0 7px 7px;
+        min-height: 44px;
+        font-size: 12px;
+        /* The browser's resize grip lands on top of the rounded corner and
+           looks like damage. The box grows with what is typed instead. */
+        resize: none;
+        overflow: hidden;
+      }
+      .deckcard.is-cut { border-color: var(--cut); }
+      .deckcard.is-cut img, .deckcard.is-cut .nm { opacity: 0.45; }
+      .deckcard.is-cut .nm { text-decoration: line-through; }
+      .stats { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+      .stats b { color: var(--text); }
+      .question { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+      .question p { margin: 0 0 8px; font-size: 14px; }
+      .question .opts { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+      .question .opts button { font-size: 12px; padding: 4px 10px; }
+      .waiting { text-align: center; padding: 46px 20px; }
+      .waiting .dot {
+        width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+        display: inline-block; margin-right: 7px; animation: pulse 1.4s ease-in-out infinite;
+      }
+      @keyframes pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+      .toast {
+        position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+        background: var(--panel-2); border: 1px solid var(--accent-dim);
+        color: var(--text); padding: 9px 16px; border-radius: 999px; font-size: 13px;
+        opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 50;
+      }
+      .toast.show { opacity: 1; }
+      .saved { font-size: 12px; color: var(--muted); }
+      details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+      .sticky-actions {
+        position: sticky; bottom: 0; background: rgba(14, 16, 20, 0.94);
+        backdrop-filter: blur(8px); border-top: 1px solid var(--line);
+        padding: 14px 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+        margin: 0 -24px -24px;
+      }
+      .warn { color: var(--cut); font-size: 13px; }
+      .cardtile img, .pickrow img, .deckcard img, .commanderbox img { cursor: zoom-in; }
+      .zoom {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: rgba(6, 7, 10, 0.88);
+        backdrop-filter: blur(3px);
+      }
+      .zoom.open { display: flex; }
+      .zoom figure { margin: 0; text-align: center; }
+      .zoom img {
+        max-height: 82vh;
+        max-width: min(88vw, 520px);
+        border-radius: 15px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      }
+      .zoom figcaption { margin-top: 12px; font-size: 14px; color: var(--text); }
+      .zoom figcaption span { color: var(--muted); }
+      .zoom .step {
+        background: rgba(31, 35, 44, 0.9);
+        border: 1px solid var(--line);
+        color: var(--text);
+        font-size: 22px;
+        line-height: 1;
+        padding: 14px 18px;
+        border-radius: 10px;
+      }
+      .zoom .shut {
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        font-size: 15px;
+        padding: 7px 13px;
+      }
+      @media (max-width: 620px) {
+        .zoom .step { padding: 10px 12px; font-size: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <h1 id="deckname">mtgproxy workshop</h1>
+      <span class="badge" id="phase">loading</span>
+      <span class="grow"></span>
+      <span class="saved" id="saved"></span>
+    </header>
+    <main id="app"></main>
+    <div class="toast" id="toast"></div>
+    <div class="zoom" id="zoom" aria-hidden="true">
+      <button class="step" data-step="-1" title="Previous card">&lsaquo;</button>
+      <figure>
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+      <button class="step" data-step="1" title="Next card">&rsaquo;</button>
+      <button class="ghost shut" title="Close">close</button>
+    </div>
+
+    <script>
+      /*
+       * The person's half of a deck-building session.
+       *
+       * One page, three screens, chosen by the session's phase: fill in a brief,
+       * wait for the agent, review the decklist it proposed. The file on disk is
+       * the only state that matters, so the page polls it and re-renders when the
+       * agent writes — that is how a proposal appears without a reload.
+       */
+      var session = null;
+      var brief = null;
+      var review = null;
+      var dirty = false;
+      var pickHosts = {};
+      var lastSeen = '';
+      var searchSeq = 0;
+
+      var app = document.getElementById('app');
+      var phaseEl = document.getElementById('phase');
+      var nameEl = document.getElementById('deckname');
+      var savedEl = document.getElementById('saved');
+      var toastEl = document.getElementById('toast');
+
+      var PHASE_TEXT = {
+        intake: ['your turn: describe the deck', 'turn-user'],
+        briefed: ['sent to the agent', 'turn-agent'],
+        proposed: ['your turn: review the list', 'turn-user'],
+        reviewed: ['review sent to the agent', 'turn-agent'],
+        accepted: ['accepted', 'turn-agent'],
+      };
+
+      var BRACKETS = [
+        '1 - exhibition',
+        '2 - core',
+        '3 - upgraded',
+        '4 - optimised',
+        '5 - cEDH',
+      ];
+
+      function esc(text) {
+        return String(text === undefined || text === null ? '' : text).replace(
+          /[&<>"']/g,
+          function (ch) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+          },
+        );
+      }
+
+      function toast(message) {
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        clearTimeout(toast.timer);
+        toast.timer = setTimeout(function () {
+          toastEl.classList.remove('show');
+        }, 2200);
+      }
+
+      function pips(colors) {
+        var list = colors && colors.length ? colors : ['C'];
+        return (
+          '<span class="pips">' +
+          list
+            .map(function (color) {
+              return '<span class="pip pip-' + esc(color) + '" title="' + esc(color) + '"></span>';
+            })
+            .join('') +
+          '</span>'
+        );
+      }
+
+      function api(path, options) {
+        return fetch(path, options).then(function (response) {
+          return response.json().then(function (body) {
+            if (!response.ok) throw new Error(body.error || 'request failed');
+            return body;
+          });
+        });
+      }
+
+      /* ---------- loading and polling ---------- */
+
+      function adopt(next) {
+        session = next;
+        brief = JSON.parse(JSON.stringify(next.brief));
+        review =
+          next.review && next.review.round === next.round
+            ? JSON.parse(JSON.stringify(next.review))
+            : { round: next.round, cuts: [], comments: {}, notes: '', answers: {}, verdict: 'revise' };
+        lastSeen = next.updatedAt;
+        dirty = false;
+        render();
+      }
+
+      function load() {
+        return api('/api/session').then(function (body) {
+          adopt(body.session);
+        });
+      }
+
+      function poll() {
+        api('/api/session')
+          .then(function (body) {
+            var next = body.session;
+            if (next.updatedAt === lastSeen) return;
+            // An agent write is news; our own save is just an echo.
+            if (next.updatedBy === 'agent') {
+              var phaseChanged = next.phase !== session.phase;
+              adopt(next);
+              if (phaseChanged && next.phase === 'proposed') {
+                toast('round ' + next.round + ' is ready to review');
+              }
+            } else if (!dirty) {
+              lastSeen = next.updatedAt;
+            }
+          })
+          .catch(function () {
+            /* The server going away is the agent restarting it; keep polling. */
+          });
+      }
+
+      /* ---------- saving ---------- */
+
+      var saveTimer = null;
+      function queueSave() {
+        dirty = true;
+        savedEl.textContent = 'unsaved changes';
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveNow, 700);
+      }
+
+      function saveNow() {
+        if (!session) return Promise.resolve();
+        var inReview = session.phase === 'proposed' || session.phase === 'reviewed';
+        var path = inReview ? '/api/review' : '/api/brief';
+        var payload = inReview ? { review: review } : { brief: brief, title: nameEl.dataset.title };
+        return api(path, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+          .then(function (body) {
+            session = body.session;
+            lastSeen = body.session.updatedAt;
+            dirty = false;
+            savedEl.textContent = 'saved';
+            setTimeout(function () {
+              if (!dirty) savedEl.textContent = '';
+            }, 1800);
+          })
+          .catch(function (error) {
+            savedEl.textContent = 'save failed: ' + error.message;
+          });
+      }
+
+      function send(path, payload) {
+        return saveNow()
+          .then(function () {
+            return api(path, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+          })
+          .then(function (body) {
+            adopt(body.session);
+            return body;
+          })
+          .catch(function (error) {
+            toast(error.message);
+            throw error;
+          });
+      }
+
+      /* ---------- card search ---------- */
+
+      /**
+       * One search widget, reused by the commander picker, the brief's card
+       * lists and the review screen's "add a card" box. `onPick` decides what
+       * the buttons on each result do.
+       */
+      function searchWidget(options) {
+        var wrap = document.createElement('div');
+        var limitId = 'limit-' + Math.random().toString(36).slice(2, 8);
+        wrap.innerHTML =
+          '<div class="row" style="align-items:flex-end">' +
+          '<label class="field" style="margin-bottom:0;flex:3 1 320px"><span>' +
+          esc(options.label) +
+          '</span><input type="text" placeholder="' +
+          esc(options.placeholder || 'start typing a card name, or a Scryfall query like t:dragon') +
+          '" /></label>' +
+          (options.colorLimit
+            ? '<label class="field" style="margin-bottom:0;flex:0 0 auto;display:flex;gap:7px;align-items:center">' +
+              '<input type="checkbox" id="' +
+              limitId +
+              '" checked style="width:auto" /><span style="margin:0">commander colours only</span></label>'
+            : '') +
+          '</div><div class="results"></div>';
+
+        var input = wrap.querySelector('input[type="text"]');
+        var results = wrap.querySelector('.results');
+        var limit = options.colorLimit ? wrap.querySelector('#' + limitId) : null;
+
+        function run() {
+          var query = input.value.trim();
+          if (query.length < 2) {
+            results.innerHTML = '';
+            return;
+          }
+          var seq = ++searchSeq;
+          var url = '/api/cards?q=' + encodeURIComponent(query);
+          if (options.commanders) url += '&commanders=1';
+          var identity = commanderIdentity();
+          if (limit && limit.checked && identity) url += '&colors=' + encodeURIComponent(identity);
+          results.innerHTML = '<p class="hint">searching…</p>';
+          api(url)
+            .then(function (body) {
+              if (seq !== searchSeq) return;
+              if (body.error) {
+                results.innerHTML = '<p class="hint">' + esc(body.error) + '</p>';
+                return;
+              }
+              if (!body.cards.length) {
+                results.innerHTML = '<p class="hint">nothing matched.</p>';
+                return;
+              }
+              results.innerHTML = body.cards.map(resultTile).join('');
+              body.cards.forEach(function (card, index) {
+                var tile = results.children[index];
+                if (!tile) return;
+                tile.querySelectorAll('button[data-act]').forEach(function (button) {
+                  button.addEventListener('click', function () {
+                    options.onPick(card, button.dataset.act);
+                  });
+                });
+              });
+            })
+            .catch(function (error) {
+              if (seq !== searchSeq) return;
+              results.innerHTML = '<p class="hint">' + esc(error.message) + '</p>';
+            });
+        }
+
+        var timer = null;
+        input.addEventListener('input', function () {
+          clearTimeout(timer);
+          timer = setTimeout(run, 280);
+        });
+        input.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            clearTimeout(timer);
+            run();
+          }
+        });
+        if (limit) limit.addEventListener('change', run);
+
+        function resultTile(card) {
+          return (
+            '<div class="cardtile">' +
+            (card.image
+              ? '<img loading="lazy" referrerpolicy="no-referrer" src="' + esc(card.image) + '" alt="" />'
+              : '<img alt="" />') +
+            '<div class="nm">' + esc(card.name) + '</div>' +
+            '<div class="meta">' + esc(card.manaCost || '') + ' ' + pips(card.colorIdentity) + '</div>' +
+            '<div class="meta">' + esc(card.typeLine || '') + '</div>' +
+            '<div class="meta">' + esc((card.setName || card.set || '').toString()) +
+            (card.gameChanger ? ' · <span style="color:var(--cut)">game changer</span>' : '') +
+            '</div>' +
+            '<div class="pick">' +
+            options.buttons
+              .map(function (button) {
+                return '<button data-act="' + button.act + '">' + esc(button.label) + '</button>';
+              })
+              .join('') +
+            '</div></div>'
+          );
+        }
+
+        return wrap;
+      }
+
+      function commanderIdentity() {
+        var colors = [];
+        [brief && brief.commander, brief && brief.partner].forEach(function (card) {
+          if (card && card.colorIdentity) {
+            card.colorIdentity.forEach(function (color) {
+              if (colors.indexOf(color) === -1) colors.push(color);
+            });
+          }
+        });
+        if (!brief || !brief.commander) return '';
+        return colors.length ? colors.join('') : 'C';
+      }
+
+      function toPick(card) {
+        return {
+          name: card.name,
+          set: card.set,
+          collectorNumber: card.collectorNumber,
+          scryfallId: card.scryfallId,
+          manaCost: card.manaCost,
+          typeLine: card.typeLine,
+          cmc: card.cmc,
+          colorIdentity: card.colorIdentity,
+          oracleText: card.oracleText,
+          image: card.image,
+          gameChanger: card.gameChanger,
+          note: '',
+        };
+      }
+
+      function sameName(a, b) {
+        return String(a).toLowerCase() === String(b).toLowerCase();
+      }
+
+      function addPick(list, card) {
+        var other = list === 'include' ? 'avoid' : 'include';
+        if (
+          brief[list].some(function (pick) {
+            return sameName(pick.name, card.name);
+          })
+        ) {
+          toast(card.name + ' is already on that list');
+          return;
+        }
+        brief[other] = brief[other].filter(function (pick) {
+          return !sameName(pick.name, card.name);
+        });
+        brief[list].push(toPick(card));
+        queueSave();
+        // Refresh the lists only: a full re-render would throw away the search
+        // results, and people add several cards from one search.
+        refreshPicks('include');
+        refreshPicks('avoid');
+        toast(card.name + (list === 'include' ? ' added' : ' will be avoided'));
+      }
+
+      /* ---------- screens ---------- */
+
+      function render() {
+        if (!session) return;
+        var label = PHASE_TEXT[session.phase] || [session.phase, ''];
+        phaseEl.textContent = label[0] + (session.round ? ' · round ' + session.round : '');
+        phaseEl.className = 'badge ' + label[1];
+        nameEl.dataset.title = session.title || session.slug;
+        nameEl.innerHTML = esc(session.title || session.slug) + ' <span>' + esc(session.slug) + '</span>';
+
+        app.innerHTML = '';
+        pickHosts = {};
+        if (session.phase === 'intake') renderBrief();
+        else if (session.phase === 'briefed') renderWaiting('The agent has your brief.', true);
+        else if (session.phase === 'proposed') renderReview();
+        else if (session.phase === 'reviewed') renderWaiting('Your review is with the agent.', false);
+        else renderAccepted();
+      }
+
+      function renderWaiting(message, reopen) {
+        var panel = document.createElement('section');
+        panel.className = 'panel waiting';
+        panel.innerHTML =
+          '<p><span class="dot"></span>' + esc(message) + '</p>' +
+          '<p class="hint">Go back to the chat — the agent will ask anything it needs there. ' +
+          'This page turns into a review screen on its own when the decklist lands.</p>';
+        if (reopen) {
+          var button = document.createElement('button');
+          button.className = 'ghost';
+          button.textContent = 'Reopen the brief';
+          button.addEventListener('click', function () {
+            send('/api/brief/reopen', {}).then(function () {
+              toast('brief reopened — the agent will wait');
+            });
+          });
+          panel.appendChild(button);
+        }
+        app.appendChild(panel);
+        if (session.proposal) app.appendChild(lastRoundPanel());
+      }
+
+      function lastRoundPanel() {
+        var panel = document.createElement('section');
+        panel.className = 'panel';
+        panel.innerHTML =
+          '<details><summary>Round ' + session.proposal.round + ' as you left it</summary>' +
+          '<p class="hint" style="margin-top:10px">' + esc(session.proposal.summary) + '</p></details>';
+        return panel;
+      }
+
+      function renderAccepted() {
+        var panel = document.createElement('section');
+        panel.className = 'panel waiting';
+        panel.innerHTML =
+          '<p style="font-size:17px">Deck accepted.</p>' +
+          '<p class="hint">The agent will write it to <code>examples/' + esc(session.slug) +
+          '.txt</code>, pick the printings and sync the card data. Ask it for the print PDF when you are ready.</p>';
+        app.appendChild(panel);
+        if (session.proposal) {
+          var list = document.createElement('section');
+          list.className = 'panel';
+          list.innerHTML = '<h2>The list</h2>';
+          list.appendChild(deckGroups(false));
+          app.appendChild(list);
+        }
+      }
+
+      /* ---------- the brief ---------- */
+
+      function renderBrief() {
+        var head = document.createElement('section');
+        head.className = 'panel';
+        head.innerHTML =
+          '<h2>What are we building?</h2>' +
+          '<p class="hint">Name the deck, pick the commander, say what it should feel like. ' +
+          'Everything here reaches the agent exactly as you write it.</p>';
+
+        var title = document.createElement('label');
+        title.className = 'field';
+        title.innerHTML = '<span>Deck name</span>';
+        var titleInput = document.createElement('input');
+        titleInput.type = 'text';
+        titleInput.value = session.title || session.slug;
+        titleInput.addEventListener('input', function () {
+          nameEl.dataset.title = titleInput.value;
+          queueSave();
+        });
+        title.appendChild(titleInput);
+        head.appendChild(title);
+        app.appendChild(head);
+
+        /* Commander */
+        var commander = document.createElement('section');
+        commander.className = 'panel';
+        commander.innerHTML =
+          '<h2>Commander</h2><p class="hint">The commander sets the colour identity every other pick is checked against.</p>';
+        if (brief.commander) {
+          var box = document.createElement('div');
+          box.className = 'commanderbox';
+          box.innerHTML =
+            (brief.commander.image
+              ? '<img referrerpolicy="no-referrer" src="' + esc(brief.commander.image) + '" alt="" />'
+              : '') +
+            '<div><div class="nm" style="font-size:17px;font-weight:600">' + esc(brief.commander.name) + '</div>' +
+            '<div class="hint" style="margin:4px 0">' + esc(brief.commander.typeLine || '') + ' ' +
+            pips(brief.commander.colorIdentity) + '</div>' +
+            '<div class="hint" style="white-space:pre-wrap;max-width:52ch">' +
+            esc(brief.commander.oracleText || '') + '</div></div>';
+          var clear = document.createElement('button');
+          clear.className = 'ghost danger';
+          clear.textContent = 'Change commander';
+          clear.addEventListener('click', function () {
+            brief.commander = null;
+            queueSave();
+            render();
+          });
+          box.querySelector('div:last-child').appendChild(clear);
+          commander.appendChild(box);
+        } else {
+          commander.appendChild(
+            searchWidget({
+              label: 'Search for a commander',
+              commanders: true,
+              placeholder: 'e.g. thranduil, or t:elf is:commander',
+              buttons: [{ act: 'pick', label: 'Use as commander' }],
+              onPick: function (card) {
+                brief.commander = toPick(card);
+                queueSave();
+                render();
+              },
+            }),
+          );
+        }
+        app.appendChild(commander);
+
+        /* Shape of the deck */
+        var shape = document.createElement('section');
+        shape.className = 'panel';
+        shape.innerHTML = '<h2>How it should play</h2>';
+
+        var bracket = document.createElement('label');
+        bracket.className = 'field';
+        bracket.innerHTML = '<span>Power ceiling (Commander bracket)</span>';
+        var select = document.createElement('select');
+        BRACKETS.forEach(function (text, index) {
+          var option = document.createElement('option');
+          option.value = String(index + 1);
+          option.textContent = text;
+          if (index + 1 === brief.bracket) option.selected = true;
+          select.appendChild(option);
+        });
+        select.addEventListener('change', function () {
+          brief.bracket = parseInt(select.value, 10);
+          queueSave();
+        });
+        bracket.appendChild(select);
+        shape.appendChild(bracket);
+
+        shape.appendChild(
+          textField('Theme and flavour', 'theme', 'What the deck is about, the lines you want to draw, the cards you want to see in play.'),
+        );
+        shape.appendChild(
+          textField('Art direction', 'artDirection', 'How the printings should look. These get printed, so this is the deliverable.', true),
+        );
+        shape.appendChild(
+          textField('Anything else', 'notes', 'Budget, pet cards, the table you play against, mechanics to leave alone.'),
+        );
+        app.appendChild(shape);
+
+        /* Cards */
+        var cards = document.createElement('section');
+        cards.className = 'panel';
+        cards.innerHTML =
+          '<h2>Cards you already know you want</h2>' +
+          '<p class="hint">Search, confirm the card from its art and text, then add it. ' +
+          'Say why next to each one if the reason matters — the agent builds around these.</p>';
+        cards.appendChild(
+          searchWidget({
+            label: 'Card search',
+            colorLimit: true,
+            buttons: [
+              { act: 'include', label: '+ want' },
+              { act: 'avoid', label: '- avoid' },
+            ],
+            onPick: function (card, act) {
+              addPick(act, card);
+            },
+          }),
+        );
+        cards.appendChild(pickHost('include', 'Must include'));
+        cards.appendChild(pickHost('avoid', 'Keep out'));
+        app.appendChild(cards);
+
+        var actions = document.createElement('div');
+        actions.className = 'sticky-actions';
+        var submit = document.createElement('button');
+        submit.className = 'primary';
+        submit.textContent = 'Send to the agent';
+        submit.addEventListener('click', function () {
+          if (!brief.commander && !confirm('No commander chosen. Send anyway and let the agent suggest one?')) return;
+          send('/api/brief/submit', { brief: brief, title: nameEl.dataset.title }).then(function () {
+            toast('sent — the agent has it');
+          });
+        });
+        var note = document.createElement('span');
+        note.className = 'hint';
+        note.style.margin = '0';
+        note.textContent = 'Saves as you type. Sending hands the turn to the agent.';
+        actions.appendChild(submit);
+        actions.appendChild(note);
+        app.appendChild(actions);
+      }
+
+      function textField(label, key, hint, single) {
+        var wrap = document.createElement('label');
+        wrap.className = 'field';
+        wrap.innerHTML = '<span>' + esc(label) + '</span>';
+        var input = document.createElement(single ? 'input' : 'textarea');
+        if (single) input.type = 'text';
+        input.placeholder = hint;
+        input.value = brief[key] || '';
+        input.addEventListener('input', function () {
+          brief[key] = input.value;
+          queueSave();
+        });
+        wrap.appendChild(input);
+        return wrap;
+      }
+
+      function pickHost(list, label) {
+        var host = document.createElement('div');
+        pickHosts[list] = { node: host, label: label };
+        host.appendChild(pickList(list, label));
+        return host;
+      }
+
+      function refreshPicks(list) {
+        var host = pickHosts[list];
+        if (!host) return;
+        host.node.innerHTML = '';
+        host.node.appendChild(pickList(list, host.label));
+      }
+
+      function pickList(list, label) {
+        var wrap = document.createElement('div');
+        wrap.className = 'group';
+        var picks = brief[list] || [];
+        wrap.innerHTML =
+          '<h3>' + esc(label) + ' (' + picks.length + ')</h3>' +
+          (picks.length ? '' : '<p class="hint">Nothing yet.</p>');
+        var rows = document.createElement('div');
+        rows.className = 'picklist';
+        picks.forEach(function (pick, index) {
+          var row = document.createElement('div');
+          row.className = 'pickrow';
+          row.innerHTML =
+            (pick.image ? '<img referrerpolicy="no-referrer" src="' + esc(pick.image) + '" alt="" />' : '') +
+            '<span class="nm">' + esc(pick.name) + '</span>';
+          var note = document.createElement('input');
+          note.type = 'text';
+          note.placeholder = list === 'include' ? 'why you want it (optional)' : 'why not (optional)';
+          note.value = pick.note || '';
+          note.addEventListener('input', function () {
+            brief[list][index].note = note.value;
+            queueSave();
+          });
+          var remove = document.createElement('button');
+          remove.className = 'ghost danger';
+          remove.textContent = '×';
+          remove.title = 'Remove';
+          remove.addEventListener('click', function () {
+            brief[list].splice(index, 1);
+            queueSave();
+            refreshPicks(list);
+          });
+          row.appendChild(note);
+          row.appendChild(remove);
+          rows.appendChild(row);
+        });
+        wrap.appendChild(rows);
+        return wrap;
+      }
+
+      /* ---------- the review ---------- */
+
+      /** Fit a textarea to its content, within reason. */
+      function grow(box) {
+        box.style.height = 'auto';
+        box.style.height = Math.min(box.scrollHeight, 180) + 'px';
+      }
+
+      function isCut(name) {
+        return review.cuts.some(function (cut) {
+          return sameName(cut, name);
+        });
+      }
+
+      function renderReview() {
+        var proposal = session.proposal;
+        var head = document.createElement('section');
+        head.className = 'panel';
+        var stats = proposal.stats;
+        head.innerHTML =
+          '<h2>Round ' + proposal.round + '</h2>' +
+          '<p style="white-space:pre-wrap;margin:0 0 14px">' + esc(proposal.summary) + '</p>' +
+          '<div class="stats">' +
+          '<span><b>' + proposal.cards.reduce(function (sum, card) { return sum + card.quantity; }, 0) +
+          '</b> cards</span>' +
+          (stats ? '<span><b>' + stats.lands + '</b> lands</span>' +
+            '<span>avg MV <b>' + stats.averageManaValue.toFixed(2) + '</b></span>' +
+            '<span>bracket <b>' + stats.bracket + '</b> ' + esc(stats.bracketName) + '</span>' +
+            (stats.gameChangers.length ? '<span class="warn">game changers: ' + esc(stats.gameChangers.join(', ')) + '</span>' : '') +
+            (stats.unresolved.length ? '<span class="warn">unresolved: ' + esc(stats.unresolved.join(', ')) + '</span>' : '')
+            : '') +
+          '</div>';
+        app.appendChild(head);
+
+        if (proposal.questions && proposal.questions.length) {
+          var questions = document.createElement('section');
+          questions.className = 'panel';
+          questions.innerHTML =
+            '<h2>The agent asked</h2><p class="hint">Answer here, or just talk to it in the chat.</p>';
+          proposal.questions.forEach(function (question) {
+            var block = document.createElement('div');
+            block.className = 'question';
+            block.innerHTML = '<p>' + esc(question.text) + '</p>';
+
+            var answer = document.createElement('textarea');
+            answer.value = review.answers[question.id] || '';
+            answer.placeholder = 'your answer';
+            answer.addEventListener('input', function () {
+              review.answers[question.id] = answer.value;
+              queueSave();
+            });
+
+            if (question.options && question.options.length) {
+              var opts = document.createElement('div');
+              opts.className = 'opts';
+              question.options.forEach(function (option) {
+                var button = document.createElement('button');
+                button.textContent = option;
+                button.addEventListener('click', function () {
+                  // Fill the box rather than re-rendering: a suggested answer
+                  // is a starting point, and a re-render would throw away the
+                  // place on the page along with any wording already typed.
+                  answer.value = option;
+                  review.answers[question.id] = option;
+                  queueSave();
+                });
+                opts.appendChild(button);
+              });
+              block.appendChild(opts);
+            }
+            block.appendChild(answer);
+            questions.appendChild(block);
+          });
+          app.appendChild(questions);
+        }
+
+        var list = document.createElement('section');
+        list.className = 'panel';
+        list.innerHTML =
+          '<h2>The list</h2>' +
+          '<p class="hint">Cut what you do not want and say why. A comment on a card you keep is just as useful — ' +
+          'that is how the agent learns what the deck is for.</p>' +
+          '<p class="hint">Click any card to read it full size, then use the arrow keys to walk the list. ' +
+          'The art is whichever printing Scryfall handed back, not the one that gets printed: ' +
+          'the printings are chosen after the list is settled. Judge the cards, not the frames.</p>';
+        list.appendChild(deckGroups(true));
+        app.appendChild(list);
+
+        var more = document.createElement('section');
+        more.className = 'panel';
+        more.innerHTML =
+          '<h2>Add a card</h2><p class="hint">Anything you add here goes on the must-include list for the next round.</p>';
+        more.appendChild(
+          searchWidget({
+            label: 'Card search',
+            colorLimit: true,
+            buttons: [
+              { act: 'include', label: '+ want' },
+              { act: 'avoid', label: '- avoid' },
+            ],
+            onPick: function (card, act) {
+              // The brief is the agent's standing instruction; a card added
+              // mid-review belongs there rather than in this round's comments.
+              var other = act === 'include' ? 'avoid' : 'include';
+              if (brief[act].some(function (pick) { return sameName(pick.name, card.name); })) {
+                toast(card.name + ' is already on that list');
+                return;
+              }
+              brief[other] = brief[other].filter(function (pick) {
+                return !sameName(pick.name, card.name);
+              });
+              brief[act].push(toPick(card));
+              api('/api/brief', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ brief: brief }),
+              }).then(function (body) {
+                lastSeen = body.session.updatedAt;
+                toast(card.name + (act === 'include' ? ' added for next round' : ' will be avoided'));
+              });
+            },
+          }),
+        );
+        app.appendChild(more);
+
+        var notes = document.createElement('section');
+        notes.className = 'panel';
+        notes.innerHTML = '<h2>Overall</h2>';
+        var notesInput = document.createElement('textarea');
+        notesInput.placeholder =
+          'What should change? Too slow, wrong feel, want more of something, happy with it except for the lands…';
+        notesInput.value = review.notes || '';
+        notesInput.addEventListener('input', function () {
+          review.notes = notesInput.value;
+          queueSave();
+        });
+        notes.appendChild(notesInput);
+        app.appendChild(notes);
+
+        var actions = document.createElement('div');
+        actions.className = 'sticky-actions';
+        var count = document.createElement('span');
+        count.className = 'hint';
+        count.style.margin = '0';
+        var refreshCount = function () {
+          count.textContent = review.cuts.length + ' cut, ' + Object.keys(review.comments).filter(function (key) {
+            return review.comments[key].trim() !== '';
+          }).length + ' commented';
+        };
+        refreshCount();
+        actions.dataset.role = 'review-actions';
+
+        var revise = document.createElement('button');
+        revise.className = 'primary';
+        revise.textContent = 'Send the review back';
+        revise.addEventListener('click', function () {
+          review.verdict = 'revise';
+          send('/api/review/submit', { review: review }).then(function () {
+            toast('sent — the agent is on round ' + (session.round + 1));
+          });
+        });
+
+        var accept = document.createElement('button');
+        accept.textContent = 'Accept the deck';
+        accept.addEventListener('click', function () {
+          if (review.cuts.length) {
+            toast('un-cut those cards first, or send the review back instead');
+            return;
+          }
+          if (!confirm('Accept this list as the deck? The agent will write it out and sync it.')) return;
+          review.verdict = 'accept';
+          send('/api/review/submit', { review: review }).then(function () {
+            toast('accepted');
+          });
+        });
+
+        actions.appendChild(revise);
+        actions.appendChild(accept);
+        actions.appendChild(count);
+        app.appendChild(actions);
+        renderReview.refreshCount = refreshCount;
+      }
+
+      function deckGroups(editable) {
+        var wrap = document.createElement('div');
+        var cards = session.proposal.cards;
+        var roles = [];
+        cards.forEach(function (card) {
+          if (roles.indexOf(card.role) === -1) roles.push(card.role);
+        });
+        // Commanders first, lands last; everything else as the agent ordered it.
+        roles.sort(function (a, b) {
+          var rank = function (role) {
+            if (/commander/i.test(role)) return 0;
+            if (/land/i.test(role)) return 2;
+            return 1;
+          };
+          return rank(a) - rank(b);
+        });
+
+        roles.forEach(function (role) {
+          var group = document.createElement('div');
+          group.className = 'group';
+          var inRole = cards.filter(function (card) {
+            return card.role === role;
+          });
+          var copies = inRole.reduce(function (sum, card) {
+            return sum + card.quantity;
+          }, 0);
+          group.innerHTML = '<h3>' + esc(role) + ' · ' + copies + '</h3>';
+          var grid = document.createElement('div');
+          grid.className = 'deckgrid';
+          inRole.forEach(function (card) {
+            grid.appendChild(deckCard(card, editable));
+          });
+          group.appendChild(grid);
+          wrap.appendChild(group);
+        });
+        return wrap;
+      }
+
+      function deckCard(card, editable) {
+        var tile = document.createElement('div');
+        tile.className = 'deckcard' + (editable && isCut(card.name) ? ' is-cut' : '');
+        tile.innerHTML =
+          '<div class="top">' +
+          (card.image ? '<img loading="lazy" referrerpolicy="no-referrer" src="' + esc(card.image) + '" alt="" />' : '') +
+          '<div><div class="nm">' + (card.quantity > 1 ? card.quantity + '× ' : '') + esc(card.name) + '</div>' +
+          '<div class="meta">' + esc(card.manaCost || '') + ' · ' + esc(card.typeLine || '') + '</div>' +
+          (card.note ? '<div class="note">' + esc(card.note) + '</div>' : '') +
+          (card.gameChanger ? '<div class="note" style="color:var(--cut)">game changer</div>' : '') +
+          '</div></div>';
+
+        if (!editable) return tile;
+
+        var bar = document.createElement('div');
+        bar.className = 'bar';
+        var cut = document.createElement('button');
+        var paint = function () {
+          var out = isCut(card.name);
+          cut.textContent = out ? 'Keep it' : 'Cut';
+          cut.className = out ? '' : 'ghost danger';
+          tile.classList.toggle('is-cut', out);
+        };
+        cut.addEventListener('click', function () {
+          if (isCut(card.name)) {
+            review.cuts = review.cuts.filter(function (name) {
+              return !sameName(name, card.name);
+            });
+          } else {
+            review.cuts.push(card.name);
+          }
+          paint();
+          queueSave();
+          if (renderReview.refreshCount) renderReview.refreshCount();
+        });
+        paint();
+        bar.appendChild(cut);
+        tile.appendChild(bar);
+
+        var comment = document.createElement('textarea');
+        comment.placeholder = 'comment on this card';
+        comment.value = review.comments[card.name] || '';
+        comment.addEventListener('input', function () {
+          if (comment.value.trim() === '') delete review.comments[card.name];
+          else review.comments[card.name] = comment.value;
+          grow(comment);
+          queueSave();
+          if (renderReview.refreshCount) renderReview.refreshCount();
+        });
+        tile.appendChild(comment);
+        // A comment restored from the session needs its height straight away,
+        // but only once the tile is in the document and has a width to wrap to.
+        requestAnimationFrame(function () {
+          grow(comment);
+        });
+        return tile;
+      }
+
+      /* ---------- zooming in on a card ---------- */
+
+      /*
+       * Every card image on the page opens a readable copy of itself.
+       *
+       * Sessions store the small image, because a page of a hundred thumbnails
+       * should not be a hundred full-size downloads. Scryfall serves the same
+       * card at every size under the same path, so the big one is derived when
+       * it is actually wanted, and falls back to the thumbnail if that guess
+       * ever stops holding.
+       */
+      var ZOOM_SELECTOR = '.cardtile img, .pickrow img, .deckcard img, .commanderbox img';
+      var zoomEl = document.getElementById('zoom');
+      var zoomImg = zoomEl.querySelector('img');
+      var zoomCaption = zoomEl.querySelector('figcaption');
+      var zoomAt = -1;
+
+      function bigImage(url) {
+        return url.indexOf('/small/') === -1 ? url : url.replace('/small/', '/large/');
+      }
+
+      function zoomable() {
+        return Array.prototype.slice.call(document.querySelectorAll(ZOOM_SELECTOR));
+      }
+
+      function openZoom(index) {
+        var images = zoomable();
+        if (!images.length) return;
+        // Wrap around, so arrowing off either end keeps browsing.
+        zoomAt = (index + images.length) % images.length;
+        var image = images[zoomAt];
+        var tile = image.closest('.cardtile, .pickrow, .deckcard, .commanderbox');
+        var name = tile && tile.querySelector('.nm') ? tile.querySelector('.nm').textContent : '';
+        var meta = tile && tile.querySelector('.meta') ? tile.querySelector('.meta').textContent : '';
+
+        zoomImg.onerror = function () {
+          // The derived size did not exist; the thumbnail always does.
+          zoomImg.onerror = null;
+          zoomImg.src = image.src;
+        };
+        zoomImg.src = bigImage(image.src);
+        zoomImg.alt = name;
+        zoomCaption.innerHTML =
+          esc(name) + (meta ? ' <span>' + esc(meta.trim()) + '</span>' : '') +
+          ' <span>· ' + (zoomAt + 1) + ' of ' + images.length + '</span>';
+        zoomEl.classList.add('open');
+        zoomEl.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeZoom() {
+        zoomEl.classList.remove('open');
+        zoomEl.setAttribute('aria-hidden', 'true');
+        zoomImg.removeAttribute('src');
+        zoomAt = -1;
+      }
+
+      function stepZoom(by) {
+        if (zoomAt === -1) return;
+        openZoom(zoomAt + by);
+      }
+
+      // Delegated, so images rendered later — search results, a new round —
+      // are clickable without anything re-binding them.
+      document.addEventListener('click', function (event) {
+        var image = event.target.closest ? event.target.closest(ZOOM_SELECTOR) : null;
+        if (!image || !image.src) return;
+        event.preventDefault();
+        openZoom(zoomable().indexOf(image));
+      });
+
+      zoomEl.addEventListener('click', function (event) {
+        var step = event.target.closest('[data-step]');
+        if (step) {
+          event.stopPropagation();
+          stepZoom(parseInt(step.dataset.step, 10));
+          return;
+        }
+        // Anywhere else, including the card itself, closes.
+        closeZoom();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (zoomAt === -1) return;
+        if (event.key === 'Escape') closeZoom();
+        else if (event.key === 'ArrowLeft') stepZoom(-1);
+        else if (event.key === 'ArrowRight') stepZoom(1);
+        else return;
+        event.preventDefault();
+      });
+
+      /* ---------- go ---------- */
+
+      window.addEventListener('beforeunload', function (event) {
+        if (!dirty) return;
+        saveNow();
+        event.preventDefault();
+        event.returnValue = '';
+      });
+
+      load()
+        .then(function () {
+          setInterval(poll, 2500);
+        })
+        .catch(function (error) {
+          app.innerHTML = '<section class="panel"><h2>Cannot load the session</h2><p class="hint">' +
+            esc(error.message) + '</p></section>';
+        });
+    </script>
+  </body>
+</html>
