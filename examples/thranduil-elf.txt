@@ -92,3 +92,9 @@ Deck
 1 Woodland Weavemaster
 1 Yavimaya Coast
 1 Zagoth Triome
+
+Tokens
+8 Elf (THOB) 8
+6 Elf Warrior (TFDN) 19
+2 Bird (TEOC) 3
+1 Beast (TFDC) 10

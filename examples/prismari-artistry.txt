@@ -92,3 +92,13 @@ Deck
 1 Veyran, Voice of Duality
 1 Volcanic Salvo
 1 Volcanic Torrent
+
+Tokens
+8 Treasure (SLD) 2820
+4 Copy (TTRC) 8
+4 Elemental (TSOC) 19
+4 Elemental (TSOC) 21
+2 Dragon Illusion (TSOC) 13
+2 Elemental (TSOS) 3
+2 Elemental (TSOC) 20
+2 Phyrexian Myr (TMUL) 1

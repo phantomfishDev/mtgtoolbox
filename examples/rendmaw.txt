@@ -86,3 +86,9 @@ Primal Vigor
 The Meathook Massacre
 Raking Canopy
 Revenge of Ravens
+
+Tokens
+4 Treasure (TDFT) 11
+2 Bird (TDSC) 5
+2 Human Cleric (TINR) 19
+2 Phyrexian Myr (TCMM) 44
