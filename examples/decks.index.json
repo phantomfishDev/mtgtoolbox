@@ -546,6 +546,623 @@
       ]
     },
     {
+      "id": "colorless-eldrazi",
+      "cardCount": 100,
+      "colorIdentity": [],
+      "bracket": 3,
+      "bracketName": "Upgraded",
+      "commanders": [
+        {
+          "name": "Zhulodok, Void Gorger",
+          "image": "https://cards.scryfall.io/normal/front/a/0/a015461d-4214-4feb-8b04-519c537759eb.jpg?1783915492"
+        }
+      ],
+      "cards": [
+        {
+          "name": "Zhulodok, Void Gorger",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "704",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Bane of Bala Ged",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "802",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Sire of Seven Deaths",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "292",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Devourer of Destiny",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "2",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Deceiver of Form",
+          "quantity": 1,
+          "set": "ogw",
+          "collectorNumber": "1",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Skittering Invasion",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "159",
+          "typeLine": "Kindred Sorcery — Eldrazi"
+        },
+        {
+          "name": "Eldrazi Conscription",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "131",
+          "typeLine": "Kindred Enchantment — Eldrazi Aura"
+        },
+        {
+          "name": "Breaker of Armies",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "BFZ-3",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Eldrazi Devastator",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "BFZ-7",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Artisan of Kozilek",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "153",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Hand of Emrakul",
+          "quantity": 1,
+          "set": "roe",
+          "collectorNumber": "5",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Void Winnower",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "17",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Kozilek, the Broken Reality",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "382",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Desolation Twin",
+          "quantity": 1,
+          "set": "c21",
+          "collectorNumber": "82",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Spawnsire of Ulamog",
+          "quantity": 1,
+          "set": "roe",
+          "collectorNumber": "11",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Kozilek, Butcher of Truth",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "336",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Kozilek, the Great Distortion",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "668",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Ulamog, the Ceaseless Hunger",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "670",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Ulamog, the Infinite Gyre",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "337",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "It That Betrays",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "805",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Emrakul, the Promised End",
+          "quantity": 1,
+          "set": "inr",
+          "collectorNumber": "481",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Emrakul, the World Anew",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "381",
+          "typeLine": "Legendary Creature — Eldrazi"
+        },
+        {
+          "name": "Ulamog's Dreadsire",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "38",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Eldrazi Mimic",
+          "quantity": 1,
+          "set": "ogw",
+          "collectorNumber": "2",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Matter Reshaper",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "806",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Thought-Knot Seer",
+          "quantity": 1,
+          "set": "spg",
+          "collectorNumber": "39",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Endless One",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "804",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Reality Smasher",
+          "quantity": 1,
+          "set": "ogw",
+          "collectorNumber": "7",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Kozilek's Channeler",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "10",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Walker of the Wastes",
+          "quantity": 1,
+          "set": "ogw",
+          "collectorNumber": "10",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Oblivion Sower",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "158",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Wurmcoil Engine",
+          "quantity": 1,
+          "set": "2xm",
+          "collectorNumber": "368",
+          "typeLine": "Artifact Creature — Phyrexian Wurm"
+        },
+        {
+          "name": "Anticausal Vestige",
+          "quantity": 1,
+          "set": "eoe",
+          "collectorNumber": "357",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Sol Ring",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "703",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Mind Stone",
+          "quantity": 1,
+          "set": "mbc",
+          "collectorNumber": "76",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Thought Vessel",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "118",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Hedron Crawler",
+          "quantity": 1,
+          "set": "ogw",
+          "collectorNumber": "164",
+          "typeLine": "Artifact Creature — Construct"
+        },
+        {
+          "name": "Everflowing Chalice",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "111",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Worn Powerstone",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "120",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Palladium Myr",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "278",
+          "typeLine": "Artifact Creature — Myr"
+        },
+        {
+          "name": "Basalt Monolith",
+          "quantity": 1,
+          "set": "mb2",
+          "collectorNumber": "217",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Wayfarer's Bauble",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "315",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Burnished Hart",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "250",
+          "typeLine": "Artifact Creature — Elk"
+        },
+        {
+          "name": "Thran Dynamo",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "658",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Solemn Simulacrum",
+          "quantity": 1,
+          "set": "m21",
+          "collectorNumber": "319",
+          "typeLine": "Artifact Creature — Golem"
+        },
+        {
+          "name": "Gilded Lotus",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "725",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Dreamstone Hedron",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "289",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Hedron Archive",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "262",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Conduit of Ruin",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "4",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Ugin, the Ineffable",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "160",
+          "typeLine": "Legendary Planeswalker — Ugin"
+        },
+        {
+          "name": "Endbringer",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "156",
+          "typeLine": "Creature — Eldrazi"
+        },
+        {
+          "name": "Mind's Eye",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "272",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Sandstone Oracle",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "406",
+          "typeLine": "Artifact Creature — Sphinx"
+        },
+        {
+          "name": "Warping Wail",
+          "quantity": 1,
+          "set": "spg",
+          "collectorNumber": "119",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Spatial Contortion",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "809",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Titan's Presence",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "810",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "All Is Dust",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "9",
+          "typeLine": "Kindred Sorcery — Eldrazi"
+        },
+        {
+          "name": "Karn Liberated",
+          "quantity": 1,
+          "set": "2xm",
+          "collectorNumber": "333",
+          "typeLine": "Legendary Planeswalker — Karn"
+        },
+        {
+          "name": "Ugin, the Spirit Dragon",
+          "quantity": 1,
+          "set": "m21",
+          "collectorNumber": "279",
+          "typeLine": "Legendary Planeswalker — Ugin"
+        },
+        {
+          "name": "Scour from Existence",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "13",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Spine of Ish Sah",
+          "quantity": 1,
+          "set": "blc",
+          "collectorNumber": "285",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Meteor Golem",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "399",
+          "typeLine": "Artifact Creature — Golem"
+        },
+        {
+          "name": "Not of This World",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "807",
+          "typeLine": "Kindred Instant — Eldrazi"
+        },
+        {
+          "name": "Eye of Ugin",
+          "quantity": 1,
+          "set": "spg",
+          "collectorNumber": "159",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Eldrazi Temple",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "14",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Ugin's Labyrinth",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "359",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Shrine of the Forsaken Gods",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "376",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Temple of the False God",
+          "quantity": 1,
+          "set": "scg",
+          "collectorNumber": "143",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Scorched Ruins",
+          "quantity": 1,
+          "set": "wth",
+          "collectorNumber": "166",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Cloudpost",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "330",
+          "typeLine": "Land — Locus"
+        },
+        {
+          "name": "Glimmerpost",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "346",
+          "typeLine": "Land — Locus"
+        },
+        {
+          "name": "Vesuva",
+          "quantity": 1,
+          "set": "m3c",
+          "collectorNumber": "404",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Thespian's Stage",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "44",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Sanctum of Ugin",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "242",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Myriad Landscape",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "660",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Buried Ruin",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "298",
+          "typeLine": "Land"
+        },
+        {
+          "name": "War Room",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "317",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Sea Gate Wreckage",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "1028",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Mikokoro, Center of the Sea",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "SOK-162",
+          "typeLine": "Legendary Land"
+        },
+        {
+          "name": "Rogue's Passage",
+          "quantity": 1,
+          "set": "mic",
+          "collectorNumber": "179",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Dread Statuary",
+          "quantity": 1,
+          "set": "cn2",
+          "collectorNumber": "217",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Crystal Vein",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MIR-325",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Strip Mine",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "40",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Wastes",
+          "quantity": 15,
+          "set": "ogw",
+          "collectorNumber": "183",
+          "typeLine": "Basic Land"
+        },
+        {
+          "name": "Ancient Tomb",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "1",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Blast Zone",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "2",
+          "typeLine": "Land"
+        }
+      ]
+    },
+    {
       "id": "food-and-fellowship",
       "cardCount": 100,
       "colorIdentity": [

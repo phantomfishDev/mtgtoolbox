@@ -1,0 +1,236 @@
+# Colorless Eldrazi — Zhulodok, Void Gorger. Big spells that bring friends.
+#
+# Zhulodok reads: "Colorless spells you cast from your hand with mana value 7
+# or greater have 'Cascade, cascade.'" One seven-drop is three spells. He costs
+# {5}{C}, so he lands on turn four or five and every fatty after him pays for
+# two more.
+#
+# Everything in the list follows from that one line.
+#
+# 1. The cascade only looks at MANA VALUE, never at what you paid. Eye of Ugin
+#    and Conduit of Ruin knock {2} off an Eldrazi without lowering its mana
+#    value, so a discounted Ulamog still cascades twice. Cost reduction is not
+#    a compromise here, it is free value.
+#
+# 2. It must be cast FROM YOUR HAND. Cascade's own free casts do not chain, the
+#    {20} on Spawnsire does not chain, and Anticausal Vestige recast from exile
+#    does not chain. Nothing in here is built to cheat spells into play,
+#    because cheating them in turns the commander off.
+#
+# 3. Cascade hits the first nonland card costing LESS. Lands are skipped
+#    entirely, so a 37-land deck does not dilute it. Every card under seven mana
+#    is therefore a cascade hit, which is why there is no filler: the worst
+#    thing you can flip is a mana rock, and this deck is happy to flip a rock.
+#
+# 4. Density is the deckbuilding constraint. Thirty of the sixty-three nonland
+#    cards cost seven or more. That is an absurd number by normal standards and
+#    the correct one here — they are the engine, not the top end.
+#
+# 5. Colorless means {C}, not "generic". Zhulodok, Thought-Knot Seer, Reality
+#    Smasher, Endbringer and Devourer of Destiny all want true colorless mana.
+#    Every land in the deck produces it, which is the upside of giving up
+#    colour entirely.
+#
+# ---------------------------------------------------------------------------
+# THE CARDS THAT CARRY IT
+# ---------------------------------------------------------------------------
+#
+# S tier — the deck is a pile of expensive cards without these
+#
+#   Eye of Ugin ........... every colorless Eldrazi costs {2} less, forever,
+#                           from a land slot. Mana value is untouched, so the
+#                           cascade still fires. Also tutors for {7}.
+#   Conduit of Ruin ....... tutors a 7+ Eldrazi to the TOP of your library and
+#                           makes the first creature each turn {2} cheaper.
+#                           Finds Zhulodok, then discounts him.
+#   Sol Ring / Thran Dynamo / Gilded Lotus
+#                           the difference between Zhulodok on four and
+#                           Zhulodok on seven.
+#   Ancient Tomb .......... two mana from one land. The only Game Changer in
+#                           the deck and the reason it reads bracket 3.
+#   Sanctum of Ugin ....... sacrifice it on any 7+ cast to tutor the next
+#                           fatty. This is what turns one big turn into two.
+#   All Is Dust ........... seven mana, so it cascades twice, and it wipes
+#                           every coloured permanent while your board — which
+#                           is entirely colorless — stands untouched.
+#
+# A tier — the payoffs
+#
+#   Ulamog, the Ceaseless Hunger
+#                           exiles two permanents on CAST, so it does its job
+#                           even countered. Indestructible, mills twenty a hit.
+#   It That Betrays ....... annihilator 2, and everything they sacrifice comes
+#                           back under your control. Wins the game by itself.
+#   Emrakul, the Promised End
+#                           costs {1} less per card type in your graveyard, and
+#                           you play their turn for them.
+#   Emrakul, the World Anew
+#                           take every creature your target controls. Protection
+#                           from spells means almost nothing answers it.
+#   Ulamog's Dreadsire .... {T}: make a 10/10. Every turn. Forever.
+#   Void Winnower ......... opponents cannot cast even-cost spells or block
+#                           with even-cost creatures. Against the wrong deck
+#                           this is a lock.
+#   Ugin, the Spirit Dragon
+#                           eight mana one-sided wrath. Exiles every coloured
+#                           permanent; your entire board survives.
+#   Deceiver of Form ...... reveal the top card each combat and turn the rest
+#                           of your creatures into copies of it. In a deck of
+#                           10/10s that ends games out of nowhere.
+#   Walker of the Wastes .. +1/+1 for every land named Wastes, and fifteen of
+#                           them are in here.
+#
+# ---------------------------------------------------------------------------
+# WHAT IS DELIBERATELY NOT HERE
+# ---------------------------------------------------------------------------
+#
+#   Processor Eldrazi ..... Blight Herder, Ruin Processor and Ulamog's
+#                           Despoiler all want cards in opponents' exile. This
+#                           deck has no ingest, so they are vanilla bodies
+#                           wearing a synergy costume.
+#   Reanimation / cheating spells into play
+#                           every one of them turns the commander off. See
+#                           rule 2.
+#   Emrakul, the Aeons Torn and Mana Crypt
+#                           both banned in Commander. Not a judgement call.
+#   Mishra's Workshop ..... a second Game Changer, and one Ancient Tomb is
+#                           already the whole bracket-3 budget.
+#   Ulamog's Crusher, Pathrazer of Ulamog
+#                           cut on purpose. Their entire contribution was
+#                           annihilator, and the brief asked for that softened.
+#
+# ---------------------------------------------------------------------------
+# HOW IT PLAYS
+# ---------------------------------------------------------------------------
+#
+#   Turns 1-3   Rocks. Sol Ring, Mind Stone, Worn Powerstone, Wayfarer's
+#               Bauble. Thought-Knot Seer on four takes their best card.
+#   Turn 4-5    Zhulodok. From here every seven-drop is three spells.
+#   Turn 6+     Lead with the CHEAPEST 7+ spell you can cast, not the biggest.
+#               Three sevens cast across two turns is six cascade triggers;
+#               one thirteen-drop is two. Sandstone Oracle and Scour from
+#               Existence are the ideal openers — they cost seven, do real
+#               work, and pay for themselves twice.
+#   Closing     Annihilator and Bane of Bala Ged strip their board while
+#               twenty power of Eldrazi finishes. Rogue's Passage or Eldrazi
+#               Conscription for the last swing.
+#
+#   The weakness: counterspells and graveyard-free exile removal on Zhulodok.
+#   He is a 6/6 for six with no protection, and the deck is a lot of expensive
+#   cards without him. Not of This World is in here for exactly that reason.
+#
+# ---------------------------------------------------------------------------
+# THE MANABASE
+# ---------------------------------------------------------------------------
+#
+#   37 lands, which is high, and correct at an average mana value of 6.05.
+#   The Locus package (Cloudpost, Glimmerpost, Vesuva, Thespian's Stage) and
+#   the Eldrazi lands (Eye of Ugin, Eldrazi Temple, Shrine of the Forsaken
+#   Gods, Ugin's Labyrinth) are why 37 lands produce far more than 37 mana.
+#   Scorched Ruins eats two lands for four mana — only play it when you are
+#   already flooded or already committed.
+#
+#   Temple of the False God is pinned to the Scourge original (SCG 143). Its
+#   default printing is a Secret Lair, and the alternative is a Star Trek
+#   crossover.
+#
+# ---------------------------------------------------------------------------
+# UPGRADES
+# ---------------------------------------------------------------------------
+#
+#   More speed      Mishra's Workshop, Mana Vault. Both push past bracket 3.
+#   More Eldrazi    Ulamog, the Defiler; Emrakul, the Exigent Doom; Flayer of
+#                   Loyalties — all excellent, all annihilator, all re-open
+#                   the question the brief settled.
+#   More resilience Lightning Greaves and Swiftfoot Boots on Zhulodok.
+#   Bracket 2       cut Ancient Tomb. That one card is the whole difference.
+#
+Commander
+1 Zhulodok, Void Gorger
+
+Deck
+1 Bane of Bala Ged
+1 Sire of Seven Deaths
+1 Devourer of Destiny
+1 Deceiver of Form
+1 Skittering Invasion
+1 Eldrazi Conscription (SOC) 131
+1 Breaker of Armies
+1 Eldrazi Devastator
+1 Artisan of Kozilek
+1 Hand of Emrakul
+1 Void Winnower (BFZ) 17
+1 Kozilek, the Broken Reality
+1 Desolation Twin
+1 Spawnsire of Ulamog
+1 Kozilek, Butcher of Truth
+1 Kozilek, the Great Distortion
+1 Ulamog, the Ceaseless Hunger (CMM) 670
+1 Ulamog, the Infinite Gyre
+1 It That Betrays (CMM) 805
+1 Emrakul, the Promised End
+1 Emrakul, the World Anew
+1 Ulamog's Dreadsire
+1 Eldrazi Mimic
+1 Matter Reshaper (CMM) 806
+1 Thought-Knot Seer
+1 Endless One
+1 Reality Smasher (OGW) 7
+1 Kozilek's Channeler
+1 Walker of the Wastes
+1 Oblivion Sower
+1 Wurmcoil Engine (2XM) 368
+1 Anticausal Vestige
+1 Sol Ring (CMM) 703
+1 Mind Stone
+1 Thought Vessel (LCC) 118
+1 Hedron Crawler
+1 Everflowing Chalice
+1 Worn Powerstone
+1 Palladium Myr
+1 Basalt Monolith
+1 Wayfarer's Bauble (M3C) 315
+1 Burnished Hart (FDN) 250
+1 Thran Dynamo
+1 Solemn Simulacrum (M21) 319
+1 Gilded Lotus (FDN) 725
+1 Dreamstone Hedron
+1 Hedron Archive (FDC) 262
+1 Conduit of Ruin
+1 Ugin, the Ineffable (M3C) 160
+1 Endbringer
+1 Mind's Eye
+1 Sandstone Oracle
+1 Warping Wail
+1 Spatial Contortion
+1 Titan's Presence
+1 All Is Dust (FDC) 9
+1 Karn Liberated (2XM) 333
+1 Ugin, the Spirit Dragon (M21) 279
+1 Scour from Existence
+1 Spine of Ish Sah
+1 Meteor Golem (CMM) 399
+1 Not of This World
+1 Eye of Ugin
+1 Eldrazi Temple
+1 Ugin's Labyrinth
+1 Shrine of the Forsaken Gods
+1 Temple of the False God (SCG) 143
+1 Scorched Ruins
+1 Cloudpost
+1 Glimmerpost
+1 Vesuva (M3C) 404
+1 Thespian's Stage
+1 Sanctum of Ugin
+1 Myriad Landscape
+1 Buried Ruin
+1 War Room
+1 Sea Gate Wreckage
+1 Mikokoro, Center of the Sea
+1 Rogue's Passage (MIC) 179
+1 Dread Statuary
+1 Crystal Vein
+1 Strip Mine
+15 Wastes (OGW) 183
+1 Ancient Tomb
+1 Blast Zone
