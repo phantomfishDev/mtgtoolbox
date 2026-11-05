@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
-  applyPins,
   assessBracket,
   diffDeck,
   manaCurve,
@@ -10,6 +9,7 @@ import {
   type ResolveResult,
   type ResolvedCard,
   type ScryfallCard,
+  type TokenMode,
 } from '@mtgproxy/core';
 import type { BundledDeck } from '../decks.js';
 import { useApp } from '../state.js';
@@ -23,6 +23,7 @@ import {
 import { BracketPanel } from '../components/BracketPanel.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { ManaCurveChart } from '../components/ManaCurveChart.js';
+import { TokenPanel } from '../components/TokenPanel.js';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
 import { SHOWCASE } from '../showcase.js';
@@ -41,9 +42,9 @@ export function DeckDetailView({
 }: {
   deck: BundledDeck;
   onBack: () => void;
-  onPrint: (deck: BundledDeck) => void;
+  onPrint: (deck: BundledDeck, tokens?: TokenMode) => void;
 }) {
-  const { printed, config, deckPins, saveDeckPin, deckName, store } = useApp();
+  const { printed, config, saveDeckPin, deckName, deckText, store } = useApp();
   const name = deckName(deck);
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [busy, setBusy] = useState<string | null>('Loading');
@@ -58,10 +59,8 @@ export function DeckDetailView({
 
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
 
-  const overlay = useMemo(() => deckPins[deck.id] ?? {}, [deckPins, deck.id]);
-
   /**
-   * The decklist with this deck's pins applied.
+   * The decklist with this deck's pins and saved token counts applied.
    *
    * Pins are expressed as `(SET) NUM` in the list itself, so applying them is a
    * text rewrite and everything downstream — resolution, the cache key, the
@@ -69,7 +68,7 @@ export function DeckDetailView({
    * on disk already says this; re-applying it is a no-op, which is what keeps
    * the two modes identical.
    */
-  const text = useMemo(() => applyPins(deck.text, overlay), [deck.text, overlay]);
+  const text = useMemo(() => deckText(deck), [deckText, deck]);
 
   /**
    * What is pinned, read back off the list rather than off the overlay.
@@ -284,6 +283,13 @@ export function DeckDetailView({
           <ManaCurveChart curve={curve} />
         </Panel>
       )}
+
+      <TokenPanel
+        deckId={deck.id}
+        text={text}
+        cards={result ? result.resolved.map((item) => item.card) : null}
+        onPrint={() => onPrint(deck, 'only')}
+      />
 
       {groups.map((group) => (
         <section key={group.category}>

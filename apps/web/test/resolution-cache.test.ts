@@ -43,6 +43,11 @@ describe('makeCacheKey', () => {
     expect(makeCacheKey(pinned)).not.toBe(makeCacheKey(base));
   });
 
+  it('changes with the token mode', () => {
+    expect(makeCacheKey({ ...base, tokenMode: 'include' })).not.toBe(makeCacheKey(base));
+    expect(makeCacheKey({ ...base, tokenMode: 'exclude' })).toBe(makeCacheKey(base));
+  });
+
   it('does not depend on the order cards were added to the collection', () => {
     const a = { ...base, ownedKeys: new Set(['a', 'b']) };
     const b = { ...base, ownedKeys: new Set(['b', 'a']) };

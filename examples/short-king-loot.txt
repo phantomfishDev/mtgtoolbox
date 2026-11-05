@@ -483,3 +483,9 @@ Deck
 1 Viscid Lemures
 1 Volrath's Stronghold
 1 Witch's Cottage
+
+Tokens
+4 Beast (TFRA) 8
+4 Snake (TSOC) 11
+4 Treasure (SLD) 2820
+4 Wicked // Cursed (TWOE) 17

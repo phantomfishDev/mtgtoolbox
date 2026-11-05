@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "short-king-loot",
-  "generatedAt": "2026-11-05T01:38:44.718Z",
+  "generatedAt": "2026-11-05T02:37:48.453Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -151,6 +151,45 @@
         "png": "https://cards.scryfall.io/png/front/0/9/099352e2-38c8-4fb4-a25f-6d928aa20f9e.png?1783921377",
         "large": "https://cards.scryfall.io/large/front/0/9/099352e2-38c8-4fb4-a25f-6d928aa20f9e.jpg?1783921377",
         "normal": "https://cards.scryfall.io/normal/front/0/9/099352e2-38c8-4fb4-a25f-6d928aa20f9e.jpg?1783921377"
+      }
+    },
+    {
+      "id": "0bb11342-bc1d-4eea-b0b0-94799be2602a",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-07-27",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2820",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "59b1855f-b069-43db-b710-9f2cc157ffc6",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.png?1785303306",
+        "large": "https://cards.scryfall.io/large/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.jpg?1785303306",
+        "normal": "https://cards.scryfall.io/normal/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.jpg?1785303306"
       }
     },
     {
@@ -1223,6 +1262,43 @@
       }
     },
     {
+      "id": "62340bbb-cff0-48c1-8854-235340e80477",
+      "oracle_id": "c02feaa1-8540-4948-b92f-01a719218c2b",
+      "name": "Snake",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-04-24",
+      "set": "tsoc",
+      "set_name": "Secrets of Strixhaven Commander Tokens",
+      "set_type": "token",
+      "collector_number": "11",
+      "rarity": "common",
+      "type_line": "Token Creature — Snake",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Deathtouch",
+      "keywords": [
+        "Deathtouch"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "73a62564-b3a1-4bdb-9b33-55dc1c78047e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/2/62340bbb-cff0-48c1-8854-235340e80477.png?1783903573",
+        "large": "https://cards.scryfall.io/large/front/6/2/62340bbb-cff0-48c1-8854-235340e80477.jpg?1783903573",
+        "normal": "https://cards.scryfall.io/normal/front/6/2/62340bbb-cff0-48c1-8854-235340e80477.jpg?1783903573"
+      }
+    },
+    {
       "id": "628903a0-6695-4643-80f3-9a6efc4d6a27",
       "oracle_id": "e005bc76-4985-4ec6-b9f6-cf6d0d9f5df4",
       "name": "Stinkweed Imp",
@@ -1606,6 +1682,43 @@
         "png": "https://cards.scryfall.io/png/front/8/3/834b27a0-dfd7-4f96-8cde-cacac4b24acc.png?1783939713",
         "large": "https://cards.scryfall.io/large/front/8/3/834b27a0-dfd7-4f96-8cde-cacac4b24acc.jpg?1783939713",
         "normal": "https://cards.scryfall.io/normal/front/8/3/834b27a0-dfd7-4f96-8cde-cacac4b24acc.jpg?1783939713"
+      }
+    },
+    {
+      "id": "859bda9a-fa90-4ad3-b0c1-6fc62e27c12f",
+      "oracle_id": "7ed8a016-a259-4fda-aae5-02f8df94f2de",
+      "name": "Beast",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-10-02",
+      "set": "tfra",
+      "set_name": "Reality Fracture Tokens",
+      "set_type": "token",
+      "collector_number": "8",
+      "rarity": "common",
+      "type_line": "Token Creature — Beast",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Trample",
+      "keywords": [
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b2cdb7e0-ee1f-49c8-b88d-423c738d2ea7",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/5/859bda9a-fa90-4ad3-b0c1-6fc62e27c12f.png?1789736256",
+        "large": "https://cards.scryfall.io/large/front/8/5/859bda9a-fa90-4ad3-b0c1-6fc62e27c12f.jpg?1789736256",
+        "normal": "https://cards.scryfall.io/normal/front/8/5/859bda9a-fa90-4ad3-b0c1-6fc62e27c12f.jpg?1789736256"
       }
     },
     {
@@ -2122,6 +2235,54 @@
         "large": "https://cards.scryfall.io/large/front/a/9/a99e8c07-fcf7-448c-b71c-5eb1c6005a96.jpg?1783906893",
         "normal": "https://cards.scryfall.io/normal/front/a/9/a99e8c07-fcf7-448c-b71c-5eb1c6005a96.jpg?1783906893"
       }
+    },
+    {
+      "id": "a9b7040e-cd24-42cc-b043-9af8c557da6a",
+      "oracle_id": "0664dcc8-fa68-4802-936f-ecd2979ebf3c",
+      "name": "Wicked // Cursed",
+      "lang": "en",
+      "layout": "flip",
+      "released_at": "2023-09-08",
+      "set": "twoe",
+      "set_name": "Wilds of Eldraine Tokens",
+      "set_type": "token",
+      "collector_number": "17",
+      "rarity": "common",
+      "type_line": "Token Enchantment — Aura Role // Token Enchantment — Aura Role",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "keywords": [
+        "Enchant"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "9d6ff06c-1439-4303-bcc3-4ab6730953af",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/9/a9b7040e-cd24-42cc-b043-9af8c557da6a.png?1783914992",
+        "large": "https://cards.scryfall.io/large/front/a/9/a9b7040e-cd24-42cc-b043-9af8c557da6a.jpg?1783914992",
+        "normal": "https://cards.scryfall.io/normal/front/a/9/a9b7040e-cd24-42cc-b043-9af8c557da6a.jpg?1783914992"
+      },
+      "card_faces": [
+        {
+          "name": "Wicked",
+          "type_line": "Token Enchantment — Aura Role",
+          "mana_cost": "",
+          "oracle_text": "Enchant creature\nEnchanted creature gets +1/+1.\nWhen this Aura is put into a graveyard from the battlefield, each opponent loses 1 life."
+        },
+        {
+          "name": "Cursed",
+          "type_line": "Token Enchantment — Aura Role",
+          "mana_cost": "",
+          "oracle_text": "Enchant creature\nEnchanted creature has base power and toughness 1/1."
+        }
+      ]
     },
     {
       "id": "aa7c53cf-d314-4f60-bb5b-cf5068ed9915",
@@ -3115,6 +3276,10 @@
     "swiftfoot boots": "3e9b53da-4744-429d-97c6-f7ee4d568731",
     "takenuma, abandoned mire": "7bc98705-77c2-47b6-b41c-3e41578700e8",
     "thieves' tools": "7c3faae3-a117-4d59-bc19-c85ceffe6021",
+    "token:beast|tfra|8": "859bda9a-fa90-4ad3-b0c1-6fc62e27c12f",
+    "token:snake|tsoc|11": "62340bbb-cff0-48c1-8854-235340e80477",
+    "token:treasure|sld|2820": "0bb11342-bc1d-4eea-b0b0-94799be2602a",
+    "token:wicked // cursed|twoe|17": "a9b7040e-cd24-42cc-b043-9af8c557da6a",
     "torment": "fe74a415-ea8f-4f16-8889-ae649f1483b2",
     "tragic slip|dka|76": "09666671-601e-4fca-bdfb-fb288bf2672c",
     "trigon of corruption": "26e215e0-836c-4b37-8f9a-9093a535bff1",

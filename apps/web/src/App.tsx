@@ -1,9 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
-import { applyPins, type PrintedLedger, type Config } from '@mtgproxy/core';
+import {
+  applyPins,
+  setTokensSection,
+  tokenLine,
+  type PrintedLedger,
+  type Config,
+  type TokenMode,
+} from '@mtgproxy/core';
 import {
   detectStore,
   withPin,
   type AllDeckPins,
+  type AllDeckTokens,
   type DataStore,
   type DeckNames,
 } from './platform/store.js';
@@ -48,6 +56,7 @@ export function App() {
   const [config, setConfig] = useState<Config | null>(null);
   const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
   const [deckNames, setDeckNames] = useState<DeckNames>({});
+  const [deckTokens, setDeckTokens] = useState<AllDeckTokens>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -55,7 +64,7 @@ export function App() {
     // determines where everything is read from and written to for the session.
     void (async () => {
       const detected = await detectStore();
-      const [loadedPrinted, loadedConfig, loadedPins, loadedNames] = await Promise.all([
+      const [loadedPrinted, loadedConfig, loadedPins, loadedNames, loadedTokens] = await Promise.all([
         detected.loadPrinted(),
         detected.loadConfig(),
         // Pins must not be able to keep the app from booting: a deck with no
@@ -63,6 +72,8 @@ export function App() {
         detected.loadDeckPins().catch(() => ({}) as AllDeckPins),
         // Likewise names: without them every deck still has the one it was built with.
         detected.loadDeckNames().catch(() => ({}) as DeckNames),
+        // And tokens: every deck still has the section it was built with.
+        detected.loadDeckTokens().catch(() => ({}) as AllDeckTokens),
       ]);
       if (cancelled) return;
       setStore(detected);
@@ -70,6 +81,7 @@ export function App() {
       setConfig(loadedConfig);
       setDeckPins(loadedPins);
       setDeckNames(loadedNames);
+      setDeckTokens(loadedTokens);
     })();
     return () => {
       cancelled = true;
@@ -110,22 +122,36 @@ export function App() {
         await store.saveDeckName(deckId, clean);
         setDeckNames((current) => ({ ...current, [deckId]: clean }));
       },
+      deckText: (deck) => {
+        const rows = deckTokens[deck.id];
+        const text = rows ? setTokensSection(deck.text, rows.map(tokenLine)) : deck.text;
+        return applyPins(text, deckPins[deck.id] ?? {});
+      },
+      saveDeckTokens: async (deckId, rows) => {
+        await store.saveDeckTokens(deckId, rows);
+        setDeckTokens((current) => ({ ...current, [deckId]: [...rows] }));
+      },
     };
-  }, [store, printed, config, deckPins, deckNames]);
+  }, [store, printed, config, deckPins, deckNames, deckTokens]);
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.
   //
-  // Pins go with it. They belong to the deck rather than to the screen that set
-  // them, so printing has to use the printings the deck browser just showed —
-  // otherwise choosing an artwork and then printing would quietly ignore it.
-  // With `mtgproxy serve` the file on disk already says this and re-applying is
-  // a no-op, which is what keeps the two modes identical.
-  const openForPrinting = (deck: BundledDeck): void => {
+  // Pins and token counts go with it. They belong to the deck rather than to the
+  // screen that set them, so printing has to use what the deck browser just
+  // showed — otherwise choosing an artwork and then printing would quietly
+  // ignore it. With `mtgproxy serve` the file on disk already says this and
+  // re-applying is a no-op, which is what keeps the two modes identical.
+  const openForPrinting = (
+    deck: BundledDeck,
+    tokens: TokenMode = initialSession.options.tokens,
+  ): void => {
+    if (!state) return;
     setSession({
       ...initialSession,
-      text: applyPins(deck.text, deckPins?.[deck.id] ?? {}),
+      text: state.deckText(deck),
       deckId: deck.id,
+      options: { ...initialSession.options, tokens },
     });
     setTab('print');
   };

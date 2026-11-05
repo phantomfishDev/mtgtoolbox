@@ -11,12 +11,16 @@ import {
   parseDeckMeta,
   parseDecklist,
   readPins,
+  readTokenRows,
   resolveFromDeckDataWithLookups,
   selectForTokenMode,
   setDeckName,
   setPinInDecklist,
+  setTokensSection,
+  tokenLine,
   totalCards,
   type DeckPin,
+  type TokenRow,
 } from '@mtgproxy/core';
 import {
   deckId,
@@ -103,6 +107,22 @@ async function deckPathFor(dir: string, id: string): Promise<string | null> {
   if (id === '' || id.includes('/') || id.includes('\\') || id.includes('..')) return null;
   const paths = await listDecks(dir);
   return paths.find((path) => deckId(path) === id) ?? null;
+}
+
+function isTokenRow(value: unknown): value is TokenRow {
+  if (typeof value !== 'object' || value === null) return false;
+  const row = value as Record<string, unknown>;
+  // A line break in any field would write a second row into the file.
+  const oneLine = (field: unknown) => typeof field === 'string' && !/[\r\n]/.test(field);
+  const optional = (field: unknown) => field === undefined || oneLine(field);
+  return (
+    Number.isInteger(row['quantity']) &&
+    (row['quantity'] as number) >= 0 &&
+    oneLine(row['name']) &&
+    (row['name'] as string).trim() !== '' &&
+    optional(row['set']) &&
+    optional(row['collectorNumber'])
+  );
 }
 
 function isPin(value: unknown): value is DeckPin {
@@ -208,7 +228,12 @@ async function handleApi(
     const decks = await Promise.all(
       paths.map(async (path) => {
         const text = await readFile(path, 'utf8');
-        return { id: deckId(path), name: parseDeckMeta(text).name, pins: readPins(text) };
+        return {
+          id: deckId(path),
+          name: parseDeckMeta(text).name,
+          pins: readPins(text),
+          tokens: readTokenRows(text),
+        };
       }),
     );
     sendJson(response, 200, { dir, decks });
@@ -284,6 +309,45 @@ async function handleApi(
     const after = setDeckName(before, body.name);
     if (after !== before) await writeFile(path, after, 'utf8');
     sendJson(response, 200, { id, name: parseDeckMeta(after).name, written: after !== before, path });
+    return true;
+  }
+
+  // /api/decks/<id>/tokens
+  const tokensRoute = pathname.match(/^\/api\/decks\/([^/]+)\/tokens$/);
+  if (tokensRoute && method === 'PUT') {
+    const id = decodeURIComponent(tokensRoute[1] ?? '');
+    const path = await deckPathFor(dir, id);
+    if (!path) {
+      sendJson(response, 404, { error: `no deck named ${id}` });
+      return true;
+    }
+    const body = (await readBody(request)) as { rows?: unknown } | undefined;
+    const rows = body?.rows;
+    if (!Array.isArray(rows) || !rows.every(isTokenRow)) {
+      sendJson(response, 400, { error: 'rows must be [{quantity, name, set?, collectorNumber?}]' });
+      return true;
+    }
+
+    const before = await readFile(path, 'utf8');
+    const after = setTokensSection(before, rows.map(tokenLine));
+    // What was written must read back as exactly these rows, or the file and
+    // the app would disagree about the deck's tokens from here on.
+    if (readTokenRows(after).length !== rows.length) {
+      sendJson(response, 400, { error: 'those rows do not read back as tokens' });
+      return true;
+    }
+    if (after !== before) {
+      await writeFile(path, after, 'utf8');
+      // New tokens need their printings in the stored data, or the next print
+      // of this deck falls back to the network for them.
+      try {
+        await refreshStoredDeck(path, dir, options);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgproxy sync\``);
+      }
+    }
+    sendJson(response, 200, { id, tokens: readTokenRows(after), written: after !== before, path });
     return true;
   }
 

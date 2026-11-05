@@ -9,6 +9,7 @@ import {
   type DeckPin,
   type DeckPinOverlay,
   type DeckPins,
+  type TokenRow,
 } from '@mtgproxy/core';
 import { idbGet, idbSet } from './idb.js';
 import { SHOWCASE } from '../showcase.js';
@@ -44,7 +45,19 @@ export interface DataStore {
   loadDeckNames(): Promise<DeckNames>;
   /** Rename one deck, or fall back to its filename with `null`. */
   saveDeckName(deckId: string, name: string | null): Promise<void>;
+  /** Token rows saved since the site was built, keyed by deck id. */
+  loadDeckTokens(): Promise<AllDeckTokens>;
+  /** Replace one deck's Tokens section. */
+  saveDeckTokens(deckId: string, rows: readonly TokenRow[]): Promise<void>;
 }
+
+/**
+ * Deck id -> that deck's Tokens section.
+ *
+ * An absent deck keeps the section its bundled list was built with; a present
+ * one, even empty, replaces it.
+ */
+export type AllDeckTokens = Record<string, TokenRow[]>;
 
 /** Deck id -> the name its file gives, or null for none. */
 export type DeckNames = Record<string, string | null>;
@@ -123,6 +136,17 @@ export class BrowserStore implements DataStore {
   async saveDeckName(): Promise<void> {
     throw new Error('decks can only be renamed with a local server running');
   }
+
+  async loadDeckTokens(): Promise<AllDeckTokens> {
+    const stored = await idbGet<AllDeckTokens>('data', 'deckTokens');
+    return stored?.value ?? {};
+  }
+
+  async saveDeckTokens(deckId: string, rows: readonly TokenRow[]): Promise<void> {
+    // Read-modify-write, for the same two-tabs reason as pins.
+    const current = await this.loadDeckTokens();
+    await idbSet('data', 'deckTokens', { ...current, [deckId]: [...rows] });
+  }
 }
 
 /** Talks to the local API exposed by `mtgproxy serve`. */
@@ -185,6 +209,20 @@ export class ServerStore implements DataStore {
       body: JSON.stringify({ name }),
     });
   }
+
+  async loadDeckTokens(): Promise<AllDeckTokens> {
+    const body = await this.request<{ decks?: { id: string; tokens?: TokenRow[] }[] }>('/api/decks');
+    // Every deck the server lists is overlaid: the file on disk is the truth,
+    // and the copy in the build may predate an edit.
+    return Object.fromEntries((body.decks ?? []).map((deck) => [deck.id, deck.tokens ?? []]));
+  }
+
+  async saveDeckTokens(deckId: string, rows: readonly TokenRow[]): Promise<void> {
+    await this.request(`/api/decks/${encodeURIComponent(deckId)}/tokens`, {
+      method: 'PUT',
+      body: JSON.stringify({ rows }),
+    });
+  }
 }
 
 /**
@@ -231,6 +269,14 @@ export class ReadOnlyStore implements DataStore {
   }
 
   async saveDeckName(): Promise<void> {
+    throw new Error('this build is read-only');
+  }
+
+  async loadDeckTokens(): Promise<AllDeckTokens> {
+    return {};
+  }
+
+  async saveDeckTokens(): Promise<void> {
     throw new Error('this build is read-only');
   }
 }

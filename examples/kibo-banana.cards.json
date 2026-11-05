@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "kibo-banana",
-  "generatedAt": "2026-11-05T01:35:16.139Z",
+  "generatedAt": "2026-11-05T02:37:48.435Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -113,6 +113,41 @@
       }
     },
     {
+      "id": "0d720a76-58ad-4a7a-8bd9-f6137648e6c4",
+      "oracle_id": "6bb61f34-5d57-4eaa-a02c-f5d08c1ee920",
+      "name": "Beast",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-11-17",
+      "set": "tlcc",
+      "set_name": "The Lost Caverns of Ixalan Commander Tokens",
+      "set_type": "token",
+      "collector_number": "8",
+      "rarity": "common",
+      "type_line": "Token Creature — Beast",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "82ea2f33-efce-46cc-9920-3d657b7913ef",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/d/0d720a76-58ad-4a7a-8bd9-f6137648e6c4.png?1783913613",
+        "large": "https://cards.scryfall.io/large/front/0/d/0d720a76-58ad-4a7a-8bd9-f6137648e6c4.jpg?1783913613",
+        "normal": "https://cards.scryfall.io/normal/front/0/d/0d720a76-58ad-4a7a-8bd9-f6137648e6c4.jpg?1783913613"
+      }
+    },
+    {
       "id": "1069841a-0642-4fb6-b831-d45ff7fda3af",
       "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
       "name": "Forest",
@@ -183,6 +218,39 @@
         "png": "https://cards.scryfall.io/png/front/1/6/1670108c-c3c8-4052-8f19-30dcb2266774.png?1783943907",
         "large": "https://cards.scryfall.io/large/front/1/6/1670108c-c3c8-4052-8f19-30dcb2266774.jpg?1783943907",
         "normal": "https://cards.scryfall.io/normal/front/1/6/1670108c-c3c8-4052-8f19-30dcb2266774.jpg?1783943907"
+      }
+    },
+    {
+      "id": "1728ad2d-c8a6-49e4-85bb-29934fa26208",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-04-21",
+      "set": "tmom",
+      "set_name": "March of the Machine Tokens",
+      "set_type": "token",
+      "collector_number": "21",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "049601cb-43d2-45e3-b724-2811c0fc6f81",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/1/7/1728ad2d-c8a6-49e4-85bb-29934fa26208.png?1783916665",
+        "large": "https://cards.scryfall.io/large/front/1/7/1728ad2d-c8a6-49e4-85bb-29934fa26208.jpg?1783916665",
+        "normal": "https://cards.scryfall.io/normal/front/1/7/1728ad2d-c8a6-49e4-85bb-29934fa26208.jpg?1783916665"
       }
     },
     {
@@ -2928,6 +2996,43 @@
       }
     },
     {
+      "id": "ef775ad0-b1a9-4254-ab6f-304558bb77a1",
+      "oracle_id": "2bb2f9ed-6378-40c9-9170-976711919014",
+      "name": "Shapeshifter",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2021-02-05",
+      "set": "tkhm",
+      "set_name": "Kaldheim Tokens",
+      "set_type": "token",
+      "collector_number": "8",
+      "rarity": "common",
+      "type_line": "Token Creature — Shapeshifter",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Changeling (This token is every creature type.)",
+      "keywords": [
+        "Changeling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "732c3075-4065-496e-a202-8d73f8983e2b",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/f/ef775ad0-b1a9-4254-ab6f-304558bb77a1.png?1783928082",
+        "large": "https://cards.scryfall.io/large/front/e/f/ef775ad0-b1a9-4254-ab6f-304558bb77a1.jpg?1783928082",
+        "normal": "https://cards.scryfall.io/normal/front/e/f/ef775ad0-b1a9-4254-ab6f-304558bb77a1.jpg?1783928082"
+      }
+    },
+    {
       "id": "f265caeb-d1d2-4d95-ba38-9425482746e7",
       "oracle_id": "a492a323-df8a-40fd-bff0-50091baa7700",
       "name": "Kenrith's Transformation",
@@ -3072,6 +3177,9 @@
     "terramorphic expanse": "28c2c62c-3767-42b1-bdb7-e8769fe6d543",
     "thousand-year elixir": "58f2b68b-d07c-45f1-8db9-9afa952c51ec",
     "thriving grove": "434904b5-3614-4843-9cc0-03da115bdbef",
+    "token:beast|tlcc|8": "0d720a76-58ad-4a7a-8bd9-f6137648e6c4",
+    "token:shapeshifter|tkhm|8": "ef775ad0-b1a9-4254-ab6f-304558bb77a1",
+    "token:treasure|tmom|21": "1728ad2d-c8a6-49e4-85bb-29934fa26208",
     "towering gibbon": "b14a22aa-0f79-4497-a7ff-08d92d14bc0f",
     "tree monkey": "4724d00a-b93b-43fd-9c86-56f127db450b",
     "treetop village": "cc6c1205-2e32-4f52-a815-8566d82d5e1a",

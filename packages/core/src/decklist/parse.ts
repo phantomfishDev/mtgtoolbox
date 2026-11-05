@@ -238,7 +238,10 @@ export function parseDecklist(text: string, options: ParseOptions = {}): ParseRe
     }
 
     const quantity = match?.[1] ? Number.parseInt(match[1], 10) : 1;
-    if (!Number.isFinite(quantity) || quantity < 1) {
+    // A token row may say 0: the deck can make that token, but none are wanted.
+    // Keeping the row is what stops the next token search offering it again.
+    const least = section === 'tokens' ? 0 : 1;
+    if (!Number.isFinite(quantity) || quantity < least) {
       errors.push({ line, raw, message: `invalid quantity "${match?.[1]}"` });
       return;
     }
@@ -324,15 +327,17 @@ export const TOKEN_MODES: readonly TokenMode[] = ['exclude', 'include', 'only'];
  * Narrow a parsed list to what a token mode asks for.
  *
  * `exclude` is the default everywhere, so adding a `Tokens` section to a deck
- * cannot change what an existing command prints.
+ * cannot change what an existing command prints. Token rows set to 0 are
+ * dropped in every mode: they record a choice not to print, not a card.
  */
 export function selectForTokenMode(
   entries: readonly DeckEntry[],
   mode: TokenMode = 'exclude',
 ): DeckEntry[] {
-  if (mode === 'include') return [...entries];
-  if (mode === 'only') return entries.filter(isTokenEntry);
-  return entries.filter(isDeckCard);
+  const wanted = entries.filter((entry) => entry.quantity > 0);
+  if (mode === 'include') return wanted;
+  if (mode === 'only') return wanted.filter(isTokenEntry);
+  return wanted.filter(isDeckCard);
 }
 
 /** Total card count, counting quantities. Tokens are not cards. */

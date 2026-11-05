@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import {
   comparePrintings,
   isBasicLand,
+  isTokenCard,
   scorePrinting,
+  tokenPrintings,
   type PreferenceProfile,
   type PrintingScore,
   type ScryfallCard,
@@ -39,8 +41,10 @@ export function PrintingPicker({
     setRanked(null);
     setError(null);
 
-    getClient()
-      .prints(card.name)
+    // Tokens need their own search: an ordinary one hides them, and their
+    // names are shared by tokens that are not interchangeable.
+    const client = getClient();
+    (isTokenCard(card) ? tokenPrintings(card, client) : client.prints(card.name))
       .then((candidates) => {
         if (cancelled) return;
         const isBasic = isBasicLand(candidates[0] ?? card);

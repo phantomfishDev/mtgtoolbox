@@ -15,7 +15,12 @@ import {
   parseDecklist,
   selectForTokenMode,
   setTokensSection,
-  tokenParts,
+  addFoundTokens,
+  findTokens,
+  isTokenEntry,
+  lookupTokenRows,
+  tokenLine,
+  type TokenRow,
   TOKEN_MODES,
   type TokenMode,
   refreshDeckData,
@@ -692,108 +697,108 @@ program
 withDeckOptions(
   program
     .command('tokens')
-    .description("List the tokens a deck can make, and write them into its Tokens section")
-    .argument('<file>', 'decklist file, or - to read stdin')
-    .option('-q, --quantity <n>', 'how many of each to list', (v) => Number.parseInt(v, 10), 4)
-    .option('-w, --write', "replace the decklist's Tokens section with the result")
+    .description("Find the tokens decks can make, and add them to each deck's Tokens section")
+    .argument('[files...]', 'decklist files, or - for stdin (default: every deck)')
+    .option('--decks <dir>', 'decks directory, when no files are given')
+    .option('-q, --quantity <n>', 'how many of each new token to list', (v) => Number.parseInt(v, 10), 4)
+    .option('-w, --write', "add new tokens to each decklist's Tokens section, keeping existing rows")
     .option('--json', 'emit the tokens as JSON on stdout'),
 ).action(
   async (
-    file: string,
-    flags: DeckFlags & { quantity: number; write?: boolean; json?: boolean },
+    files: string[],
+    flags: DeckFlags & { decks?: string; quantity: number; write?: boolean; json?: boolean },
   ) => {
-    const { resolve, client } = await prepare(file, { ...flags, tokens: 'exclude' });
-    reportResolve(resolve);
-    if (resolve.resolved.length === 0) throw new Error('nothing to inspect: no cards resolved');
-
-    // Stored deck data is trimmed, so all_parts is not in it. Re-read the
-    // chosen printings by id: one request per 75 cards, not one per card.
-    const ids = [...new Set(resolve.resolved.map((item) => item.card.id))].map((id) => ({ id }));
-    const full = (await client.collection(ids)).data;
-
-    const partIds = new Set<string>();
-    for (const card of full) for (const part of tokenParts(card)) partIds.add(part.id);
-    if (partIds.size === 0) {
-      done('no card in this deck makes a token');
+    const targets = files.length > 0 ? files : await listDecks(decksDir(flags.decks));
+    if (targets.length === 0) {
+      info(dim(`no decklists found in ${decksDir(flags.decks)}`));
       return;
     }
+    if (flags.write && targets.includes('-')) throw new Error('--write needs a file, not stdin');
 
-    const tokenCards = (await client.collection([...partIds].map((id) => ({ id })))).data;
+    const report: Record<string, unknown> = {};
+    let changed = 0;
 
-    // One token per distinct printed face: two cards can name different
-    // printings of the same token, and a 3/3 Wraith is not a 2/2 one.
-    const distinct = new Map<string, (typeof tokenCards)[number]>();
-    for (const token of tokenCards) {
-      const identity = [
-        token.name,
-        token.power ?? '',
-        token.toughness ?? '',
-        token.oracle_text ?? '',
-      ].join('|');
-      if (!distinct.has(identity)) distinct.set(identity, token);
+    for (const file of targets) {
+      const id = file === '-' ? 'stdin' : deckId(file);
+      if (targets.length > 1) info(`\n${bold(id)}`);
+      const { resolve, parse, client } = await prepare(file, { ...flags, tokens: 'exclude' });
+      reportResolve(resolve);
+      if (resolve.resolved.length === 0) {
+        warn(`${id}: nothing to inspect, no cards resolved`);
+        continue;
+      }
+
+      const found = await findTokens(
+        resolve.resolved.map((item) => item.card),
+        client,
+      );
+      const rows: TokenRow[] = parse.entries
+        .filter(isTokenEntry)
+        .map(({ quantity, name, set, collectorNumber }) => ({ quantity, name, set, collectorNumber }));
+      // Rows already in the section keep their quantity, including 0, so a
+      // second run only ever adds what is new.
+      const merged = addFoundTokens(rows, await lookupTokenRows(rows, client), found, flags.quantity);
+
+      if (flags.json) {
+        report[id] = found.map(({ card: token, madeBy }) => ({
+          name: token.name,
+          set: token.set,
+          collectorNumber: token.collector_number,
+          typeLine: token.type_line,
+          power: token.power,
+          toughness: token.toughness,
+          oracleText: token.oracle_text,
+          imageStatus: token.image_status,
+          madeBy,
+          listed: !merged.added.some((added) => added.card.id === token.id),
+        }));
+        continue;
+      }
+
+      if (found.length === 0) info(dim('  no card in this deck makes a token'));
+      for (const { card: token, madeBy } of found) {
+        const pt = token.power ? ` ${token.power}/${token.toughness}` : '';
+        const isNew = merged.added.some((added) => added.card.id === token.id);
+        const poor = token.image_status !== 'highres_scan' ? yellow(` [${token.image_status}]`) : '';
+        info(
+          `  ${isNew ? green('new') : dim('   ')} ${token.name}${pt} ${dim(`${token.set.toUpperCase()} ${token.collector_number}`)}${poor}`,
+        );
+        info(dim(`        from ${madeBy.join(', ')}`));
+      }
+
+      const lines = merged.rows.map(tokenLine);
+      if (!flags.write) {
+        if (merged.added.length > 0) {
+          info('');
+          info('Tokens');
+          for (const line of lines) info(line);
+        }
+        continue;
+      }
+
+      const original = await readFile(file, 'utf8');
+      const written = setTokensSection(original, lines);
+      if (written === original) {
+        info(dim('  Tokens section already up to date'));
+        continue;
+      }
+      await writeFile(file, written);
+      changed += 1;
+      done(`added ${merged.added.length} token(s) to ${cyan(file)}`);
     }
-
-    const rows = [...distinct.values()].sort((a, b) => a.name.localeCompare(b.name));
 
     if (flags.json) {
-      process.stdout.write(
-        `${JSON.stringify(
-          rows.map((token) => ({
-            name: token.name,
-            set: token.set,
-            collectorNumber: token.collector_number,
-            typeLine: token.type_line,
-            power: token.power,
-            toughness: token.toughness,
-            oracleText: token.oracle_text,
-            imageStatus: token.image_status,
-          })),
-          null,
-          2,
-        )}\n`,
-      );
+      // A single deck keeps the plain array this command has always emitted.
+      const body = targets.length === 1 ? Object.values(report)[0] : report;
+      process.stdout.write(`${JSON.stringify(body ?? [], null, 2)}\n`);
       return;
     }
-
-    // Printings are pinned, because token names collide: several different
-    // Wraiths exist and only one of them is the 3/3 with menace.
-    const lines = rows.map(
-      (token) =>
-        `${flags.quantity} ${token.name} (${token.set.toUpperCase()}) ${token.collector_number}`,
-    );
-
-    info('');
-    info(`${bold('Tokens')}  ${rows.length} distinct`);
-    for (const token of rows) {
-      const pt = token.power ? ` ${token.power}/${token.toughness}` : '';
-      const text = (token.oracle_text ?? '').replace(/\n/g, ', ');
-      const poor = token.image_status !== 'highres_scan' ? yellow(` [${token.image_status}]`) : '';
-      info(
-        `  ${token.name}${pt} ${dim(`${token.set.toUpperCase()} ${token.collector_number}`)}${poor}`,
-      );
-      if (text) info(dim(`    ${text.slice(0, 90)}`));
-    }
-
     if (!flags.write) {
       info('');
-      info(bold('Tokens section'));
-      info('');
-      info('Tokens');
-      for (const line of lines) info(line);
-      info('');
-      info(dim('  edit the quantities, or pass --write to put this in the decklist'));
-      return;
+      info(dim('  pass --write to add the new tokens; quantities already in a decklist are kept'));
+    } else if (changed > 0) {
+      info(dim('  run `mtgproxy sync` so the stored card data includes the new tokens'));
     }
-
-    if (file === '-') throw new Error('--write needs a file, not stdin');
-    const original = await readFile(file, 'utf8');
-    const written = setTokensSection(original, lines);
-    if (written === original) {
-      info(dim('  Tokens section already up to date'));
-      return;
-    }
-    await writeFile(file, written);
-    done(`wrote ${rows.length} tokens into ${cyan(file)}`);
   },
 );
 

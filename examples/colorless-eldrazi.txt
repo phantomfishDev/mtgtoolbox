@@ -202,7 +202,7 @@ Deck
 1 Endbringer
 1 Mind's Eye
 1 Sandstone Oracle
-1 Warping Wail
+1 Warping Wail (PA1) 9
 1 Spatial Contortion
 1 Titan's Presence
 1 All Is Dust (FDC) 9
@@ -235,3 +235,12 @@ Deck
 15 Wastes (OGW) 183
 1 Ancient Tomb
 1 Blast Zone
+
+Tokens
+4 Eldrazi (TC21) 1
+2 Eldrazi Scion (TM3C) 3
+2 Eldrazi Spawn (TMH3) 38
+4 Spirit (TM3C) 5
+2 Wurm (T2XM) 29
+0 Wurm (T2XM) 29
+2 Wurm (T2XM) 30

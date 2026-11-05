@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { PrintedLedger, Config, DeckPin } from '@mtgproxy/core';
+import type { PrintedLedger, Config, DeckPin, TokenRow } from '@mtgproxy/core';
 import type { AllDeckPins, DataStore } from './platform/store.js';
 import type { BundledDeck } from './decks.js';
 
@@ -24,6 +24,14 @@ export interface AppState {
   deckName: (deck: BundledDeck) => string;
   /** Rename a deck, or reset it to its filename with `null`. */
   saveDeckName: (deckId: string, name: string | null) => Promise<void>;
+  /**
+   * A deck's list as it stands now: the bundled text with any token rows saved
+   * since the build, and its pins, applied. Browsing and printing both read
+   * this, so they cannot disagree about a deck.
+   */
+  deckText: (deck: BundledDeck) => string;
+  /** Replace a deck's Tokens section. */
+  saveDeckTokens: (deckId: string, rows: readonly TokenRow[]) => Promise<void>;
 }
 
 export const AppContext = createContext<AppState | null>(null);

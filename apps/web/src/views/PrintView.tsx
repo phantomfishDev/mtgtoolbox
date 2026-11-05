@@ -148,7 +148,12 @@ export function PrintView({
     }
   }
 
-  async function resolve(force = false) {
+  /**
+   * Resolve the list. A changed token mode passes `tokens` and keeps the art
+   * already chosen: it adds or drops the token rows, and the deck's own cards
+   * are the same cards as before.
+   */
+  async function resolve(force = false, tokens?: TokenMode) {
     setError(null);
     setNotice(null);
     setBusy('Parsing decklist');
@@ -156,12 +161,12 @@ export function PrintView({
       const resolved = await resolveText(text, {
         profile,
         config,
-        tokenMode: options.tokens,
+        tokenMode: tokens ?? options.tokens,
         ...(deckId ? { deckId } : {}),
         force,
         onProgress: setBusy,
       });
-      onChange({ result: resolved, overrides: {} });
+      onChange({ result: resolved, overrides: tokens ? overrides : {} });
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : String(cause));
     } finally {
@@ -357,7 +362,13 @@ export function PrintView({
             <Field label="Tokens">
               <Select
                 value={options.tokens}
-                onChange={(tokens) => setOptions({ ...options, tokens: tokens as TokenMode })}
+                onChange={(value) => {
+                  const tokens = value as TokenMode;
+                  setOptions({ ...options, tokens });
+                  // A list already resolved under the old mode would print
+                  // the wrong cards, so resolve again under the new one.
+                  if (result) void resolve(false, tokens);
+                }}
                 options={[
                   { value: 'exclude', label: 'Exclude - deck only' },
                   { value: 'include', label: 'Include - deck and tokens' },

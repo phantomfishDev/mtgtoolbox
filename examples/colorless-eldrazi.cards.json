@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "colorless-eldrazi",
-  "generatedAt": "2026-11-05T02:05:41.395Z",
+  "generatedAt": "2026-11-05T02:49:44.763Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -649,6 +649,39 @@
       }
     },
     {
+      "id": "390b256c-3381-4807-85a6-ff9e62a99bae",
+      "oracle_id": "41014a6a-0f5b-48ae-8cb8-9a89f0f0180f",
+      "name": "Eldrazi",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2021-04-23",
+      "set": "tc21",
+      "set_name": "Commander 2021 Tokens",
+      "set_type": "token",
+      "collector_number": "1",
+      "rarity": "common",
+      "type_line": "Token Creature — Eldrazi",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "c70f104a-398f-475a-874c-369a76c5ec87",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/9/390b256c-3381-4807-85a6-ff9e62a99bae.png?1783927206",
+        "large": "https://cards.scryfall.io/large/front/3/9/390b256c-3381-4807-85a6-ff9e62a99bae.jpg?1783927206",
+        "normal": "https://cards.scryfall.io/normal/front/3/9/390b256c-3381-4807-85a6-ff9e62a99bae.jpg?1783927206"
+      }
+    },
+    {
       "id": "3afebe8a-9f21-4260-8e93-1ab1dff13c09",
       "oracle_id": "23467047-6dba-4498-b783-1ebc4f74b8c2",
       "name": "Ancient Tomb",
@@ -721,6 +754,39 @@
         "png": "https://cards.scryfall.io/png/front/3/b/3ba372ea-b4a0-4db3-baec-9cbf5d3384b1.png?1783911332",
         "large": "https://cards.scryfall.io/large/front/3/b/3ba372ea-b4a0-4db3-baec-9cbf5d3384b1.jpg?1783911332",
         "normal": "https://cards.scryfall.io/normal/front/3/b/3ba372ea-b4a0-4db3-baec-9cbf5d3384b1.jpg?1783911332"
+      }
+    },
+    {
+      "id": "3df8b9f6-f500-4bd5-b53e-c457c6cf0052",
+      "oracle_id": "399bc553-11f7-413c-83c5-4b022fc6b3de",
+      "name": "Spirit",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-06-14",
+      "set": "tm3c",
+      "set_name": "Modern Horizons 3 Commander Tokens",
+      "set_type": "token",
+      "collector_number": "5",
+      "rarity": "common",
+      "type_line": "Token Creature — Spirit",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "cbc0580b-3a7c-446e-b1f0-3a9528e00572",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/d/3df8b9f6-f500-4bd5-b53e-c457c6cf0052.png?1783911127",
+        "large": "https://cards.scryfall.io/large/front/3/d/3df8b9f6-f500-4bd5-b53e-c457c6cf0052.jpg?1783911127",
+        "normal": "https://cards.scryfall.io/normal/front/3/d/3df8b9f6-f500-4bd5-b53e-c457c6cf0052.jpg?1783911127"
       }
     },
     {
@@ -1624,6 +1690,39 @@
       }
     },
     {
+      "id": "829bc8c9-b031-4e45-a570-95b5f2ffdd86",
+      "oracle_id": "c8b9fa02-0a0c-4a87-9a00-3c1c7e2f4bfd",
+      "name": "Warping Wail",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2025-05-05",
+      "set": "pa1",
+      "set_name": "Pioneer Anthology 1",
+      "set_type": "box",
+      "collector_number": "9",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{1}{C}",
+      "oracle_text": "({C} represents colorless mana.)\nChoose one —\n• Exile target creature with power or toughness 1 or less.\n• Counter target sorcery spell.\n• Create a 1/1 colorless Eldrazi Scion creature token. It has \"Sacrifice this token: Add {C}.\"",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": true,
+      "image_status": "highres_scan",
+      "illustration_id": "8178a226-f72b-447e-851e-924ba11f1149",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/2/829bc8c9-b031-4e45-a570-95b5f2ffdd86.png?1783906724",
+        "large": "https://cards.scryfall.io/large/front/8/2/829bc8c9-b031-4e45-a570-95b5f2ffdd86.jpg?1783906724",
+        "normal": "https://cards.scryfall.io/normal/front/8/2/829bc8c9-b031-4e45-a570-95b5f2ffdd86.jpg?1783906724"
+      }
+    },
+    {
       "id": "84d602f4-5876-416a-95e5-821a285358bf",
       "oracle_id": "b206d3bc-1203-4f00-997e-5da706346a24",
       "name": "Hand of Emrakul",
@@ -1998,6 +2097,41 @@
       }
     },
     {
+      "id": "a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd",
+      "oracle_id": "1b9ccdd7-4935-45e2-bb16-b09870dd965d",
+      "name": "Wurm",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2020-08-07",
+      "set": "t2xm",
+      "set_name": "Double Masters Tokens",
+      "set_type": "token",
+      "collector_number": "30",
+      "rarity": "common",
+      "type_line": "Token Artifact Creature — Wurm",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "Lifelink",
+      "keywords": [
+        "Lifelink"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "066e78a3-b6cf-44c6-bf5d-d2533d11731d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/6/a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd.png?1783930224",
+        "large": "https://cards.scryfall.io/large/front/a/6/a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd.jpg?1783930224",
+        "normal": "https://cards.scryfall.io/normal/front/a/6/a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd.jpg?1783930224"
+      }
+    },
+    {
       "id": "a8c94ccb-f6af-4a26-b773-624d6ce54330",
       "oracle_id": "aceea999-90ab-472c-86a7-48af1542cbcf",
       "name": "Anticausal Vestige",
@@ -2250,6 +2384,41 @@
       }
     },
     {
+      "id": "b68e816f-f9ac-435b-ad0b-ceedbe72447a",
+      "oracle_id": "5e3f41f7-9b42-437a-a9f9-f09250b083db",
+      "name": "Wurm",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2020-08-07",
+      "set": "t2xm",
+      "set_name": "Double Masters Tokens",
+      "set_type": "token",
+      "collector_number": "29",
+      "rarity": "common",
+      "type_line": "Token Artifact Creature — Wurm",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "Deathtouch",
+      "keywords": [
+        "Deathtouch"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b99f46a0-659f-4e0c-aad1-091e5fed64a2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/6/b68e816f-f9ac-435b-ad0b-ceedbe72447a.png?1783930224",
+        "large": "https://cards.scryfall.io/large/front/b/6/b68e816f-f9ac-435b-ad0b-ceedbe72447a.jpg?1783930224",
+        "normal": "https://cards.scryfall.io/normal/front/b/6/b68e816f-f9ac-435b-ad0b-ceedbe72447a.jpg?1783930224"
+      }
+    },
+    {
       "id": "c12027df-b6fb-4956-a6da-6e8375be7364",
       "oracle_id": "bc08ac66-969c-4905-a2d6-16ff565be475",
       "name": "Eldrazi Devastator",
@@ -2422,6 +2591,39 @@
         "png": "https://cards.scryfall.io/png/front/c/6/c632f5a4-7f5f-4d77-9364-58ea03dfdcad.png?1783911396",
         "large": "https://cards.scryfall.io/large/front/c/6/c632f5a4-7f5f-4d77-9364-58ea03dfdcad.jpg?1783911396",
         "normal": "https://cards.scryfall.io/normal/front/c/6/c632f5a4-7f5f-4d77-9364-58ea03dfdcad.jpg?1783911396"
+      }
+    },
+    {
+      "id": "c6ee5e2c-d98b-434e-9175-d20f7f713b88",
+      "oracle_id": "0eb3cd4b-c34e-448c-a9ab-e7b0b4524833",
+      "name": "Eldrazi Scion",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-06-14",
+      "set": "tm3c",
+      "set_name": "Modern Horizons 3 Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
+      "rarity": "common",
+      "type_line": "Token Creature — Eldrazi Scion",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "Sacrifice this creature: Add {C}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "ddcd64a9-54f1-4338-89d8-1722f57d6237",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/6/c6ee5e2c-d98b-434e-9175-d20f7f713b88.png?1783911127",
+        "large": "https://cards.scryfall.io/large/front/c/6/c6ee5e2c-d98b-434e-9175-d20f7f713b88.jpg?1783911127",
+        "normal": "https://cards.scryfall.io/normal/front/c/6/c6ee5e2c-d98b-434e-9175-d20f7f713b88.jpg?1783911127"
       }
     },
     {
@@ -2899,6 +3101,39 @@
       }
     },
     {
+      "id": "e32795e1-5548-43ef-8cd6-c605a19ef708",
+      "oracle_id": "3aaf906a-e749-4e86-ac79-97650b92f271",
+      "name": "Eldrazi Spawn",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-06-14",
+      "set": "tmh3",
+      "set_name": "Modern Horizons 3 Tokens",
+      "set_type": "token",
+      "collector_number": "38",
+      "rarity": "common",
+      "type_line": "Token Creature — Eldrazi Spawn",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "Sacrifice this creature: Add {C}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "c92785ab-6d39-468a-a99a-a1cc87a35ab8",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/3/e32795e1-5548-43ef-8cd6-c605a19ef708.png?1783911106",
+        "large": "https://cards.scryfall.io/large/front/e/3/e32795e1-5548-43ef-8cd6-c605a19ef708.jpg?1783911106",
+        "normal": "https://cards.scryfall.io/normal/front/e/3/e32795e1-5548-43ef-8cd6-c605a19ef708.jpg?1783911106"
+      }
+    },
+    {
       "id": "eb179ae3-28d9-4741-a055-e7e767d8a408",
       "oracle_id": "d39b9f64-dc9b-413f-8d05-e21ef46d6756",
       "name": "Oblivion Sower",
@@ -2971,43 +3206,6 @@
         "png": "https://cards.scryfall.io/png/front/e/c/eccbb24a-918b-42ab-bcb4-cd3c131da9d5.png?1783913897",
         "large": "https://cards.scryfall.io/large/front/e/c/eccbb24a-918b-42ab-bcb4-cd3c131da9d5.jpg?1783913897",
         "normal": "https://cards.scryfall.io/normal/front/e/c/eccbb24a-918b-42ab-bcb4-cd3c131da9d5.jpg?1783913897"
-      }
-    },
-    {
-      "id": "f461d613-518f-41cf-b08f-0778d40d3cf7",
-      "oracle_id": "c8b9fa02-0a0c-4a87-9a00-3c1c7e2f4bfd",
-      "name": "Warping Wail",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-08-01",
-      "set": "spg",
-      "set_name": "Special Guests",
-      "set_type": "masterpiece",
-      "collector_number": "119",
-      "rarity": "mythic",
-      "type_line": "Instant",
-      "cmc": 2,
-      "color_identity": [],
-      "mana_cost": "{1}{C}",
-      "oracle_text": "({C} represents colorless mana.)\nChoose one —\n• Exile target creature with power or toughness 1 or less.\n• Counter target sorcery spell.\n• Create a 1/1 colorless Eldrazi Scion creature token. It has \"Sacrifice this token: Add {C}.\"",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "promo": false,
-      "promo_types": [
-        "poster",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "166049f4-0dfb-496f-9749-64b60da1aa2e",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/f/4/f461d613-518f-41cf-b08f-0778d40d3cf7.png?1783905797",
-        "large": "https://cards.scryfall.io/large/front/f/4/f461d613-518f-41cf-b08f-0778d40d3cf7.jpg?1783905797",
-        "normal": "https://cards.scryfall.io/normal/front/f/4/f461d613-518f-41cf-b08f-0778d40d3cf7.jpg?1783905797"
       }
     },
     {
@@ -3151,6 +3349,12 @@
     "thought-knot seer": "27bf5e61-87d4-446e-8583-cece83d3aacd",
     "thran dynamo": "428fe419-358d-4a36-89d8-bde0622beb74",
     "titan's presence": "4dd8cf3f-1ca8-41e4-b0f7-ea9d61f731d7",
+    "token:eldrazi scion|tm3c|3": "c6ee5e2c-d98b-434e-9175-d20f7f713b88",
+    "token:eldrazi spawn|tmh3|38": "e32795e1-5548-43ef-8cd6-c605a19ef708",
+    "token:eldrazi|tc21|1": "390b256c-3381-4807-85a6-ff9e62a99bae",
+    "token:spirit|tm3c|5": "3df8b9f6-f500-4bd5-b53e-c457c6cf0052",
+    "token:wurm|t2xm|29": "b68e816f-f9ac-435b-ad0b-ceedbe72447a",
+    "token:wurm|t2xm|30": "a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd",
     "ugin, the ineffable|m3c|160": "fba9e014-8abe-4662-8a47-998b5eaa7a6b",
     "ugin, the spirit dragon|med|ws1": "411e8228-b594-4af8-8008-c6c8c815d254",
     "ugin's labyrinth": "5d1506f3-5121-4b83-b199-6594b41e7883",
@@ -3161,7 +3365,7 @@
     "void winnower|bfz|17": "8cbedb0a-34ca-4d42-bb43-cbea0f3c6d02",
     "walker of the wastes": "34f635ac-ad6d-4a13-a08e-64c8e2b9779c",
     "war room": "b2593c45-585f-4eaf-bb08-e91a4fc2d425",
-    "warping wail": "f461d613-518f-41cf-b08f-0778d40d3cf7",
+    "warping wail|pa1|9": "829bc8c9-b031-4e45-a570-95b5f2ffdd86",
     "wastes|ogw|183": "7019912c-bd9b-4b96-9388-400794909aa1",
     "wayfarer's bauble|m3c|315": "45794583-7f65-48e4-8d91-b2f8994c4215",
     "worn powerstone": "eccbb24a-918b-42ab-bcb4-cd3c131da9d5",

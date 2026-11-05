@@ -50,7 +50,14 @@ export async function resolveText(
   text: string,
   options: ResolveTextOptions,
 ): Promise<ResolveResult> {
-  const key = makeCacheKey({ text, profile: options.profile, config: options.config });
+  const key = makeCacheKey({
+    text,
+    profile: options.profile,
+    config: options.config,
+    // The same list resolves to different cards per mode: the deck page's
+    // cards-only result must not be served to a print that wants tokens.
+    tokenMode: options.tokenMode,
+  });
 
   if (!options.force) {
     const cached = getCached(key);

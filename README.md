@@ -476,15 +476,29 @@ cannot make a legal deck read as 112 cards.
 Let the tool work out which tokens a deck can make:
 
 ```bash
-mtgproxy tokens examples/nazgul.txt          # list them, with a paste-ready block
-mtgproxy tokens examples/nazgul.txt --write  # write the section into the decklist
-mtgproxy tokens examples/nazgul.txt -q 12    # a different default quantity
+mtgproxy tokens                              # every deck: what each makes, and what is new
+mtgproxy tokens --write                      # add the new ones to every decklist
+mtgproxy tokens examples/nazgul.txt --write  # just one deck
+mtgproxy tokens --write -q 2                 # add new tokens at 2 each instead of 4
 ```
 
 Nothing is hardcoded: Scryfall's `all_parts` names the tokens each card makes,
 so a deck that gains a Clue-maker gains a Clue the next time you run it. Tokens
-are deduped by name and printed stats, so two cards making the same 2/2 Drake
-produce one line.
+are deduped by name, type, stats, colour and rules text, so two cards making
+the same 2/2 Drake produce one line, and a 3/3 Wraith is never mistaken for a
+2/2 one. Run `mtgproxy sync` afterwards so the stored card data includes them.
+
+**Writing only ever adds.** Rows already in a `Tokens` section keep their
+quantity and their pinned art, so set the counts however you like and re-run
+it freely. Set a token to `0` to keep it listed but print none — the row stays
+so the next search does not offer it again.
+
+The web app's deck page has the same thing in a **Tokens** panel: *Find tokens*
+runs the search, each token has a count to set, clicking a token changes its
+art, *Save changes* writes them, and
+*Print tokens* opens the print view with only the tokens selected. Under
+`mtgproxy serve` the counts are written into the decklist itself; without a
+server they are kept in the browser, as pins are.
 
 Then choose what a print run does with them:
 

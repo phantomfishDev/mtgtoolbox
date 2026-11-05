@@ -1,4 +1,6 @@
-import { bareSectionHeader } from './parse.js';
+import type { ScryfallCard } from '../scryfall/types.js';
+import { bareSectionHeader, isTokenEntry, parseDecklist } from './parse.js';
+import { normalizeName } from '../printed/types.js';
 
 /**
  * Write a `Tokens` section into a decklist, replacing any section already there.
@@ -59,4 +61,89 @@ export function setTokensSection(text: string, lines: readonly string[]): string
   const out = replaced.join(newline) + trailing;
   // An unchanged result returns the original string, so callers can skip the write.
   return out === text ? text : out;
+}
+
+/** One row of a `Tokens` section: how many, and which token. */
+export interface TokenRow {
+  quantity: number;
+  name: string;
+  set?: string;
+  collectorNumber?: string;
+}
+
+/** The rows of a decklist's `Tokens` section, in file order. */
+export function readTokenRows(text: string): TokenRow[] {
+  return parseDecklist(text)
+    .entries.filter(isTokenEntry)
+    .map(({ quantity, name, set, collectorNumber }) => ({ quantity, name, set, collectorNumber }));
+}
+
+/** A row as the decklist writes it: `4 Wraith (TLTC) 7`. */
+export function tokenLine(row: TokenRow): string {
+  const printing =
+    row.set && row.collectorNumber ? ` (${row.set.toUpperCase()}) ${row.collectorNumber}` : '';
+  return `${row.quantity} ${row.name}${printing}`;
+}
+
+/**
+ * What makes two tokens the same token, whatever printing they come from.
+ *
+ * The name is not enough: several Wraiths exist and only one is the 3/3 with
+ * menace, and a white 1/1 Soldier is not a red one. Art is deliberately left
+ * out, so a row repinned to a better printing still counts as that token.
+ */
+export function tokenIdentity(card: ScryfallCard): string {
+  const face = card.card_faces?.[0];
+  return [
+    card.name,
+    card.type_line ?? face?.type_line ?? '',
+    card.power ?? face?.power ?? '',
+    card.toughness ?? face?.toughness ?? '',
+    (card.color_identity ?? []).join(''),
+    card.oracle_text ?? face?.oracle_text ?? '',
+  ]
+    .join('|')
+    .toLowerCase();
+}
+
+/**
+ * Add newly found tokens to a section without disturbing what is there.
+ *
+ * Rows already in the section keep their place and their quantity, including
+ * rows set to 0 and rows the search did not find (a Copy token, say, which no
+ * card names in `all_parts`). A found token counts as already listed when a row
+ * resolves to the same token, or — for a row with no printing to compare —
+ * when the names match.
+ *
+ * @param rowCards the printing each row names, by index; undefined when unknown.
+ */
+export function addFoundTokens<T extends { card: ScryfallCard }>(
+  rows: readonly TokenRow[],
+  rowCards: readonly (ScryfallCard | undefined)[],
+  found: readonly T[],
+  quantity: number,
+): { rows: TokenRow[]; added: T[] } {
+  const listed = new Set<string>();
+  const listedNames = new Set<string>();
+  rows.forEach((row, index) => {
+    const card = rowCards[index];
+    if (card) listed.add(tokenIdentity(card));
+    else listedNames.add(normalizeName(row.name));
+  });
+
+  const added = found.filter(
+    ({ card }) => !listed.has(tokenIdentity(card)) && !listedNames.has(normalizeName(card.name)),
+  );
+  return {
+    rows: [
+      ...rows,
+      ...added.map(({ card }) => ({
+        quantity,
+        name: card.name,
+        set: card.set,
+        collectorNumber: card.collector_number,
+      })),
+    ],
+    added,
+  };
 }

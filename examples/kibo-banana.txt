@@ -98,3 +98,8 @@ Deck
 1 Wooded Ridgeline
 1 Yavimaya Steelcrusher
 1 Zodiac Monkey
+
+Tokens
+4 Beast (TLCC) 8
+4 Shapeshifter (TKHM) 8
+4 Treasure (TMOM) 21
