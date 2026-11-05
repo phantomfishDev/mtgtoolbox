@@ -107,3 +107,12 @@ Deck
 1 Sunpetal Grove
 4 Swamp
 1 Woodland Cemetery
+
+Tokens
+10 Food (TBLB) 27
+4 Halfling (TLTC) 3
+4 Soldier (PLST) TGRN-2
+4 Treasure (SLD) 2820
+2 Bird (TLTC) 1
+2 Treefolk (TLTC) 13
+1 Goat (TBRC) 3

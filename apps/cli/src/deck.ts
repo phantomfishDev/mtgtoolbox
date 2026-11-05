@@ -11,7 +11,9 @@ import {
   resolveDeck,
   resolveDeckWithPreferences,
   totalCards,
-  type Collection,
+  totalTokens,
+  selectForTokenMode,
+  type TokenMode,
   type ImageQuality,
   type ParseResult,
   type PreferenceProfile,
@@ -50,24 +52,20 @@ export function makeClient(quiet: boolean, rateLimitMs?: number): ScryfallClient
   });
 }
 
-/** Every key a collection entry can be recognised by, for `preferOwned`. */
-export function ownedKeysOf(collection: Collection): Set<string> {
-  const keys = new Set<string>();
-  for (const entry of collection.cards) {
-    if (entry.scryfallId) keys.add(entry.scryfallId);
-    keys.add(`${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`);
-  }
-  return keys;
-}
-
 export function reportParse(result: ParseResult, path: string): void {
   const count = totalCards(result.entries);
+  const tokens = totalTokens(result.entries);
   const source = result.fromMarkdownBlock ? ' (from markdown block)' : '';
-  info(`Parsed ${result.entries.length} lines, ${count} cards from ${path}${source}`);
+  const tokenNote = tokens > 0 ? ` and ${tokens} tokens` : '';
+  info(
+    `Parsed ${result.entries.length} lines, ${count} cards${tokenNote} from ${path}${source}`,
+  );
   for (const error of result.errors) {
     warn(`line ${error.line}: ${error.message} ${dim(`-- ${error.raw.trim()}`)}`);
   }
-  // Commander decks are exactly 100; anything else is worth a nudge, not an error.
+  // Commander decks are exactly 100; anything else is worth a nudge, not an
+  // error. Tokens are excluded from the count, so a token section cannot make
+  // a legal deck look wrong.
   if (count !== 100 && count > 0) {
     info(dim(`  note: ${count} cards (a Commander deck is 100)`));
   }
@@ -89,7 +87,8 @@ export function reportResolve(result: ResolveResult, options: { bothFaces?: bool
 export interface LoadDeckOptions {
   markdown?: boolean;
   profile?: PreferenceProfile;
-  collection?: Collection;
+  /** What to do with the decklist's `Tokens` section. Default: `exclude`. */
+  tokenMode?: TokenMode;
   pins?: Record<string, { set: string; collectorNumber: string }>;
   /** Ignore card data stored beside the deck and resolve over the network. */
   ignoreStored?: boolean;
@@ -121,17 +120,21 @@ export async function loadDeck(
   reportParse(parse, path === '-' ? 'stdin' : path);
   if (parse.entries.length === 0) throw new Error('no cards found in the decklist');
 
-  const merged = mergeEntries(parse.entries);
+  const merged = mergeEntries(selectForTokenMode(parse.entries, options.tokenMode ?? 'exclude'));
+  if (merged.length === 0) {
+    throw new Error(
+      options.tokenMode === 'only'
+        ? 'nothing to do: this decklist has no Tokens section'
+        : 'no cards found in the decklist',
+    );
+  }
 
   // Card data stored beside the deck makes this a local read rather than one
   // request per distinct card. It is only used when the profile that wrote it
   // still applies; `resolveFromDeckData` refuses otherwise.
   if (!options.ignoreStored && options.profile && path !== '-') {
     const stored = await loadDeckData(path);
-    const owned = options.collection ? ownedKeysOf(options.collection) : new Set<string>();
-    const applied = stored
-      ? resolveFromDeckData(merged, stored, options.profile, owned)
-      : null;
+    const applied = stored ? resolveFromDeckData(merged, stored, options.profile) : null;
     if (applied) {
       info(dim(`  using stored card data (${stored!.cards.length} printings)`));
       return { parse, resolve: applied.result, usedPreferences: false, usedStoredData: true };
@@ -139,9 +142,8 @@ export async function loadDeck(
   }
 
   const pins = options.pins ?? {};
-  const hasCollection = (options.collection?.cards.length ?? 0) > 0;
   const wantsPreferences =
-    (options.profile !== undefined && hasActivePreferences(options.profile, { hasCollection })) ||
+    (options.profile !== undefined && hasActivePreferences(options.profile)) ||
     Object.keys(pins).length > 0;
 
   if (!options.profile || !wantsPreferences) {
@@ -159,7 +161,6 @@ export async function loadDeck(
 
   const resolve = await resolveDeckWithPreferences(merged, client, {
     profile: options.profile,
-    ...(options.collection ? { ownedKeys: ownedKeysOf(options.collection) } : {}),
     pins,
     onProgress: (done) => progress.set(done),
   });

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { Collection, Config } from '@mtgproxy/core';
+import type { PrintedLedger, Config } from '@mtgproxy/core';
 import { detectStore, withPin, type AllDeckPins, type DataStore } from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
@@ -7,14 +7,14 @@ import { DecksView } from './views/DecksView.js';
 import { DeckDetailView } from './views/DeckDetailView.js';
 import type { BundledDeck } from './decks.js';
 import { PrintView } from './views/PrintView.js';
-import { CollectionView } from './views/CollectionView.js';
+import { PrintedView } from './views/PrintedView.js';
 import { PreferencesView } from './views/PreferencesView.js';
 import { Spinner } from './components/ui.js';
 
 const TABS = [
   { id: 'decks', label: 'Decks' },
   { id: 'print', label: 'Print' },
-  { id: 'collection', label: 'Collection' },
+  { id: 'printed', label: 'Printed' },
   { id: 'preferences', label: 'Preferences' },
 ] as const;
 
@@ -27,7 +27,7 @@ export function App() {
   /** The deck being browsed card by card; null shows the deck list. */
   const [viewing, setViewing] = useState<BundledDeck | null>(null);
   const [store, setStore] = useState<DataStore | null>(null);
-  const [collection, setCollection] = useState<Collection | null>(null);
+  const [printed, setPrinted] = useState<PrintedLedger | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
   const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
 
@@ -37,8 +37,8 @@ export function App() {
     // determines where everything is read from and written to for the session.
     void (async () => {
       const detected = await detectStore();
-      const [loadedCollection, loadedConfig, loadedPins] = await Promise.all([
-        detected.loadCollection(),
+      const [loadedPrinted, loadedConfig, loadedPins] = await Promise.all([
+        detected.loadPrinted(),
         detected.loadConfig(),
         // Pins must not be able to keep the app from booting: a deck with no
         // pins is the normal case, so an empty map is a fine answer.
@@ -46,7 +46,7 @@ export function App() {
       ]);
       if (cancelled) return;
       setStore(detected);
-      setCollection(loadedCollection);
+      setPrinted(loadedPrinted);
       setConfig(loadedConfig);
       setDeckPins(loadedPins);
     })();
@@ -56,17 +56,17 @@ export function App() {
   }, []);
 
   const state = useMemo<AppState | null>(() => {
-    if (!store || !collection || !config || !deckPins) return null;
+    if (!store || !printed || !config || !deckPins) return null;
     return {
       store,
-      collection,
+      printed,
       config,
       deckPins,
       // Persist first, then update state, so a failed write never leaves the UI
       // claiming a change that did not reach storage.
-      saveCollection: async (next) => {
-        await store.saveCollection(next);
-        setCollection(next);
+      savePrinted: async (next) => {
+        await store.savePrinted(next);
+        setPrinted(next);
       },
       saveConfig: async (next) => {
         await store.saveConfig(next);
@@ -77,7 +77,7 @@ export function App() {
         setDeckPins((current) => withPin(current ?? {}, deckId, cardName, pin));
       },
     };
-  }, [store, collection, config, deckPins]);
+  }, [store, printed, config, deckPins]);
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.
@@ -137,7 +137,7 @@ export function App() {
               onChange={(patch) => setSession((current) => ({ ...current, ...patch }))}
             />
           )}
-          {tab === 'collection' && <CollectionView />}
+          {tab === 'printed' && <PrintedView />}
           {tab === 'preferences' && <PreferencesView />}
         </main>
 

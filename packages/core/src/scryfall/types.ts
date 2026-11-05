@@ -18,6 +18,9 @@ export interface ScryfallImageUris {
 export interface ScryfallCardFace {
   name: string;
   mana_cost?: string;
+  /** Printed power and toughness, as strings: they can be `*` or `1+*`. */
+  power?: string;
+  toughness?: string;
   type_line?: string;
   oracle_text?: string;
   cmc?: number;
@@ -25,6 +28,17 @@ export interface ScryfallCardFace {
 }
 
 export type ImageStatus = 'missing' | 'placeholder' | 'lowres' | 'highres_scan';
+
+/** An entry in `all_parts`: another card this one is related to. */
+export interface ScryfallRelatedCard {
+  id: string;
+  object: string;
+  /** `token`, `combo_piece`, `meld_part`, `meld_result`. */
+  component: string;
+  name: string;
+  type_line: string;
+  uri: string;
+}
 
 export interface ScryfallCard {
   id: string;
@@ -44,8 +58,18 @@ export interface ScryfallCard {
   /** WUBRG letters; a Commander deck's colours are its commander's identity. */
   color_identity?: string[];
   mana_cost?: string;
+  /** Printed power and toughness, as strings: they can be `*` or `1+*`. */
+  power?: string;
+  toughness?: string;
   /** Scryfall's flag for the Commander "Game Changers" list, used for brackets. */
   game_changer?: boolean;
+  /**
+   * Related cards: the tokens a card makes, meld halves, combo pieces.
+   *
+   * This is how token discovery works without a hardcoded table — a card that
+   * makes a token names it here, with an id for the exact printing.
+   */
+  all_parts?: ScryfallRelatedCard[];
   keywords?: string[];
   oracle_text?: string;
   image_uris?: ScryfallImageUris;
@@ -93,6 +117,30 @@ const TWO_FACED_LAYOUTS = new Set([
 
 export function isDoubleFaced(card: ScryfallCard): boolean {
   return TWO_FACED_LAYOUTS.has(card.layout) && (card.card_faces?.length ?? 0) >= 2;
+}
+
+/** Layouts that are a token rather than a card. */
+const TOKEN_LAYOUTS = new Set(['token', 'double_faced_token']);
+
+/**
+ * A token printing, told apart by layout rather than by set type.
+ *
+ * `set_type === 'token'` is close but not the same thing: some tokens ship in
+ * ordinary sets, and some token-set products contain non-token filler.
+ */
+export function isTokenCard(card: ScryfallCard): boolean {
+  return TOKEN_LAYOUTS.has(card.layout);
+}
+
+/**
+ * The tokens a card makes, from `all_parts`.
+ *
+ * Deliberately returns the related-card stubs rather than full cards: the stub
+ * carries the id, so the caller decides whether to spend a request fetching
+ * the printing.
+ */
+export function tokenParts(card: ScryfallCard): ScryfallRelatedCard[] {
+  return (card.all_parts ?? []).filter((part) => part.component === 'token');
 }
 
 /** Which side of a card to print. */

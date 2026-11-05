@@ -1,3 +1,4 @@
+import { normalizeName } from '../printed/types.js';
 /**
  * Decklist parsing.
  *
@@ -23,6 +24,19 @@ export interface DeckEntry {
 /** Normalised section names. Aliases such as `commanders` fold into one. */
 export type DeckSection = 'commander' | 'deck' | 'sideboard' | 'maybeboard' | 'companion' | 'tokens';
 
+/**
+ * The section a bare header line names, or undefined if it is not one.
+ *
+ * Exported so that code which *rewrites* a decklist recognises headers by
+ * exactly the rule the parser reads them by. A second copy of this would be
+ * free to drift, and a drifted rewriter corrupts the file it is editing.
+ */
+export function bareSectionHeader(raw: string): DeckSection | undefined {
+  const text = raw.replace(/#.*$/, '').trim();
+  if (text === '') return undefined;
+  return SECTION_HEADERS.get(text.replace(/[:\s]+$/, '').toLowerCase());
+}
+
 export interface ParseError {
   line: number;
   raw: string;
@@ -41,7 +55,7 @@ export interface ParseResult {
  * canonical name so that `Commanders` and `Mainboard` do not become distinct
  * sections from `Commander` and `Deck`.
  */
-const SECTION_HEADERS = new Map<string, DeckSection>([
+export const SECTION_HEADERS = new Map<string, DeckSection>([
   ['deck', 'deck'],
   ['main', 'deck'],
   ['mainboard', 'deck'],
@@ -251,9 +265,84 @@ export function commanders(entries: readonly DeckEntry[]): DeckEntry[] {
   return entries.filter((entry) => entry.section === 'commander');
 }
 
-/** Total card count, counting quantities. */
+/**
+ * A line under a `Tokens` header names a token, not a card in the 99.
+ *
+ * Tokens are printed from the same sheet machinery as cards, but they are not
+ * part of the deck: counting them would make a legal deck read as 112 cards,
+ * give every token a mana value of 0 in the curve, and offer them to the
+ * bracket check as though they were spells.
+ */
+export function isTokenEntry(entry: Pick<DeckEntry, 'section'>): boolean {
+  return entry.section === 'tokens';
+}
+
+/** The complement of `isTokenEntry`: a line that counts towards the deck. */
+export function isDeckCard(entry: Pick<DeckEntry, 'section'>): boolean {
+  return !isTokenEntry(entry);
+}
+
+/**
+ * Key for *which printings to look up*: the name, with tokens namespaced.
+ *
+ * A deck can legitimately run a card and a token of the same name —
+ * beorn-bears has the Mutavault land and the Mutavault token,
+ * kwain-hare-apparent the Intrepid Rabbit creature and its token — and the two
+ * need different queries, so they must not share one lookup. A pin does not
+ * change which printings exist, so it is deliberately not part of this key:
+ * nine rows of one card pinned to nine arts still cost one fetch.
+ */
+export function fetchKey(entry: Pick<DeckEntry, 'name' | 'section'>): string {
+  const name = normalizeName(entry.name);
+  return isTokenEntry(entry) ? `token:${name}` : name;
+}
+
+/**
+ * Key identifying *one entry's chosen printing*, pin included.
+ *
+ * Distinct from `fetchKey` because a name is not unique within a deck once
+ * printings are pinned: beorn-bears lists two different Bear tokens, rats two
+ * different 1/1 Rats, prismari-artistry four different Elementals, and a deck
+ * may run nine copies of one card each pinned to its own art. Keyed by name
+ * alone, those rows collapse into one stored choice and the rest inherit a
+ * printing they did not ask for.
+ */
+export function choiceKey(
+  entry: Pick<DeckEntry, 'name' | 'section' | 'set' | 'collectorNumber'>,
+): string {
+  const base = fetchKey(entry);
+  if (!entry.set || !entry.collectorNumber) return base;
+  return `${base}|${entry.set.toLowerCase()}|${entry.collectorNumber.toLowerCase()}`;
+}
+
+/** What a command should do with a decklist's `Tokens` section. */
+export type TokenMode = 'exclude' | 'include' | 'only';
+
+export const TOKEN_MODES: readonly TokenMode[] = ['exclude', 'include', 'only'];
+
+/**
+ * Narrow a parsed list to what a token mode asks for.
+ *
+ * `exclude` is the default everywhere, so adding a `Tokens` section to a deck
+ * cannot change what an existing command prints.
+ */
+export function selectForTokenMode(
+  entries: readonly DeckEntry[],
+  mode: TokenMode = 'exclude',
+): DeckEntry[] {
+  if (mode === 'include') return [...entries];
+  if (mode === 'only') return entries.filter(isTokenEntry);
+  return entries.filter(isDeckCard);
+}
+
+/** Total card count, counting quantities. Tokens are not cards. */
 export function totalCards(entries: readonly DeckEntry[]): number {
-  return entries.reduce((sum, e) => sum + e.quantity, 0);
+  return entries.filter(isDeckCard).reduce((sum, e) => sum + e.quantity, 0);
+}
+
+/** Total tokens listed, counting quantities. */
+export function totalTokens(entries: readonly DeckEntry[]): number {
+  return entries.filter(isTokenEntry).reduce((sum, e) => sum + e.quantity, 0);
 }
 
 /** Merge duplicate lines that name the same card and printing. */

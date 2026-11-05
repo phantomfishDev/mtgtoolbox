@@ -57,3 +57,10 @@ Deck
 1 Urborg, Tomb of Yawgmoth
 1 Westvale Abbey
 1 Witch's Cottage
+
+Tokens
+12 Rat (TAFC) 5
+6 Rat (TWOE) 7
+2 Copy (TTRC) 8
+2 Human Cleric (TINR) 19
+2 Squirrel (TBLB) 23

@@ -1,17 +1,21 @@
 import { z } from 'zod';
 
 /**
- * The collection file.
+ * The printed ledger.
  *
- * This is the one artefact in the tool that a user cannot regenerate, so it is
- * validated strictly on read, versioned, and written back in a stable order so
- * that it stays readable and diffable under version control.
+ * A record of which printings you have already run off, so a print job can skip
+ * them. This is the one artefact in the tool that a user cannot regenerate, so
+ * it is validated strictly on read, versioned, and written back in a stable
+ * order so that it stays readable and diffable under version control.
+ *
+ * `finish` records the stock a printing was run on, so the same card printed
+ * again on different stock is a separate entry rather than a duplicate.
  */
 
 export const FINISHES = ['nonfoil', 'foil', 'etched'] as const;
 export type Finish = (typeof FINISHES)[number];
 
-export const CollectionEntrySchema = z.object({
+export const PrintedEntrySchema = z.object({
   name: z.string().min(1),
   set: z.string().min(1).toLowerCase(),
   collectorNumber: z.string().min(1),
@@ -25,47 +29,47 @@ export const CollectionEntrySchema = z.object({
   note: z.string().optional(),
 });
 
-export type CollectionEntry = z.infer<typeof CollectionEntrySchema>;
+export type PrintedEntry = z.infer<typeof PrintedEntrySchema>;
 
-export const COLLECTION_VERSION = 1;
+export const PRINTED_VERSION = 1;
 
-export const CollectionSchema = z.object({
-  version: z.literal(COLLECTION_VERSION),
+export const PrintedSchema = z.object({
+  version: z.literal(PRINTED_VERSION),
   updatedAt: z.string().optional(),
-  cards: z.array(CollectionEntrySchema),
+  cards: z.array(PrintedEntrySchema),
 });
 
-export type Collection = z.infer<typeof CollectionSchema>;
+export type PrintedLedger = z.infer<typeof PrintedSchema>;
 
-export function emptyCollection(): Collection {
-  return { version: COLLECTION_VERSION, updatedAt: new Date().toISOString(), cards: [] };
+export function emptyLedger(): PrintedLedger {
+  return { version: PRINTED_VERSION, updatedAt: new Date().toISOString(), cards: [] };
 }
 
 /**
- * Parse and validate a collection, turning zod's issue list into a message that
+ * Parse and validate the ledger, turning zod's issue list into a message that
  * names the offending entry rather than just its array index.
  */
-export function parseCollection(data: unknown): Collection {
-  const result = CollectionSchema.safeParse(data);
+export function parsePrinted(data: unknown): PrintedLedger {
+  const result = PrintedSchema.safeParse(data);
   if (result.success) return result.data;
 
   const lines = result.error.issues.map((issue) => {
     const path = issue.path.join('.');
     const index = typeof issue.path[1] === 'number' ? issue.path[1] : undefined;
     const entry =
-      index !== undefined && Array.isArray((data as Collection)?.cards)
-        ? (data as Collection).cards[index]
+      index !== undefined && Array.isArray((data as PrintedLedger)?.cards)
+        ? (data as PrintedLedger).cards[index]
         : undefined;
     const label = entry ? ` (${entry.name ?? 'unnamed'})` : '';
     return `  ${path || '<root>'}${label}: ${issue.message}`;
   });
-  throw new Error(`collection file is invalid:\n${lines.join('\n')}`);
+  throw new Error(`printed ledger file is invalid:\n${lines.join('\n')}`);
 }
 
 export const DEFAULT_LANGUAGE = 'en';
 
 /** The language an entry is in, with the English default made explicit. */
-export function entryLanguage(entry: Pick<CollectionEntry, 'language'>): string {
+export function entryLanguage(entry: Pick<PrintedEntry, 'language'>): string {
   return entry.language?.toLowerCase() || DEFAULT_LANGUAGE;
 }
 
@@ -77,7 +81,7 @@ export function entryLanguage(entry: Pick<CollectionEntry, 'language'>): string 
  * so the language belongs in the key.
  */
 export function entryKey(
-  entry: Pick<CollectionEntry, 'name' | 'set' | 'collectorNumber' | 'finish' | 'language'>,
+  entry: Pick<PrintedEntry, 'name' | 'set' | 'collectorNumber' | 'finish' | 'language'>,
 ): string {
   return [
     normalizeName(entry.name),
@@ -106,7 +110,7 @@ export function frontName(name: string): string {
 }
 
 /** Sort entries into a stable, human-scannable order. */
-export function sortEntries(entries: readonly CollectionEntry[]): CollectionEntry[] {
+export function sortEntries(entries: readonly PrintedEntry[]): PrintedEntry[] {
   return [...entries].sort(
     (a, b) =>
       normalizeName(a.name).localeCompare(normalizeName(b.name)) ||

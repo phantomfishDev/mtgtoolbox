@@ -1,173 +1,150 @@
 {
   "version": 1,
   "deck": "nazgul",
-  "generatedAt": "2026-09-06T00:50:19.676Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:34.313Z",
+  "profile": "1aquj5n",
   "cards": [
     {
-      "id": "000a5154-90ba-459e-b122-d6893dfdb56f",
-      "oracle_id": "fb81f95c-70f8-4eb7-8d15-15d0ae23ec03",
-      "name": "Mystical Tutor",
+      "id": "01dc71d4-b443-4580-b16f-9e92750f4a72",
+      "oracle_id": "4869a530-757f-4364-8d8e-4dc8001f433c",
+      "name": "Darkwater Catacombs",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2023-01-13",
-      "set": "dmr",
-      "set_name": "Dominaria Remastered",
+      "released_at": "2025-05-12",
+      "set": "plst",
+      "set_name": "The List",
       "set_type": "masters",
-      "collector_number": "421",
-      "rarity": "rare",
-      "type_line": "Instant",
-      "cmc": 1,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{U}",
-      "oracle_text": "Search your library for an instant or sorcery card, reveal it, then shuffle and put that card on top.",
-      "keywords": [],
-      "game_changer": true,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "0c7ff8ea-7ac8-431b-ae3a-5954ba31b74f",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/0/0/000a5154-90ba-459e-b122-d6893dfdb56f.png?1783918333",
-        "large": "https://cards.scryfall.io/large/front/0/0/000a5154-90ba-459e-b122-d6893dfdb56f.jpg?1783918333",
-        "normal": "https://cards.scryfall.io/normal/front/0/0/000a5154-90ba-459e-b122-d6893dfdb56f.jpg?1783918333"
-      }
-    },
-    {
-      "id": "02a16e1e-1ea8-49af-9cde-2166134f7bdc",
-      "oracle_id": "f33ce38a-34ec-4b65-a0fc-160484a02007",
-      "name": "Bonders' Enclave",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-08-01",
-      "set": "eos",
-      "set_name": "Edge of Eternities: Stellar Sights",
-      "set_type": "masterpiece",
-      "collector_number": "4",
+      "collector_number": "OTC-282",
       "rarity": "rare",
       "type_line": "Land",
       "cmc": 0,
-      "color_identity": [],
+      "color_identity": [
+        "B",
+        "U"
+      ],
       "mana_cost": "",
-      "oracle_text": "{T}: Add {C}.\n{3}, {T}: Draw a card. Activate only if you control a creature with power 4 or greater.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "014a49c1-06ce-43f7-976b-1256272e48a7",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/0/2/02a16e1e-1ea8-49af-9cde-2166134f7bdc.png?1783905865",
-        "large": "https://cards.scryfall.io/large/front/0/2/02a16e1e-1ea8-49af-9cde-2166134f7bdc.jpg?1783905865",
-        "normal": "https://cards.scryfall.io/normal/front/0/2/02a16e1e-1ea8-49af-9cde-2166134f7bdc.jpg?1783905865"
-      }
-    },
-    {
-      "id": "054e180d-4e66-426d-adb5-a4fee94b6a67",
-      "oracle_id": "61586052-7d69-489c-84c4-0359228d131b",
-      "name": "Gogo, Master of Mimicry",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-06-13",
-      "set": "fin",
-      "set_name": "Final Fantasy",
-      "set_type": "expansion",
-      "collector_number": "377",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Wizard",
-      "cmc": 3,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{2}{U}",
-      "oracle_text": "{X}{X}, {T}: Copy target activated or triggered ability you control X times. You may choose new targets for the copies. This ability can't be copied and X can't be 0. (Mana abilities can't be targeted.)",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "ffvi",
-        "universesbeyond",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "532b7030-5560-4139-baf3-144fa000c0a7",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/0/5/054e180d-4e66-426d-adb5-a4fee94b6a67.png?1783906512",
-        "large": "https://cards.scryfall.io/large/front/0/5/054e180d-4e66-426d-adb5-a4fee94b6a67.jpg?1783906512",
-        "normal": "https://cards.scryfall.io/normal/front/0/5/054e180d-4e66-426d-adb5-a4fee94b6a67.jpg?1783906512"
-      }
-    },
-    {
-      "id": "08da9f92-0e25-4f39-aaa4-d8974af81a41",
-      "oracle_id": "7be47440-b627-411e-a28f-d5a92e5e2fb7",
-      "name": "Impostor Syndrome",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-09-26",
-      "set": "spm",
-      "set_name": "Marvel's Spider-Man",
-      "set_type": "expansion",
-      "collector_number": "34",
-      "rarity": "mythic",
-      "type_line": "Enchantment",
-      "cmc": 6,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{4}{U}{U}",
-      "oracle_text": "Whenever a nontoken creature you control deals combat damage to a player, create a token that's a copy of it, except it isn't legendary.",
+      "oracle_text": "{1}, {T}: Add {U}{B}.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "enchantment"
-      ],
       "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "97390188-3a4b-4749-b3ad-b0af9a0521fd",
+      "illustration_id": "061f660c-deb0-473f-a4ed-a073f9e40210",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/0/8/08da9f92-0e25-4f39-aaa4-d8974af81a41.png?1783905354",
-        "large": "https://cards.scryfall.io/large/front/0/8/08da9f92-0e25-4f39-aaa4-d8974af81a41.jpg?1783905354",
-        "normal": "https://cards.scryfall.io/normal/front/0/8/08da9f92-0e25-4f39-aaa4-d8974af81a41.jpg?1783905354"
+        "png": "https://cards.scryfall.io/png/front/0/1/01dc71d4-b443-4580-b16f-9e92750f4a72.png?1783906701",
+        "large": "https://cards.scryfall.io/large/front/0/1/01dc71d4-b443-4580-b16f-9e92750f4a72.jpg?1783906701",
+        "normal": "https://cards.scryfall.io/normal/front/0/1/01dc71d4-b443-4580-b16f-9e92750f4a72.jpg?1783906701"
+      }
+    },
+    {
+      "id": "0862060d-3198-4eeb-af8c-efeb27f42a99",
+      "oracle_id": "7d881c57-0bd9-4c57-aa4a-b10808b86143",
+      "name": "Dimir Signet",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "frc",
+      "set_name": "Reality Fracture Commander",
+      "set_type": "commander",
+      "collector_number": "56",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "{2}",
+      "oracle_text": "{1}, {T}: Add {U}{B}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "339c9ade-3ea9-41d2-b64e-89bf0bbcf89e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/8/0862060d-3198-4eeb-af8c-efeb27f42a99.png?1789599833",
+        "large": "https://cards.scryfall.io/large/front/0/8/0862060d-3198-4eeb-af8c-efeb27f42a99.jpg?1789599833",
+        "normal": "https://cards.scryfall.io/normal/front/0/8/0862060d-3198-4eeb-af8c-efeb27f42a99.jpg?1789599833"
+      }
+    },
+    {
+      "id": "0d6d7d88-d82b-40f4-bf57-ec5d7c480689",
+      "oracle_id": "d78654fc-7d90-40ce-9c36-a211424d1a88",
+      "name": "Cover of Darkness",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2002-10-07",
+      "set": "ons",
+      "set_name": "Onslaught",
+      "set_type": "expansion",
+      "collector_number": "133",
+      "rarity": "rare",
+      "type_line": "Enchantment",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{1}{B}",
+      "oracle_text": "As this enchantment enters, choose a creature type.\nCreatures of the chosen type have fear. (They can't be blocked except by artifact creatures and/or black creatures.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1997",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a8660a86-40c3-4760-96af-07db55f02bf8",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/d/0d6d7d88-d82b-40f4-bf57-ec5d7c480689.png?1783945072",
+        "large": "https://cards.scryfall.io/large/front/0/d/0d6d7d88-d82b-40f4-bf57-ec5d7c480689.jpg?1783945072",
+        "normal": "https://cards.scryfall.io/normal/front/0/d/0d6d7d88-d82b-40f4-bf57-ec5d7c480689.jpg?1783945072"
+      }
+    },
+    {
+      "id": "0fb7d469-d01a-4633-b06e-70050a5448bc",
+      "oracle_id": "cd2c90ac-2b04-461c-92f3-939871b6b6a3",
+      "name": "Sunken Hollow",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-09-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "OTC-325",
+      "rarity": "rare",
+      "type_line": "Land — Island Swamp",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {U} or {B}.)\nThis land enters tapped unless you control two or more basic lands.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a486ef1b-c6c3-4c4f-a9ec-fceb5ce8abf2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/f/0fb7d469-d01a-4633-b06e-70050a5448bc.png?1793497368",
+        "large": "https://cards.scryfall.io/large/front/0/f/0fb7d469-d01a-4633-b06e-70050a5448bc.jpg?1793497368",
+        "normal": "https://cards.scryfall.io/normal/front/0/f/0fb7d469-d01a-4633-b06e-70050a5448bc.jpg?1793497368"
       }
     },
     {
@@ -243,42 +220,6 @@
         "png": "https://cards.scryfall.io/png/front/1/2/121c12c4-83ea-463e-8fdf-30718968a2bd.png?1783916306",
         "large": "https://cards.scryfall.io/large/front/1/2/121c12c4-83ea-463e-8fdf-30718968a2bd.jpg?1783916306",
         "normal": "https://cards.scryfall.io/normal/front/1/2/121c12c4-83ea-463e-8fdf-30718968a2bd.jpg?1783916306"
-      }
-    },
-    {
-      "id": "133360b4-b408-417f-a16f-966bc328af4b",
-      "oracle_id": "cd2c90ac-2b04-461c-92f3-939871b6b6a3",
-      "name": "Sunken Hollow",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-02-14",
-      "set": "drc",
-      "set_name": "Aetherdrift Commander",
-      "set_type": "commander",
-      "collector_number": "174",
-      "rarity": "rare",
-      "type_line": "Land — Island Swamp",
-      "cmc": 0,
-      "color_identity": [
-        "B",
-        "U"
-      ],
-      "mana_cost": "",
-      "oracle_text": "({T}: Add {U} or {B}.)\nThis land enters tapped unless you control two or more basic lands.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "a486ef1b-c6c3-4c4f-a9ec-fceb5ce8abf2",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/3/133360b4-b408-417f-a16f-966bc328af4b.png?1783907697",
-        "large": "https://cards.scryfall.io/large/front/1/3/133360b4-b408-417f-a16f-966bc328af4b.jpg?1783907697",
-        "normal": "https://cards.scryfall.io/normal/front/1/3/133360b4-b408-417f-a16f-966bc328af4b.jpg?1783907697"
       }
     },
     {
@@ -398,64 +339,63 @@
       }
     },
     {
-      "id": "1f87120f-d2a7-4c06-aadd-3ed5729d7abf",
-      "oracle_id": "96d7b761-b0b2-4ba3-98bd-3a9191ba544e",
-      "name": "Deceptive Frostkite",
+      "id": "1b1e790e-ff82-4888-8aee-9986c646241a",
+      "oracle_id": "cf0492de-cec5-4455-839f-212246b7e9ea",
+      "name": "Gollum's Bite",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-04-11",
-      "set": "tdc",
-      "set_name": "Tarkir: Dragonstorm Commander",
-      "set_type": "commander",
-      "collector_number": "19",
-      "rarity": "rare",
-      "type_line": "Creature — Dragon",
-      "cmc": 2,
+      "released_at": "2023-06-23",
+      "set": "ltr",
+      "set_name": "The Lord of the Rings: Tales of Middle-earth",
+      "set_type": "draft_innovation",
+      "collector_number": "85",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 1,
       "color_identity": [
-        "U"
+        "B"
       ],
-      "mana_cost": "{U}{U}",
-      "oracle_text": "Flying\nYou may have this creature enter as a copy of a creature you control with power 4 or greater, except it's a Dragon in addition to its other types and it has flying.",
-      "keywords": [
-        "Flying"
-      ],
+      "mana_cost": "{B}",
+      "oracle_text": "Target creature gets -2/-2 until end of turn.\n{3}{B}, Exile this card from your graveyard: The Ring tempts you. Activate only as a sorcery.",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "black",
       "frame": "2015",
       "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
       "digital": false,
-      "image_status": "lowres",
-      "illustration_id": "17910b59-5fa1-4c05-afb3-66a90dd298a9",
+      "image_status": "highres_scan",
+      "illustration_id": "c013c527-dbb5-467c-ae28-46f50e02a18c",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/f/1f87120f-d2a7-4c06-aadd-3ed5729d7abf.png?1783907182",
-        "large": "https://cards.scryfall.io/large/front/1/f/1f87120f-d2a7-4c06-aadd-3ed5729d7abf.jpg?1783907182",
-        "normal": "https://cards.scryfall.io/normal/front/1/f/1f87120f-d2a7-4c06-aadd-3ed5729d7abf.jpg?1783907182"
+        "png": "https://cards.scryfall.io/png/front/1/b/1b1e790e-ff82-4888-8aee-9986c646241a.png?1783916304",
+        "large": "https://cards.scryfall.io/large/front/1/b/1b1e790e-ff82-4888-8aee-9986c646241a.jpg?1783916304",
+        "normal": "https://cards.scryfall.io/normal/front/1/b/1b1e790e-ff82-4888-8aee-9986c646241a.jpg?1783916304"
       }
     },
     {
-      "id": "1ffb0ecd-1326-43d8-9a68-39bc238e5d3c",
-      "oracle_id": "2396299a-c031-4020-b13e-1f9bf9d64511",
-      "name": "Thassa, Deep-Dwelling",
+      "id": "27b2d8b7-3160-4a51-a898-a3c05180ff75",
+      "oracle_id": "867dbd5a-c3cf-41ce-980b-c9babc6f30f2",
+      "name": "Minas Morgul, Dark Fortress",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2023-04-23",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "1279",
+      "released_at": "2026-08-14",
+      "set": "hoc",
+      "set_name": "The Hobbit Eternal",
+      "set_type": "eternal",
+      "collector_number": "48",
       "rarity": "mythic",
-      "type_line": "Legendary Enchantment Creature — God",
-      "cmc": 4,
+      "type_line": "Legendary Land",
+      "cmc": 0,
       "color_identity": [
-        "U"
+        "B"
       ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "Indestructible\nAs long as your devotion to blue is less than five, Thassa isn't a creature.\nAt the beginning of your end step, exile up to one other target creature you control, then return that card to the battlefield under your control.\n{3}{U}: Tap another target creature.",
-      "keywords": [
-        "Indestructible"
-      ],
+      "mana_cost": "",
+      "oracle_text": "Minas Morgul enters tapped.\n{T}: Add {B}.\n{3}{B}, {T}: Put a shadow counter on target creature. For as long as that creature has a shadow counter on it, it's a Wraith in addition to its other types. (A creature with shadow can block or be blocked by only creatures with shadow.)",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
@@ -463,52 +403,19 @@
       "frame": "2015",
       "frame_effects": [
         "legendary",
-        "inverted",
-        "enchantment"
+        "inverted"
       ],
       "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "ca0dca5a-90dc-411e-9342-a7fb38c8dc99",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/f/1ffb0ecd-1326-43d8-9a68-39bc238e5d3c.png?1783916623",
-        "large": "https://cards.scryfall.io/large/front/1/f/1ffb0ecd-1326-43d8-9a68-39bc238e5d3c.jpg?1783916623",
-        "normal": "https://cards.scryfall.io/normal/front/1/f/1ffb0ecd-1326-43d8-9a68-39bc238e5d3c.jpg?1783916623"
-      }
-    },
-    {
-      "id": "212e84a3-e028-42a6-a639-f42b64ab7015",
-      "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
-      "name": "Island",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2541",
-      "rarity": "rare",
-      "type_line": "Basic Land — Island",
-      "cmc": 0,
-      "color_identity": [
-        "U"
+      "promo_types": [
+        "universesbeyond"
       ],
-      "mana_cost": "",
-      "oracle_text": "({T}: Add {U}.)",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "d3e344eb-be17-4231-9b89-44e69e2b9c87",
+      "illustration_id": "beb5c510-938c-4274-a5b1-9474dacab7c8",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.png?1783903504",
-        "large": "https://cards.scryfall.io/large/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.jpg?1783903504",
-        "normal": "https://cards.scryfall.io/normal/front/2/1/212e84a3-e028-42a6-a639-f42b64ab7015.jpg?1783903504"
+        "png": "https://cards.scryfall.io/png/front/2/7/27b2d8b7-3160-4a51-a898-a3c05180ff75.png?1784634923",
+        "large": "https://cards.scryfall.io/large/front/2/7/27b2d8b7-3160-4a51-a898-a3c05180ff75.jpg?1784634923",
+        "normal": "https://cards.scryfall.io/normal/front/2/7/27b2d8b7-3160-4a51-a898-a3c05180ff75.jpg?1784634923"
       }
     },
     {
@@ -550,41 +457,76 @@
       }
     },
     {
-      "id": "2a8495c3-96cf-40ab-b68a-1b5711b7659e",
-      "oracle_id": "f09278dc-1e67-4cd8-977d-4b3b94430aac",
-      "name": "Ringwraiths",
+      "id": "29b25772-8512-4270-851b-289cd182d819",
+      "oracle_id": "bccb06f1-8839-4104-9ffa-c79a817f8378",
+      "name": "Jet Medallion",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2023-06-23",
-      "set": "ltr",
-      "set_name": "The Lord of the Rings: Tales of Middle-earth",
+      "released_at": "2024-06-14",
+      "set": "mh3",
+      "set_name": "Modern Horizons 3",
       "set_type": "draft_innovation",
-      "collector_number": "284",
+      "collector_number": "346",
       "rarity": "rare",
-      "type_line": "Creature — Wraith Knight",
-      "cmc": 6,
-      "color_identity": [
-        "B"
-      ],
-      "mana_cost": "{4}{B}{B}",
-      "oracle_text": "When this creature enters, target creature an opponent controls gets -3/-3 until end of turn. If that creature is legendary, its controller loses 3 life.\nWhen the Ring tempts you, return this card from your graveyard to your hand.",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "Black spells you cast cost {1} less to cast.",
       "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "1e29f510-19d2-4329-95ca-5c52fb786a7f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/9/29b25772-8512-4270-851b-289cd182d819.png?1783911193",
+        "large": "https://cards.scryfall.io/large/front/2/9/29b25772-8512-4270-851b-289cd182d819.jpg?1783911193",
+        "normal": "https://cards.scryfall.io/normal/front/2/9/29b25772-8512-4270-851b-289cd182d819.jpg?1783911193"
+      }
+    },
+    {
+      "id": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+      "oracle_id": "ee6f463c-5dd3-4a1d-8543-7f7cf7f27f48",
+      "name": "Bird",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-08-01",
+      "set": "teoc",
+      "set_name": "Edge of Eternities Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
+      "rarity": "common",
+      "type_line": "Token Creature — Bird",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "black",
       "frame": "2015",
       "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "f3641cb5-50bb-4959-942c-911bdde2aab0",
+      "illustration_id": "ef597518-594c-4993-a419-75dcb2afab50",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/a/2a8495c3-96cf-40ab-b68a-1b5711b7659e.png?1783916220",
-        "large": "https://cards.scryfall.io/large/front/2/a/2a8495c3-96cf-40ab-b68a-1b5711b7659e.jpg?1783916220",
-        "normal": "https://cards.scryfall.io/normal/front/2/a/2a8495c3-96cf-40ab-b68a-1b5711b7659e.jpg?1783916220"
+        "png": "https://cards.scryfall.io/png/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.png?1783905793",
+        "large": "https://cards.scryfall.io/large/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793",
+        "normal": "https://cards.scryfall.io/normal/front/2/a/2a3d4bf9-2107-4686-8df5-cd7c934d0691.jpg?1783905793"
       }
     },
     {
@@ -625,60 +567,105 @@
       }
     },
     {
-      "id": "2d39a0e1-6484-409c-ab05-5b276925a949",
-      "oracle_id": "632e2979-d88a-482e-9bb8-57b683c5310f",
-      "name": "Secret Tunnel",
+      "id": "2b95c400-8fa0-489d-b401-5e2ec4241942",
+      "oracle_id": "a2b48695-f7d7-42ce-a8a0-2a723428542a",
+      "name": "Darkslick Shores",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-11-21",
-      "set": "tla",
-      "set_name": "Avatar: The Last Airbender",
+      "released_at": "2023-02-10",
+      "set": "one",
+      "set_name": "Phyrexia: All Will Be One",
       "set_type": "expansion",
-      "collector_number": "278",
+      "collector_number": "372",
       "rarity": "rare",
-      "type_line": "Land — Cave",
+      "type_line": "Land",
       "cmc": 0,
-      "color_identity": [],
+      "color_identity": [
+        "B",
+        "U"
+      ],
       "mana_cost": "",
-      "oracle_text": "This land can't be blocked.\n{T}: Add {C}.\n{4}, {T}: Two target creatures you control that share a creature type can't be blocked this turn.",
+      "oracle_text": "This land enters tapped unless you control two or fewer other lands.\n{T}: Add {U} or {B}.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "black",
+      "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "promo_types": [
-        "universesbeyond"
+        "boosterfun"
       ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "27307d08-0a77-4f56-96cd-4d79a81cd033",
+      "illustration_id": "cbfaac6f-7206-44f2-bf31-aa7e57064535",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/d/2d39a0e1-6484-409c-ab05-5b276925a949.png?1783904909",
-        "large": "https://cards.scryfall.io/large/front/2/d/2d39a0e1-6484-409c-ab05-5b276925a949.jpg?1783904909",
-        "normal": "https://cards.scryfall.io/normal/front/2/d/2d39a0e1-6484-409c-ab05-5b276925a949.jpg?1783904909"
+        "png": "https://cards.scryfall.io/png/front/2/b/2b95c400-8fa0-489d-b401-5e2ec4241942.png?1783917933",
+        "large": "https://cards.scryfall.io/large/front/2/b/2b95c400-8fa0-489d-b401-5e2ec4241942.jpg?1783917933",
+        "normal": "https://cards.scryfall.io/normal/front/2/b/2b95c400-8fa0-489d-b401-5e2ec4241942.jpg?1783917933"
       }
     },
     {
-      "id": "35c56aff-1f0f-464a-b705-d67803e3d060",
-      "oracle_id": "290faa28-450e-4797-9a8f-642d8af3f82a",
-      "name": "Run Away Together",
+      "id": "2cac144f-fa8a-4f04-9007-f7b7ab27a4b3",
+      "oracle_id": "5f42b67f-87fd-4f98-a0e8-0c8313f4bbc8",
+      "name": "Shipwreck Marsh",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-01-23",
-      "set": "ecl",
-      "set_name": "Lorwyn Eclipsed",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
       "set_type": "expansion",
-      "collector_number": "67",
-      "rarity": "common",
-      "type_line": "Instant",
-      "cmc": 2,
+      "collector_number": "401",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
       "color_identity": [
+        "B",
         "U"
       ],
-      "mana_cost": "{1}{U}",
-      "oracle_text": "Choose two target creatures controlled by different players. Return those creatures to their owners' hands.",
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped unless you control two or more other lands.\n{T}: Add {U} or {B}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7eb9e60b-7d25-4beb-bfaf-cc9dfc8e62c7",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/c/2cac144f-fa8a-4f04-9007-f7b7ab27a4b3.png?1790137089",
+        "large": "https://cards.scryfall.io/large/front/2/c/2cac144f-fa8a-4f04-9007-f7b7ab27a4b3.jpg?1790137089",
+        "normal": "https://cards.scryfall.io/normal/front/2/c/2cac144f-fa8a-4f04-9007-f7b7ab27a4b3.jpg?1790137089"
+      }
+    },
+    {
+      "id": "316398d0-cf0a-43ed-a419-aaf0ea44b9c1",
+      "oracle_id": "6c8f276e-4e7b-4974-ab02-9356cc0ffb2b",
+      "name": "Witch's Cottage",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "319",
+      "rarity": "common",
+      "type_line": "Land — Swamp",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {B}.)\nThis land enters tapped unless you control three or more other Swamps.\nWhen this land enters untapped, you may put target creature card from your graveyard on top of your library.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -688,11 +675,92 @@
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "c3639fd9-9fd9-406f-bb1d-10ae0c8f8412",
+      "illustration_id": "f9f2672a-cad6-4b30-815e-42bbf3dd6aa0",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/3/5/35c56aff-1f0f-464a-b705-d67803e3d060.png?1783904482",
-        "large": "https://cards.scryfall.io/large/front/3/5/35c56aff-1f0f-464a-b705-d67803e3d060.jpg?1783904482",
-        "normal": "https://cards.scryfall.io/normal/front/3/5/35c56aff-1f0f-464a-b705-d67803e3d060.jpg?1783904482"
+        "png": "https://cards.scryfall.io/png/front/3/1/316398d0-cf0a-43ed-a419-aaf0ea44b9c1.png?1789753458",
+        "large": "https://cards.scryfall.io/large/front/3/1/316398d0-cf0a-43ed-a419-aaf0ea44b9c1.jpg?1789753458",
+        "normal": "https://cards.scryfall.io/normal/front/3/1/316398d0-cf0a-43ed-a419-aaf0ea44b9c1.jpg?1789753458"
+      }
+    },
+    {
+      "id": "3239a1e5-a002-4389-b9a7-049b1d60e2ac",
+      "oracle_id": "08d80efc-9542-4ba2-824c-c8615d8d07f2",
+      "name": "Undercity Sewers",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-02-09",
+      "set": "mkm",
+      "set_name": "Murders at Karlov Manor",
+      "set_type": "expansion",
+      "collector_number": "332",
+      "rarity": "rare",
+      "type_line": "Land — Island Swamp",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {U} or {B}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "keywords": [
+        "Surveil"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "64966123-5186-4dd0-bcc3-6fea9c83009d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/2/3239a1e5-a002-4389-b9a7-049b1d60e2ac.png?1783912798",
+        "large": "https://cards.scryfall.io/large/front/3/2/3239a1e5-a002-4389-b9a7-049b1d60e2ac.jpg?1783912798",
+        "normal": "https://cards.scryfall.io/normal/front/3/2/3239a1e5-a002-4389-b9a7-049b1d60e2ac.jpg?1783912798"
+      }
+    },
+    {
+      "id": "36b9111c-eb78-4f9f-b5e3-81482dff69b8",
+      "oracle_id": "fa6e2a47-a8cb-4224-ae3e-f61c90477285",
+      "name": "Tragic Slip",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-09-02",
+      "set": "slz",
+      "set_name": "The Zeta Set",
+      "set_type": "box",
+      "collector_number": "50",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{B}",
+      "oracle_text": "Target creature gets -1/-1 until end of turn.\nMorbid — That creature gets -13/-13 until end of turn instead if a creature died this turn.",
+      "keywords": [
+        "Morbid"
+      ],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "874d40e6-348a-4bf8-b51c-4a88facc4388",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/6/36b9111c-eb78-4f9f-b5e3-81482dff69b8.png?1787832268",
+        "large": "https://cards.scryfall.io/large/front/3/6/36b9111c-eb78-4f9f-b5e3-81482dff69b8.jpg?1787832268",
+        "normal": "https://cards.scryfall.io/normal/front/3/6/36b9111c-eb78-4f9f-b5e3-81482dff69b8.jpg?1787832268"
       }
     },
     {
@@ -735,86 +803,38 @@
       }
     },
     {
-      "id": "3e9b53da-4744-429d-97c6-f7ee4d568731",
-      "oracle_id": "c8b143ad-43ec-4e0d-a440-e348daa31391",
-      "name": "Swiftfoot Boots",
+      "id": "3999a519-bfd5-43cf-b7b1-40ed5eb0a05a",
+      "oracle_id": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
+      "name": "Bojuka Bog",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2024-11-15",
-      "set": "fdn",
-      "set_name": "Foundations",
-      "set_type": "core",
-      "collector_number": "355",
-      "rarity": "uncommon",
-      "type_line": "Artifact — Equipment",
-      "cmc": 2,
-      "color_identity": [],
-      "mana_cost": "{2}",
-      "oracle_text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
-      "keywords": [
-        "Equip"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "startercollection",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "8cd30edb-e2bc-4fe9-a5fc-ce643000de1f",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.png?1783909017",
-        "large": "https://cards.scryfall.io/large/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.jpg?1783909017",
-        "normal": "https://cards.scryfall.io/normal/front/3/e/3e9b53da-4744-429d-97c6-f7ee4d568731.jpg?1783909017"
-      }
-    },
-    {
-      "id": "40bb0bdb-4292-4617-a9ef-79302d94a075",
-      "oracle_id": "276c4643-13ad-43bf-840b-08c025ebc065",
-      "name": "Orvar, the All-Form",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-08-31",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2867",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Shapeshifter",
-      "cmc": 4,
+      "released_at": "2026-10-02",
+      "set": "fdc",
+      "set_name": "Foundations Commander",
+      "set_type": "commander",
+      "collector_number": "296",
+      "rarity": "common",
+      "type_line": "Land",
+      "cmc": 0,
       "color_identity": [
-        "U"
+        "B"
       ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "Changeling\nWhenever you cast an instant or sorcery spell, if it targets one or more other permanents you control, create a token that's a copy of one of those permanents.\nWhen a spell or ability an opponent controls causes you to discard this card, create a token that's a copy of target permanent.",
-      "keywords": [
-        "Changeling"
-      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "inverted",
-        "legendary"
-      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "cc7d0315-1fc2-46e9-9bf2-52857be33a93",
+      "illustration_id": "3f411487-e24c-45b8-90f4-e195ff208c30",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/0/40bb0bdb-4292-4617-a9ef-79302d94a075.png?1788258311",
-        "large": "https://cards.scryfall.io/large/front/4/0/40bb0bdb-4292-4617-a9ef-79302d94a075.jpg?1788258311",
-        "normal": "https://cards.scryfall.io/normal/front/4/0/40bb0bdb-4292-4617-a9ef-79302d94a075.jpg?1788258311"
+        "png": "https://cards.scryfall.io/png/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.png?1789753362",
+        "large": "https://cards.scryfall.io/large/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.jpg?1789753362",
+        "normal": "https://cards.scryfall.io/normal/front/3/9/3999a519-bfd5-43cf-b7b1-40ed5eb0a05a.jpg?1789753362"
       }
     },
     {
@@ -862,41 +882,6 @@
       }
     },
     {
-      "id": "42b91084-e07e-4368-820e-c2ea24122340",
-      "oracle_id": "ad0070db-6454-41cb-861f-8f5b8fc2a3b8",
-      "name": "Ghostly Flicker",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-09-02",
-      "set": "slz",
-      "set_name": "The Zeta Set",
-      "set_type": "box",
-      "collector_number": "17",
-      "rarity": "common",
-      "type_line": "Instant",
-      "cmc": 3,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{2}{U}",
-      "oracle_text": "Exile two target artifacts, creatures, and/or lands you control, then return those cards to the battlefield under your control.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "bd309e0c-453d-4d60-9fb4-e851f9625a0d",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/2/42b91084-e07e-4368-820e-c2ea24122340.png?1787745755",
-        "large": "https://cards.scryfall.io/large/front/4/2/42b91084-e07e-4368-820e-c2ea24122340.jpg?1787745755",
-        "normal": "https://cards.scryfall.io/normal/front/4/2/42b91084-e07e-4368-820e-c2ea24122340.jpg?1787745755"
-      }
-    },
-    {
       "id": "42db2313-b13d-4292-bef2-bf86f989d32f",
       "oracle_id": "4f958678-2a32-4a30-8fe7-47df9ada6b2f",
       "name": "Birthday Escape",
@@ -935,64 +920,25 @@
       }
     },
     {
-      "id": "4499a25b-f4a5-4f2c-9ebd-bc68c7840b39",
-      "oracle_id": "c4485bf9-e7ff-48b5-a983-02900939ee9d",
-      "name": "Spider-Sense",
+      "id": "48e40927-dd87-42ed-b805-0ae8ba81f5fb",
+      "oracle_id": "bd004c9d-771e-4e63-a97d-a2259c096af8",
+      "name": "Morphic Pool",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-09-26",
-      "set": "spm",
-      "set_name": "Marvel's Spider-Man",
-      "set_type": "expansion",
-      "collector_number": "46",
+      "released_at": "2022-06-10",
+      "set": "clb",
+      "set_name": "Commander Legends: Battle for Baldur's Gate",
+      "set_type": "draft_innovation",
+      "collector_number": "357",
       "rarity": "rare",
-      "type_line": "Instant",
-      "cmc": 2,
+      "type_line": "Land",
+      "cmc": 0,
       "color_identity": [
+        "B",
         "U"
       ],
-      "mana_cost": "{1}{U}",
-      "oracle_text": "Web-slinging {U} (You may cast this spell for {U} if you also return a tapped creature you control to its owner's hand.)\nCounter target instant spell, sorcery spell, or triggered ability.",
-      "keywords": [
-        "Web-slinging"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "8690cd64-75c5-4736-8c4d-7b2591606935",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/4/4499a25b-f4a5-4f2c-9ebd-bc68c7840b39.png?1783905348",
-        "large": "https://cards.scryfall.io/large/front/4/4/4499a25b-f4a5-4f2c-9ebd-bc68c7840b39.jpg?1783905348",
-        "normal": "https://cards.scryfall.io/normal/front/4/4/4499a25b-f4a5-4f2c-9ebd-bc68c7840b39.jpg?1783905348"
-      }
-    },
-    {
-      "id": "475bff39-220a-4490-9c2e-d311e306a6db",
-      "oracle_id": "7d00fb28-ea6c-49a9-b4af-ffb38860a9a7",
-      "name": "Cancel",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-11-15",
-      "set": "fdn",
-      "set_name": "Foundations",
-      "set_type": "core",
-      "collector_number": "505",
-      "rarity": "common",
-      "type_line": "Instant",
-      "cmc": 3,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{1}{U}{U}",
-      "oracle_text": "Counter target spell.",
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped unless you have two or more opponents.\n{T}: Add {U} or {B}.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -1000,16 +946,13 @@
       "border_color": "black",
       "frame": "2015",
       "promo": false,
-      "promo_types": [
-        "beginnerbox"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "45a70a34-d2e2-4ac0-96f4-fd5f8bc3d07d",
+      "illustration_id": "2baf26ab-d012-41e3-a130-a20b85ec9104",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/7/475bff39-220a-4490-9c2e-d311e306a6db.png?1783908966",
-        "large": "https://cards.scryfall.io/large/front/4/7/475bff39-220a-4490-9c2e-d311e306a6db.jpg?1783908966",
-        "normal": "https://cards.scryfall.io/normal/front/4/7/475bff39-220a-4490-9c2e-d311e306a6db.jpg?1783908966"
+        "png": "https://cards.scryfall.io/png/front/4/8/48e40927-dd87-42ed-b805-0ae8ba81f5fb.png?1783922655",
+        "large": "https://cards.scryfall.io/large/front/4/8/48e40927-dd87-42ed-b805-0ae8ba81f5fb.jpg?1783922655",
+        "normal": "https://cards.scryfall.io/normal/front/4/8/48e40927-dd87-42ed-b805-0ae8ba81f5fb.jpg?1783922655"
       }
     },
     {
@@ -1055,62 +998,63 @@
       }
     },
     {
-      "id": "5032d71d-d9f8-498c-97d1-271c2e9c1c47",
-      "oracle_id": "fb60739e-1dc3-481d-a056-ad72e665c680",
-      "name": "Rite of Replication",
+      "id": "4ec271e4-1813-4ee7-bfd5-5a0c39d2d25d",
+      "oracle_id": "f1ef5698-14bd-42bf-aae5-2870699e4186",
+      "name": "Sapphire Medallion",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-24",
-      "set": "soc",
-      "set_name": "Secrets of Strixhaven Commander",
-      "set_type": "commander",
-      "collector_number": "202",
+      "released_at": "2024-06-14",
+      "set": "mh3",
+      "set_name": "Modern Horizons 3",
+      "set_type": "draft_innovation",
+      "collector_number": "349",
       "rarity": "rare",
-      "type_line": "Sorcery",
-      "cmc": 4,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{2}{U}{U}",
-      "oracle_text": "Kicker {5} (You may pay an additional {5} as you cast this spell.)\nCreate a token that's a copy of target creature. If this spell was kicked, create five of those tokens instead.",
-      "keywords": [
-        "Kicker"
-      ],
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "Blue spells you cast cost {1} less to cast.",
+      "keywords": [],
       "game_changer": false,
-      "full_art": false,
+      "full_art": true,
       "textless": false,
-      "border_color": "black",
+      "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "b526bb8a-f4c2-44fe-ad64-a6f463fe7fc5",
+      "illustration_id": "3f72f9dc-abf5-440a-bb4f-22b063bdc73a",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/0/5032d71d-d9f8-498c-97d1-271c2e9c1c47.png?1783903790",
-        "large": "https://cards.scryfall.io/large/front/5/0/5032d71d-d9f8-498c-97d1-271c2e9c1c47.jpg?1783903790",
-        "normal": "https://cards.scryfall.io/normal/front/5/0/5032d71d-d9f8-498c-97d1-271c2e9c1c47.jpg?1783903790"
+        "png": "https://cards.scryfall.io/png/front/4/e/4ec271e4-1813-4ee7-bfd5-5a0c39d2d25d.png?1783911191",
+        "large": "https://cards.scryfall.io/large/front/4/e/4ec271e4-1813-4ee7-bfd5-5a0c39d2d25d.jpg?1783911191",
+        "normal": "https://cards.scryfall.io/normal/front/4/e/4ec271e4-1813-4ee7-bfd5-5a0c39d2d25d.jpg?1783911191"
       }
     },
     {
-      "id": "55b5b094-9d2d-4d96-b90c-78fecdae725a",
-      "oracle_id": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
-      "name": "Bojuka Bog",
+      "id": "5b75eb6b-d76c-4b92-b042-13493f9ef164",
+      "oracle_id": "56956afd-db53-4542-816b-490c8b0bbcf7",
+      "name": "Serum Visions",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-24",
-      "set": "soc",
-      "set_name": "Secrets of Strixhaven Commander",
+      "released_at": "2024-04-19",
+      "set": "otc",
+      "set_name": "Outlaws of Thunder Junction Commander",
       "set_type": "commander",
-      "collector_number": "363",
-      "rarity": "common",
-      "type_line": "Land",
-      "cmc": 0,
+      "collector_number": "112",
+      "rarity": "uncommon",
+      "type_line": "Sorcery",
+      "cmc": 1,
       "color_identity": [
-        "B"
+        "U"
       ],
-      "mana_cost": "",
-      "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
-      "keywords": [],
+      "mana_cost": "{U}",
+      "oracle_text": "Draw a card. Scry 2.",
+      "keywords": [
+        "Scry"
+      ],
       "game_changer": false,
       "full_art": false,
       "textless": false,
@@ -1119,11 +1063,11 @@
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "3f411487-e24c-45b8-90f4-e195ff208c30",
+      "illustration_id": "ca3e7f3b-1d76-4cf7-940d-5a8d153ad602",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.png?1783903734",
-        "large": "https://cards.scryfall.io/large/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.jpg?1783903734",
-        "normal": "https://cards.scryfall.io/normal/front/5/5/55b5b094-9d2d-4d96-b90c-78fecdae725a.jpg?1783903734"
+        "png": "https://cards.scryfall.io/png/front/5/b/5b75eb6b-d76c-4b92-b042-13493f9ef164.png?1783911938",
+        "large": "https://cards.scryfall.io/large/front/5/b/5b75eb6b-d76c-4b92-b042-13493f9ef164.jpg?1783911938",
+        "normal": "https://cards.scryfall.io/normal/front/5/b/5b75eb6b-d76c-4b92-b042-13493f9ef164.jpg?1783911938"
       }
     },
     {
@@ -1165,42 +1109,40 @@
       }
     },
     {
-      "id": "5efb9b5a-f904-4934-9530-87d752eeae75",
-      "oracle_id": "2549bc57-9ffb-4053-9f10-f2a5f792b845",
-      "name": "Myriad Landscape",
+      "id": "5c3a91bf-daa1-4bba-a052-d868700c610c",
+      "oracle_id": "9e266374-80f1-458a-9417-16220d2a013a",
+      "name": "Drake",
       "lang": "en",
-      "layout": "normal",
+      "layout": "token",
       "released_at": "2023-08-04",
-      "set": "cmm",
-      "set_name": "Commander Masters",
-      "set_type": "masters",
-      "collector_number": "660",
-      "rarity": "uncommon",
-      "type_line": "Land",
+      "set": "tcmm",
+      "set_name": "Commander Masters Tokens",
+      "set_type": "token",
+      "collector_number": "12",
+      "rarity": "common",
+      "type_line": "Token Creature — Drake",
       "cmc": 0,
-      "color_identity": [],
+      "color_identity": [
+        "U"
+      ],
       "mana_cost": "",
-      "oracle_text": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle.",
-      "keywords": [],
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
       "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "2794b1b5-2635-4409-bc29-2f11ad417a20",
+      "illustration_id": "bd27a16e-6ba3-4966-8d70-9ed6e7f52d62",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.png?1783915504",
-        "large": "https://cards.scryfall.io/large/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.jpg?1783915504",
-        "normal": "https://cards.scryfall.io/normal/front/5/e/5efb9b5a-f904-4934-9530-87d752eeae75.jpg?1783915504"
+        "png": "https://cards.scryfall.io/png/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.png?1783915258",
+        "large": "https://cards.scryfall.io/large/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.jpg?1783915258",
+        "normal": "https://cards.scryfall.io/normal/front/5/c/5c3a91bf-daa1-4bba-a052-d868700c610c.jpg?1783915258"
       }
     },
     {
@@ -1240,96 +1182,98 @@
       }
     },
     {
-      "id": "61c63f09-c9ab-4926-85de-6199856fff86",
-      "oracle_id": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
-      "name": "Rogue's Passage",
+      "id": "63e5124a-67c0-44ed-8085-28bf37816423",
+      "oracle_id": "94b703c4-5584-4913-8365-7e9f2f535c2d",
+      "name": "Levitation",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2021-09-01",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "607",
-      "rarity": "rare",
-      "type_line": "Land",
-      "cmc": 0,
-      "color_identity": [],
-      "mana_cost": "",
-      "oracle_text": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "sldbonus"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "028b2648-d95f-4dde-b270-4a4ec8c8872c",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/6/1/61c63f09-c9ab-4926-85de-6199856fff86.png?1783925669",
-        "large": "https://cards.scryfall.io/large/front/6/1/61c63f09-c9ab-4926-85de-6199856fff86.jpg?1783925669",
-        "normal": "https://cards.scryfall.io/normal/front/6/1/61c63f09-c9ab-4926-85de-6199856fff86.jpg?1783925669"
-      }
-    },
-    {
-      "id": "6b49918f-693b-46b4-aaa4-e2a1d650293d",
-      "oracle_id": "334e2147-5944-4558-b2bc-2f2bfb96dfa5",
-      "name": "Displace",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2019-11-07",
-      "set": "plst",
-      "set_name": "The List",
-      "set_type": "masters",
-      "collector_number": "EMN-55",
-      "rarity": "common",
-      "type_line": "Instant",
-      "cmc": 3,
+      "released_at": "2011-07-15",
+      "set": "m12",
+      "set_name": "Magic 2012",
+      "set_type": "core",
+      "collector_number": "61",
+      "rarity": "uncommon",
+      "type_line": "Enchantment",
+      "cmc": 4,
       "color_identity": [
         "U"
       ],
-      "mana_cost": "{2}{U}",
-      "oracle_text": "Exile up to two target creatures you control, then return those cards to the battlefield under their owner's control.",
+      "mana_cost": "{2}{U}{U}",
+      "oracle_text": "Creatures you control have flying.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "black",
-      "frame": "2015",
+      "frame": "2003",
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "42c0f553-5d57-4bdc-8b22-f1ddcc18223c",
+      "illustration_id": "0ecad317-b5f2-4947-81a8-781271463737",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/6/b/6b49918f-693b-46b4-aaa4-e2a1d650293d.png?1783932290",
-        "large": "https://cards.scryfall.io/large/front/6/b/6b49918f-693b-46b4-aaa4-e2a1d650293d.jpg?1783932290",
-        "normal": "https://cards.scryfall.io/normal/front/6/b/6b49918f-693b-46b4-aaa4-e2a1d650293d.jpg?1783932290"
+        "png": "https://cards.scryfall.io/png/front/6/3/63e5124a-67c0-44ed-8085-28bf37816423.png?1783941091",
+        "large": "https://cards.scryfall.io/large/front/6/3/63e5124a-67c0-44ed-8085-28bf37816423.jpg?1783941091",
+        "normal": "https://cards.scryfall.io/normal/front/6/3/63e5124a-67c0-44ed-8085-28bf37816423.jpg?1783941091"
       }
     },
     {
-      "id": "6d4a1712-d19e-4475-9614-a0b1af4da610",
-      "oracle_id": "3bc46467-323f-4cbf-9d0a-f3d2ae3c3a34",
-      "name": "Bender's Waterskin",
+      "id": "646a980c-9226-412a-ba58-c2b52a721c99",
+      "oracle_id": "33b9b3bd-33ca-46f3-b8bb-a978bc3d1085",
+      "name": "Temple of Deceit",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-11-21",
-      "set": "tla",
-      "set_name": "Avatar: The Last Airbender",
-      "set_type": "expansion",
-      "collector_number": "255",
-      "rarity": "common",
-      "type_line": "Artifact",
-      "cmc": 3,
-      "color_identity": [],
-      "mana_cost": "{3}",
-      "oracle_text": "Untap this artifact during each other player's untap step.\n{T}: Add one mana of any color.",
+      "released_at": "2026-09-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "DSC-307",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {U} or {B}.",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8acc157a-0401-456a-8bf1-9d7e0da9ebd1",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/4/646a980c-9226-412a-ba58-c2b52a721c99.png?1793497383",
+        "large": "https://cards.scryfall.io/large/front/6/4/646a980c-9226-412a-ba58-c2b52a721c99.jpg?1793497383",
+        "normal": "https://cards.scryfall.io/normal/front/6/4/646a980c-9226-412a-ba58-c2b52a721c99.jpg?1793497383"
+      }
+    },
+    {
+      "id": "67b626cc-1c12-4059-afa5-e5a1221ea1ba",
+      "oracle_id": "8a83d284-75a0-4901-b7d9-c4b7586ee327",
+      "name": "River of Tears",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-02-09",
+      "set": "mkc",
+      "set_name": "Murders at Karlov Manor Commander",
+      "set_type": "commander",
+      "collector_number": "283",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {U}. If you played a land this turn, add {B} instead.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -1337,16 +1281,13 @@
       "border_color": "black",
       "frame": "2015",
       "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "e563280c-6cb1-48ed-8f08-bd1ab89d5bdb",
+      "illustration_id": "8ad40d7e-ac69-44fe-9555-79254262f692",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.png?1783904915",
-        "large": "https://cards.scryfall.io/large/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.jpg?1783904915",
-        "normal": "https://cards.scryfall.io/normal/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.jpg?1783904915"
+        "png": "https://cards.scryfall.io/png/front/6/7/67b626cc-1c12-4059-afa5-e5a1221ea1ba.png?1783912955",
+        "large": "https://cards.scryfall.io/large/front/6/7/67b626cc-1c12-4059-afa5-e5a1221ea1ba.jpg?1783912955",
+        "normal": "https://cards.scryfall.io/normal/front/6/7/67b626cc-1c12-4059-afa5-e5a1221ea1ba.jpg?1783912955"
       }
     },
     {
@@ -1391,68 +1332,63 @@
       }
     },
     {
-      "id": "7170f930-8f94-4671-9acf-bf40913cbfa0",
-      "oracle_id": "2eb1b429-8d11-42f3-8815-5a60b6a4e2d5",
-      "name": "Witch-king of Angmar",
+      "id": "70afd57f-d4cb-4219-a2c7-28ed9b1abe0f",
+      "oracle_id": "819fc966-434e-470f-91e9-a38df974ad17",
+      "name": "Drowned Catacomb",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-08-14",
-      "set": "hoc",
-      "set_name": "The Hobbit Eternal",
-      "set_type": "eternal",
-      "collector_number": "20",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Wraith Noble",
-      "cmc": 5,
+      "released_at": "2022-04-12",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "457",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
       "color_identity": [
-        "B"
+        "B",
+        "U"
       ],
-      "mana_cost": "{3}{B}{B}",
-      "oracle_text": "Flying\nWhenever one or more creatures deal combat damage to you, each opponent sacrifices a creature of their choice that dealt combat damage to you this turn. The Ring tempts you.\nDiscard a card: Witch-king of Angmar gains indestructible until end of turn. Tap him.",
-      "keywords": [
-        "Flying"
-      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped unless you control an Island or a Swamp.\n{T}: Add {U} or {B}.",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
       "frame_effects": [
-        "legendary",
         "inverted"
       ],
       "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "b764fd17-5227-48b7-b32f-a21049d83ba4",
+      "illustration_id": "b54c7819-e018-4dab-90ca-8cb69ce3b636",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/1/7170f930-8f94-4671-9acf-bf40913cbfa0.png?1785497284",
-        "large": "https://cards.scryfall.io/large/front/7/1/7170f930-8f94-4671-9acf-bf40913cbfa0.jpg?1785497284",
-        "normal": "https://cards.scryfall.io/normal/front/7/1/7170f930-8f94-4671-9acf-bf40913cbfa0.jpg?1785497284"
+        "png": "https://cards.scryfall.io/png/front/7/0/70afd57f-d4cb-4219-a2c7-28ed9b1abe0f.png?1783923549",
+        "large": "https://cards.scryfall.io/large/front/7/0/70afd57f-d4cb-4219-a2c7-28ed9b1abe0f.jpg?1783923549",
+        "normal": "https://cards.scryfall.io/normal/front/7/0/70afd57f-d4cb-4219-a2c7-28ed9b1abe0f.jpg?1783923549"
       }
     },
     {
-      "id": "7977e448-01fa-4fa5-a275-0d6a1357b35c",
-      "oracle_id": "376fa374-ead1-4728-ab8b-aca230b72031",
-      "name": "Hide on the Ceiling",
+      "id": "72df0898-72a4-444a-83bf-8252bd6ae563",
+      "oracle_id": "6d7be242-a072-40ce-b540-95880506cccd",
+      "name": "Dispel",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-09-26",
-      "set": "spm",
-      "set_name": "Marvel's Spider-Man",
-      "set_type": "expansion",
-      "collector_number": "32",
-      "rarity": "rare",
+      "released_at": "2019-11-07",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "BFZ-76",
+      "rarity": "common",
       "type_line": "Instant",
       "cmc": 1,
       "color_identity": [
         "U"
       ],
-      "mana_cost": "{X}{U}",
-      "oracle_text": "Exile X target artifacts and/or creatures. Return the exiled cards to the battlefield under their owners' control at the beginning of the next end step.",
+      "mana_cost": "{U}",
+      "oracle_text": "Counter target instant spell.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -1460,16 +1396,49 @@
       "border_color": "black",
       "frame": "2015",
       "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "854c3380-2d47-493f-a05a-2e86f37ba288",
+      "illustration_id": "ad38153b-f98d-45f5-bcc5-90bd9d1fc1b0",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/9/7977e448-01fa-4fa5-a275-0d6a1357b35c.png?1783905354",
-        "large": "https://cards.scryfall.io/large/front/7/9/7977e448-01fa-4fa5-a275-0d6a1357b35c.jpg?1783905354",
-        "normal": "https://cards.scryfall.io/normal/front/7/9/7977e448-01fa-4fa5-a275-0d6a1357b35c.jpg?1783905354"
+        "png": "https://cards.scryfall.io/png/front/7/2/72df0898-72a4-444a-83bf-8252bd6ae563.png?1783932244",
+        "large": "https://cards.scryfall.io/large/front/7/2/72df0898-72a4-444a-83bf-8252bd6ae563.jpg?1783932244",
+        "normal": "https://cards.scryfall.io/normal/front/7/2/72df0898-72a4-444a-83bf-8252bd6ae563.jpg?1783932244"
+      }
+    },
+    {
+      "id": "78d5366f-eb6d-4ec1-880b-111872863766",
+      "oracle_id": "4c0a0448-b9d6-43a0-8549-64066dac63f0",
+      "name": "Talisman of Dominance",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "frc",
+      "set_name": "Reality Fracture Commander",
+      "set_type": "commander",
+      "collector_number": "62",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "{2}",
+      "oracle_text": "{T}: Add {C}.\n{T}: Add {U} or {B}. This artifact deals 1 damage to you.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b98f8e9b-d282-46ea-a3c7-025ffd69b05f",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/8/78d5366f-eb6d-4ec1-880b-111872863766.png?1789599840",
+        "large": "https://cards.scryfall.io/large/front/7/8/78d5366f-eb6d-4ec1-880b-111872863766.jpg?1789599840",
+        "normal": "https://cards.scryfall.io/normal/front/7/8/78d5366f-eb6d-4ec1-880b-111872863766.jpg?1789599840"
       }
     },
     {
@@ -1506,105 +1475,28 @@
       }
     },
     {
-      "id": "7c23360d-ff57-412c-9899-6050cb481da6",
-      "oracle_id": "967e8b3f-8266-4d9a-a38b-d0e10184e1e4",
-      "name": "Akroma's Memorial",
+      "id": "7bc98705-77c2-47b6-b41c-3e41578700e8",
+      "oracle_id": "ac2dd694-d2f1-4025-8400-12332bdc882a",
+      "name": "Takenuma, Abandoned Mire",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2024-11-15",
-      "set": "spg",
-      "set_name": "Special Guests",
-      "set_type": "masterpiece",
-      "collector_number": "81",
-      "rarity": "mythic",
-      "type_line": "Legendary Artifact",
-      "cmc": 7,
-      "color_identity": [],
-      "mana_cost": "{7}",
-      "oracle_text": "Creatures you control have flying, first strike, vigilance, trample, haste, and protection from black and from red.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "frame_effects": [
-        "showcase",
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "377ce3b6-74b6-4a01-acc1-6caaacdbdadf",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/c/7c23360d-ff57-412c-9899-6050cb481da6.png?1783908594",
-        "large": "https://cards.scryfall.io/large/front/7/c/7c23360d-ff57-412c-9899-6050cb481da6.jpg?1783908594",
-        "normal": "https://cards.scryfall.io/normal/front/7/c/7c23360d-ff57-412c-9899-6050cb481da6.jpg?1783908594"
-      }
-    },
-    {
-      "id": "7d466d44-3203-4e9d-befc-877414a7308d",
-      "oracle_id": "e5223a09-f732-4747-8914-e6546ab0ef4c",
-      "name": "Rise of the Dark Realms",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-11-15",
-      "set": "fdn",
-      "set_name": "Foundations",
-      "set_type": "core",
-      "collector_number": "323",
-      "rarity": "mythic",
-      "type_line": "Sorcery",
-      "cmc": 9,
+      "released_at": "2022-02-18",
+      "set": "neo",
+      "set_name": "Kamigawa: Neon Dynasty",
+      "set_type": "expansion",
+      "collector_number": "416",
+      "rarity": "rare",
+      "type_line": "Legendary Land",
+      "cmc": 0,
       "color_identity": [
         "B"
       ],
-      "mana_cost": "{7}{B}{B}",
-      "oracle_text": "Put all creature cards from all graveyards onto the battlefield under your control.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {B}.\nChannel — {3}{B}, Discard this card: Mill three cards, then return a creature or planeswalker card from your graveyard to your hand. This ability costs {1} less to activate for each legendary creature you control.",
+      "keywords": [
+        "Mill",
+        "Channel"
       ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "eacedddb-8c76-4ece-bdbb-1497c3e22ef5",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/d/7d466d44-3203-4e9d-befc-877414a7308d.png?1783909025",
-        "large": "https://cards.scryfall.io/large/front/7/d/7d466d44-3203-4e9d-befc-877414a7308d.jpg?1783909025",
-        "normal": "https://cards.scryfall.io/normal/front/7/d/7d466d44-3203-4e9d-befc-877414a7308d.jpg?1783909025"
-      }
-    },
-    {
-      "id": "7d9df3ce-25f9-426c-a113-6aea53ddf619",
-      "oracle_id": "1946ded1-5f53-409f-b0a6-5433bb0357d2",
-      "name": "The Ozolith",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-06-23",
-      "set": "ltc",
-      "set_name": "Tales of Middle-earth Commander",
-      "set_type": "commander",
-      "collector_number": "381",
-      "rarity": "mythic",
-      "type_line": "Legendary Artifact",
-      "cmc": 1,
-      "color_identity": [],
-      "mana_cost": "{1}",
-      "oracle_text": "Whenever a creature you control leaves the battlefield, if it had counters on it, put those counters on The Ozolith.\nAt the beginning of combat on your turn, if The Ozolith has counters on it, you may move all counters from The Ozolith onto target creature.",
-      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
@@ -1616,17 +1508,55 @@
       ],
       "promo": false,
       "promo_types": [
-        "surgefoil",
-        "universesbeyond",
         "boosterfun"
       ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "e559409c-bf30-4215-a92d-56f62a4a62af",
+      "illustration_id": "80cefbcd-7c7d-47d4-a64c-b82ea0b14a31",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/d/7d9df3ce-25f9-426c-a113-6aea53ddf619.png?1783915822",
-        "large": "https://cards.scryfall.io/large/front/7/d/7d9df3ce-25f9-426c-a113-6aea53ddf619.jpg?1783915822",
-        "normal": "https://cards.scryfall.io/normal/front/7/d/7d9df3ce-25f9-426c-a113-6aea53ddf619.jpg?1783915822"
+        "png": "https://cards.scryfall.io/png/front/7/b/7bc98705-77c2-47b6-b41c-3e41578700e8.png?1783923759",
+        "large": "https://cards.scryfall.io/large/front/7/b/7bc98705-77c2-47b6-b41c-3e41578700e8.jpg?1783923759",
+        "normal": "https://cards.scryfall.io/normal/front/7/b/7bc98705-77c2-47b6-b41c-3e41578700e8.jpg?1783923759"
+      }
+    },
+    {
+      "id": "8039b4f8-3a0e-403c-af52-76d677af7353",
+      "oracle_id": "11bf211c-95a3-4e7f-bd08-13f979d54e73",
+      "name": "Reconnaissance Mission",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-27",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2535",
+      "rarity": "rare",
+      "type_line": "Enchantment",
+      "cmc": 4,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{2}{U}{U}",
+      "oracle_text": "Whenever a creature you control deals combat damage to a player, you may draw a card.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "keywords": [
+        "Cycling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "9f3282c8-5adb-4b33-a0d3-7b589edc7b0a",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/0/8039b4f8-3a0e-403c-af52-76d677af7353.png?1783903506",
+        "large": "https://cards.scryfall.io/large/front/8/0/8039b4f8-3a0e-403c-af52-76d677af7353.jpg?1783903506",
+        "normal": "https://cards.scryfall.io/normal/front/8/0/8039b4f8-3a0e-403c-af52-76d677af7353.jpg?1783903506"
       }
     },
     {
@@ -1673,42 +1603,71 @@
       }
     },
     {
-      "id": "83e4e358-d639-4581-8c31-597f6d7fa57f",
-      "oracle_id": "cd1eda60-53e4-44d0-9b2c-7a57395e291f",
-      "name": "Conjurer's Closet",
+      "id": "83d0b761-d694-4232-9f40-5bd8c82a05f1",
+      "oracle_id": "8ddfc283-c9b4-41a5-af88-cf0068e986cc",
+      "name": "Swan Song",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-01-24",
-      "set": "inr",
-      "set_name": "Innistrad Remastered",
-      "set_type": "masters",
-      "collector_number": "321",
+      "released_at": "2025-08-01",
+      "set": "eoc",
+      "set_name": "Edge of Eternities Commander",
+      "set_type": "commander",
+      "collector_number": "46",
       "rarity": "rare",
-      "type_line": "Artifact",
-      "cmc": 5,
-      "color_identity": [],
-      "mana_cost": "{5}",
-      "oracle_text": "At the beginning of your end step, you may exile target creature you control, then return that card to the battlefield under your control.",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{U}",
+      "oracle_text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
       "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "790a7805-45c8-48fc-a86a-5a5bccad6140",
+      "illustration_id": "bb8ddf44-a735-4db3-9268-6de03221db03",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/8/3/83e4e358-d639-4581-8c31-597f6d7fa57f.png?1783908038",
-        "large": "https://cards.scryfall.io/large/front/8/3/83e4e358-d639-4581-8c31-597f6d7fa57f.jpg?1783908038",
-        "normal": "https://cards.scryfall.io/normal/front/8/3/83e4e358-d639-4581-8c31-597f6d7fa57f.jpg?1783908038"
+        "png": "https://cards.scryfall.io/png/front/8/3/83d0b761-d694-4232-9f40-5bd8c82a05f1.png?1783906053",
+        "large": "https://cards.scryfall.io/large/front/8/3/83d0b761-d694-4232-9f40-5bd8c82a05f1.jpg?1783906053",
+        "normal": "https://cards.scryfall.io/normal/front/8/3/83d0b761-d694-4232-9f40-5bd8c82a05f1.jpg?1783906053"
+      }
+    },
+    {
+      "id": "861bc4e3-0445-44e6-bf58-a469b4a92192",
+      "oracle_id": "496e1083-c792-40a4-adf4-fec1d559cd5e",
+      "name": "Clue",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2025-04-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "TMKM-15",
+      "rarity": "common",
+      "type_line": "Token Artifact — Clue",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{2}, Sacrifice this token: Draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "74cdcb48-1772-44c5-b5ce-a451b45bb76c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.png?1783906763",
+        "large": "https://cards.scryfall.io/large/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.jpg?1783906763",
+        "normal": "https://cards.scryfall.io/normal/front/8/6/861bc4e3-0445-44e6-bf58-a469b4a92192.jpg?1783906763"
       }
     },
     {
@@ -1750,6 +1709,202 @@
       }
     },
     {
+      "id": "87bb746a-7959-4567-87a0-09e69fc78a4c",
+      "oracle_id": "32b03b48-06da-4a74-a7ac-e5ae39a4f428",
+      "name": "Fetid Pools",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-02-23",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2520",
+      "rarity": "rare",
+      "type_line": "Land — Island Swamp",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {U} or {B}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "keywords": [
+        "Cycling"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "1997",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "1d204923-95e7-41e1-9000-90789ed16ae9",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/7/87bb746a-7959-4567-87a0-09e69fc78a4c.png?1783904230",
+        "large": "https://cards.scryfall.io/large/front/8/7/87bb746a-7959-4567-87a0-09e69fc78a4c.jpg?1783904230",
+        "normal": "https://cards.scryfall.io/normal/front/8/7/87bb746a-7959-4567-87a0-09e69fc78a4c.jpg?1783904230"
+      }
+    },
+    {
+      "id": "8802b461-95a8-4739-8178-6c50837946b8",
+      "oracle_id": "82506e51-3fe1-446f-83c9-69e67583cefc",
+      "name": "Slip Out the Back",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-19",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "CLU-99",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{U}",
+      "oracle_text": "Put a +1/+1 counter on target creature. It phases out. (Treat it and anything attached to it as though they don't exist until its controller's next turn.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4e8d5334-284b-47f2-92a1-6902857a243e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/8/8802b461-95a8-4739-8178-6c50837946b8.png?1787678662",
+        "large": "https://cards.scryfall.io/large/front/8/8/8802b461-95a8-4739-8178-6c50837946b8.jpg?1787678662",
+        "normal": "https://cards.scryfall.io/normal/front/8/8/8802b461-95a8-4739-8178-6c50837946b8.jpg?1787678662"
+      }
+    },
+    {
+      "id": "8930a602-3a1f-48a9-b083-feeb433f2761",
+      "oracle_id": "22d7048e-d538-4fd3-9fb3-2e99e74875fe",
+      "name": "Jace's Sanctum",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2020-07-04",
+      "set": "pori",
+      "set_name": "Magic Origins Promos",
+      "set_type": "promo",
+      "collector_number": "61p",
+      "rarity": "rare",
+      "type_line": "Enchantment",
+      "cmc": 4,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{3}{U}",
+      "oracle_text": "Instant and sorcery spells you cast cost {1} less to cast.\nWhenever you cast an instant or sorcery spell, scry 1.",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": true,
+      "promo_types": [
+        "setpromo",
+        "promopack",
+        "stamped"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4d999d23-f35a-4018-816c-32eb638e423d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/9/8930a602-3a1f-48a9-b083-feeb433f2761.png?1783930513",
+        "large": "https://cards.scryfall.io/large/front/8/9/8930a602-3a1f-48a9-b083-feeb433f2761.jpg?1783930513",
+        "normal": "https://cards.scryfall.io/normal/front/8/9/8930a602-3a1f-48a9-b083-feeb433f2761.jpg?1783930513"
+      }
+    },
+    {
+      "id": "8eaeb2b7-ad2d-4e00-b37a-06963ae41bb2",
+      "oracle_id": "52e92296-7af9-4e68-8045-40b6d6b73910",
+      "name": "Rona, Sheoldred's Faithful",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-04-21",
+      "set": "mul",
+      "set_name": "Multiverse Legends",
+      "set_type": "masterpiece",
+      "collector_number": "58",
+      "rarity": "uncommon",
+      "type_line": "Legendary Creature — Human Wizard",
+      "cmc": 4,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "mana_cost": "{1}{U}{B}{B}",
+      "oracle_text": "Whenever you cast an instant or sorcery spell, each opponent loses 1 life.\nYou may cast this card from your graveyard by discarding two cards in addition to paying its other costs.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "showcase",
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "93488a91-068a-4431-93f6-cc3ab7c818aa",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/e/8eaeb2b7-ad2d-4e00-b37a-06963ae41bb2.png?1783916857",
+        "large": "https://cards.scryfall.io/large/front/8/e/8eaeb2b7-ad2d-4e00-b37a-06963ae41bb2.jpg?1783916857",
+        "normal": "https://cards.scryfall.io/normal/front/8/e/8eaeb2b7-ad2d-4e00-b37a-06963ae41bb2.jpg?1783916857"
+      }
+    },
+    {
+      "id": "8fcce60c-6baa-4f55-907a-4acc2a597030",
+      "oracle_id": "4c9bcba6-87b5-4fb3-97ee-6fe5b739337d",
+      "name": "Consider",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "spg",
+      "set_name": "Special Guests",
+      "set_type": "masterpiece",
+      "collector_number": "164",
+      "rarity": "mythic",
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{U}",
+      "oracle_text": "Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nDraw a card.",
+      "keywords": [
+        "Surveil"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e32cdcd7-a3e3-4363-b2ae-b11ebef28143",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/8/f/8fcce60c-6baa-4f55-907a-4acc2a597030.png?1790866133",
+        "large": "https://cards.scryfall.io/large/front/8/f/8fcce60c-6baa-4f55-907a-4acc2a597030.jpg?1790866133",
+        "normal": "https://cards.scryfall.io/normal/front/8/f/8fcce60c-6baa-4f55-907a-4acc2a597030.jpg?1790866133"
+      }
+    },
+    {
       "id": "90f8de01-c1bd-4533-9e98-61e7d25dcf88",
       "oracle_id": "eea18c55-8695-4ba1-9b38-3e7638692f5f",
       "name": "Saw in Half",
@@ -1785,86 +1940,56 @@
       }
     },
     {
-      "id": "939cc767-0de1-4d94-a1f9-fe07e923d343",
-      "oracle_id": "4c0a0448-b9d6-43a0-8549-64066dac63f0",
-      "name": "Talisman of Dominance",
+      "id": "94598167-dec4-425a-86bc-5989e2c3ba7c",
+      "oracle_id": "144119bc-7fd1-45c5-9e29-f742e7c255ac",
+      "name": "Clearwater Pathway // Murkwater Pathway",
       "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-02-14",
-      "set": "drc",
-      "set_name": "Aetherdrift Commander",
-      "set_type": "commander",
-      "collector_number": "141",
-      "rarity": "uncommon",
-      "type_line": "Artifact",
-      "cmc": 2,
+      "layout": "modal_dfc",
+      "released_at": "2021-03-05",
+      "set": "slu",
+      "set_name": "Secret Lair: Ultimate Edition",
+      "set_type": "box",
+      "collector_number": "15",
+      "rarity": "rare",
+      "type_line": "Land // Land",
+      "cmc": 0,
       "color_identity": [
         "B",
         "U"
       ],
-      "mana_cost": "{2}",
-      "oracle_text": "{T}: Add {C}.\n{T}: Add {U} or {B}. This artifact deals 1 damage to you.",
       "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "b98f8e9b-d282-46ea-a3c7-025ffd69b05f",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/9/3/939cc767-0de1-4d94-a1f9-fe07e923d343.png?1783907708",
-        "large": "https://cards.scryfall.io/large/front/9/3/939cc767-0de1-4d94-a1f9-fe07e923d343.jpg?1783907708",
-        "normal": "https://cards.scryfall.io/normal/front/9/3/939cc767-0de1-4d94-a1f9-fe07e923d343.jpg?1783907708"
-      }
-    },
-    {
-      "id": "98023ab4-50f4-4789-a632-162ef8270871",
-      "oracle_id": "7f7c917b-f940-4f43-bafa-31f50a6d9d6f",
-      "name": "Gandalf, Friend of the Shire",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-11-03",
-      "set": "ltr",
-      "set_name": "The Lord of the Rings: Tales of Middle-earth",
-      "set_type": "draft_innovation",
-      "collector_number": "800",
-      "rarity": "uncommon",
-      "type_line": "Legendary Creature — Avatar Wizard",
-      "cmc": 4,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "Flash\nYou may cast sorcery spells as though they had flash.\nWhenever the Ring tempts you, if you chose a creature other than Gandalf as your Ring-bearer, draw a card.",
-      "keywords": [
-        "Flash"
-      ],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
-      "frame_effects": [
-        "showcase",
-        "legendary"
-      ],
       "promo": false,
-      "promo_types": [
-        "boosterfun",
-        "surgefoil",
-        "universesbeyond"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "bb66e06f-d13e-41a5-b55a-cc97286a3e6a",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/9/8/98023ab4-50f4-4789-a632-162ef8270871.png?1783913971",
-        "large": "https://cards.scryfall.io/large/front/9/8/98023ab4-50f4-4789-a632-162ef8270871.jpg?1783913971",
-        "normal": "https://cards.scryfall.io/normal/front/9/8/98023ab4-50f4-4789-a632-162ef8270871.jpg?1783913971"
-      }
+      "card_faces": [
+        {
+          "name": "Clearwater Pathway",
+          "type_line": "Land",
+          "mana_cost": "",
+          "oracle_text": "{T}: Add {U}.",
+          "image_uris": {
+            "png": "https://cards.scryfall.io/png/front/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.png?1783927914",
+            "large": "https://cards.scryfall.io/large/front/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.jpg?1783927914",
+            "normal": "https://cards.scryfall.io/normal/front/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.jpg?1783927914"
+          }
+        },
+        {
+          "name": "Murkwater Pathway",
+          "type_line": "Land",
+          "mana_cost": "",
+          "oracle_text": "{T}: Add {B}.",
+          "image_uris": {
+            "png": "https://cards.scryfall.io/png/back/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.png?1783927914",
+            "large": "https://cards.scryfall.io/large/back/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.jpg?1783927914",
+            "normal": "https://cards.scryfall.io/normal/back/9/4/94598167-dec4-425a-86bc-5989e2c3ba7c.jpg?1783927914"
+          }
+        }
+      ]
     },
     {
       "id": "9a9e1edd-2a42-41a8-b089-66f3db080984",
@@ -1911,6 +2036,168 @@
       }
     },
     {
+      "id": "9afb58e8-f5a7-49f9-8287-77757bd3268c",
+      "oracle_id": "63c4ffe4-247d-497f-a2d3-c4d91f919d7b",
+      "name": "Wraith",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltc",
+      "set_name": "Tales of Middle-earth Commander Tokens",
+      "set_type": "token",
+      "collector_number": "7",
+      "rarity": "common",
+      "type_line": "Token Creature — Wraith",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Menace",
+      "keywords": [
+        "Menace"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "c6ec6a9a-ef24-4794-a0a8-f60ace2f3c76",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.png?1783916058",
+        "large": "https://cards.scryfall.io/large/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.jpg?1783916058",
+        "normal": "https://cards.scryfall.io/normal/front/9/a/9afb58e8-f5a7-49f9-8287-77757bd3268c.jpg?1783916058"
+      }
+    },
+    {
+      "id": "9e99599e-c594-42c6-b9e3-4dbb8e982f88",
+      "oracle_id": "e9b6a394-691c-425a-9307-76d8edc7375e",
+      "name": "Otawara, Soaring City",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-02-18",
+      "set": "neo",
+      "set_name": "Kamigawa: Neon Dynasty",
+      "set_type": "expansion",
+      "collector_number": "414",
+      "rarity": "rare",
+      "type_line": "Legendary Land",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "{T}: Add {U}.\nChannel — {3}{U}, Discard this card: Return target artifact, creature, enchantment, or planeswalker to its owner's hand. This ability costs {1} less to activate for each legendary creature you control.",
+      "keywords": [
+        "Channel"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "dff3e678-ea42-4bbf-ad49-12321bf60485",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/e/9e99599e-c594-42c6-b9e3-4dbb8e982f88.png?1783923760",
+        "large": "https://cards.scryfall.io/large/front/9/e/9e99599e-c594-42c6-b9e3-4dbb8e982f88.jpg?1783923760",
+        "normal": "https://cards.scryfall.io/normal/front/9/e/9e99599e-c594-42c6-b9e3-4dbb8e982f88.jpg?1783923760"
+      }
+    },
+    {
+      "id": "9eba002c-3562-4295-81e4-5f408f1556c6",
+      "oracle_id": "324824cb-f938-401c-b9b5-d8908b431ef0",
+      "name": "Snuff Out",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-27",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "1792",
+      "rarity": "rare",
+      "type_line": "Instant",
+      "cmc": 4,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{3}{B}",
+      "oracle_text": "If you control a Swamp, you may pay 4 life rather than pay this spell's mana cost.\nDestroy target nonblack creature. It can't be regenerated.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "256f4569-9b02-4a4a-b3ae-ee301037dfc0",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/9/e/9eba002c-3562-4295-81e4-5f408f1556c6.png?1783909710",
+        "large": "https://cards.scryfall.io/large/front/9/e/9eba002c-3562-4295-81e4-5f408f1556c6.jpg?1783909710",
+        "normal": "https://cards.scryfall.io/normal/front/9/e/9eba002c-3562-4295-81e4-5f408f1556c6.jpg?1783909710"
+      }
+    },
+    {
+      "id": "a125806c-a837-4220-bd05-083e00b1638d",
+      "oracle_id": "ac641490-ca14-48d7-8cc4-b69ce984befa",
+      "name": "Preordain",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-09-30",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "1719",
+      "rarity": "rare",
+      "type_line": "Sorcery",
+      "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{U}",
+      "oracle_text": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "poster"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e88e13c3-e419-4f2c-8f58-aa5ad6d07bf0",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/1/a125806c-a837-4220-bd05-083e00b1638d.png?1783909218",
+        "large": "https://cards.scryfall.io/large/front/a/1/a125806c-a837-4220-bd05-083e00b1638d.jpg?1783909218",
+        "normal": "https://cards.scryfall.io/normal/front/a/1/a125806c-a837-4220-bd05-083e00b1638d.jpg?1783909218"
+      }
+    },
+    {
       "id": "a30c266d-579e-4757-a4d6-6722fa343a6c",
       "oracle_id": "0456ec64-2c81-4763-a352-8ff64a4c3d6b",
       "name": "Deadly Rollick",
@@ -1952,75 +2239,82 @@
       }
     },
     {
-      "id": "a7eede83-6f1b-4054-b01c-0da17b197bad",
-      "oracle_id": "1225bee2-c829-4a93-9f75-3495277c23bc",
-      "name": "Illusionist's Stratagem",
+      "id": "a4a2a4ce-a44b-480b-b1a2-94fb2514c082",
+      "oracle_id": "16e015b2-f8a3-4b1a-80be-58a8f5fb5e8c",
+      "name": "Frantic Search",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2017-01-20",
-      "set": "aer",
-      "set_name": "Aether Revolt",
-      "set_type": "expansion",
-      "collector_number": "36",
-      "rarity": "uncommon",
-      "type_line": "Instant",
-      "cmc": 4,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "Exile up to two target creatures you control, then return those cards to the battlefield under their owner's control.\nDraw a card.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "623a29e1-4735-438e-80a5-012984ca99a7",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/a/7/a7eede83-6f1b-4054-b01c-0da17b197bad.png?1783936772",
-        "large": "https://cards.scryfall.io/large/front/a/7/a7eede83-6f1b-4054-b01c-0da17b197bad.jpg?1783936772",
-        "normal": "https://cards.scryfall.io/normal/front/a/7/a7eede83-6f1b-4054-b01c-0da17b197bad.jpg?1783936772"
-      }
-    },
-    {
-      "id": "a865fdc5-955a-4c4a-90c0-342c15fd7bbc",
-      "oracle_id": "9e2adca5-f39c-4a09-bcce-8238ebac2c4a",
-      "name": "Cackling Counterpart",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-01-24",
-      "set": "inr",
-      "set_name": "Innistrad Remastered",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
       "set_type": "masters",
-      "collector_number": "55",
-      "rarity": "uncommon",
+      "collector_number": "632",
+      "rarity": "common",
       "type_line": "Instant",
       "cmc": 3,
       "color_identity": [
         "U"
       ],
-      "mana_cost": "{1}{U}{U}",
-      "oracle_text": "Create a token that's a copy of target creature you control.\nFlashback {5}{U}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
-      "keywords": [
-        "Flashback"
-      ],
+      "mana_cost": "{2}{U}",
+      "oracle_text": "Draw two cards, then discard two cards. Untap up to three lands.",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "black",
+      "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "45f18095-437a-4db6-80b1-47a60e715144",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/4/a4a2a4ce-a44b-480b-b1a2-94fb2514c082.png?1783915513",
+        "large": "https://cards.scryfall.io/large/front/a/4/a4a2a4ce-a44b-480b-b1a2-94fb2514c082.jpg?1783915513",
+        "normal": "https://cards.scryfall.io/normal/front/a/4/a4a2a4ce-a44b-480b-b1a2-94fb2514c082.jpg?1783915513"
+      }
+    },
+    {
+      "id": "a92394e2-00d3-4106-86ff-e9823e346a97",
+      "oracle_id": "ab1cc360-b9de-48d9-9983-4dfe4a7d2a37",
+      "name": "Arcane Denial",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-02-09",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2489",
+      "rarity": "rare",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{1}{U}",
+      "oracle_text": "Counter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep.\nYou draw a card at the beginning of the next turn's upkeep.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "cf3d5593-4fa7-442f-97ec-c355cd6d2796",
+      "illustration_id": "96ef87dd-3019-45ea-825a-02207b54696d",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/a/8/a865fdc5-955a-4c4a-90c0-342c15fd7bbc.png?1783908167",
-        "large": "https://cards.scryfall.io/large/front/a/8/a865fdc5-955a-4c4a-90c0-342c15fd7bbc.jpg?1783908167",
-        "normal": "https://cards.scryfall.io/normal/front/a/8/a865fdc5-955a-4c4a-90c0-342c15fd7bbc.jpg?1783908167"
+        "png": "https://cards.scryfall.io/png/front/a/9/a92394e2-00d3-4106-86ff-e9823e346a97.png?1783904247",
+        "large": "https://cards.scryfall.io/large/front/a/9/a92394e2-00d3-4106-86ff-e9823e346a97.jpg?1783904247",
+        "normal": "https://cards.scryfall.io/normal/front/a/9/a92394e2-00d3-4106-86ff-e9823e346a97.jpg?1783904247"
       }
     },
     {
@@ -2081,41 +2375,77 @@
       ]
     },
     {
-      "id": "aaeb5981-7e6a-4ffd-bb02-4757b2e92f08",
-      "oracle_id": "3f6f4c98-ed7e-4fb1-8bfe-4210a39f77f2",
-      "name": "Unstoppable Plan",
+      "id": "aa15d3b3-c709-4d9b-a9ec-c8d68f805ebf",
+      "oracle_id": "95560508-7ac9-4be9-8a3f-3c7d5b52807b",
+      "name": "Fellwar Stone",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-02-14",
-      "set": "dft",
-      "set_name": "Aetherdrift",
-      "set_type": "expansion",
-      "collector_number": "72",
-      "rarity": "rare",
-      "type_line": "Enchantment",
-      "cmc": 3,
-      "color_identity": [
-        "U"
-      ],
-      "mana_cost": "{2}{U}",
-      "oracle_text": "At the beginning of your end step, untap all nonland permanents you control.",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "657",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "black",
+      "border_color": "borderless",
       "frame": "2015",
       "frame_effects": [
-        "enchantment"
+        "inverted"
       ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "1b468792-4109-4f1d-be71-242b428d35c2",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/a/aa15d3b3-c709-4d9b-a9ec-c8d68f805ebf.png?1783915505",
+        "large": "https://cards.scryfall.io/large/front/a/a/aa15d3b3-c709-4d9b-a9ec-c8d68f805ebf.jpg?1783915505",
+        "normal": "https://cards.scryfall.io/normal/front/a/a/aa15d3b3-c709-4d9b-a9ec-c8d68f805ebf.jpg?1783915505"
+      }
+    },
+    {
+      "id": "af42be9a-aae2-4a1a-b0f4-dfca7d55f488",
+      "oracle_id": "7ffae8f8-3006-4969-a339-6d30678f87ea",
+      "name": "Night's Whisper",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-09-02",
+      "set": "slz",
+      "set_name": "The Zeta Set",
+      "set_type": "box",
+      "collector_number": "48",
+      "rarity": "common",
+      "type_line": "Sorcery",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{1}{B}",
+      "oracle_text": "You draw two cards and lose 2 life.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "5716bd43-120e-4d2f-b6e6-0177ecf44f5e",
+      "illustration_id": "02fe9bfe-dd56-4a58-af25-82a80a3efdf2",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/a/a/aaeb5981-7e6a-4ffd-bb02-4757b2e92f08.png?1783907901",
-        "large": "https://cards.scryfall.io/large/front/a/a/aaeb5981-7e6a-4ffd-bb02-4757b2e92f08.jpg?1783907901",
-        "normal": "https://cards.scryfall.io/normal/front/a/a/aaeb5981-7e6a-4ffd-bb02-4757b2e92f08.jpg?1783907901"
+        "png": "https://cards.scryfall.io/png/front/a/f/af42be9a-aae2-4a1a-b0f4-dfca7d55f488.png?1787673799",
+        "large": "https://cards.scryfall.io/large/front/a/f/af42be9a-aae2-4a1a-b0f4-dfca7d55f488.jpg?1787673799",
+        "normal": "https://cards.scryfall.io/normal/front/a/f/af42be9a-aae2-4a1a-b0f4-dfca7d55f488.jpg?1787673799"
       }
     },
     {
@@ -2154,24 +2484,94 @@
       }
     },
     {
-      "id": "b87891cd-b457-4dff-8d18-a7eaf6748fc6",
-      "oracle_id": "6c8f276e-4e7b-4974-ab02-9356cc0ffb2b",
-      "name": "Witch's Cottage",
+      "id": "b677a099-ecec-4a55-8277-4c2f4788de4c",
+      "oracle_id": "36cd2364-d113-47d1-b2c4-b088d9eb88dd",
+      "name": "Brainstorm",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2019-10-04",
-      "set": "eld",
-      "set_name": "Throne of Eldraine",
-      "set_type": "expansion",
-      "collector_number": "249",
+      "released_at": "2026-09-02",
+      "set": "slz",
+      "set_name": "The Zeta Set",
+      "set_type": "box",
+      "collector_number": "13",
       "rarity": "common",
-      "type_line": "Land — Swamp",
-      "cmc": 0,
+      "type_line": "Instant",
+      "cmc": 1,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{U}",
+      "oracle_text": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "2f8d8b4d-be01-4590-8775-2789200c13bb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/6/b677a099-ecec-4a55-8277-4c2f4788de4c.png?1787661587",
+        "large": "https://cards.scryfall.io/large/front/b/6/b677a099-ecec-4a55-8277-4c2f4788de4c.jpg?1787661587",
+        "normal": "https://cards.scryfall.io/normal/front/b/6/b677a099-ecec-4a55-8277-4c2f4788de4c.jpg?1787661587"
+      }
+    },
+    {
+      "id": "b8a8df5d-9582-4797-ae26-f64668972a1b",
+      "oracle_id": "5b5bf1fa-6502-4790-b66b-f0f8504ebc7c",
+      "name": "Cabal Ritual",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "mb2",
+      "set_name": "Mystery Booster 2",
+      "set_type": "masters",
+      "collector_number": "177",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 2,
       "color_identity": [
         "B"
       ],
+      "mana_cost": "{1}{B}",
+      "oracle_text": "Add {B}{B}{B}.\nThreshold — Add {B}{B}{B}{B}{B} instead if there are seven or more cards in your graveyard.",
+      "keywords": [
+        "Threshold"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "future",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "bafcb4cd-ab27-4b67-83ed-9ce11c64375c",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.png?1783910565",
+        "large": "https://cards.scryfall.io/large/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.jpg?1783910565",
+        "normal": "https://cards.scryfall.io/normal/front/b/8/b8a8df5d-9582-4797-ae26-f64668972a1b.jpg?1783910565"
+      }
+    },
+    {
+      "id": "b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-11-13",
+      "set": "ttrk",
+      "set_name": "Star Trek Tokens",
+      "set_type": "token",
+      "collector_number": "26",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
       "mana_cost": "",
-      "oracle_text": "({T}: Add {B}.)\nThis land enters tapped unless you control three or more other Swamps.\nWhen this land enters untapped, you may put target creature card from your graveyard on top of your library.",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -2181,11 +2581,92 @@
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "f9f2672a-cad6-4b30-815e-42bbf3dd6aa0",
+      "illustration_id": "076d31c3-4e92-4209-bd47-3d1b5c76d6b5",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/b/8/b87891cd-b457-4dff-8d18-a7eaf6748fc6.png?1783932575",
-        "large": "https://cards.scryfall.io/large/front/b/8/b87891cd-b457-4dff-8d18-a7eaf6748fc6.jpg?1783932575",
-        "normal": "https://cards.scryfall.io/normal/front/b/8/b87891cd-b457-4dff-8d18-a7eaf6748fc6.jpg?1783932575"
+        "png": "https://cards.scryfall.io/png/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.png?1793364377",
+        "large": "https://cards.scryfall.io/large/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.jpg?1793364377",
+        "normal": "https://cards.scryfall.io/normal/front/b/8/b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b.jpg?1793364377"
+      }
+    },
+    {
+      "id": "bbbbfc7f-51b6-4925-a0f7-b2873366653e",
+      "oracle_id": "ea1eb902-a23c-44ff-9169-19baf71de238",
+      "name": "Talrand, Sky Summoner",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "673",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Merfolk Wizard",
+      "cmc": 4,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{2}{U}{U}",
+      "oracle_text": "Whenever you cast an instant or sorcery spell, create a 2/2 blue Drake creature token with flying.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "portrait",
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "337bebac-3b55-495d-8c96-ffe10854c696",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/b/bbbbfc7f-51b6-4925-a0f7-b2873366653e.png?1783915500",
+        "large": "https://cards.scryfall.io/large/front/b/b/bbbbfc7f-51b6-4925-a0f7-b2873366653e.jpg?1783915500",
+        "normal": "https://cards.scryfall.io/normal/front/b/b/bbbbfc7f-51b6-4925-a0f7-b2873366653e.jpg?1783915500"
+      }
+    },
+    {
+      "id": "bc4cd881-9c34-4cf9-8afe-050e803f34a6",
+      "oracle_id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "385",
+      "rarity": "common",
+      "type_line": "Basic Land — Island",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {U}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e0711e1b-a045-4187-985d-5837e8bf6253",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.png?1790136912",
+        "large": "https://cards.scryfall.io/large/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.jpg?1790136912",
+        "normal": "https://cards.scryfall.io/normal/front/b/c/bc4cd881-9c34-4cf9-8afe-050e803f34a6.jpg?1790136912"
       }
     },
     {
@@ -2269,42 +2750,78 @@
       }
     },
     {
-      "id": "c23c801e-b429-45d3-896e-289ec0497db0",
-      "oracle_id": "76678885-3674-443d-b9a2-2a460cf6aac0",
-      "name": "Panharmonicon",
+      "id": "be6400e8-7f99-4005-9a92-ffbc359d3871",
+      "oracle_id": "35a17b42-9d3f-49ef-8218-2780c5ef5f08",
+      "name": "Soothing of Sméagol",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2022-07-08",
-      "set": "2x2",
-      "set_name": "Double Masters 2022",
-      "set_type": "masters",
-      "collector_number": "395",
-      "rarity": "rare",
-      "type_line": "Artifact",
-      "cmc": 4,
-      "color_identity": [],
-      "mana_cost": "{4}",
-      "oracle_text": "If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
+      "released_at": "2023-06-23",
+      "set": "ltr",
+      "set_name": "The Lord of the Rings: Tales of Middle-earth",
+      "set_type": "draft_innovation",
+      "collector_number": "70",
+      "rarity": "common",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{1}{U}",
+      "oracle_text": "Return target nontoken creature to its owner's hand. The Ring tempts you.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
       "promo": false,
       "promo_types": [
-        "boosterfun"
+        "universesbeyond"
       ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "45687524-7782-4302-a75b-3f7ddac2066a",
+      "illustration_id": "c3ec09c7-c417-4eec-8d71-da6f95f12e4e",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/c/2/c23c801e-b429-45d3-896e-289ec0497db0.png?1783921754",
-        "large": "https://cards.scryfall.io/large/front/c/2/c23c801e-b429-45d3-896e-289ec0497db0.jpg?1783921754",
-        "normal": "https://cards.scryfall.io/normal/front/c/2/c23c801e-b429-45d3-896e-289ec0497db0.jpg?1783921754"
+        "png": "https://cards.scryfall.io/png/front/b/e/be6400e8-7f99-4005-9a92-ffbc359d3871.png?1783916309",
+        "large": "https://cards.scryfall.io/large/front/b/e/be6400e8-7f99-4005-9a92-ffbc359d3871.jpg?1783916309",
+        "normal": "https://cards.scryfall.io/normal/front/b/e/be6400e8-7f99-4005-9a92-ffbc359d3871.jpg?1783916309"
+      }
+    },
+    {
+      "id": "c3acd528-c46c-4fa5-9038-8f821ba49014",
+      "oracle_id": "579cbd92-797f-4cdf-91ed-fca7a523eae5",
+      "name": "Deep Analysis",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-24",
+      "set": "soc",
+      "set_name": "Secrets of Strixhaven Commander",
+      "set_type": "commander",
+      "collector_number": "194",
+      "rarity": "common",
+      "type_line": "Sorcery",
+      "cmc": 4,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{3}{U}",
+      "oracle_text": "Target player draws two cards.\nFlashback—{1}{U}, Pay 3 life. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+      "keywords": [
+        "Flashback"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a71a542c-c07a-4593-8fc3-15ac63dc3e11",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/3/c3acd528-c46c-4fa5-9038-8f821ba49014.png?1783903790",
+        "large": "https://cards.scryfall.io/large/front/c/3/c3acd528-c46c-4fa5-9038-8f821ba49014.jpg?1783903790",
+        "normal": "https://cards.scryfall.io/normal/front/c/3/c3acd528-c46c-4fa5-9038-8f821ba49014.jpg?1783903790"
       }
     },
     {
@@ -2421,48 +2938,80 @@
       }
     },
     {
-      "id": "e5f2648f-990d-44d7-a7bf-0db99bdc3015",
-      "oracle_id": "aeddfdc2-149b-4703-ba57-8d844b25ef08",
-      "name": "Waterbender Ascension",
+      "id": "da3de5c0-acda-4116-b0c5-eceb2c19cb2d",
+      "oracle_id": "365548fb-5acc-4a8a-b20b-26d28b7d029f",
+      "name": "Village Rites",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-11-21",
-      "set": "tla",
-      "set_name": "Avatar: The Last Airbender",
-      "set_type": "expansion",
-      "collector_number": "310",
-      "rarity": "rare",
-      "type_line": "Enchantment",
-      "cmc": 2,
+      "released_at": "2021-04-23",
+      "set": "sta",
+      "set_name": "Strixhaven Mystical Archive",
+      "set_type": "masterpiece",
+      "collector_number": "35",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 1,
       "color_identity": [
-        "U"
+        "B"
       ],
-      "mana_cost": "{1}{U}",
-      "oracle_text": "Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more quest counters on it, draw a card.\nWaterbend {4}: Target creature can't be blocked this turn. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
-      "keywords": [
-        "Waterbend"
-      ],
+      "mana_cost": "{B}",
+      "oracle_text": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards.",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
       "frame_effects": [
-        "enchantment",
-        "inverted"
+        "showcase"
       ],
       "promo": false,
-      "promo_types": [
-        "universesbeyond",
-        "boosterfun"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "6b403d31-b1a3-4615-bb6d-e1a08ba4cc77",
+      "illustration_id": "82a0ae8b-5c5b-4b0a-a912-94bcdea3f988",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/e/5/e5f2648f-990d-44d7-a7bf-0db99bdc3015.png?1783904896",
-        "large": "https://cards.scryfall.io/large/front/e/5/e5f2648f-990d-44d7-a7bf-0db99bdc3015.jpg?1783904896",
-        "normal": "https://cards.scryfall.io/normal/front/e/5/e5f2648f-990d-44d7-a7bf-0db99bdc3015.jpg?1783904896"
+        "png": "https://cards.scryfall.io/png/front/d/a/da3de5c0-acda-4116-b0c5-eceb2c19cb2d.png?1783927432",
+        "large": "https://cards.scryfall.io/large/front/d/a/da3de5c0-acda-4116-b0c5-eceb2c19cb2d.jpg?1783927432",
+        "normal": "https://cards.scryfall.io/normal/front/d/a/da3de5c0-acda-4116-b0c5-eceb2c19cb2d.jpg?1783927432"
+      }
+    },
+    {
+      "id": "db465858-0593-4850-8f1d-400fe230a18d",
+      "oracle_id": "776341cb-d2ec-423f-9250-92dc8bd8d503",
+      "name": "Bitter Triumph",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-24",
+      "set": "soa",
+      "set_name": "Secrets of Strixhaven Mystical Archive",
+      "set_type": "masterpiece",
+      "collector_number": "26",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{1}{B}",
+      "oracle_text": "As an additional cost to cast this spell, discard a card or pay 3 life.\nDestroy target creature or planeswalker.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted",
+        "showcase"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "9bfc6045-3a1c-489b-9da0-f03331292f06",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/b/db465858-0593-4850-8f1d-400fe230a18d.png?1783903925",
+        "large": "https://cards.scryfall.io/large/front/d/b/db465858-0593-4850-8f1d-400fe230a18d.jpg?1783903925",
+        "normal": "https://cards.scryfall.io/normal/front/d/b/db465858-0593-4850-8f1d-400fe230a18d.jpg?1783903925"
       }
     },
     {
@@ -2471,7 +3020,7 @@
       "name": "Wonder",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-11-09",
+      "released_at": "2026-10-19",
       "set": "plst",
       "set_name": "The List",
       "set_type": "masters",
@@ -2506,17 +3055,17 @@
       }
     },
     {
-      "id": "e9ca6518-aa90-4614-86aa-b972f60cce49",
+      "id": "e8418418-10bb-48e1-83ed-0081390384b4",
       "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
       "name": "Swamp",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2542",
-      "rarity": "rare",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "388",
+      "rarity": "common",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
       "color_identity": [
@@ -2530,100 +3079,174 @@
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "571852a3-ef21-4714-b120-b4dd68e2c05d",
+      "illustration_id": "d8684d46-2947-4d6c-9d0a-0a0b138df880",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.png?1783903503",
-        "large": "https://cards.scryfall.io/large/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503",
-        "normal": "https://cards.scryfall.io/normal/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503"
+        "png": "https://cards.scryfall.io/png/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.png?1790136927",
+        "large": "https://cards.scryfall.io/large/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927",
+        "normal": "https://cards.scryfall.io/normal/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927"
       }
     },
     {
-      "id": "eb6f8c8c-1905-4c3c-aa03-d56bce983559",
-      "oracle_id": "4add809e-9caa-45ae-bb0d-4760a360b8e2",
-      "name": "Starfield Vocalist",
+      "id": "e9ad18b2-1061-4893-9171-07ffe142a762",
+      "oracle_id": "d473b507-8c33-4118-bc10-b0a268776074",
+      "name": "Choked Estuary",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-08-01",
-      "set": "eoe",
-      "set_name": "Edge of Eternities",
-      "set_type": "expansion",
-      "collector_number": "359",
-      "rarity": "mythic",
-      "type_line": "Creature — Human Bard",
-      "cmc": 4,
+      "released_at": "2024-02-09",
+      "set": "mkc",
+      "set_name": "Murders at Karlov Manor Commander",
+      "set_type": "commander",
+      "collector_number": "254",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
       "color_identity": [
+        "B",
         "U"
       ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "If a permanent entering the battlefield causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\nWarp {1}{U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
-      "keywords": [
-        "Warp"
-      ],
+      "mana_cost": "",
+      "oracle_text": "As this land enters, you may reveal an Island or Swamp card from your hand. If you don't, this land enters tapped.\n{T}: Add {U} or {B}.",
+      "keywords": [],
       "game_changer": false,
-      "full_art": true,
+      "full_art": false,
       "textless": false,
       "border_color": "black",
       "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "26c08eb2-a65e-4518-a17a-08874a70090b",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.png?1783912965",
+        "large": "https://cards.scryfall.io/large/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.jpg?1783912965",
+        "normal": "https://cards.scryfall.io/normal/front/e/9/e9ad18b2-1061-4893-9171-07ffe142a762.jpg?1783912965"
+      }
+    },
+    {
+      "id": "f1168f11-759d-4125-800f-f18816da025c",
+      "oracle_id": "94f0a572-e91c-4b56-a5d1-6cbbeabd210d",
+      "name": "Infernal Grasp",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2025-01-24",
+      "set": "inr",
+      "set_name": "Innistrad Remastered",
+      "set_type": "masters",
+      "collector_number": "310",
+      "rarity": "uncommon",
+      "type_line": "Instant",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "mana_cost": "{1}{B}",
+      "oracle_text": "Destroy target creature. You lose 2 life.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
       "frame_effects": [
-        "showcase",
         "inverted"
       ],
       "promo": false,
       "promo_types": [
-        "japanshowcase",
         "boosterfun"
       ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "7f0841c9-1680-4319-9584-c8fac93a5568",
+      "illustration_id": "e20815ac-70b0-4590-8ec2-4eef3cbce0c8",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/e/b/eb6f8c8c-1905-4c3c-aa03-d56bce983559.png?1783905879",
-        "large": "https://cards.scryfall.io/large/front/e/b/eb6f8c8c-1905-4c3c-aa03-d56bce983559.jpg?1783905879",
-        "normal": "https://cards.scryfall.io/normal/front/e/b/eb6f8c8c-1905-4c3c-aa03-d56bce983559.jpg?1783905879"
+        "png": "https://cards.scryfall.io/png/front/f/1/f1168f11-759d-4125-800f-f18816da025c.png?1783908044",
+        "large": "https://cards.scryfall.io/large/front/f/1/f1168f11-759d-4125-800f-f18816da025c.jpg?1783908044",
+        "normal": "https://cards.scryfall.io/normal/front/f/1/f1168f11-759d-4125-800f-f18816da025c.jpg?1783908044"
       }
     },
     {
-      "id": "f8520f29-5cfc-4ebb-8943-49cda758965b",
-      "oracle_id": "a4f8012e-9880-45b0-9eba-d74c207d3242",
-      "name": "Naga Fleshcrafter",
+      "id": "f1de6f4a-ec3f-4bdb-902f-2e04f36ad7f4",
+      "oracle_id": "713332c1-5bd8-400f-bfff-c1ca0697a043",
+      "name": "Opt",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2025-04-11",
-      "set": "ptdm",
-      "set_name": "Tarkir: Dragonstorm Promos",
-      "set_type": "promo",
-      "collector_number": "52p",
+      "released_at": "2025-07-25",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2068",
       "rarity": "rare",
-      "type_line": "Creature — Snake Shapeshifter",
-      "cmc": 4,
+      "type_line": "Instant",
+      "cmc": 1,
       "color_identity": [
         "U"
       ],
-      "mana_cost": "{3}{U}",
-      "oracle_text": "You may have this creature enter as a copy of any creature on the battlefield.\nRenew — {2}{U}, Exile this card from your graveyard: Put a +1/+1 counter on target nonlegendary creature you control. Each other creature you control becomes a copy of that creature until end of turn. Activate only as a sorcery.",
+      "mana_cost": "{U}",
+      "oracle_text": "Scry 1. (Look at the top card of your library. You may put that card on the bottom.)\nDraw a card.",
       "keywords": [
-        "Renew"
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "rainbowfoil"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "74d2c762-24e9-4077-be8c-be5844b2f409",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/1/f1de6f4a-ec3f-4bdb-902f-2e04f36ad7f4.png?1791470764",
+        "large": "https://cards.scryfall.io/large/front/f/1/f1de6f4a-ec3f-4bdb-902f-2e04f36ad7f4.jpg?1791470764",
+        "normal": "https://cards.scryfall.io/normal/front/f/1/f1de6f4a-ec3f-4bdb-902f-2e04f36ad7f4.jpg?1791470764"
+      }
+    },
+    {
+      "id": "f42bd4af-3c3a-4750-8e21-03d0aba3116f",
+      "oracle_id": "e10065ba-fe24-4974-a500-d4151397a4d9",
+      "name": "Trail of Evidence",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-11-07",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "SOI-93",
+      "rarity": "uncommon",
+      "type_line": "Enchantment",
+      "cmc": 3,
+      "color_identity": [
+        "U"
+      ],
+      "mana_cost": "{2}{U}",
+      "oracle_text": "Whenever you cast an instant or sorcery spell, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "keywords": [
+        "Investigate"
       ],
       "game_changer": false,
       "full_art": false,
       "textless": false,
       "border_color": "black",
       "frame": "2015",
-      "promo": true,
-      "promo_types": [
-        "promopack",
-        "stamped"
-      ],
+      "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "09893250-4c24-4b13-9f0e-d794641f7c15",
+      "illustration_id": "b5c30153-2b2c-46e7-b3a8-2ffbe88fadb6",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/f/8/f8520f29-5cfc-4ebb-8943-49cda758965b.png?1783906903",
-        "large": "https://cards.scryfall.io/large/front/f/8/f8520f29-5cfc-4ebb-8943-49cda758965b.jpg?1783906903",
-        "normal": "https://cards.scryfall.io/normal/front/f/8/f8520f29-5cfc-4ebb-8943-49cda758965b.jpg?1783906903"
+        "png": "https://cards.scryfall.io/png/front/f/4/f42bd4af-3c3a-4750-8e21-03d0aba3116f.png?1783932200",
+        "large": "https://cards.scryfall.io/large/front/f/4/f42bd4af-3c3a-4750-8e21-03d0aba3116f.jpg?1783932200",
+        "normal": "https://cards.scryfall.io/normal/front/f/4/f42bd4af-3c3a-4750-8e21-03d0aba3116f.jpg?1783932200"
       }
     },
     {
@@ -2666,73 +3289,90 @@
     }
   ],
   "chosen": {
-    "akroma's memorial": "7c23360d-ff57-412c-9899-6050cb481da6",
     "an offer you can't refuse": "11fb44d4-5b5f-4fec-86a4-dd5d1c974155",
+    "arcane denial": "a92394e2-00d3-4106-86ff-e9823e346a97",
     "arcane signet": "6002d99a-c7b4-4845-aca9-b55dabb62d9f",
     "archmage of runes": "15f15cc5-c3dc-4830-aa55-13080c738739",
-    "argonath, pillars of the kings": "7d9df3ce-25f9-426c-a113-6aea53ddf619",
-    "bender's waterskin": "6d4a1712-d19e-4475-9614-a0b1af4da610",
     "birthday escape": "42db2313-b13d-4292-bef2-bf86f989d32f",
-    "bojuka bog": "55b5b094-9d2d-4d96-b90c-78fecdae725a",
-    "bonders' enclave": "02a16e1e-1ea8-49af-9cde-2166134f7bdc",
-    "cackling counterpart": "a865fdc5-955a-4c4a-90c0-342c15fd7bbc",
+    "bitter triumph": "db465858-0593-4850-8f1d-400fe230a18d",
+    "bojuka bog": "3999a519-bfd5-43cf-b7b1-40ed5eb0a05a",
+    "brainstorm": "b677a099-ecec-4a55-8277-4c2f4788de4c",
+    "cabal ritual": "b8a8df5d-9582-4797-ae26-f64668972a1b",
     "call of the ring": "80922e7e-e111-4222-bb44-386c1b8b4db9",
-    "cancel": "475bff39-220a-4490-9c2e-d311e306a6db",
+    "choked estuary": "e9ad18b2-1061-4893-9171-07ffe142a762",
     "claim the precious": "121c12c4-83ea-463e-8fdf-30718968a2bd",
+    "clearwater pathway": "94598167-dec4-425a-86bc-5989e2c3ba7c",
     "command tower": "7ada3564-2d74-465b-a51d-7b0f7023c0ad",
-    "conjurer's closet": "83e4e358-d639-4581-8c31-597f6d7fa57f",
+    "consider": "8fcce60c-6baa-4f55-907a-4acc2a597030",
     "counterspell": "87284999-8b35-4142-a711-0c9e1bdc8e1a",
+    "cover of darkness": "0d6d7d88-d82b-40f4-bf57-ec5d7c480689",
     "cyclonic rift": "7037f57a-ca89-41bd-bf7f-2f54593c0f48",
     "dark ritual": "c45dabd1-0ff7-4ef4-b5e9-9a0bce5b2bce",
+    "darkslick shores": "2b95c400-8fa0-489d-b401-5e2ec4241942",
+    "darkwater catacombs": "01dc71d4-b443-4580-b16f-9e92750f4a72",
     "deadly rollick": "a30c266d-579e-4757-a4d6-6722fa343a6c",
-    "deceptive frostkite": "1f87120f-d2a7-4c06-aadd-3ed5729d7abf",
-    "displace": "6b49918f-693b-46b4-aaa4-e2a1d650293d",
+    "deep analysis": "c3acd528-c46c-4fa5-9038-8f821ba49014",
+    "dimir signet": "0862060d-3198-4eeb-af8c-efeb27f42a99",
+    "dispel": "72df0898-72a4-444a-83bf-8252bd6ae563",
+    "drowned catacomb": "70afd57f-d4cb-4219-a2c7-28ed9b1abe0f",
+    "fellwar stone": "aa15d3b3-c709-4d9b-a9ec-c8d68f805ebf",
+    "fetid pools": "87bb746a-7959-4567-87a0-09e69fc78a4c",
     "fierce guardianship": "180679fa-b820-4793-8f2e-a2d8791192d5",
-    "gandalf, friend of the shire": "98023ab4-50f4-4789-a632-162ef8270871",
-    "ghostly flicker": "42b91084-e07e-4368-820e-c2ea24122340",
+    "frantic search": "a4a2a4ce-a44b-480b-b1a2-94fb2514c082",
     "go for the throat": "b0a79a71-7510-4427-a514-5f50811664a8",
-    "gogo, master of mimicry": "054e180d-4e66-426d-adb5-a4fee94b6a67",
-    "hide on the ceiling": "7977e448-01fa-4fa5-a275-0d6a1357b35c",
-    "illusionist's stratagem": "a7eede83-6f1b-4054-b01c-0da17b197bad",
-    "impostor syndrome": "08da9f92-0e25-4f39-aaa4-d8974af81a41",
-    "island": "212e84a3-e028-42a6-a639-f42b64ab7015",
+    "gollum's bite": "1b1e790e-ff82-4888-8aee-9986c646241a",
+    "infernal grasp": "f1168f11-759d-4125-800f-f18816da025c",
+    "island": "bc4cd881-9c34-4cf9-8afe-050e803f34a6",
+    "jace's sanctum": "8930a602-3a1f-48a9-b083-feeb433f2761",
+    "jet medallion": "29b25772-8512-4270-851b-289cd182d819",
+    "levitation": "63e5124a-67c0-44ed-8085-28bf37816423",
     "lord of the nazgûl": "41e3d118-8f97-4c68-acff-2f90a055af5b",
-    "myriad landscape": "5efb9b5a-f904-4934-9530-87d752eeae75",
+    "minas morgul, dark fortress": "27b2d8b7-3160-4a51-a898-a3c05180ff75",
+    "morphic pool": "48e40927-dd87-42ed-b805-0ae8ba81f5fb",
     "mystic sanctuary": "285b5f42-17e2-4036-a309-8abd393c6263",
-    "mystical tutor": "000a5154-90ba-459e-b122-d6893dfdb56f",
-    "naga fleshcrafter": "f8520f29-5cfc-4ebb-8943-49cda758965b",
     "nazgûl": "ce65226a-12cd-416a-bb60-12e9b35f609b",
     "negate": "5bfe3a17-3349-4fcc-a9b5-418faa55cc43",
+    "night's whisper": "af42be9a-aae2-4a1a-b0f4-dfca7d55f488",
     "ojer pakpatiq, deepest epoch": "a9d71007-bc04-4dff-ad3f-e2c0b5b4400e",
-    "orvar, the all-form": "40bb0bdb-4292-4617-a9ef-79302d94a075",
-    "panharmonicon": "c23c801e-b429-45d3-896e-289ec0497db0",
+    "opt": "f1de6f4a-ec3f-4bdb-902f-2e04f36ad7f4",
+    "otawara, soaring city": "9e99599e-c594-42c6-b9e3-4dbb8e982f88",
     "ponder": "cd165fe9-7de3-4883-a258-e397472db606",
+    "preordain": "a125806c-a837-4220-bd05-083e00b1638d",
+    "reconnaissance mission": "8039b4f8-3a0e-403c-af52-76d677af7353",
     "ringsight": "3700a65c-6f54-4d56-9c6f-8364c45a058c",
-    "ringwraiths": "2a8495c3-96cf-40ab-b68a-1b5711b7659e",
-    "rise of the dark realms": "7d466d44-3203-4e9d-befc-877414a7308d",
-    "rite of replication": "5032d71d-d9f8-498c-97d1-271c2e9c1c47",
-    "rogue's passage": "61c63f09-c9ab-4926-85de-6199856fff86",
-    "run away together": "35c56aff-1f0f-464a-b705-d67803e3d060",
+    "river of tears": "67b626cc-1c12-4059-afa5-e5a1221ea1ba",
+    "rona, sheoldred's faithful": "8eaeb2b7-ad2d-4e00-b37a-06963ae41bb2",
     "sam's desperate rescue": "bdd4d735-8cda-47c1-865b-48b51ac8f666",
+    "sapphire medallion": "4ec271e4-1813-4ee7-bfd5-5a0c39d2d25d",
     "saw in half": "90f8de01-c1bd-4533-9e98-61e7d25dcf88",
-    "secret tunnel": "2d39a0e1-6484-409c-ab05-5b276925a949",
+    "serum visions": "5b75eb6b-d76c-4b92-b042-13493f9ef164",
+    "shipwreck marsh": "2cac144f-fa8a-4f04-9007-f7b7ab27a4b3",
+    "slip out the back": "8802b461-95a8-4739-8178-6c50837946b8",
+    "snuff out": "9eba002c-3562-4295-81e4-5f408f1556c6",
     "sol ring": "193a5688-9e9b-48f4-9904-53134ec73c97",
-    "spider-sense": "4499a25b-f4a5-4f2c-9ebd-bc68c7840b39",
-    "starfield vocalist": "eb6f8c8c-1905-4c3c-aa03-d56bce983559",
-    "sunken hollow": "133360b4-b408-417f-a16f-966bc328af4b",
-    "swamp": "e9ca6518-aa90-4614-86aa-b972f60cce49",
-    "swiftfoot boots": "3e9b53da-4744-429d-97c6-f7ee4d568731",
-    "talisman of dominance": "939cc767-0de1-4d94-a1f9-fe07e923d343",
-    "thassa, deep-dwelling": "1ffb0ecd-1326-43d8-9a68-39bc238e5d3c",
+    "soothing of sméagol": "be6400e8-7f99-4005-9a92-ffbc359d3871",
+    "sunken hollow": "0fb7d469-d01a-4633-b06e-70050a5448bc",
+    "swamp": "e8418418-10bb-48e1-83ed-0081390384b4",
+    "swan song": "83d0b761-d694-4232-9f40-5bd8c82a05f1",
+    "takenuma, abandoned mire": "7bc98705-77c2-47b6-b41c-3e41578700e8",
+    "talisman of dominance": "78d5366f-eb6d-4ec1-880b-111872863766",
+    "talrand, sky summoner": "bbbbfc7f-51b6-4925-a0f7-b2873366653e",
+    "temple of deceit": "646a980c-9226-412a-ba58-c2b52a721c99",
     "the one ring": "bdd2c783-1483-490a-ae93-c4664a0a9564",
+    "token:bird|teoc|3": "2a3d4bf9-2107-4686-8df5-cd7c934d0691",
+    "token:clue|plst|tmkm-15": "861bc4e3-0445-44e6-bf58-a469b4a92192",
+    "token:drake|tcmm|12": "5c3a91bf-daa1-4bba-a052-d868700c610c",
+    "token:treasure|ttrk|26": "b8e8c3b4-3b8d-48a4-b427-a2b8ac3e2f8b",
+    "token:wraith|tltc|7": "9afb58e8-f5a7-49f9-8287-77757bd3268c",
+    "tragic slip": "36b9111c-eb78-4f9f-b5e3-81482dff69b8",
+    "trail of evidence": "f42bd4af-3c3a-4750-8e21-03d0aba3116f",
+    "undercity sewers": "3239a1e5-a002-4389-b9a7-049b1d60e2ac",
     "underground river": "4b4fa784-010d-4b27-9e35-43ad78e1ed5e",
     "unearth": "2aeefb3c-0d2b-42de-a57e-6e41ecd689ec",
-    "unstoppable plan": "aaeb5981-7e6a-4ffd-bb02-4757b2e92f08",
     "victimize": "fdc741fe-b2ac-4bc8-96b5-aeb1b63cc2f0",
-    "waterbender ascension": "e5f2648f-990d-44d7-a7bf-0db99bdc3015",
-    "witch-king of angmar": "7170f930-8f94-4671-9acf-bf40913cbfa0",
+    "village rites": "da3de5c0-acda-4116-b0c5-eceb2c19cb2d",
     "witch-king, bringer of ruin": "9a9e1edd-2a42-41a8-b089-66f3db080984",
-    "witch's cottage": "b87891cd-b457-4dff-8d18-a7eaf6748fc6",
+    "witch's cottage": "316398d0-cf0a-43ed-a419-aaf0ea44b9c1",
     "wonder": "e7da6c4c-bc16-4478-bed7-8e6835c8c596"
   }
 }

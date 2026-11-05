@@ -1,10 +1,9 @@
-import type { DeckEntry } from '../decklist/parse.js';
+import { fetchKey, isTokenEntry, type DeckEntry } from '../decklist/parse.js';
 import type { ScryfallClient } from '../scryfall/client.js';
 import type { ResolveResult, ResolvedCard, UnresolvedCard, ResolveWarning } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
-import { isDoubleFaced } from '../scryfall/types.js';
-import { isBasicLand } from '../collection/diff.js';
-import { normalizeName } from '../collection/types.js';
+import { isDoubleFaced, isTokenCard } from '../scryfall/types.js';
+import { isBasicLand } from '../printed/diff.js';
 import type { PreferenceProfile } from './profile.js';
 import { selectPrinting, type SelectionResult } from './score.js';
 
@@ -20,8 +19,6 @@ import { selectPrinting, type SelectionResult } from './score.js';
 
 export interface PreferenceResolveOptions {
   profile: PreferenceProfile;
-  /** Scryfall ids or `set|collectorNumber` keys already in the collection. */
-  ownedKeys?: ReadonlySet<string>;
   /** Card name -> pinned printing, overriding all scoring. */
   pins?: Record<string, { set: string; collectorNumber: string }>;
   onProgress?: (done: number, total: number, name: string) => void;
@@ -54,30 +51,50 @@ export async function resolveDeckWithPreferences(
   const warnings: ResolveWarning[] = [];
   const selections = new Map<string, SelectionResult>();
 
-  // One fetch per distinct name, however many entries reference it.
-  const distinct = [...new Set(entries.map((entry) => normalizeName(entry.name)))];
+  // One fetch per distinct name, however many entries reference it. Keyed so a
+  // card and a token of the same name do not share one fetch: they need
+  // different queries and must not be offered each other's printings.
+  const byKey = new Map<string, DeckEntry>();
+  for (const entry of entries) {
+    if (!byKey.has(fetchKey(entry))) byKey.set(fetchKey(entry), entry);
+  }
   const printsByName = new Map<string, ScryfallCard[]>();
+  const distinct = [...byKey.keys()];
   let done = 0;
-  for (const name of distinct) {
-    const entry = entries.find((candidate) => normalizeName(candidate.name) === name)!;
+  for (const [name, entry] of byKey) {
     options.onProgress?.(done, distinct.length, entry.name);
-    printsByName.set(name, await client.prints(entry.name));
+    // A token is only visible to the search endpoint with include:extras, and
+    // once it is, a real card of the same name must not be allowed to win the
+    // slot — so a token line is matched against token printings alone.
+    printsByName.set(
+      name,
+      isTokenEntry(entry)
+        ? (await client.prints(entry.name, { extras: true })).filter(isTokenCard)
+        : await client.prints(entry.name),
+    );
     done += 1;
   }
   options.onProgress?.(done, distinct.length, '');
 
   for (const entry of entries) {
-    const key = normalizeName(entry.name);
+    const key = fetchKey(entry);
     let candidates = printsByName.get(key) ?? [];
 
     // A name the search endpoint does not know may still resolve fuzzily.
     if (candidates.length === 0) {
       const fuzzy = await client.named(entry.name);
-      if (fuzzy) {
-        candidates = await client.prints(fuzzy.name);
+      if (fuzzy && (!isTokenEntry(entry) || isTokenCard(fuzzy))) {
+        candidates = isTokenEntry(entry)
+          ? (await client.prints(fuzzy.name, { extras: true })).filter(isTokenCard)
+          : await client.prints(fuzzy.name);
         if (candidates.length === 0) candidates = [fuzzy];
         printsByName.set(key, candidates);
       }
+    }
+
+    if (candidates.length === 0 && isTokenEntry(entry)) {
+      unresolved.push({ entry, reason: `no token printing named "${entry.name}"` });
+      continue;
     }
 
     if (candidates.length === 0) {
@@ -107,10 +124,7 @@ export async function resolveDeckWithPreferences(
       card = pinned;
     } else {
       const isBasic = isBasicLand(candidates[0]!);
-      const selection = selectPrinting(candidates, options.profile, {
-        ...(options.ownedKeys ? { ownedKeys: options.ownedKeys } : {}),
-        isBasic,
-      });
+      const selection = selectPrinting(candidates, options.profile, { isBasic });
       if (!selection) {
         unresolved.push({ entry, reason: `no printable version of "${entry.name}"` });
         continue;
@@ -157,14 +171,9 @@ export async function resolveDeckWithPreferences(
  *
  * This decides between a two-request deck resolution and one request per
  * distinct card, so it deliberately ignores rules that cannot change which
- * printing wins. `preferOwned` is the subtle one: it is on by default, but with
- * an empty collection it can never affect the ranking, so it does not on its
- * own justify the expensive path.
+ * printing wins.
  */
-export function hasActivePreferences(
-  profile: PreferenceProfile,
-  context: { hasCollection?: boolean } = {},
-): boolean {
+export function hasActivePreferences(profile: PreferenceProfile): boolean {
   const tristate = (value: string | undefined): boolean => Boolean(value && value !== 'ignore');
   return Boolean(
     profile.preferSets?.length ||
@@ -176,7 +185,6 @@ export function hasActivePreferences(
       tristate(profile.retroFrame) ||
       tristate(profile.promo) ||
       tristate(profile.universesBeyond) ||
-      (profile.preferOwned && context.hasCollection) ||
       profile.basics,
   );
 }

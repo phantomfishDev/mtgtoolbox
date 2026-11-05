@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { commanders, type DeckEntry } from '../decklist/parse.js';
-import { normalizeName } from '../collection/types.js';
+import { commanders, isDeckCard, type DeckEntry } from '../decklist/parse.js';
+import { normalizeName } from '../printed/types.js';
 import type { ResolvedCard } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
 import { assessBracket, BRACKET_NAMES, type Bracket } from '../analysis/bracket.js';
@@ -11,7 +11,7 @@ import type { PreferenceProfile } from '../printing/profile.js';
  * A summary of every deck, for the deck list.
  *
  * The list needs a little from each deck — a commander image, colours, a
- * bracket, how many cards are owned — and loading every deck's full card data
+ * bracket, how many cards are still to print — and loading every deck's full card data
  * to get it would be about a megabyte before the page could render. This holds
  * only what the list shows, in one small file.
  */
@@ -34,7 +34,7 @@ const IndexEntry = z.object({
   bracket: z.number().int().min(1).max(5),
   bracketName: z.string(),
   commanders: z.array(z.object({ name: z.string(), image: z.string().optional() })),
-  /** Enough of each card to count what is owned, without the full card data. */
+  /** Enough of each card to count what is still to print, without the full card data. */
   cards: z.array(IndexCard),
 });
 
@@ -95,9 +95,12 @@ function commanderImage(card: ScryfallCard): string | undefined {
 export function buildDeckIndexEntry(
   id: string,
   entries: readonly DeckEntry[],
-  resolved: readonly ResolvedCard[],
+  input: readonly ResolvedCard[],
   cardCount: number,
 ): DeckIndexEntry {
+  // The index describes the deck, so tokens are left out of every figure in it.
+  // They would otherwise contradict `cardCount`, which does not count them.
+  const resolved = input.filter((item) => isDeckCard(item.entry));
   const commanderNames = commanders(entries).map((entry) => entry.name);
   const byName = new Map(resolved.map((item) => [normalizeName(item.card.name), item.card]));
   const assessment = assessBracket(resolved);
@@ -137,7 +140,7 @@ export function buildDeckIndex(
 
 /**
  * Index cards as resolved cards, so the list can run the same diff the deck
- * view does and the two can never report different owned counts.
+ * view does and the two can never report different to-print counts.
  */
 export function indexCardsToResolved(cards: readonly DeckIndexCard[]): ResolvedCard[] {
   return cards.map((card, line) => ({

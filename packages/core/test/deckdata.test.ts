@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildDeckData,
-  ownedFingerprint,
   refreshDeckData,
   profileFingerprint,
   resolveFromDeckData,
@@ -26,7 +25,7 @@ const at = (name: string, quantity = 1, over = {}): ResolvedCard => ({
   via: 'name',
 });
 
-const profile: PreferenceProfile = { fullArt: 'prefer', preferOwned: true };
+const profile: PreferenceProfile = { fullArt: 'prefer' };
 
 describe('profileFingerprint', () => {
   it('is stable for the same profile', () => {
@@ -34,8 +33,8 @@ describe('profileFingerprint', () => {
   });
 
   it('ignores key order', () => {
-    expect(profileFingerprint({ fullArt: 'prefer', preferOwned: true })).toBe(
-      profileFingerprint({ preferOwned: true, fullArt: 'prefer' }),
+    expect(profileFingerprint({ fullArt: 'prefer', lang: 'en' })).toBe(
+      profileFingerprint({ lang: 'en', fullArt: 'prefer' }),
     );
   });
 
@@ -140,24 +139,6 @@ describe('buildDeckData', () => {
   });
 });
 
-describe('ownedFingerprint', () => {
-  it('is null when preferOwned is off, so the collection is not part of the key', () => {
-    expect(ownedFingerprint({ preferOwned: false }, new Set(['a']))).toBeNull();
-  });
-
-  it('changes with what is owned when preferOwned is on', () => {
-    const none = ownedFingerprint({ preferOwned: true }, new Set());
-    const some = ownedFingerprint({ preferOwned: true }, new Set(['ltc|264']));
-    expect(none).not.toBe(some);
-  });
-
-  it('does not depend on collection ordering', () => {
-    expect(ownedFingerprint({ preferOwned: true }, new Set(['a', 'b']))).toBe(
-      ownedFingerprint({ preferOwned: true }, new Set(['b', 'a'])),
-    );
-  });
-});
-
 describe('refreshDeckData', () => {
   const original = buildDeckData('deck', [at('Sol Ring', 1, { id: 'x' })], profile, new Set());
 
@@ -168,11 +149,10 @@ describe('refreshDeckData', () => {
     expect(refreshed.cards[0]?.cmc).toBe(1);
   });
 
-  it('keeps the choices, profile and collection fingerprint', () => {
+  it('keeps the choices and the profile fingerprint', () => {
     const refreshed = refreshDeckData(original, [card({ id: 'x', name: 'Sol Ring' })]);
     expect(refreshed.chosen).toEqual(original.chosen);
     expect(refreshed.profile).toBe(original.profile);
-    expect(refreshed.owned).toBe(original.owned);
   });
 
   it('keeps a card the refresh did not return', () => {
@@ -185,11 +165,11 @@ describe('refreshDeckData', () => {
 
 describe('resolveFromDeckData', () => {
   const resolved = [at('Sol Ring', 1), at('Swamp', 7)];
-  const data = buildDeckData('deck', resolved, profile, new Set());
+  const data = buildDeckData('deck', resolved, profile);
   const entries = resolved.map((item) => item.entry);
 
   it('rebuilds a resolution with no network', () => {
-    const applied = resolveFromDeckData(entries, data, profile, new Set());
+    const applied = resolveFromDeckData(entries, data, profile);
     expect(applied?.result.resolved).toHaveLength(2);
     expect(applied?.result.resolved[1]?.entry.quantity).toBe(7);
     expect(applied?.result.unresolved).toEqual([]);
@@ -202,60 +182,119 @@ describe('resolveFromDeckData', () => {
 
   it('refuses when the decklist has gained a card', () => {
     const grown = [...entries, entry('Brainstorm')];
-    expect(resolveFromDeckData(grown, data, profile, new Set())).toBeNull();
+    expect(resolveFromDeckData(grown, data, profile)).toBeNull();
   });
 
   it('refuses stored data that contradicts a pinned printing', () => {
     // Editing `(SET) NUM` in a decklist has to take effect even though a data
     // file sits beside it; matching on the name alone would ignore the edit.
     const pinned = [{ ...entries[0]!, set: 'ltc', collectorNumber: '284' }, entries[1]!];
-    expect(resolveFromDeckData(pinned, data, profile, new Set())).toBeNull();
+    expect(resolveFromDeckData(pinned, data, profile)).toBeNull();
   });
 
   it('accepts stored data that is the pinned printing', () => {
     const chosen = [at('Sol Ring', 1, { set: 'ltc', collector_number: '284' })];
-    const stored = buildDeckData('deck', chosen, profile, new Set());
+    const stored = buildDeckData('deck', chosen, profile);
     const pinned = [{ ...chosen[0]!.entry, set: 'ltc', collectorNumber: '284' }];
-    const applied = resolveFromDeckData(pinned, stored, profile, new Set());
+    const applied = resolveFromDeckData(pinned, stored, profile);
     expect(applied?.result.resolved[0]?.card.collector_number).toBe('284');
     expect(applied?.result.resolved[0]?.via).toBe('printing');
   });
 
   it('matches a pinned set code regardless of case', () => {
     const chosen = [at('Sol Ring', 1, { set: 'ltc', collector_number: '284' })];
-    const stored = buildDeckData('deck', chosen, profile, new Set());
+    const stored = buildDeckData('deck', chosen, profile);
     const pinned = [{ ...chosen[0]!.entry, set: 'LTC', collectorNumber: '284' }];
-    expect(resolveFromDeckData(pinned, stored, profile, new Set())).not.toBeNull();
-  });
-
-  it('refuses data chosen against a different collection', () => {
-    // preferOwned makes ownership decide printings, so reusing data built
-    // against someone else's shelf would silently contradict the setting.
-    const owned = buildDeckData('deck', resolved, profile, new Set(['ltc|264']));
-    expect(resolveFromDeckData(entries, owned, profile, new Set())).toBeNull();
-    expect(resolveFromDeckData(entries, owned, profile, new Set(['ltc|264']))).not.toBeNull();
-  });
-
-  it('ignores the collection entirely when preferOwned is off', () => {
-    const off: PreferenceProfile = { fullArt: 'prefer', preferOwned: false };
-    const data = buildDeckData('deck', resolved, off, new Set(['a']));
-    expect(data.owned).toBeNull();
-    expect(resolveFromDeckData(entries, data, off, new Set(['totally', 'different']))).not.toBeNull();
+    expect(resolveFromDeckData(pinned, stored, profile)).not.toBeNull();
   });
 
   it('refuses a file from a future version', () => {
-    expect(resolveFromDeckData(entries, { ...data, version: 99 as never }, profile, new Set())).toBeNull();
+    expect(resolveFromDeckData(entries, { ...data, version: 99 as never }, profile)).toBeNull();
   });
 
   it('still applies when the decklist only loses a card', () => {
     const shrunk = [entries[0]!];
-    expect(resolveFromDeckData(shrunk, data, profile, new Set())?.result.resolved).toHaveLength(1);
+    expect(resolveFromDeckData(shrunk, data, profile)?.result.resolved).toHaveLength(1);
   });
 
   it('derives warnings rather than storing them', () => {
     const lowres = [at('Blurry', 1, { image_status: 'lowres' })];
-    const stored = buildDeckData('d', lowres, profile, new Set());
+    const stored = buildDeckData('d', lowres, profile);
     const applied = resolveFromDeckData([lowres[0]!.entry], stored, profile, new Set());
     expect(applied?.result.warnings.map((w) => w.code)).toContain('low-resolution');
+  });
+});
+
+describe('a card and a token of the same name', () => {
+  // beorn-bears runs the Mutavault land and the Mutavault token;
+  // kwain-hare-apparent runs the Intrepid Rabbit creature and its token.
+  // Keyed by bare name these overwrite each other, and the stored data ends up
+  // pointing a token at a land.
+  const land = at('Mutavault', 1, { set: 'eos', collector_number: '28', type_line: 'Land' });
+  const token: ResolvedCard = {
+    entry: { quantity: 1, name: 'Mutavault', line: 2, raw: '1 Mutavault', section: 'tokens' },
+    card: card({
+      id: 'tok-mutavault',
+      name: 'Mutavault',
+      set: 'tecl',
+      collector_number: '11',
+      layout: 'token',
+    }),
+    via: 'name',
+  };
+
+  it('keeps both printings, under separate keys', () => {
+    const data = buildDeckData('beorn-bears', [land, token], profile);
+    expect(Object.keys(data.chosen).sort()).toEqual(['mutavault', 'token:mutavault']);
+    expect(data.cards).toHaveLength(2);
+  });
+
+  it('gives each entry back its own printing, not the other one', () => {
+    const data = buildDeckData('beorn-bears', [land, token], profile);
+    const applied = resolveFromDeckData([land.entry, token.entry], data, profile);
+    expect(applied).not.toBeNull();
+    const [first, second] = applied!.result.resolved;
+    expect(first?.card.type_line).toBe('Land');
+    expect(second?.card.layout).toBe('token');
+  });
+
+  it('re-resolves rather than guessing when the data predates token keys', () => {
+    const data = buildDeckData('beorn-bears', [land], profile);
+    expect(resolveFromDeckData([land.entry, token.entry], data, profile)).toBeNull();
+  });
+});
+
+describe('two tokens of the same name', () => {
+  // beorn-bears lists a 2/2 Bear and a 4/4 Bear; rats two different 1/1 Rats;
+  // prismari-artistry four different Elementals. Keyed by name alone they
+  // collapse into one stored choice and the rest inherit the wrong art.
+  const bear = (set: string, number: string, id: string): ResolvedCard => ({
+    entry: {
+      quantity: 1,
+      name: 'Bear',
+      set,
+      collectorNumber: number,
+      line: 1,
+      raw: `1 Bear (${set.toUpperCase()}) ${number}`,
+      section: 'tokens',
+    },
+    card: card({ id, name: 'Bear', set, collector_number: number, layout: 'token' }),
+    via: 'printing',
+  });
+
+  const small = bear('thob', '7', 'bear-2-2');
+  const big = bear('ttla', '12', 'bear-4-4');
+
+  it('stores a choice for each, keyed by its pin', () => {
+    const data = buildDeckData('beorn-bears', [small, big], profile);
+    expect(Object.keys(data.chosen).sort()).toEqual(['token:bear|thob|7', 'token:bear|ttla|12']);
+    expect(data.cards).toHaveLength(2);
+  });
+
+  it('reads each row back at its own art, so stored data is still usable', () => {
+    const data = buildDeckData('beorn-bears', [small, big], profile);
+    const applied = resolveFromDeckData([small.entry, big.entry], data, profile);
+    expect(applied).not.toBeNull();
+    expect(applied!.result.resolved.map((item) => item.card.id)).toEqual(['bear-2-2', 'bear-4-4']);
   });
 });

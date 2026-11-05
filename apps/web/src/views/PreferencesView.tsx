@@ -108,13 +108,6 @@ export function PreferencesView() {
           </Field>
 
           <Toggle
-            checked={profile.preferOwned ?? true}
-            onChange={(preferOwned) => void update({ preferOwned })}
-            label="Prefer printings I already own"
-            hint="So proxies match the copies on your shelf."
-          />
-
-          <Toggle
             checked={profile.requireHighres ?? true}
             onChange={(requireHighres) => void update({ requireHighres })}
             label="Only use high-resolution scans"

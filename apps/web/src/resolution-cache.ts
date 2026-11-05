@@ -6,7 +6,7 @@ import type { Config, PreferenceProfile, ResolveResult } from '@mtgproxy/core';
  * A cold resolution costs one request per distinct card, so re-running it just
  * because a view remounted is the difference between instant and a minute. The
  * key covers everything that can change the answer, so a changed preference or
- * a newly owned card yields a different entry rather than a stale hit.
+ * a changed profile yields a different entry rather than a stale hit.
  */
 
 export const RESOLUTION_CACHE_LIMIT = 20;
@@ -29,7 +29,8 @@ export interface CacheKeyInput {
   text: string;
   profile: PreferenceProfile;
   config: Config;
-  ownedKeys: ReadonlySet<string>;
+  /** Part of the key: it decides which entries get resolved at all. */
+  tokenMode?: string;
 }
 
 export function makeCacheKey(input: CacheKeyInput): string {
@@ -38,10 +39,10 @@ export function makeCacheKey(input: CacheKeyInput): string {
       text: input.text,
       profile: input.profile,
       pins: input.config.pins ?? {},
-      // preferOwned makes the collection part of the answer; without it the
-      // collection cannot change which printing wins, so it stays out of the
-      // key and adding a card does not throw away every cached deck.
-      owned: input.profile.preferOwned ? [...input.ownedKeys].sort() : null,
+      tokenMode: input.tokenMode ?? 'exclude',
+      // The printed ledger stays out of the key: it cannot change which
+      // printing wins, so recording a print must not throw away every
+      // cached deck.
     }),
   );
 }

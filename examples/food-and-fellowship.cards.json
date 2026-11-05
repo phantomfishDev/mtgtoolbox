@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "food-and-fellowship",
-  "generatedAt": "2026-09-06T00:50:19.125Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:33.794Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "068a5bf7-6faf-41d5-924d-cdf387c1a193",
@@ -47,6 +46,45 @@
         "png": "https://cards.scryfall.io/png/front/0/6/068a5bf7-6faf-41d5-924d-cdf387c1a193.png?1785497365",
         "large": "https://cards.scryfall.io/large/front/0/6/068a5bf7-6faf-41d5-924d-cdf387c1a193.jpg?1785497365",
         "normal": "https://cards.scryfall.io/normal/front/0/6/068a5bf7-6faf-41d5-924d-cdf387c1a193.jpg?1785497365"
+      }
+    },
+    {
+      "id": "0bb11342-bc1d-4eea-b0b0-94799be2602a",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2026-07-27",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2820",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "59b1855f-b069-43db-b710-9f2cc157ffc6",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.png?1785303306",
+        "large": "https://cards.scryfall.io/large/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.jpg?1785303306",
+        "normal": "https://cards.scryfall.io/normal/front/0/b/0bb11342-bc1d-4eea-b0b0-94799be2602a.jpg?1785303306"
       }
     },
     {
@@ -123,6 +161,39 @@
         "png": "https://cards.scryfall.io/png/front/0/d/0d9b8502-0bcf-4310-95a3-a9f3320b6439.png?1783904230",
         "large": "https://cards.scryfall.io/large/front/0/d/0d9b8502-0bcf-4310-95a3-a9f3320b6439.jpg?1783904230",
         "normal": "https://cards.scryfall.io/normal/front/0/d/0d9b8502-0bcf-4310-95a3-a9f3320b6439.jpg?1783904230"
+      }
+    },
+    {
+      "id": "0dce2241-e58b-41d4-b57c-9794fc8ee004",
+      "oracle_id": "a468338f-635e-4206-89d6-72d723071d45",
+      "name": "Food",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-08-02",
+      "set": "tblb",
+      "set_name": "Bloomburrow Tokens",
+      "set_type": "token",
+      "collector_number": "27",
+      "rarity": "common",
+      "type_line": "Token Artifact — Food",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{2}, {T}, Sacrifice this token: You gain 3 life.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7c733fd8-6376-4a70-bdf8-c679ee36f232",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/d/0dce2241-e58b-41d4-b57c-9794fc8ee004.png?1783909763",
+        "large": "https://cards.scryfall.io/large/front/0/d/0dce2241-e58b-41d4-b57c-9794fc8ee004.jpg?1783909763",
+        "normal": "https://cards.scryfall.io/normal/front/0/d/0dce2241-e58b-41d4-b57c-9794fc8ee004.jpg?1783909763"
       }
     },
     {
@@ -204,6 +275,44 @@
       }
     },
     {
+      "id": "17ed79a4-6c88-4061-8b08-d94ad58d0234",
+      "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
+      "name": "Path of Ancestry",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-07-20",
+      "set": "sld",
+      "set_name": "Secret Lair Drop",
+      "set_type": "box",
+      "collector_number": "2684",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "keywords": [
+        "Scry"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "3c0e8913-7f56-4a54-8e36-3a224ff9c3eb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.png?1791470690",
+        "large": "https://cards.scryfall.io/large/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.jpg?1791470690",
+        "normal": "https://cards.scryfall.io/normal/front/1/7/17ed79a4-6c88-4061-8b08-d94ad58d0234.jpg?1791470690"
+      }
+    },
+    {
       "id": "193a5688-9e9b-48f4-9904-53134ec73c97",
       "oracle_id": "6ad8011d-3471-4369-9d68-b264cc027487",
       "name": "Sol Ring",
@@ -278,6 +387,43 @@
         "png": "https://cards.scryfall.io/png/front/1/d/1d770a59-1c54-407e-9c58-8d8b6f44c90a.png?1783916036",
         "large": "https://cards.scryfall.io/large/front/1/d/1d770a59-1c54-407e-9c58-8d8b6f44c90a.jpg?1783916036",
         "normal": "https://cards.scryfall.io/normal/front/1/d/1d770a59-1c54-407e-9c58-8d8b6f44c90a.jpg?1783916036"
+      }
+    },
+    {
+      "id": "20a9bda0-5673-4071-9201-83670a317f8a",
+      "oracle_id": "a5ab7f2d-a434-4342-a178-754bdd0181b6",
+      "name": "Soldier",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-01-25",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "TGRN-2",
+      "rarity": "common",
+      "type_line": "Token Creature — Soldier",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Lifelink",
+      "keywords": [
+        "Lifelink"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "cf32bb89-fdfa-4965-9bea-d32415aad557",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/0/20a9bda0-5673-4071-9201-83670a317f8a.png?1783913141",
+        "large": "https://cards.scryfall.io/large/front/2/0/20a9bda0-5673-4071-9201-83670a317f8a.jpg?1783913141",
+        "normal": "https://cards.scryfall.io/normal/front/2/0/20a9bda0-5673-4071-9201-83670a317f8a.jpg?1783913141"
       }
     },
     {
@@ -485,42 +631,6 @@
       }
     },
     {
-      "id": "445ffa4d-d5ca-4ba6-b589-40d8490a4032",
-      "oracle_id": "60b36821-0fad-423c-98c4-f64d991719f3",
-      "name": "Graypelt Refuge",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2022-12-02",
-      "set": "scd",
-      "set_name": "Starter Commander Decks",
-      "set_type": "commander",
-      "collector_number": "303",
-      "rarity": "uncommon",
-      "type_line": "Land",
-      "cmc": 0,
-      "color_identity": [
-        "G",
-        "W"
-      ],
-      "mana_cost": "",
-      "oracle_text": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {G} or {W}.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "b0aba1cc-fe30-46de-b488-41cfe2d6d855",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/4/4/445ffa4d-d5ca-4ba6-b589-40d8490a4032.png?1783918604",
-        "large": "https://cards.scryfall.io/large/front/4/4/445ffa4d-d5ca-4ba6-b589-40d8490a4032.jpg?1783918604",
-        "normal": "https://cards.scryfall.io/normal/front/4/4/445ffa4d-d5ca-4ba6-b589-40d8490a4032.jpg?1783918604"
-      }
-    },
-    {
       "id": "46b7f493-1b57-4b07-8510-30703282f879",
       "oracle_id": "67afcfef-3f0c-4823-b690-01732f28a005",
       "name": "Revive the Shire",
@@ -713,6 +823,39 @@
       }
     },
     {
+      "id": "513a97a3-dfdd-4e32-9c4c-3d174d797963",
+      "oracle_id": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+      "name": "Evolving Wilds",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-09-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "LCC-328",
+      "rarity": "common",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "5e9a3e35-aaac-4724-bc50-dc677de338e8",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/1/513a97a3-dfdd-4e32-9c4c-3d174d797963.png?1793496883",
+        "large": "https://cards.scryfall.io/large/front/5/1/513a97a3-dfdd-4e32-9c4c-3d174d797963.jpg?1793496883",
+        "normal": "https://cards.scryfall.io/normal/front/5/1/513a97a3-dfdd-4e32-9c4c-3d174d797963.jpg?1793496883"
+      }
+    },
+    {
       "id": "516692b8-fbaf-4698-864b-5363aafc95b9",
       "oracle_id": "0b67c4e2-f88b-4e01-85a1-9d5f5b8db13b",
       "name": "Commander's Sphere",
@@ -785,6 +928,46 @@
         "png": "https://cards.scryfall.io/png/front/5/2/5233144a-9e88-44a2-9ea9-88ecc116bcd6.png?1783915181",
         "large": "https://cards.scryfall.io/large/front/5/2/5233144a-9e88-44a2-9ea9-88ecc116bcd6.jpg?1783915181",
         "normal": "https://cards.scryfall.io/normal/front/5/2/5233144a-9e88-44a2-9ea9-88ecc116bcd6.jpg?1783915181"
+      }
+    },
+    {
+      "id": "561341f5-3eb1-4f52-8dee-668a60e091be",
+      "oracle_id": "d2f429c4-f16a-436d-8e75-b09acbe653d2",
+      "name": "Bird",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltc",
+      "set_name": "Tales of Middle-earth Commander Tokens",
+      "set_type": "token",
+      "collector_number": "1",
+      "rarity": "common",
+      "type_line": "Token Creature — Bird",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying\nWhenever this creature attacks, target attacking creature gains flying until end of turn.",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "31a7f2a9-29f7-4c77-b734-feb2c5efb7e6",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/5/6/561341f5-3eb1-4f52-8dee-668a60e091be.png?1783916064",
+        "large": "https://cards.scryfall.io/large/front/5/6/561341f5-3eb1-4f52-8dee-668a60e091be.jpg?1783916064",
+        "normal": "https://cards.scryfall.io/normal/front/5/6/561341f5-3eb1-4f52-8dee-668a60e091be.jpg?1783916064"
       }
     },
     {
@@ -866,41 +1049,6 @@
         "png": "https://cards.scryfall.io/png/front/6/0/6002d99a-c7b4-4845-aca9-b55dabb62d9f.png?1788239549",
         "large": "https://cards.scryfall.io/large/front/6/0/6002d99a-c7b4-4845-aca9-b55dabb62d9f.jpg?1788239549",
         "normal": "https://cards.scryfall.io/normal/front/6/0/6002d99a-c7b4-4845-aca9-b55dabb62d9f.jpg?1788239549"
-      }
-    },
-    {
-      "id": "6089330b-dc26-4c35-ba58-522d5bfb963a",
-      "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
-      "name": "Plains",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2540",
-      "rarity": "rare",
-      "type_line": "Basic Land — Plains",
-      "cmc": 0,
-      "color_identity": [
-        "W"
-      ],
-      "mana_cost": "",
-      "oracle_text": "({T}: Add {W}.)",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "39e6f47b-1e36-4c15-bb65-fd99e6dfc20c",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/6/0/6089330b-dc26-4c35-ba58-522d5bfb963a.png?1783903503",
-        "large": "https://cards.scryfall.io/large/front/6/0/6089330b-dc26-4c35-ba58-522d5bfb963a.jpg?1783903503",
-        "normal": "https://cards.scryfall.io/normal/front/6/0/6089330b-dc26-4c35-ba58-522d5bfb963a.jpg?1783903503"
       }
     },
     {
@@ -1225,25 +1373,101 @@
       }
     },
     {
-      "id": "78814c92-b52c-462a-866f-3e7da9db9f70",
-      "oracle_id": "7e5d9efe-48a9-434b-bb09-056e0e09cc9a",
-      "name": "Isolated Chapel",
+      "id": "790dcf48-ab51-4b10-9933-6b7e3baf0f52",
+      "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+      "name": "Forest",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-24",
-      "set": "soc",
-      "set_name": "Secrets of Strixhaven Commander",
-      "set_type": "commander",
-      "collector_number": "382",
-      "rarity": "rare",
-      "type_line": "Land",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "394",
+      "rarity": "common",
+      "type_line": "Basic Land — Forest",
       "cmc": 0,
       "color_identity": [
-        "B",
+        "G"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {G}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "03141016-eaa7-40a6-986b-3ea77bc2db32",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.png?1790137025",
+        "large": "https://cards.scryfall.io/large/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.jpg?1790137025",
+        "normal": "https://cards.scryfall.io/normal/front/7/9/790dcf48-ab51-4b10-9933-6b7e3baf0f52.jpg?1790137025"
+      }
+    },
+    {
+      "id": "796b72af-5078-427d-b566-9bccad17090f",
+      "oracle_id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+      "name": "Plains",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "382",
+      "rarity": "common",
+      "type_line": "Basic Land — Plains",
+      "cmc": 0,
+      "color_identity": [
         "W"
       ],
       "mana_cost": "",
-      "oracle_text": "This land enters tapped unless you control a Plains or a Swamp.\n{T}: Add {W} or {B}.",
+      "oracle_text": "({T}: Add {W}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "a52c3b3c-241d-4298-8a10-aa73b47e4632",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/9/796b72af-5078-427d-b566-9bccad17090f.png?1790136884",
+        "large": "https://cards.scryfall.io/large/front/7/9/796b72af-5078-427d-b566-9bccad17090f.jpg?1790136884",
+        "normal": "https://cards.scryfall.io/normal/front/7/9/796b72af-5078-427d-b566-9bccad17090f.jpg?1790136884"
+      }
+    },
+    {
+      "id": "79ca8982-826a-4c23-9e3a-04721d2e6466",
+      "oracle_id": "dcb7e046-f01b-497c-88e5-57794eb30ce5",
+      "name": "Canopy Vista",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-10",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "LCC-321",
+      "rarity": "rare",
+      "type_line": "Land — Forest Plains",
+      "cmc": 0,
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "({T}: Add {G} or {W}.)\nThis land enters tapped unless you control two or more basic lands.",
       "keywords": [],
       "game_changer": false,
       "full_art": false,
@@ -1253,11 +1477,11 @@
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "68c9cf3a-4144-4b01-8cac-72ca56a6ddf6",
+      "illustration_id": "15768cfb-ec00-4a81-b029-3890e7801846",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/8/78814c92-b52c-462a-866f-3e7da9db9f70.png?1783903727",
-        "large": "https://cards.scryfall.io/large/front/7/8/78814c92-b52c-462a-866f-3e7da9db9f70.jpg?1783903727",
-        "normal": "https://cards.scryfall.io/normal/front/7/8/78814c92-b52c-462a-866f-3e7da9db9f70.jpg?1783903727"
+        "png": "https://cards.scryfall.io/png/front/7/9/79ca8982-826a-4c23-9e3a-04721d2e6466.png?1793497649",
+        "large": "https://cards.scryfall.io/large/front/7/9/79ca8982-826a-4c23-9e3a-04721d2e6466.jpg?1793497649",
+        "normal": "https://cards.scryfall.io/normal/front/7/9/79ca8982-826a-4c23-9e3a-04721d2e6466.jpg?1793497649"
       }
     },
     {
@@ -1374,44 +1598,38 @@
       }
     },
     {
-      "id": "7f3d574a-72b5-43be-b4b5-87865bbc7b5c",
-      "oracle_id": "b473e293-59e3-4e04-acf2-622604aeb25f",
-      "name": "Path of Ancestry",
+      "id": "7fc777ba-4380-4d9d-8a0d-88e3213107cf",
+      "oracle_id": "f62b776a-d4de-455a-ae5a-ca07982974db",
+      "name": "Goat",
       "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-08-04",
-      "set": "cmm",
-      "set_name": "Commander Masters",
-      "set_type": "masters",
-      "collector_number": "661",
+      "layout": "token",
+      "released_at": "2022-11-18",
+      "set": "tbrc",
+      "set_name": "The Brothers' War Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
       "rarity": "common",
-      "type_line": "Land",
+      "type_line": "Token Creature — Goat",
       "cmc": 0,
-      "color_identity": [],
-      "mana_cost": "",
-      "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
-      "keywords": [
-        "Scry"
+      "color_identity": [
+        "W"
       ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
       "game_changer": false,
       "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
       "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "017440c8-2904-4f6b-8901-965c15831187",
+      "illustration_id": "05427d29-123c-434b-94e6-a7e0db1f2b6f",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.png?1783915505",
-        "large": "https://cards.scryfall.io/large/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.jpg?1783915505",
-        "normal": "https://cards.scryfall.io/normal/front/7/f/7f3d574a-72b5-43be-b4b5-87865bbc7b5c.jpg?1783915505"
+        "png": "https://cards.scryfall.io/png/front/7/f/7fc777ba-4380-4d9d-8a0d-88e3213107cf.png?1783919917",
+        "large": "https://cards.scryfall.io/large/front/7/f/7fc777ba-4380-4d9d-8a0d-88e3213107cf.jpg?1783919917",
+        "normal": "https://cards.scryfall.io/normal/front/7/f/7fc777ba-4380-4d9d-8a0d-88e3213107cf.jpg?1783919917"
       }
     },
     {
@@ -1615,39 +1833,6 @@
         "png": "https://cards.scryfall.io/png/front/8/8/8819dd6d-1127-4c73-9df7-5e5d66c20a68.png?1786104530",
         "large": "https://cards.scryfall.io/large/front/8/8/8819dd6d-1127-4c73-9df7-5e5d66c20a68.jpg?1786104530",
         "normal": "https://cards.scryfall.io/normal/front/8/8/8819dd6d-1127-4c73-9df7-5e5d66c20a68.jpg?1786104530"
-      }
-    },
-    {
-      "id": "8c632984-5176-4c37-91df-6577cc294b85",
-      "oracle_id": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
-      "name": "Evolving Wilds",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-01-23",
-      "set": "ecl",
-      "set_name": "Lorwyn Eclipsed",
-      "set_type": "expansion",
-      "collector_number": "264",
-      "rarity": "common",
-      "type_line": "Land",
-      "cmc": 0,
-      "color_identity": [],
-      "mana_cost": "",
-      "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "0a479b9c-586f-4e65-86bd-0349935b86cc",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.png?1783904395",
-        "large": "https://cards.scryfall.io/large/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.jpg?1783904395",
-        "normal": "https://cards.scryfall.io/normal/front/8/c/8c632984-5176-4c37-91df-6577cc294b85.jpg?1783904395"
       }
     },
     {
@@ -2082,42 +2267,6 @@
       }
     },
     {
-      "id": "9ed2a7c6-aa51-4b0e-a2d7-5f8d12c42e78",
-      "oracle_id": "dcb7e046-f01b-497c-88e5-57794eb30ce5",
-      "name": "Canopy Vista",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-08-02",
-      "set": "blc",
-      "set_name": "Bloomburrow Commander",
-      "set_type": "commander",
-      "collector_number": "296",
-      "rarity": "rare",
-      "type_line": "Land — Forest Plains",
-      "cmc": 0,
-      "color_identity": [
-        "G",
-        "W"
-      ],
-      "mana_cost": "",
-      "oracle_text": "({T}: Add {G} or {W}.)\nThis land enters tapped unless you control two or more basic lands.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "c4557a77-5817-4b47-9f3b-efbec5a30719",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/9/e/9ed2a7c6-aa51-4b0e-a2d7-5f8d12c42e78.png?1783910642",
-        "large": "https://cards.scryfall.io/large/front/9/e/9ed2a7c6-aa51-4b0e-a2d7-5f8d12c42e78.jpg?1783910642",
-        "normal": "https://cards.scryfall.io/normal/front/9/e/9ed2a7c6-aa51-4b0e-a2d7-5f8d12c42e78.jpg?1783910642"
-      }
-    },
-    {
       "id": "a0a7a648-125a-4cf4-bf8b-e1773d8723ff",
       "oracle_id": "421ec8a8-2b20-4296-b8f7-010acc3f8097",
       "name": "Pippin, Warden of Isengard",
@@ -2492,6 +2641,42 @@
       }
     },
     {
+      "id": "b3169b9a-f5e3-402e-883a-08274d0c7b12",
+      "oracle_id": "7e5d9efe-48a9-434b-bb09-056e0e09cc9a",
+      "name": "Isolated Chapel",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-02",
+      "set": "frc",
+      "set_name": "Reality Fracture Commander",
+      "set_type": "commander",
+      "collector_number": "74",
+      "rarity": "rare",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped unless you control a Plains or a Swamp.\n{T}: Add {W} or {B}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "68c9cf3a-4144-4b01-8cac-72ca56a6ddf6",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/3/b3169b9a-f5e3-402e-883a-08274d0c7b12.png?1789599905",
+        "large": "https://cards.scryfall.io/large/front/b/3/b3169b9a-f5e3-402e-883a-08274d0c7b12.jpg?1789599905",
+        "normal": "https://cards.scryfall.io/normal/front/b/3/b3169b9a-f5e3-402e-883a-08274d0c7b12.jpg?1789599905"
+      }
+    },
+    {
       "id": "b3699c15-d834-4dde-ae3b-b3eb8241b442",
       "oracle_id": "2ec4288e-34c6-4831-a2c0-ba1ca1d9d1dc",
       "name": "Ghost Quarter",
@@ -2614,6 +2799,44 @@
       }
     },
     {
+      "id": "bbd9ff58-4d38-4d34-9dfc-6f788830297e",
+      "oracle_id": "731fee49-fafb-45ad-b50c-97af035b9fae",
+      "name": "Halfling",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltc",
+      "set_name": "Tales of Middle-earth Commander Tokens",
+      "set_type": "token",
+      "collector_number": "3",
+      "rarity": "common",
+      "type_line": "Token Creature — Halfling",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "b79abc1d-e413-4426-9121-af9a5f59cc73",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/b/bbd9ff58-4d38-4d34-9dfc-6f788830297e.png?1783916062",
+        "large": "https://cards.scryfall.io/large/front/b/b/bbd9ff58-4d38-4d34-9dfc-6f788830297e.jpg?1783916062",
+        "normal": "https://cards.scryfall.io/normal/front/b/b/bbd9ff58-4d38-4d34-9dfc-6f788830297e.jpg?1783916062"
+      }
+    },
+    {
       "id": "bbe6e907-eafb-402c-8b8f-4c01fb168a0b",
       "oracle_id": "76dfa5c2-1ea6-4f89-9903-26998636845e",
       "name": "Hithlain Rope",
@@ -2650,38 +2873,41 @@
       }
     },
     {
-      "id": "bc9f3d1b-bb3a-4a78-9031-ed439212a48b",
-      "oracle_id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
-      "name": "Forest",
+      "id": "bf661b43-53eb-4e51-8152-420f6d8c925f",
+      "oracle_id": "79af2f72-e60a-4722-a794-92da85b994ee",
+      "name": "Treefolk",
       "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2544",
-      "rarity": "rare",
-      "type_line": "Basic Land — Forest",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltc",
+      "set_name": "Tales of Middle-earth Commander Tokens",
+      "set_type": "token",
+      "collector_number": "13",
+      "rarity": "common",
+      "type_line": "Token Creature — Treefolk",
       "cmc": 0,
       "color_identity": [
         "G"
       ],
       "mana_cost": "",
-      "oracle_text": "({T}: Add {G}.)",
+      "oracle_text": "",
       "keywords": [],
       "game_changer": false,
-      "full_art": true,
+      "full_art": false,
       "textless": false,
-      "border_color": "borderless",
+      "border_color": "black",
       "frame": "2015",
       "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
       "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "0944cf28-fade-446b-ab01-f7497337b4e7",
+      "image_status": "lowres",
+      "illustration_id": "3005dc48-6ff5-46b4-ab43-1b6352c1f2c1",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.png?1788412661",
-        "large": "https://cards.scryfall.io/large/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.jpg?1788412661",
-        "normal": "https://cards.scryfall.io/normal/front/b/c/bc9f3d1b-bb3a-4a78-9031-ed439212a48b.jpg?1788412661"
+        "png": "https://cards.scryfall.io/png/front/b/f/bf661b43-53eb-4e51-8152-420f6d8c925f.png?1783916059",
+        "large": "https://cards.scryfall.io/large/front/b/f/bf661b43-53eb-4e51-8152-420f6d8c925f.jpg?1783916059",
+        "normal": "https://cards.scryfall.io/normal/front/b/f/bf661b43-53eb-4e51-8152-420f6d8c925f.jpg?1783916059"
       }
     },
     {
@@ -3120,17 +3346,17 @@
       }
     },
     {
-      "id": "e9ca6518-aa90-4614-86aa-b972f60cce49",
+      "id": "e8418418-10bb-48e1-83ed-0081390384b4",
       "oracle_id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
       "name": "Swamp",
       "lang": "en",
       "layout": "normal",
-      "released_at": "2026-04-27",
-      "set": "sld",
-      "set_name": "Secret Lair Drop",
-      "set_type": "box",
-      "collector_number": "2542",
-      "rarity": "rare",
+      "released_at": "2026-10-02",
+      "set": "fra",
+      "set_name": "Reality Fracture",
+      "set_type": "expansion",
+      "collector_number": "388",
+      "rarity": "common",
       "type_line": "Basic Land — Swamp",
       "cmc": 0,
       "color_identity": [
@@ -3144,14 +3370,17 @@
       "textless": false,
       "border_color": "borderless",
       "frame": "2015",
+      "frame_effects": [
+        "inverted"
+      ],
       "promo": false,
       "digital": false,
       "image_status": "highres_scan",
-      "illustration_id": "571852a3-ef21-4714-b120-b4dd68e2c05d",
+      "illustration_id": "d8684d46-2947-4d6c-9d0a-0a0b138df880",
       "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.png?1783903503",
-        "large": "https://cards.scryfall.io/large/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503",
-        "normal": "https://cards.scryfall.io/normal/front/e/9/e9ca6518-aa90-4614-86aa-b972f60cce49.jpg?1783903503"
+        "png": "https://cards.scryfall.io/png/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.png?1790136927",
+        "large": "https://cards.scryfall.io/large/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927",
+        "normal": "https://cards.scryfall.io/normal/front/e/8/e8418418-10bb-48e1-83ed-0081390384b4.jpg?1790136927"
       }
     },
     {
@@ -3347,6 +3576,42 @@
       }
     },
     {
+      "id": "f5130ca9-d8b4-4d0c-a0fa-9b7ce7c2a548",
+      "oracle_id": "60b36821-0fad-423c-98c4-f64d991719f3",
+      "name": "Graypelt Refuge",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-08-10",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "C19-249",
+      "rarity": "uncommon",
+      "type_line": "Land",
+      "cmc": 0,
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {G} or {W}.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b0aba1cc-fe30-46de-b488-41cfe2d6d855",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/5/f5130ca9-d8b4-4d0c-a0fa-9b7ce7c2a548.png?1793497775",
+        "large": "https://cards.scryfall.io/large/front/f/5/f5130ca9-d8b4-4d0c-a0fa-9b7ce7c2a548.jpg?1793497775",
+        "normal": "https://cards.scryfall.io/normal/front/f/5/f5130ca9-d8b4-4d0c-a0fa-9b7ce7c2a548.jpg?1793497775"
+      }
+    },
+    {
       "id": "ff9dfba4-07d2-4407-a441-88acc7284d43",
       "oracle_id": "54accd4a-b471-4ae5-b3b2-a5cec44023b7",
       "name": "Rapacious Guest",
@@ -3400,7 +3665,7 @@
     "brushland": "98178c9d-e113-4f0e-9a7b-3ebfaafe2503",
     "butterbur, bree innkeeper": "f3fd9ff1-278b-4e6a-b30b-90250d8b5762",
     "call for unity": "eeca4557-98aa-433b-a3ee-050e4a3e6d88",
-    "canopy vista": "9ed2a7c6-aa51-4b0e-a2d7-5f8d12c42e78",
+    "canopy vista": "79ca8982-826a-4c23-9e3a-04721d2e6466",
     "chromatic lantern": "a15d231e-afa3-47d3-972e-7d4faed0db58",
     "command tower": "7ada3564-2d74-465b-a51d-7b0f7023c0ad",
     "commander's sphere": "516692b8-fbaf-4698-864b-5363aafc95b9",
@@ -3410,14 +3675,14 @@
     "dusk // dawn": "b75c309f-b48f-46c6-aef7-7e7ca64da262",
     "eagles of the north": "068a5bf7-6faf-41d5-924d-cdf387c1a193",
     "essence warden": "48431d2f-4011-48d2-b556-2078c1a45d85",
-    "evolving wilds": "8c632984-5176-4c37-91df-6577cc294b85",
+    "evolving wilds": "513a97a3-dfdd-4e32-9c4c-3d174d797963",
     "exotic orchard": "b07baf1d-a399-478e-9ae1-0a9e6cfe4933",
     "farmer cotton": "25b49eaa-13e7-4f4e-b0dc-56ebd28a4a22",
     "farseek": "95e0760a-d285-493b-88cd-7556d9b10007",
     "feasting hobbit": "17662301-7284-40d4-af51-45a496c0eac0",
     "fell the mighty": "0cdf4215-0867-47d8-ae61-0da2af542d7b",
     "field-tested frying pan": "1d770a59-1c54-407e-9c58-8d8b6f44c90a",
-    "forest": "bc9f3d1b-bb3a-4a78-9031-ed439212a48b",
+    "forest": "790dcf48-ab51-4b10-9933-6b7e3baf0f52",
     "fortified village": "eb2e9534-2eda-4e41-8a87-181e5eb8c328",
     "frodo, adventurous hobbit": "328df403-7428-4b17-bdd1-9759fc0f32d8",
     "fumigate": "976f6850-e646-4b51-a103-25240658672d",
@@ -3426,12 +3691,12 @@
     "gilded goose": "c9ab64c3-130e-4afc-9589-6d5654daeac7",
     "go for the throat": "b0a79a71-7510-4427-a514-5f50811664a8",
     "gollum, obsessed stalker": "e5a43cf0-60b3-4770-945c-41ee3ec54d5a",
-    "graypelt refuge": "445ffa4d-d5ca-4ba6-b589-40d8490a4032",
+    "graypelt refuge": "f5130ca9-d8b4-4d0c-a0fa-9b7ce7c2a548",
     "great oak guardian": "81b6f0ba-b325-48ed-899a-4a7db7944102",
     "gwaihir, greatest of the eagles": "9c17c3bb-aa20-43b0-8a28-b46a18b060ef",
     "harmonize": "9e1f1110-0919-49cd-8b5b-979b2744fd3c",
     "hithlain rope": "bbe6e907-eafb-402c-8b8f-4c01fb168a0b",
-    "isolated chapel": "78814c92-b52c-462a-866f-3e7da9db9f70",
+    "isolated chapel": "b3169b9a-f5e3-402e-883a-08274d0c7b12",
     "landroval, horizon witness": "808029df-e1db-4fe0-b1ed-a75f8d496aa7",
     "lobelia, defender of bag end": "6d67a523-bda9-4f8b-bd50-dc015f9b4b7a",
     "mentor of the meek": "9b974f99-28d0-4cd5-87a7-3f9661ddd1b4",
@@ -3444,10 +3709,10 @@
     "night's whisper": "af42be9a-aae2-4a1a-b0f4-dfca7d55f488",
     "of herbs and stewed rabbit": "c58623cb-8b49-470c-9622-dd6e09d47599",
     "orchard strider": "acdab158-3e36-42cd-9fda-e8282dbafeb2",
-    "path of ancestry": "7f3d574a-72b5-43be-b4b5-87865bbc7b5c",
+    "path of ancestry": "17ed79a4-6c88-4061-8b08-d94ad58d0234",
     "path to exile": "d2db4178-0b54-45aa-9979-c36241b1f23d",
     "pippin, warden of isengard": "a0a7a648-125a-4cf4-bf8b-e1773d8723ff",
-    "plains": "6089330b-dc26-4c35-ba58-522d5bfb963a",
+    "plains": "796b72af-5078-427d-b566-9bccad17090f",
     "pristine talisman": "78117d34-0325-4e80-8bcd-2b2be557c81c",
     "prize pig": "a0b202d8-3c25-467e-86ed-6bea19bb869f",
     "prosperous innkeeper": "8dbdba5b-3014-47b9-b5c8-5f92a99df9f7",
@@ -3466,10 +3731,17 @@
     "shire terrace": "5233144a-9e88-44a2-9ea9-88ecc116bcd6",
     "sol ring": "193a5688-9e9b-48f4-9904-53134ec73c97",
     "sunpetal grove": "e6fe0942-a5c9-4821-9992-19467e3a1176",
-    "swamp": "e9ca6518-aa90-4614-86aa-b972f60cce49",
+    "swamp": "e8418418-10bb-48e1-83ed-0081390384b4",
     "swords to plowshares": "68357502-cf23-4bf6-ab4e-371428e540d0",
     "the gaffer": "9c264afd-ea8b-435c-bb01-c754d44ba4a5",
     "tireless provisioner": "6d2e2e8d-8382-4d98-9e25-2dff1b1d0ff8",
+    "token:bird|tltc|1": "561341f5-3eb1-4f52-8dee-668a60e091be",
+    "token:food|tblb|27": "0dce2241-e58b-41d4-b57c-9794fc8ee004",
+    "token:goat|tbrc|3": "7fc777ba-4380-4d9d-8a0d-88e3213107cf",
+    "token:halfling|tltc|3": "bbd9ff58-4d38-4d34-9dfc-6f788830297e",
+    "token:soldier|plst|tgrn-2": "20a9bda0-5673-4071-9201-83670a317f8a",
+    "token:treasure|sld|2820": "0bb11342-bc1d-4eea-b0b0-94799be2602a",
+    "token:treefolk|tltc|13": "bf661b43-53eb-4e51-8152-420f6d8c925f",
     "toxic deluge": "73731e45-51bb-4188-a54d-fdaa4bdfaf1f",
     "trading post": "f01fae0b-1042-4cd6-bccb-37e30dae9a28",
     "treebeard, gracious host": "cf6be41a-1acd-4668-8f13-ccd495fbc7bd",

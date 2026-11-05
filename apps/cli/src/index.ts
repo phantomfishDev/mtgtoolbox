@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, resolve as resolvePath } from 'node:path';
 import { Command, InvalidArgumentError } from 'commander';
 import {
@@ -13,12 +13,19 @@ import {
   isBasicLand,
   mergeEntries,
   parseDecklist,
+  selectForTokenMode,
+  setTokensSection,
+  tokenParts,
+  TOKEN_MODES,
+  type TokenMode,
   refreshDeckData,
   resolveFromDeckData,
   totalCards,
   type DeckIndexEntry,
   manaCurve,
-  missingOnly,
+  unprintedOnly,
+  addEntries,
+  entryFromCard,
   normalizeName,
   scorePrinting,
   comparePrintings,
@@ -35,27 +42,27 @@ import {
   saveDeckIndex,
   cacheStats,
   clearCache,
-  collectionPath,
+  printedPath,
   configPath,
   deckId,
   decksDir,
   listDecks,
-  loadCollection,
+  loadPrinted,
   loadConfig,
+  savePrinted,
   saveConfig,
   saveDeckData,
 } from '@mtgproxy/node';
-import { collectionCommand } from './collection-cmd.js';
+import { printedCommand } from './printed-cmd.js';
 import {
   fetchImages,
   loadDeck,
   makeClient,
-  ownedKeysOf,
   readDeckSource,
   reportResolve,
 } from './deck.js';
 import { collect, resolveProfile, type ProfileFlags } from './prefs.js';
-import { bold, cyan, dim, done, fail, formatBytes, green, info, yellow } from './ui.js';
+import { bold, cyan, dim, done, fail, formatBytes, green, info, warn, yellow } from './ui.js';
 
 const VERSION = '0.2.0';
 
@@ -88,7 +95,7 @@ function withDeckOptions(command: Command): Command {
   return command
     .option('--markdown', 'force markdown decklist-block extraction')
     .option('--quiet', 'suppress per-request logging')
-    .option('-c, --collection <path>', 'collection file')
+    .option('--printed <path>', 'printed-ledger file')
     .option('--config <path>', 'config file')
     .option('--profile <name>', 'named preference profile from the config file')
     .option('--prefer-set <code>', 'prefer this set (repeatable, ordered)', collect)
@@ -99,18 +106,24 @@ function withDeckOptions(command: Command): Command {
     .option('--retro', 'prefer retro-frame printings')
     .option('--frame-effect <name>', 'prefer a frame effect, e.g. showcase (repeatable)', collect)
     .option('--no-ub', 'avoid Universes Beyond printings')
-    .option('--no-prefer-owned', 'do not favour printings you already own');
+    .option(
+      '--tokens <mode>',
+      `what to do with the decklist's Tokens section (${TOKEN_MODES.join(', ')})`,
+      choice(TOKEN_MODES as readonly TokenMode[]),
+      'exclude',
+    );
 }
 
 interface DeckFlags extends ProfileFlags {
   markdown?: boolean;
   quiet?: boolean;
-  collection?: string;
+  printed?: string;
+  tokens?: TokenMode;
 }
 
-/** Shared setup: load the collection and profile, then parse and resolve. */
+/** Shared setup: load the printed ledger and profile, then parse and resolve. */
 async function prepare(file: string, flags: DeckFlags) {
-  const { data: collection } = await loadCollection(flags.collection);
+  const { data: printed } = await loadPrinted(flags.printed);
   const { profile, name } = await resolveProfile(flags);
   if (name) info(dim(`  profile: ${name}`));
 
@@ -119,10 +132,10 @@ async function prepare(file: string, flags: DeckFlags) {
   const loaded = await loadDeck(file, client, {
     markdown: flags.markdown,
     profile,
-    collection,
+    tokenMode: flags.tokens ?? 'exclude',
     pins: config.pins ?? {},
   });
-  return { ...loaded, collection, client, profile };
+  return { ...loaded, printed, client, profile };
 }
 
 interface PrintFlags extends DeckFlags {
@@ -131,9 +144,10 @@ interface PrintFlags extends DeckFlags {
   guides: GuideStyle;
   quality: ImageQuality;
   gap: number;
-  missingOnly?: boolean;
-  strictPrinting?: boolean;
-  assumeBasics: boolean;
+  unprinted?: boolean;
+  record?: boolean;
+  strictPrinting: boolean;
+  assumeBasics?: boolean;
   bothFaces?: boolean;
 }
 
@@ -147,28 +161,29 @@ withDeckOptions(
     .option('-g, --guides <style>', 'cut guides: crop, lines, none', choice(['crop', 'lines', 'none'] as const), 'crop')
     .option('-q, --quality <level>', 'image quality: png, large, normal', choice(['png', 'large', 'normal'] as const), 'png')
     .option('--gap <mm>', 'gap between cards in millimetres', Number.parseFloat, 0)
-    .option('-m, --missing-only', 'print only the cards not already in your collection')
+    .option('-u, --unprinted', 'print only the cards you have not printed yet')
+    .option('--record', 'record what was printed, so --unprinted skips it next time')
     .option('--both-faces', 'also print the back of each double-faced card')
-    .option('--strict-printing', 'only count the exact printing as owned')
-    .option('--no-assume-basics', 'do not treat basic lands as already owned'),
+    .option('--no-strict-printing', 'count any printing of a card as already printed')
+    .option('--assume-basics', 'treat basic lands as already printed'),
 ).action(async (file: string, flags: PrintFlags) => {
-  const { resolve, collection, client } = await prepare(file, flags);
+  const { resolve, printed, client } = await prepare(file, flags);
   reportResolve(resolve, { bothFaces: flags.bothFaces ?? false });
   if (resolve.resolved.length === 0) throw new Error('nothing to print: no cards resolved');
 
   let toPrint = resolve.resolved;
-  if (flags.missingOnly) {
-    const diff = diffDeck(resolve.resolved, collection, {
-      strictPrinting: flags.strictPrinting ?? false,
-      assumeBasics: flags.assumeBasics,
+  if (flags.unprinted) {
+    const diff = diffDeck(resolve.resolved, printed, {
+      strictPrinting: flags.strictPrinting,
+      assumeBasics: flags.assumeBasics ?? false,
     });
-    toPrint = missingOnly(resolve.resolved, diff);
+    toPrint = unprintedOnly(resolve.resolved, diff);
     info(
-      `${bold('Collection')} ${diff.totalOwned} of ${diff.totalNeeded} owned, ` +
-        `${yellow(String(diff.totalMissing))} to print`,
+      `${bold('Printed')} ${diff.totalPrinted} of ${diff.totalNeeded} already printed, ` +
+        `${yellow(String(diff.totalToPrint))} to print`,
     );
     if (toPrint.length === 0) {
-      done('you already own every card in this deck; nothing to print');
+      done('you have already printed every card in this deck; nothing to print');
       return;
     }
   }
@@ -193,6 +208,21 @@ withDeckOptions(
       (file === '-' ? 'deck.pdf' : `${file.slice(0, file.length - extname(file).length)}.pdf`),
   );
   await writeFile(output, result.bytes);
+
+  // Recorded only now, after the PDF exists: a run that failed earlier must not
+  // leave the ledger claiming those cards came out of the printer.
+  if (flags.record) {
+    const { data: ledger } = await loadPrinted(flags.printed);
+    const entries = toPrint.map((item) =>
+      entryFromCard(item.card, {
+        quantity: item.entry.quantity,
+        note: `${file === '-' ? 'decklist' : basename(file)}`,
+      }),
+    );
+    const ledgerPath = await savePrinted(addEntries(ledger, entries), flags.printed);
+    const recorded = entries.reduce((sum, entry) => sum + entry.quantity, 0);
+    info(`${bold('Recorded')} ${recorded} cards as printed ${dim(ledgerPath)}`);
+  }
 
   info('');
   info(
@@ -257,22 +287,22 @@ withDeckOptions(
 withDeckOptions(
   program
     .command('diff')
-    .description('Show which cards in a decklist you do not own')
+    .description('Show which cards in a decklist you have not printed yet')
     .argument('<file>', 'decklist file, or - to read stdin')
-    .option('--strict-printing', 'only count the exact printing as owned')
-    .option('--no-assume-basics', 'do not treat basic lands as already owned')
+    .option('--no-strict-printing', 'count any printing of a card as already printed')
+    .option('--assume-basics', 'treat basic lands as already printed')
     .option('--json', 'emit the diff as JSON on stdout'),
 ).action(
   async (
     file: string,
-    flags: DeckFlags & { strictPrinting?: boolean; assumeBasics: boolean; json?: boolean },
+    flags: DeckFlags & { strictPrinting: boolean; assumeBasics?: boolean; json?: boolean },
   ) => {
-    const { resolve, collection } = await prepare(file, flags);
+    const { resolve, printed } = await prepare(file, flags);
     reportResolve(resolve);
 
-    const diff = diffDeck(resolve.resolved, collection, {
-      strictPrinting: flags.strictPrinting ?? false,
-      assumeBasics: flags.assumeBasics,
+    const diff = diffDeck(resolve.resolved, printed, {
+      strictPrinting: flags.strictPrinting,
+      assumeBasics: flags.assumeBasics ?? false,
     });
 
     if (flags.json) {
@@ -281,16 +311,16 @@ withDeckOptions(
           {
             totals: {
               needed: diff.totalNeeded,
-              owned: diff.totalOwned,
-              missing: diff.totalMissing,
+              printed: diff.totalPrinted,
+              toPrint: diff.totalToPrint,
             },
             rows: diff.rows.map((row) => ({
               name: row.card.name,
               set: row.card.set,
               collectorNumber: row.card.collector_number,
               needed: row.needed,
-              owned: row.owned,
-              missing: row.missing,
+              printed: row.printed,
+              toPrint: row.toPrint,
               isBasic: row.isBasic,
             })),
           },
@@ -302,26 +332,29 @@ withDeckOptions(
     }
 
     info('');
-    const missing = diff.rows.filter((row) => row.missing > 0);
-    const owned = diff.rows.filter((row) => row.missing === 0);
+    const toPrint = diff.rows.filter((row) => row.toPrint > 0);
+    const alreadyPrinted = diff.rows.filter((row) => row.toPrint === 0);
 
-    if (owned.length > 0) {
-      info(bold(`Owned (${owned.length})`));
-      for (const row of owned) {
+    if (alreadyPrinted.length > 0) {
+      info(bold(`Already printed (${alreadyPrinted.length})`));
+      for (const row of alreadyPrinted) {
         const note = row.isBasic ? dim(' basic') : '';
         info(`  ${green('ok')} ${String(row.needed).padStart(2)} ${row.card.name}${note}`);
       }
       info('');
     }
-    if (missing.length > 0) {
-      info(bold(`Missing (${missing.length})`));
-      for (const row of missing) {
-        const held = row.owned > 0 ? dim(` (own ${row.owned} of ${row.needed})`) : '';
-        info(`  ${yellow('--')} ${String(row.missing).padStart(2)} ${row.card.name}${held}`);
+    if (toPrint.length > 0) {
+      info(bold(`Still to print (${toPrint.length})`));
+      for (const row of toPrint) {
+        const held = row.printed > 0 ? dim(` (printed ${row.printed} of ${row.needed})`) : '';
+        info(`  ${yellow('--')} ${String(row.toPrint).padStart(2)} ${row.card.name}${held}`);
       }
       info('');
     }
-    info(`${diff.totalOwned} of ${diff.totalNeeded} owned, ${diff.totalMissing} missing`);
+    info(
+      `${diff.totalPrinted} of ${diff.totalNeeded} already printed, ` +
+        `${diff.totalToPrint} still to print`,
+    );
   },
 );
 
@@ -333,7 +366,6 @@ withDeckOptions(
     .option('--explain', 'show the score breakdown for each printing')
     .option('--limit <n>', 'how many printings to show', (v) => Number.parseInt(v, 10), 15),
 ).action(async (name: string, flags: DeckFlags & { explain?: boolean; limit: number }) => {
-  const { data: collection } = await loadCollection(flags.collection);
   const { profile, name: profileName } = await resolveProfile(flags);
   const client = makeClient(flags.quiet ?? true);
 
@@ -341,9 +373,8 @@ withDeckOptions(
   if (candidates.length === 0) throw new Error(`no Scryfall match for "${name}"`);
 
   const isBasic = isBasicLand(candidates[0]!);
-  const ownedKeys = ownedKeysOf(collection);
   const ranked = candidates
-    .map((card) => scorePrinting(card, profile, { ownedKeys, isBasic }))
+    .map((card) => scorePrinting(card, profile, { isBasic }))
     .sort(comparePrintings);
 
   info(
@@ -470,11 +501,9 @@ withDeckOptions(
     flags: DeckFlags & { decks?: string; force?: boolean; rate: number; refresh?: boolean },
   ) => {
     const dir = decksDir(flags.decks);
-    const { data: collection } = await loadCollection(flags.collection);
     const { profile } = await resolveProfile(flags);
     const config = (await loadConfig(flags.config)).data;
     const client = makeClient(true, flags.rate);
-    const owned = ownedKeysOf(collection);
 
     // A file given from outside the decks directory is a new deck: copy it in
     // so its data has somewhere to live beside it.
@@ -498,7 +527,7 @@ withDeckOptions(
       try {
         const source = await readDeckSource(target);
         const parsed = parseDecklist(source.text, { markdown: source.markdown });
-        const merged = mergeEntries(parsed.entries);
+        const merged = mergeEntries(selectForTokenMode(parsed.entries, 'include'));
         const cardCount = totalCards(parsed.entries);
 
         let data = null;
@@ -511,13 +540,15 @@ withDeckOptions(
           const ids = stored.cards.map((card) => ({ id: card.id }));
           const fresh = await client.collection(ids);
           data = refreshDeckData(stored, fresh.data);
-          resolved = resolveFromDeckData(merged, data, profile, owned)?.result.resolved ?? null;
+          resolved = resolveFromDeckData(merged, data, profile)?.result.resolved ?? null;
         }
 
         if (!data || !resolved) {
           const loaded = await loadDeck(target, client, {
             profile,
-            collection,
+            // Store tokens too, so `--tokens include` and `--tokens only` are
+            // served from the file rather than hitting the network.
+            tokenMode: 'include',
             pins: config.pins ?? {},
             ignoreStored: (flags.force ?? false) || (flags.refresh ?? false),
           });
@@ -526,8 +557,15 @@ withDeckOptions(
             info(yellow(`${name}: skipped, ${loaded.resolve.unresolved.length} card(s) unresolved`));
             continue;
           }
+          // A missed pin is the one warning worth breaking sync's quiet for: it
+          // means the stored file is about to disagree with the decklist, and
+          // the file is what every later run reads. The noisier warnings
+          // (lowres scans, double faces) stay out of a ten-deck run.
+          for (const warning of loaded.resolve.warnings) {
+            if (warning.code === 'pin-missed') warn(`${name}: ${warning.message}`);
+          }
           resolved = loaded.resolve.resolved;
-          data = buildDeckData(name, resolved, profile, owned);
+          data = buildDeckData(name, resolved, profile);
         }
 
         const changed = await saveDeckData(target, data);
@@ -555,25 +593,25 @@ withDeckOptions(
 
 program
   .command('serve')
-  .description('Serve the web app against your real collection, config and decklists')
+  .description('Serve the web app against your real printed ledger, config and decklists')
   .option('--port <n>', 'port to listen on', (value) => Number.parseInt(value, 10), 5174)
   .option('--host <host>', 'interface to bind', '127.0.0.1')
   .option('--decks <dir>', 'decks directory (default: ./examples)')
-  .option('-c, --collection <path>', 'collection file')
+  .option('--printed <path>', 'printed-ledger file')
   .option('--config <path>', 'config file')
   .option('--site <dir>', 'serve a built web app from this directory too')
   .action(async (options: {
     port: number;
     host: string;
     decks?: string;
-    collection?: string;
+    printed?: string;
     config?: string;
     site?: string;
   }) => {
     const running = await serve(options);
     info(`${bold('mtgproxy serve')} ${running.url}`);
     info(dim(`  decks       ${decksDir(options.decks)}`));
-    info(dim(`  collection  ${collectionPath(options.collection)}`));
+    info(dim(`  printed     ${printedPath(options.printed)}`));
     info(dim(`  config      ${configPath(options.config)}`));
     if (options.site) info(dim(`  site        ${resolvePath(options.site)}`));
     else info(dim('  run the web app with `pnpm --filter @mtgproxy/web dev`; it proxies /api here'));
@@ -650,7 +688,115 @@ program
     done(`pinned ${bold(found.name)} to ${found.set.toUpperCase()} ${found.collector_number}`);
   });
 
-program.addCommand(collectionCommand());
+withDeckOptions(
+  program
+    .command('tokens')
+    .description("List the tokens a deck can make, and write them into its Tokens section")
+    .argument('<file>', 'decklist file, or - to read stdin')
+    .option('-q, --quantity <n>', 'how many of each to list', (v) => Number.parseInt(v, 10), 4)
+    .option('-w, --write', "replace the decklist's Tokens section with the result")
+    .option('--json', 'emit the tokens as JSON on stdout'),
+).action(
+  async (
+    file: string,
+    flags: DeckFlags & { quantity: number; write?: boolean; json?: boolean },
+  ) => {
+    const { resolve, client } = await prepare(file, { ...flags, tokens: 'exclude' });
+    reportResolve(resolve);
+    if (resolve.resolved.length === 0) throw new Error('nothing to inspect: no cards resolved');
+
+    // Stored deck data is trimmed, so all_parts is not in it. Re-read the
+    // chosen printings by id: one request per 75 cards, not one per card.
+    const ids = [...new Set(resolve.resolved.map((item) => item.card.id))].map((id) => ({ id }));
+    const full = (await client.collection(ids)).data;
+
+    const partIds = new Set<string>();
+    for (const card of full) for (const part of tokenParts(card)) partIds.add(part.id);
+    if (partIds.size === 0) {
+      done('no card in this deck makes a token');
+      return;
+    }
+
+    const tokenCards = (await client.collection([...partIds].map((id) => ({ id })))).data;
+
+    // One token per distinct printed face: two cards can name different
+    // printings of the same token, and a 3/3 Wraith is not a 2/2 one.
+    const distinct = new Map<string, (typeof tokenCards)[number]>();
+    for (const token of tokenCards) {
+      const identity = [
+        token.name,
+        token.power ?? '',
+        token.toughness ?? '',
+        token.oracle_text ?? '',
+      ].join('|');
+      if (!distinct.has(identity)) distinct.set(identity, token);
+    }
+
+    const rows = [...distinct.values()].sort((a, b) => a.name.localeCompare(b.name));
+
+    if (flags.json) {
+      process.stdout.write(
+        `${JSON.stringify(
+          rows.map((token) => ({
+            name: token.name,
+            set: token.set,
+            collectorNumber: token.collector_number,
+            typeLine: token.type_line,
+            power: token.power,
+            toughness: token.toughness,
+            oracleText: token.oracle_text,
+            imageStatus: token.image_status,
+          })),
+          null,
+          2,
+        )}\n`,
+      );
+      return;
+    }
+
+    // Printings are pinned, because token names collide: several different
+    // Wraiths exist and only one of them is the 3/3 with menace.
+    const lines = rows.map(
+      (token) =>
+        `${flags.quantity} ${token.name} (${token.set.toUpperCase()}) ${token.collector_number}`,
+    );
+
+    info('');
+    info(`${bold('Tokens')}  ${rows.length} distinct`);
+    for (const token of rows) {
+      const pt = token.power ? ` ${token.power}/${token.toughness}` : '';
+      const text = (token.oracle_text ?? '').replace(/\n/g, ', ');
+      const poor = token.image_status !== 'highres_scan' ? yellow(` [${token.image_status}]`) : '';
+      info(
+        `  ${token.name}${pt} ${dim(`${token.set.toUpperCase()} ${token.collector_number}`)}${poor}`,
+      );
+      if (text) info(dim(`    ${text.slice(0, 90)}`));
+    }
+
+    if (!flags.write) {
+      info('');
+      info(bold('Tokens section'));
+      info('');
+      info('Tokens');
+      for (const line of lines) info(line);
+      info('');
+      info(dim('  edit the quantities, or pass --write to put this in the decklist'));
+      return;
+    }
+
+    if (file === '-') throw new Error('--write needs a file, not stdin');
+    const original = await readFile(file, 'utf8');
+    const written = setTokensSection(original, lines);
+    if (written === original) {
+      info(dim('  Tokens section already up to date'));
+      return;
+    }
+    await writeFile(file, written);
+    done(`wrote ${rows.length} tokens into ${cyan(file)}`);
+  },
+);
+
+program.addCommand(printedCommand());
 
 const cache = program.command('cache').description('Inspect or clear the local Scryfall cache');
 

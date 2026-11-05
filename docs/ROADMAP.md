@@ -14,6 +14,8 @@ For the architecture these plug into, see [PLAN.md](PLAN.md).
 | Export to Moxfield | Parser already reads the target format | Exporter, UI entry point |
 | Mana curve | **done** | — |
 | Deck bracket | **done** | — |
+| Print only what is unprinted | **done** | — |
+| Token sheets | **done** | — |
 
 ---
 
@@ -177,3 +179,118 @@ because it is the number people quote at a table.
 **Before implementing:** re-check the current official criteria and the Game
 Changers list rather than trusting anything written here or in training data —
 both have changed several times since the system was introduced.
+
+---
+
+## 5. Print only the cards you have not printed yet — built
+
+The "owned collection" is gone. What the tool tracks now is what has come out of
+the printer, which is the question a proxy generator actually has.
+
+**Where:** `packages/core/src/printed/` (`types.ts`, `ledger.ts`, `diff.ts`),
+`printedPath()` / `loadPrinted()` / `savePrinted()` in `@mtgproxy/node`,
+`apps/cli/src/printed-cmd.ts`, and the **Printed** tab in the web app.
+
+The ledger lives at `~/.config/mtgproxy/printed.json` (`--printed`,
+`$MTGPROXY_PRINTED`). `print --unprinted` drops what is already in it;
+`print --record` adds what was printed, writing **after** the PDF lands so a run
+that failed earlier cannot claim those cards exist. `mtgproxy printed` has
+`list`, `path` and `clear --yes`, and nothing else: entries come from a print
+run, because a ledger that disagrees with the printer is worse than none.
+
+Two defaults are the opposite of what an ownership check wanted, and both are
+deliberate:
+
+| | was (owned) | is (printed) |
+|---|---|---|
+| `strictPrinting` | `false` | **`true`** — you printed *that* art |
+| `assumeBasics` | `true` | **`false`** — a proxy deck needs its basics |
+
+**What was removed with it:** the ManaBox/CSV importers and exporters, the
+`preferOwned` printing preference and its score weight, the collection's
+`add`/`remove`/`search`/`stats` subcommands, and the stored-deck-data `owned`
+fingerprint — which only existed because `preferOwned` let ownership change
+which printing won. The printed ledger is deliberately *not* fingerprinted into
+stored deck data or the web app's resolution cache: what you have printed cannot
+change which printing is correct, so recording a print must not invalidate every
+cached deck.
+
+**Still open:** there is no way to un-record a single mis-recorded row from the
+CLI — `clear` is all-or-nothing, though `removeEntry` is in core ready for it.
+And a card printed for deck A is skipped for deck B, which is right if you own
+one copy and wrong if you want one per deck; per-deck history
+(`examples/<deck>.printed.json`) is the fix if that turns out to bite.
+
+---
+
+## 6. Token sheets — built
+
+Mostly a bug report, as it turned out: a `Tokens` section already parsed, and
+token names already resolved. What did not work was everything around them.
+
+**Where:** `isTokenEntry` / `isDeckCard` / `selectForTokenMode` / `totalTokens`
+in `decklist/parse.ts`, `setTokensSection` in `decklist/tokens.ts`,
+`tokenParts` and `all_parts` in `scryfall/types.ts`, the `tokens` command in the
+CLI, and a Tokens select in the web print view.
+
+**Tokens no longer count as deck cards.** `section` was read nowhere outside the
+parser, so a 100-card deck with a token block reported 112 cards and the curve
+put every token in the MV 0 bucket. `totalCards`, `manaCurve` and
+`assessBracket` now filter through `isDeckCard`, as does the deck index — whose
+figures would otherwise contradict its own `cardCount`.
+
+**A three-way mode, defaulting to `exclude`,** so adding a section to a deck
+cannot change what an existing command prints: `--tokens exclude|include|only`
+on the CLI, the same three choices in the print view. `sync` stores token
+printings regardless, so every mode is served from the file rather than the
+network.
+
+**Token entries resolve against token printings only.** `/cards/search` hides
+tokens unless the query says `include:extras`, so before this a token name fell
+through to the fuzzy single-card fallback and arrived with exactly one candidate
+— no choice of art, and an extra request. `prints(name, { extras: true })` now
+fetches them properly, filtered to `layout: token` so a real card of the same
+name cannot win a token's slot.
+
+**Discovery comes from Scryfall, with nothing hardcoded.** `mtgproxy tokens
+<deck>` walks the resolved deck's `all_parts`, keeps the `token` components,
+dedupes by name and printed stats, and prints a ready-to-paste section;
+`--write` puts it in the decklist. Printings are pinned on the written lines,
+because token names collide — several Wraiths exist and only one is the 3/3 with
+menace.
+
+**Indexing entries by name was wrong in three ways,** and adding tokens to real
+decks surfaced all of them. A name is not unique within a deck:
+
+1. **A card and a token can share one.** beorn-bears runs the Mutavault land
+   *and* the Mutavault token; kwain-hare-apparent the Intrepid Rabbit creature
+   *and* its token. In the resolver they shared one printing fetch, and
+   whichever entry came first decided whether tokens were looked up at all — so
+   the token inherited the card's printings and resolved to the land.
+2. **Two tokens can share one.** beorn-bears lists a 2/2 Bear and a 4/4 Bear,
+   rats two different 1/1 Rats, prismari-artistry four different Elementals.
+   Stored deck data held one choice per name, so the other rows inherited an
+   art they did not ask for.
+3. **So can nine arts of one card** — the split-copies case the printing picker
+   already supports. The same collision, and it predates the token work.
+
+Fixed by splitting one overloaded key into two, both in `decklist/parse.ts`.
+`fetchKey` (the name, with tokens namespaced `token:<name>`) decides *which
+printings to look up*, and deliberately ignores pins, so nine pinned rows still
+cost one fetch. `choiceKey` (that, plus the pinned set and number) identifies
+*one entry's chosen printing* in stored data. Reading falls back from
+`choiceKey` to `fetchKey`, so data written before a pin was added still applies
+when the pin names the printing already chosen; `sameFacePrinting` rejects it
+otherwise.
+
+None of this ever produced a wrong print: the pin check in `resolveFromDeckData`
+turned every mismatch into a re-resolve. What it cost was the stored-data
+optimisation, silently, for three of the ten decks. It stayed invisible because
+`sync` reported unresolved cards but not warnings — so `sync` now surfaces
+pin-missed, the one warning meaning the file it is about to write disagrees with
+the decklist.
+
+**Still open:** some token art is poor and there is nothing to be done about it
+from Scryfall. The Wraith token has exactly one printing and its scan is flagged
+`lowres`; `tokens` marks it, and `resolve` warns, but printing a sheet of nine
+will look it. An image override per entry is the only real fix.

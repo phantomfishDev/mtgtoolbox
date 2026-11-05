@@ -12,7 +12,7 @@ import {
   profileFor,
   type PreferenceProfile,
 } from '../src/printing/profile.js';
-import { hasActivePreferences } from '../src/printing/resolve.js';
+import { hasActivePreferences, resolveDeckWithPreferences } from '../src/printing/resolve.js';
 import { card } from './helpers.js';
 
 const chosenSet = (profile: PreferenceProfile, cards: ReturnType<typeof card>[]) =>
@@ -60,35 +60,21 @@ describe('scorePrinting', () => {
     expect(chosenSet({ universesBeyond: 'avoid' }, [ub, normal])).toBe('cmm');
   });
 
-  it('favours printings already owned', () => {
-    const owned = card({ set: 'own', id: 'owned-id' });
-    const other = card({ set: 'oth', id: 'other-id' });
-    const result = selectPrinting([other, owned], { preferOwned: true }, {
-      ownedKeys: new Set(['owned-id']),
-    });
-    expect(result?.chosen.set).toBe('own');
-  });
-
-  it('lets an explicit avoid outrank owning the card', () => {
+  it('lets an explicit avoid outrank every bonus', () => {
     // Asking for no Universes Beyond printings must win even when the UB
-    // printing is the one already in the collection.
-    const ownedUb = card({ set: 'msc', id: 'owned-ub', promo_types: ['universesbeyond'] });
-    const plain = card({ set: 'cmm', id: 'plain' });
-    const result = selectPrinting(
-      [ownedUb, plain],
-      { universesBeyond: 'avoid', preferOwned: true },
-      { ownedKeys: new Set(['owned-ub']) },
-    );
-    expect(result?.chosen.set).toBe('cmm');
-  });
-
-  it('still favours an owned printing when nothing is avoided', () => {
-    const ownedUb = card({ set: 'msc', id: 'owned-ub', promo_types: ['universesbeyond'] });
-    const plain = card({ set: 'cmm', id: 'plain' });
-    const result = selectPrinting([ownedUb, plain], { preferOwned: true }, {
-      ownedKeys: new Set(['owned-ub']),
+    // printing scores better on everything else.
+    const fancyUb = card({
+      set: 'msc',
+      id: 'fancy-ub',
+      promo_types: ['universesbeyond'],
+      full_art: true,
     });
-    expect(result?.chosen.set).toBe('msc');
+    const plain = card({ set: 'cmm', id: 'plain' });
+    const result = selectPrinting([fancyUb, plain], {
+      universesBeyond: 'avoid',
+      fullArt: 'prefer',
+    });
+    expect(result?.chosen.set).toBe('cmm');
   });
 
   it('handles a null frame_effects without crashing', () => {
@@ -204,16 +190,6 @@ describe('hasActivePreferences', () => {
     expect(hasActivePreferences(DEFAULT_PROFILE)).toBe(true);
   });
 
-  it('stays false for preferOwned with an empty collection', () => {
-    // preferOwned is on by default; with nothing owned it cannot change the
-    // ranking, so it must not force the expensive per-name resolution path.
-    expect(hasActivePreferences({ preferOwned: true }, { hasCollection: false })).toBe(false);
-  });
-
-  it('is true for preferOwned once something is owned', () => {
-    expect(hasActivePreferences({ preferOwned: true }, { hasCollection: true })).toBe(true);
-  });
-
   it('is true for any real preference', () => {
     expect(hasActivePreferences({ preferSets: ['cmm'] })).toBe(true);
     expect(hasActivePreferences({ fullArt: 'prefer' })).toBe(true);
@@ -221,5 +197,50 @@ describe('hasActivePreferences', () => {
 
   it('ignores rules explicitly set to ignore', () => {
     expect(hasActivePreferences({ fullArt: 'ignore', borderless: 'ignore' })).toBe(false);
+  });
+});
+
+describe('a card and a token of the same name', () => {
+  // The printing cache used to be keyed by bare name, so these two entries
+  // shared one fetch and whichever came first decided whether tokens were
+  // looked up at all. The token then inherited the card's printings and its
+  // pin missed, so a Mutavault token resolved to the Mutavault land.
+  const landEntry = { quantity: 1, name: 'Mutavault', line: 1, raw: '1 Mutavault' };
+  const tokenEntry = {
+    quantity: 1,
+    name: 'Mutavault',
+    set: 'tecl',
+    collectorNumber: '11',
+    line: 2,
+    raw: '1 Mutavault (TECL) 11',
+    section: 'tokens' as const,
+  };
+
+  const realCard = card({ id: 'land', name: 'Mutavault', set: 'eos', collector_number: '28', type_line: 'Land' });
+  const tokenCard = card({ id: 'tok', name: 'Mutavault', set: 'tecl', collector_number: '11', layout: 'token' });
+
+  function clientFor(seen: string[]) {
+    return {
+      async prints(name: string, options?: { extras?: boolean }) {
+        seen.push(options?.extras ? `${name}+extras` : name);
+        return options?.extras ? [tokenCard, realCard] : [realCard];
+      },
+      async named() {
+        return null;
+      },
+    } as unknown as Parameters<typeof resolveDeckWithPreferences>[1];
+  }
+
+  it('fetches each separately and gives each its own printing', async () => {
+    const seen: string[] = [];
+    const result = await resolveDeckWithPreferences([landEntry, tokenEntry], clientFor(seen), {
+      profile: {},
+    });
+
+    expect(seen).toEqual(['Mutavault', 'Mutavault+extras']);
+    expect(result.unresolved).toHaveLength(0);
+    expect(result.resolved.map((item) => item.card.id)).toEqual(['land', 'tok']);
+    // No pin-missed warning: the token's pin was found among token printings.
+    expect(result.warnings.filter((w) => w.code === 'pin-missed')).toHaveLength(0);
   });
 });

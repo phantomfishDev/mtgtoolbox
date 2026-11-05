@@ -20,7 +20,7 @@ export function DecksView({
   onView: (deck: BundledDeck) => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { collection } = useApp();
+  const { printed } = useApp();
   const [query, setQuery] = useState('');
   const [index, setIndex] = useState<Map<string, DeckIndexEntry> | null>(null);
 
@@ -36,18 +36,18 @@ export function DecksView({
   }, []);
 
   /**
-   * Owned counts, using the same diff the deck view runs so the two can never
-   * disagree about how many cards you already have.
+   * Printed counts, using the same diff the deck view runs so the two can never
+   * disagree about how much of a deck is already on paper.
    */
-  const owned = useMemo(() => {
+  const printedCounts = useMemo(() => {
     if (!index) return null;
-    const counts = new Map<string, { owned: number; needed: number }>();
+    const counts = new Map<string, { printed: number; needed: number }>();
     for (const [id, entry] of index) {
-      const diff = diffDeck(indexCardsToResolved(entry.cards), collection, { assumeBasics: true });
-      counts.set(id, { owned: diff.totalOwned, needed: diff.totalNeeded });
+      const diff = diffDeck(indexCardsToResolved(entry.cards), printed);
+      counts.set(id, { printed: diff.totalPrinted, needed: diff.totalNeeded });
     }
     return counts;
-  }, [index, collection]);
+  }, [index, printed]);
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -90,7 +90,7 @@ export function DecksView({
               key={deck.id}
               deck={deck}
               summary={index?.get(deck.id)}
-              owned={owned?.get(deck.id)}
+              printed={printedCounts?.get(deck.id)}
               onView={() => onView(deck)}
               onPrint={() => onPrint(deck)}
             />
@@ -104,13 +104,13 @@ export function DecksView({
 function DeckCard({
   deck,
   summary,
-  owned,
+  printed,
   onView,
   onPrint,
 }: {
   deck: BundledDeck;
   summary: DeckIndexEntry | undefined;
-  owned: { owned: number; needed: number } | undefined;
+  printed: { printed: number; needed: number } | undefined;
   onView: () => void;
   onPrint: () => void;
 }) {
@@ -162,10 +162,10 @@ function DeckCard({
         </div>
 
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          {owned ? (
+          {printed ? (
             <span className="tabular-nums" title="Cards you already own, of the whole deck">
-              <span className="font-medium">{owned.owned}</span>
-              <span className="text-muted">/{owned.needed} owned</span>
+              <span className="font-medium">{printed.printed}</span>
+              <span className="text-muted">/{printed.needed} printed</span>
             </span>
           ) : (
             <span className="tabular-nums text-muted">{deck.cardCount} cards</span>

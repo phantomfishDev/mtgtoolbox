@@ -94,3 +94,7 @@ Deck
 1 Vandalblast
 1 Vilis, Broker of Blood
 1 Wayfarer's Bauble
+
+Tokens
+4 Demon (TDSK) 9
+1 Plaguebearer of Nurgle (T40K) 15★

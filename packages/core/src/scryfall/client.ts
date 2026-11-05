@@ -273,13 +273,20 @@ export class ScryfallClient {
    * This is what the preference engine ranks over, and it costs one request per
    * distinct card name rather than one per 75 cards, so results are cached
    * aggressively. An unknown name yields an empty list rather than throwing.
+   *
+   * `extras` adds `include:extras` to the query, which is the only way to see
+   * tokens: the search endpoint hides them by default, so a plain `prints`
+   * call for a token name comes back empty even though the token exists.
+   * Cached under its own key, because the two queries answer differently.
    */
-  async prints(name: string): Promise<ScryfallCard[]> {
-    const key = name.toLowerCase();
+  async prints(name: string, options: { extras?: boolean } = {}): Promise<ScryfallCard[]> {
+    const key = options.extras ? `extras:${name.toLowerCase()}` : name.toLowerCase();
     const cached = await this.printsCache?.get(key);
     if (cached) return cached;
 
-    const query = `!"${name.replace(/"/g, '')}"`;
+    const query = options.extras
+      ? `!"${name.replace(/"/g, '')}" include:extras`
+      : `!"${name.replace(/"/g, '')}"`;
     let url: string | null =
       `${API}/cards/search?q=${encodeURIComponent(query)}&unique=prints&order=released&dir=desc`;
     const all: ScryfallCard[] = [];

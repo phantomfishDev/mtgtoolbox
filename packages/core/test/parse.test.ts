@@ -2,9 +2,13 @@ import { describe, expect, it } from 'vitest';
 import {
   commanders,
   extractFromMarkdown,
+  isDeckCard,
+  isTokenEntry,
   mergeEntries,
   parseDecklist,
+  selectForTokenMode,
   totalCards,
+  totalTokens,
 } from '../src/decklist/parse.js';
 
 describe('parseDecklist', () => {
@@ -170,5 +174,57 @@ describe('extractFromMarkdown', () => {
 
   it('returns null when no fence looks like a decklist', () => {
     expect(extractFromMarkdown('# Notes\n\n```\njust prose\n```')).toBeNull();
+  });
+});
+
+describe('the Tokens section', () => {
+  const list = [
+    'Commander',
+    '1 Lord of the Nazgûl',
+    '',
+    'Deck',
+    '1 Sol Ring',
+    '98 Swamp',
+    '',
+    'Tokens',
+    '9 Wraith',
+    '3 Clue',
+  ].join('\n');
+
+  it('tags its lines as tokens', () => {
+    const { entries } = parseDecklist(list);
+    const wraith = entries.find((entry) => entry.name === 'Wraith')!;
+    expect(wraith.section).toBe('tokens');
+    expect(isTokenEntry(wraith)).toBe(true);
+    expect(isDeckCard(wraith)).toBe(false);
+  });
+
+  it('keeps tokens out of the card count, so a legal deck still reads as 100', () => {
+    const { entries } = parseDecklist(list);
+    expect(totalCards(entries)).toBe(100);
+    expect(totalTokens(entries)).toBe(12);
+  });
+
+  it('excludes tokens by default, so adding a section changes nothing', () => {
+    const { entries } = parseDecklist(list);
+    const names = selectForTokenMode(entries).map((entry) => entry.name);
+    expect(names).not.toContain('Wraith');
+    expect(names).toContain('Sol Ring');
+  });
+
+  it('includes both, or tokens alone, when asked', () => {
+    const { entries } = parseDecklist(list);
+    expect(selectForTokenMode(entries, 'include')).toHaveLength(entries.length);
+    expect(selectForTokenMode(entries, 'only').map((entry) => entry.name)).toEqual([
+      'Wraith',
+      'Clue',
+    ]);
+  });
+
+  it('treats a list with no Tokens section identically in every mode', () => {
+    const { entries } = parseDecklist('1 Sol Ring\n7 Swamp');
+    expect(selectForTokenMode(entries, 'exclude')).toHaveLength(2);
+    expect(selectForTokenMode(entries, 'include')).toHaveLength(2);
+    expect(selectForTokenMode(entries, 'only')).toHaveLength(0);
   });
 });

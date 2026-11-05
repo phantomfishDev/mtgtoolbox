@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "kwain-hare-apparent",
-  "generatedAt": "2026-10-01T22:33:16.758Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-04T22:19:34.015Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "0270f9f2-9afe-4bbb-b14c-0e2da7f54dfc",
@@ -111,43 +110,6 @@
       }
     },
     {
-      "id": "11bda4c5-099f-489e-b64b-f4719241cf9d",
-      "oracle_id": "18f0cd0b-3e4f-4637-a62e-75dd1b2f3fce",
-      "name": "Claim Jumper",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-04-24",
-      "set": "soc",
-      "set_name": "Secrets of Strixhaven Commander",
-      "set_type": "commander",
-      "collector_number": "140",
-      "rarity": "rare",
-      "type_line": "Creature — Rabbit Mercenary",
-      "cmc": 3,
-      "color_identity": [
-        "W"
-      ],
-      "mana_cost": "{2}{W}",
-      "oracle_text": "Vigilance\nWhen this creature enters, if an opponent controls more lands than you, you may search your library for a Plains card and put it onto the battlefield tapped. Then if an opponent controls more lands than you, repeat this process once. If you search your library this way, shuffle.",
-      "keywords": [
-        "Vigilance"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "8e901e6b-3831-4ef4-befa-39010e967e82",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/1/11bda4c5-099f-489e-b64b-f4719241cf9d.png?1783903812",
-        "large": "https://cards.scryfall.io/large/front/1/1/11bda4c5-099f-489e-b64b-f4719241cf9d.jpg?1783903812",
-        "normal": "https://cards.scryfall.io/normal/front/1/1/11bda4c5-099f-489e-b64b-f4719241cf9d.jpg?1783903812"
-      }
-    },
-    {
       "id": "1ca79dd4-67fc-496c-96fc-489b039c4932",
       "oracle_id": "486bb9a5-73f1-4cec-b097-fb07ac80b72e",
       "name": "Ojer Taq, Deepest Foundation // Temple of Civilization",
@@ -245,6 +207,41 @@
         "png": "https://cards.scryfall.io/png/front/2/0/20ac63cb-fa4d-4340-8062-1029c8bd5ec8.png?1783916321",
         "large": "https://cards.scryfall.io/large/front/2/0/20ac63cb-fa4d-4340-8062-1029c8bd5ec8.jpg?1783916321",
         "normal": "https://cards.scryfall.io/normal/front/2/0/20ac63cb-fa4d-4340-8062-1029c8bd5ec8.jpg?1783916321"
+      }
+    },
+    {
+      "id": "23b4c4d7-5b53-417a-a61b-df56eec4a274",
+      "oracle_id": "eac25f12-6459-438c-a09e-93e23d2cf80d",
+      "name": "Soldier",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2020-11-20",
+      "set": "tcmr",
+      "set_name": "Commander Legends Tokens",
+      "set_type": "token",
+      "collector_number": "16",
+      "rarity": "common",
+      "type_line": "Token Creature — Soldier",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": true,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "1ba12de0-a18b-4b57-9c7b-73ae5ee5a8bd",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/3/23b4c4d7-5b53-417a-a61b-df56eec4a274.png?1783928585",
+        "large": "https://cards.scryfall.io/large/front/2/3/23b4c4d7-5b53-417a-a61b-df56eec4a274.jpg?1783928585",
+        "normal": "https://cards.scryfall.io/normal/front/2/3/23b4c4d7-5b53-417a-a61b-df56eec4a274.jpg?1783928585"
       }
     },
     {
@@ -385,6 +382,41 @@
         "png": "https://cards.scryfall.io/png/front/3/7/37c66692-2880-4ea2-abaf-8926c6950826.png?1783933005",
         "large": "https://cards.scryfall.io/large/front/3/7/37c66692-2880-4ea2-abaf-8926c6950826.jpg?1783933005",
         "normal": "https://cards.scryfall.io/normal/front/3/7/37c66692-2880-4ea2-abaf-8926c6950826.jpg?1783933005"
+      }
+    },
+    {
+      "id": "3b1cd58d-c0bc-48e5-b6fa-fb222fba77ab",
+      "oracle_id": "4b6d757a-b108-46f4-b87e-c31b1caffff3",
+      "name": "Intrepid Rabbit",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-08-02",
+      "set": "tblb",
+      "set_name": "Bloomburrow Tokens",
+      "set_type": "token",
+      "collector_number": "2",
+      "rarity": "common",
+      "type_line": "Token Creature — Rabbit Soldier",
+      "cmc": 3,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "{2}{W}",
+      "oracle_text": "When this creature enters, target creature you control gets +1/+1 until end of turn.\n(This token's mana cost is {2}{W}.)",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "4fdc43a1-19cf-4f06-8612-1b4886dfe2af",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/3/b/3b1cd58d-c0bc-48e5-b6fa-fb222fba77ab.png?1783909772",
+        "large": "https://cards.scryfall.io/large/front/3/b/3b1cd58d-c0bc-48e5-b6fa-fb222fba77ab.jpg?1783909772",
+        "normal": "https://cards.scryfall.io/normal/front/3/b/3b1cd58d-c0bc-48e5-b6fa-fb222fba77ab.jpg?1783909772"
       }
     },
     {
@@ -640,6 +672,76 @@
       }
     },
     {
+      "id": "602f3817-fde4-4982-822d-0a2953561118",
+      "oracle_id": "30272edf-097c-4918-84d2-9fa6c42dbe0a",
+      "name": "Human",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-08-02",
+      "set": "tblc",
+      "set_name": "Bloomburrow Commander Tokens",
+      "set_type": "token",
+      "collector_number": "6",
+      "rarity": "common",
+      "type_line": "Token Creature — Human",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "234d51b0-f74e-4873-a51e-6a0910d8b6f3",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/0/602f3817-fde4-4982-822d-0a2953561118.png?1783909761",
+        "large": "https://cards.scryfall.io/large/front/6/0/602f3817-fde4-4982-822d-0a2953561118.jpg?1783909761",
+        "normal": "https://cards.scryfall.io/normal/front/6/0/602f3817-fde4-4982-822d-0a2953561118.jpg?1783909761"
+      }
+    },
+    {
+      "id": "63ae4f9c-ad6e-4d6a-89f1-653916bf5373",
+      "oracle_id": "fee35fc4-a5b5-4c2c-8c6a-62dad166ea72",
+      "name": "Rabbit",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-11-15",
+      "set": "tfdn",
+      "set_name": "Foundations Tokens",
+      "set_type": "token",
+      "collector_number": "5",
+      "rarity": "common",
+      "type_line": "Token Creature — Rabbit",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "931119ef-978e-4f50-9997-65cbb1603146",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/6/3/63ae4f9c-ad6e-4d6a-89f1-653916bf5373.png?1783908592",
+        "large": "https://cards.scryfall.io/large/front/6/3/63ae4f9c-ad6e-4d6a-89f1-653916bf5373.jpg?1783908592",
+        "normal": "https://cards.scryfall.io/normal/front/6/3/63ae4f9c-ad6e-4d6a-89f1-653916bf5373.jpg?1783908592"
+      }
+    },
+    {
       "id": "672b88fa-250b-4f8f-878e-ce3446c92ea9",
       "oracle_id": "f5f4d78b-ed2b-471b-9ece-237fb55adc13",
       "name": "Syndicate Messenger",
@@ -816,6 +918,43 @@
         "png": "https://cards.scryfall.io/png/front/7/b/7bd187b7-5001-4fc3-8c1e-7093827027ee.png?1783908870",
         "large": "https://cards.scryfall.io/large/front/7/b/7bd187b7-5001-4fc3-8c1e-7093827027ee.jpg?1783908870",
         "normal": "https://cards.scryfall.io/normal/front/7/b/7bd187b7-5001-4fc3-8c1e-7093827027ee.jpg?1783908870"
+      }
+    },
+    {
+      "id": "7cf06ce6-8bc0-4511-974f-859cedb727ec",
+      "oracle_id": "18f0cd0b-3e4f-4637-a62e-75dd1b2f3fce",
+      "name": "Claim Jumper",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-09-28",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "OTJ-8",
+      "rarity": "rare",
+      "type_line": "Creature — Rabbit Mercenary",
+      "cmc": 3,
+      "color_identity": [
+        "W"
+      ],
+      "mana_cost": "{2}{W}",
+      "oracle_text": "Vigilance\nWhen this creature enters, if an opponent controls more lands than you, you may search your library for a Plains card and put it onto the battlefield tapped. Then if an opponent controls more lands than you, repeat this process once. If you search your library this way, shuffle.",
+      "keywords": [
+        "Vigilance"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8e901e6b-3831-4ef4-befa-39010e967e82",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/c/7cf06ce6-8bc0-4511-974f-859cedb727ec.png?1793496672",
+        "large": "https://cards.scryfall.io/large/front/7/c/7cf06ce6-8bc0-4511-974f-859cedb727ec.jpg?1793496672",
+        "normal": "https://cards.scryfall.io/normal/front/7/c/7cf06ce6-8bc0-4511-974f-859cedb727ec.jpg?1793496672"
       }
     },
     {
@@ -1332,6 +1471,39 @@
       }
     },
     {
+      "id": "a6f374bc-cd29-469f-808a-6a6c004ee8aa",
+      "oracle_id": "03f45075-9423-454f-a256-94dcafb2a779",
+      "name": "Blood",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2021-11-19",
+      "set": "tvow",
+      "set_name": "Innistrad: Crimson Vow Tokens",
+      "set_type": "token",
+      "collector_number": "17",
+      "rarity": "common",
+      "type_line": "Token Artifact — Blood",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "81ac7acf-d595-482f-b2c0-1ea15686d5d0",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/6/a6f374bc-cd29-469f-808a-6a6c004ee8aa.png?1783924692",
+        "large": "https://cards.scryfall.io/large/front/a/6/a6f374bc-cd29-469f-808a-6a6c004ee8aa.jpg?1783924692",
+        "normal": "https://cards.scryfall.io/normal/front/a/6/a6f374bc-cd29-469f-808a-6a6c004ee8aa.jpg?1783924692"
+      }
+    },
+    {
       "id": "ac4800be-5f77-42f5-914c-2a8e647e3af5",
       "oracle_id": "9b6d3dcf-aa5a-4516-bd48-a0723e86bfd1",
       "name": "Door of Destinies",
@@ -1434,6 +1606,43 @@
         "png": "https://cards.scryfall.io/png/front/b/1/b1faa0cd-3556-4664-90d3-76ae5c736f5b.png?1783918620",
         "large": "https://cards.scryfall.io/large/front/b/1/b1faa0cd-3556-4664-90d3-76ae5c736f5b.jpg?1783918620",
         "normal": "https://cards.scryfall.io/normal/front/b/1/b1faa0cd-3556-4664-90d3-76ae5c736f5b.jpg?1783918620"
+      }
+    },
+    {
+      "id": "b29d7556-9051-4451-812e-91513ef10e62",
+      "oracle_id": "3c549374-6c37-42e0-8d88-a8555d46732d",
+      "name": "Treasure",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2023-06-23",
+      "set": "tltr",
+      "set_name": "Tales of Middle-earth Tokens",
+      "set_type": "token",
+      "collector_number": "25",
+      "rarity": "common",
+      "type_line": "Token Artifact — Treasure",
+      "cmc": 0,
+      "color_identity": [],
+      "mana_cost": "",
+      "oracle_text": "{T}, Sacrifice this token: Add one mana of any color.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "surgefoil",
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "lowres",
+      "illustration_id": "feed149d-d9de-4237-a69d-6101e307734a",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/b/2/b29d7556-9051-4451-812e-91513ef10e62.png?1783916042",
+        "large": "https://cards.scryfall.io/large/front/b/2/b29d7556-9051-4451-812e-91513ef10e62.jpg?1783916042",
+        "normal": "https://cards.scryfall.io/normal/front/b/2/b29d7556-9051-4451-812e-91513ef10e62.jpg?1783916042"
       }
     },
     {
@@ -2029,6 +2238,44 @@
       }
     },
     {
+      "id": "f4588570-bde4-4c2f-8469-81a3e15fb57b",
+      "oracle_id": "18ef473d-f958-4bff-8045-154f6adc6b04",
+      "name": "Spirit",
+      "lang": "en",
+      "layout": "token",
+      "released_at": "2024-02-09",
+      "set": "tmkm",
+      "set_name": "Murders at Karlov Manor Tokens",
+      "set_type": "token",
+      "collector_number": "12",
+      "rarity": "common",
+      "type_line": "Token Creature — Spirit",
+      "cmc": 0,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "mana_cost": "",
+      "oracle_text": "Flying",
+      "keywords": [
+        "Flying"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "afd11724-2f7e-4c95-8b57-df01c9d70373",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/4/f4588570-bde4-4c2f-8469-81a3e15fb57b.png?1783912607",
+        "large": "https://cards.scryfall.io/large/front/f/4/f4588570-bde4-4c2f-8469-81a3e15fb57b.jpg?1783912607",
+        "normal": "https://cards.scryfall.io/normal/front/f/4/f4588570-bde4-4c2f-8469-81a3e15fb57b.jpg?1783912607"
+      }
+    },
+    {
       "id": "fbbacff5-c650-4835-b5a1-f747a5db5fd6",
       "oracle_id": "863ad4b8-094b-46b3-b6cd-0640e1f01d6d",
       "name": "Daring Apprentice",
@@ -2066,60 +2313,67 @@
   ],
   "chosen": {
     "adarkar wastes": "ed5764bd-712b-4e6b-b71e-5767d5613b1c",
-    "anointed procession": "9a52c265-6920-4929-ba0a-70da08df01f1",
-    "arcane signet": "a5dc8c3f-c8a3-4bea-9874-4bf9b221408b",
+    "anointed procession|akh|2": "9a52c265-6920-4929-ba0a-70da08df01f1",
+    "arcane signet|ecc|56": "a5dc8c3f-c8a3-4bea-9874-4bf9b221408b",
     "azorius signet": "af690536-b0bc-4d85-8bb8-f6856b9f927b",
     "bill ferny, bree swindler": "20ac63cb-fa4d-4340-8062-1029c8bd5ec8",
     "brave-kin duo": "b8dd4693-424d-4d6e-86cf-24401a23d6b1",
     "castle ardenvale": "d2b011b0-3e44-4796-bb0a-615e259184db",
-    "cathars' crusade": "78154978-9e7d-44e9-a03f-c578072a8ff7",
-    "ceremonial knife": "9ccb4b1e-ef8f-4c5f-8b5b-6148455442f7",
-    "claim jumper": "11bda4c5-099f-489e-b64b-f4719241cf9d",
-    "command tower": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
-    "counterspell": "0c9a7cb0-5bff-48ff-b620-2838816ac9b5",
-    "daring apprentice": "fbbacff5-c650-4835-b5a1-f747a5db5fd6",
-    "door of destinies": "ac4800be-5f77-42f5-914c-2a8e647e3af5",
+    "cathars' crusade|avr|10": "78154978-9e7d-44e9-a03f-c578072a8ff7",
+    "ceremonial knife|vow|254": "9ccb4b1e-ef8f-4c5f-8b5b-6148455442f7",
+    "claim jumper": "7cf06ce6-8bc0-4511-974f-859cedb727ec",
+    "command tower|soc|129": "c46a217c-0ed2-4b3c-9a01-ee38d12d76f3",
+    "counterspell|ema|43": "0c9a7cb0-5bff-48ff-b620-2838816ac9b5",
+    "daring apprentice|8ed|73": "fbbacff5-c650-4835-b5a1-f747a5db5fd6",
+    "door of destinies|mor|143": "ac4800be-5f77-42f5-914c-2a8e647e3af5",
     "escape artist": "7f5d0e3f-b8f1-472a-857b-5464174d243b",
     "first response": "0270f9f2-9afe-4bbb-b14c-0e2da7f54dfc",
-    "glacial fortress": "cef133d9-26d2-4a1e-8d6a-829f1067c169",
+    "glacial fortress|xln|255": "cef133d9-26d2-4a1e-8d6a-829f1067c169",
     "grimoire of the dead": "b1faa0cd-3556-4664-90d3-76ae5c736f5b",
-    "hallowed fountain": "cd70adab-39db-4cc9-ae37-a342f9109bec",
+    "hallowed fountain|rvr|280": "cd70adab-39db-4cc9-ae37-a342f9109bec",
     "hare apparent": "9fc6f0e9-eb5f-4bc0-b3d7-756644b66d12",
     "harvestrite host": "41762689-0c13-4d45-9d81-ba2afad980f8",
     "hinterland sanctifier": "7bd187b7-5001-4fc3-8c1e-7093827027ee",
     "intrepid rabbit": "4d70b99d-c8bf-4a56-8957-cf587fe60b81",
-    "irrigated farmland": "4d87fcc0-cef5-4410-adf1-91c5f50c1d01",
-    "island": "ef2f3e0d-43e5-4d62-8a93-821ec723d522",
+    "irrigated farmland|akh|245": "4d87fcc0-cef5-4410-adf1-91c5f50c1d01",
+    "island|slp|32": "ef2f3e0d-43e5-4d62-8a93-821ec723d522",
     "jacked rabbit": "2c695df6-6bf2-4e6b-8500-e3116137ca27",
-    "jinxed idol": "763cb2dc-c8ea-4bfc-a576-ae1641057bf7",
-    "kindred discovery": "7f744b4e-18be-4d41-8ea5-eac47a32cfcf",
+    "jinxed idol|m11|208": "763cb2dc-c8ea-4bfc-a576-ae1641057bf7",
+    "kindred discovery|clb|565": "7f744b4e-18be-4d41-8ea5-eac47a32cfcf",
     "kwain, itinerant meddler": "941f5231-5620-45e5-9f00-a7f64f0385dc",
     "lore broker": "c7935b2b-aebe-44b3-b91b-52978bb4ded5",
     "march of otherworldly light": "553fb946-2706-475b-89f9-e4355ec9ea2b",
     "mistford river turtle": "0c78c386-c64b-4fab-a718-f18b46360e20",
     "mobile homestead": "d5fa82e4-0b77-498a-bec0-52764d24957a",
-    "negate": "31534f45-43e6-4103-bf58-ad8fa688e4b0",
+    "negate|rix|44": "31534f45-43e6-4103-bf58-ad8fa688e4b0",
     "ojer taq, deepest foundation": "1ca79dd4-67fc-496c-96fc-489b039c4932",
     "overwhelmed apprentice": "788cc7f3-f688-472e-a784-aabf7bc8c1ea",
     "panharmonicon": "c23c801e-b429-45d3-896e-289ec0497db0",
-    "path to exile": "ccd50bd0-95a3-4480-8afb-ada8c4e806c9",
-    "plains": "cc3db531-3f21-49a2-8aeb-d98b7db94397",
+    "path to exile|f15|7": "ccd50bd0-95a3-4480-8afb-ada8c4e806c9",
+    "plains|2xm|373": "cc3db531-3f21-49a2-8aeb-d98b7db94397",
     "port town": "96faa127-f71a-47e3-a94b-895fc6b0d6fd",
     "portal of sanctuary": "37c66692-2880-4ea2-abaf-8926c6950826",
-    "prairie stream": "9479bc09-7db2-46b3-8c1e-dbee5508e26a",
+    "prairie stream|pip|1031": "9479bc09-7db2-46b3-8c1e-dbee5508e26a",
     "seasoned warrenguard": "90873995-876f-4e89-8bc7-41a74f4d931f",
-    "sol ring": "880711b0-da06-4c4f-aa4e-1be58fc0bc67",
-    "swiftfoot boots": "e7ad7dbd-fff5-4af9-a823-f9a09fa3dfd4",
-    "swords to plowshares": "948cdb9d-adae-4161-a233-7f7d28b3e1a7",
+    "sol ring|mps|24": "880711b0-da06-4c4f-aa4e-1be58fc0bc67",
+    "swiftfoot boots|pl23|4": "e7ad7dbd-fff5-4af9-a823-f9a09fa3dfd4",
+    "swords to plowshares|blc|109": "948cdb9d-adae-4161-a233-7f7d28b3e1a7",
     "syndicate messenger": "672b88fa-250b-4f8f-878e-ce3446c92ea9",
-    "syphon essence": "435a2d31-ac2c-45aa-8369-6c2d6fbba4e4",
+    "syphon essence|vow|84": "435a2d31-ac2c-45aa-8369-6c2d6fbba4e4",
     "teleportation circle": "90140bc0-4a9c-4422-b07c-3400c7ccde56",
     "three tree city": "d96b0f9e-fa3b-4a40-acea-b6ecc584a79f",
+    "token:blood|tvow|17": "a6f374bc-cd29-469f-808a-6a6c004ee8aa",
+    "token:human|tblc|6": "602f3817-fde4-4982-822d-0a2953561118",
+    "token:intrepid rabbit|tblb|2": "3b1cd58d-c0bc-48e5-b6fa-fb222fba77ab",
+    "token:rabbit|tfdn|5": "63ae4f9c-ad6e-4d6a-89f1-653916bf5373",
+    "token:soldier|tcmr|16": "23b4c4d7-5b53-417a-a61b-df56eec4a274",
+    "token:spirit|tmkm|12": "f4588570-bde4-4c2f-8469-81a3e15fb57b",
+    "token:treasure|tltr|25": "b29d7556-9051-4451-812e-91513ef10e62",
     "valley questcaller": "d9f25130-678d-4338-8eb4-b20d2da5bc74",
-    "voldaren estate": "2577e5fd-903a-44ce-989a-d53d56511ad3",
+    "voldaren estate|vow|267": "2577e5fd-903a-44ce-989a-d53d56511ad3",
     "warren elder": "4bf20069-5a20-4f95-976b-6af2b69f3ad0",
-    "winds of abandon": "3bb17913-fe4d-4acd-9b75-71f5a90f898b",
+    "winds of abandon|mh1|37": "3bb17913-fe4d-4acd-9b75-71f5a90f898b",
     "wishing well": "edeb20aa-b253-49b8-9947-c397a3a4002a",
-    "wooden stake": "7e2825f5-8112-4108-910a-4303b2d57356"
+    "wooden stake|isd|237": "7e2825f5-8112-4108-910a-4303b2d57356"
   }
 }
