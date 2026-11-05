@@ -12,13 +12,14 @@
  * top of the file:
  *
  * ```
+ * # Name: The Hare Apparent
  * # Owner: Sam
- * # The Hare Apparent — Azorius rabbits, bracket 3 or under.
+ * # Azorius rabbits, bracket 3 or under.
  * ```
  */
 
 /** A metadata key this module understands. Anything else stays prose. */
-const DIRECTIVE_KEYS = new Set(['owner']);
+const DIRECTIVE_KEYS = new Set(['name', 'owner']);
 
 /**
  * `# Owner: Sam` — the key anchored to the start of the comment.
@@ -31,6 +32,8 @@ const DIRECTIVE_KEYS = new Set(['owner']);
 const DIRECTIVE_RE = /^([A-Za-z][A-Za-z-]*)\s*:\s*(.+)$/;
 
 export interface DeckMeta {
+  /** The deck's display name, when the file gives one. */
+  name: string | null;
   /** Whose deck this is, when the file says. */
   owner: string | null;
   /**
@@ -52,6 +55,7 @@ export interface DeckMeta {
  */
 export function parseDeckMeta(text: string): DeckMeta {
   const prose: string[] = [];
+  let name: string | null = null;
   let owner: string | null = null;
 
   for (const line of text.split(/\r?\n/)) {
@@ -59,7 +63,7 @@ export function parseDeckMeta(text: string): DeckMeta {
 
     if (trimmed === '') {
       // Blank lines before the block are fine; one after it ends the block.
-      if (prose.length > 0 || owner !== null) break;
+      if (prose.length > 0 || owner !== null || name !== null) break;
       continue;
     }
     if (!trimmed.startsWith('#')) break;
@@ -70,7 +74,9 @@ export function parseDeckMeta(text: string): DeckMeta {
 
     if (directive && key && DIRECTIVE_KEYS.has(key)) {
       // Last one wins, so an edit appended to the block takes effect.
-      if (key === 'owner') owner = (directive[2] ?? '').trim() || null;
+      const value = (directive[2] ?? '').trim() || null;
+      if (key === 'owner') owner = value;
+      if (key === 'name') name = value;
       continue;
     }
 
@@ -78,5 +84,49 @@ export function parseDeckMeta(text: string): DeckMeta {
   }
 
   const note = prose.join(' ').trim();
-  return { owner, note: note === '' ? null : note };
+  return { name, owner, note: note === '' ? null : note };
+}
+
+const NAME_RE = /^#\s?name\s*:/i;
+
+/**
+ * Set the deck's `# Name:` directive, or remove it with `null`.
+ *
+ * Every existing name directive in the leading block is dropped and the new one
+ * written at the top of it, so the file ends up with exactly one. A file with
+ * no leading block gets one, separated from the cards by a blank line. Nothing
+ * else in the file moves, which keeps the edit a one-line diff.
+ */
+export function setDeckName(text: string, name: string | null): string {
+  const eol = text.includes('\r\n') ? '\r\n' : '\n';
+  const lines = text.split(/\r?\n/);
+  // A name is one line of a comment; anything that would break out of it goes.
+  const clean = name?.replace(/[\r\n]+/g, ' ').trim() || null;
+
+  // Find the leading comment block with the same rules parseDeckMeta uses.
+  let start = -1;
+  let end = 0;
+  for (let i = 0; i < lines.length; i += 1) {
+    const trimmed = (lines[i] ?? '').trim();
+    if (trimmed === '') {
+      if (start >= 0) break;
+      continue;
+    }
+    if (!trimmed.startsWith('#')) break;
+    if (start < 0) start = i;
+    end = i + 1;
+  }
+
+  if (start < 0) {
+    if (clean === null) return text;
+    return [`# Name: ${clean}`, '', ...lines].join(eol);
+  }
+
+  const block = lines.slice(start, end).filter((line) => !NAME_RE.test(line.trim()));
+  if (clean !== null) block.unshift(`# Name: ${clean}`);
+
+  let after = lines.slice(end);
+  // Removing a block's only line would leave the blank that separated it.
+  if (block.length === 0 && (after[0] ?? '').trim() === '') after = after.slice(1);
+  return [...lines.slice(0, start), ...block, ...after].join(eol);
 }

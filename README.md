@@ -57,6 +57,7 @@ Sol Ring                          bare name means one copy
 1 Cultivate (MSC) 172             pin an exact printing
 1 Malakir Rebirth // Malakir Mire double-faced cards
 # comment                         ignored
+# Name: The Hare Apparent         the deck's display name (see below)
 # Owner: Sam                      whose deck it is (see below)
 Commander: Sheoldred              section labels are unwrapped
 ```
@@ -128,6 +129,22 @@ credits the Archidekt list's author as `(owner: swebb)` and is not thereby Swebb
 Note that this is a different thing from the printed counts shown everywhere else.
 Those are about which cards are in [your printed ledger](#what-you-have-already-printed);
 this is about whose deck it is.
+
+### What the deck is called
+
+A deck is named after its file — `kwain-hare-apparent.txt` reads as "Kwain Hare
+Apparent" — unless the comment block says otherwise with a `Name:` line, written the
+same way as `Owner:`:
+
+```
+# Name: The Hare Apparent
+# Owner: Sam
+```
+
+With `mtgproxy serve` running, the deck page has a **Rename** link beside the title that
+writes this line for you; clearing the name removes it, and the deck goes back to its
+filename. The file itself is never renamed, so pins, stored data and the index keep
+pointing at the same deck.
 
 ### Cards the deck runs several copies of
 
@@ -333,6 +350,12 @@ Rather than give up and send the whole deck back through ranking to re-decide
 ninety-nine printings that did not change, the pinned line is looked up by set and
 number directly: one batched request, however many pins are new. Changing an artwork in
 the deck browser therefore costs a single request instead of one per distinct card.
+
+Under `mtgproxy serve`, saving a pin also rewrites that deck's `.cards.json` and its
+entry in `decks.index.json` the same way, so the deck list's commander art follows the
+pin straight away rather than waiting for the next `sync`. The app reads the index from
+the server rather than the copy baked into the build, since that copy cannot see the
+change.
 
 `--refresh` exists because this project occasionally starts reading a card field it did
 not store before. Re-resolving to fill that in would cost one request per card for no

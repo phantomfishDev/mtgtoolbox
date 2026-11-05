@@ -21,21 +21,21 @@ export function DecksView({
   onView: (deck: BundledDeck) => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { printed } = useApp();
+  const { printed, deckName, store } = useApp();
   const [query, setQuery] = useState('');
   const [owner, setOwner] = useState<string | null>(null);
   const [index, setIndex] = useState<Map<string, DeckIndexEntry> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    void loadDeckIndex().then((loaded) => {
+    void loadDeckIndex(store.kind === 'server').then((loaded) => {
       if (cancelled || !loaded) return;
       setIndex(new Map(loaded.decks.map((deck) => [deck.id, deck])));
     });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [store.kind]);
 
   /**
    * Printed counts, using the same diff the deck view runs so the two can never
@@ -56,17 +56,19 @@ export function DecksView({
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    return BUNDLED_DECKS.filter((deck) => {
+    const matching = BUNDLED_DECKS.filter((deck) => {
       if (owner !== null && deck.owner !== owner) return false;
       if (!needle) return true;
       return (
-        deck.name.toLowerCase().includes(needle) ||
+        deckName(deck).toLowerCase().includes(needle) ||
         (deck.owner?.toLowerCase().includes(needle) ?? false) ||
         deck.commanders.some((name) => name.toLowerCase().includes(needle)) ||
         deck.entries.some((entry) => entry.name.toLowerCase().includes(needle))
       );
     });
-  }, [query, owner]);
+    // Re-sorted because a rename can move a deck along the shelf.
+    return matching.sort((a, b) => deckName(a).localeCompare(deckName(b)));
+  }, [query, owner, deckName]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -169,19 +171,20 @@ function DeckCard({
   // A Commander deck is exactly 100; flag anything else rather than hiding it.
   const complete = deck.cardCount === 100;
   const commanderImage = summary?.commanders.find((c) => c.image)?.image;
+  const name = useApp().deckName(deck);
 
   return (
     <Panel className="flex gap-3">
       <button
         type="button"
         onClick={onView}
-        title={`View ${deck.name}`}
+        title={`View ${name}`}
         className="shrink-0 overflow-hidden rounded-md border border-edge transition hover:border-accent"
       >
         {commanderImage ? (
           <img
             src={commanderImage}
-            alt={summary?.commanders[0]?.name ?? deck.name}
+            alt={summary?.commanders[0]?.name ?? name}
             loading="lazy"
             className="aspect-[63/88] w-20 object-cover"
           />
@@ -194,7 +197,7 @@ function DeckCard({
 
       <div className="flex min-w-0 flex-1 flex-col gap-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="truncate font-semibold leading-tight">{deck.name}</h3>
+          <h3 className="truncate font-semibold leading-tight">{name}</h3>
           {summary && (
             <Badge tone={summary.bracket >= 4 ? 'warn' : 'neutral'}>B{summary.bracket}</Badge>
           )}

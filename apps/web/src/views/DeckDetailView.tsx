@@ -43,7 +43,8 @@ export function DeckDetailView({
   onBack: () => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { printed, config, deckPins, saveDeckPin, store } = useApp();
+  const { printed, config, deckPins, saveDeckPin, deckName, store } = useApp();
+  const name = deckName(deck);
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [busy, setBusy] = useState<string | null>('Loading');
   const [error, setError] = useState<string | null>(null);
@@ -186,7 +187,11 @@ export function DeckDetailView({
           >
             &larr; All decks
           </button>
-          <h2 className="text-xl font-semibold">{deck.name}</h2>
+          {store.canRenameDecks && !SHOWCASE ? (
+            <DeckNameEditor deckId={deck.id} name={name} />
+          ) : (
+            <h2 className="text-xl font-semibold">{name}</h2>
+          )}
           {deck.commanders.length > 0 && (
             <p className="text-sm text-muted">{deck.commanders.join(' / ')}</p>
           )}
@@ -318,7 +323,7 @@ export function DeckDetailView({
         <PrintingPicker
           card={picking}
           profile={profile}
-          scope={`every copy in ${deck.name}`}
+          scope={`every copy in ${name}`}
           onPick={(chosen) => void pin(picking.name, chosen)}
           onClose={() => setPicking(null)}
         />
@@ -469,5 +474,94 @@ function Lightbox({
         </div>
       </div>
     </div>
+  );
+}
+
+/**
+ * The deck's name, with a way to change it when there is a file to write to.
+ *
+ * Saving rewrites the `# Name:` comment at the top of the decklist, so the
+ * name travels with the file rather than living in this browser. Clearing the
+ * field drops the comment and the deck goes back to being named after its file.
+ */
+function DeckNameEditor({ deckId, name }: { deckId: string; name: string }) {
+  const { saveDeckName } = useApp();
+  const [draft, setDraft] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const save = async (): Promise<void> => {
+    if (draft === null) return;
+    if (draft.trim() === name) {
+      setDraft(null);
+      return;
+    }
+    setSaving(true);
+    setError(null);
+    try {
+      await saveDeckName(deckId, draft);
+      setDraft(null);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (draft === null) {
+    return (
+      <div className="flex items-baseline gap-2">
+        <h2 className="text-xl font-semibold">{name}</h2>
+        <button
+          type="button"
+          onClick={() => setDraft(name)}
+          className="text-xs text-muted underline hover:text-accent"
+        >
+          Rename
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className="flex flex-col gap-1"
+      onSubmit={(event) => {
+        event.preventDefault();
+        void save();
+      }}
+    >
+      <div className="flex flex-wrap items-center gap-2">
+        <input
+          autoFocus
+          value={draft}
+          disabled={saving}
+          onChange={(event) => setDraft(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              setDraft(null);
+              setError(null);
+            }
+          }}
+          placeholder="Leave empty to use the filename"
+          aria-label="Deck name"
+          className="w-72 max-w-full rounded-md border border-edge bg-surface px-2 py-1 text-xl font-semibold"
+        />
+        <Button type="submit" variant="primary" disabled={saving}>
+          {saving ? 'Saving' : 'Save'}
+        </Button>
+        <Button
+          variant="ghost"
+          disabled={saving}
+          onClick={() => {
+            setDraft(null);
+            setError(null);
+          }}
+        >
+          Cancel
+        </Button>
+      </div>
+      {error && <p className="text-xs text-amber-600">{error}</p>}
+    </form>
   );
 }

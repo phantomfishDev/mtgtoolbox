@@ -67,20 +67,43 @@ const indexUrls = import.meta.glob('../../../examples/decks.index.json', {
 
 let indexPromise: Promise<DeckIndex | null> | null = null;
 
-export function loadDeckIndex(): Promise<DeckIndex | null> {
+async function fetchIndex(url: string): Promise<DeckIndex> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`${response.status}`);
+  return parseDeckIndex(await response.json());
+}
+
+/**
+ * The deck index, fetched once and then held until something invalidates it.
+ *
+ * With a local server it is read from disk through the API first: the copy in
+ * the build is a snapshot, and the server rewrites the real one whenever a pin
+ * changes a deck's printings. The bundled copy remains the fallback.
+ */
+export function loadDeckIndex(fromServer = false): Promise<DeckIndex | null> {
   indexPromise ??= (async () => {
+    if (fromServer) {
+      try {
+        return await fetchIndex('/api/index');
+      } catch {
+        // Fall through to the bundled copy.
+      }
+    }
     const url = Object.values(indexUrls)[0];
     if (!url) return null;
     try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`${response.status}`);
-      return parseDeckIndex(await response.json());
+      return await fetchIndex(url);
     } catch {
       // The list still works without it, just with less on each card.
       return null;
     }
   })();
   return indexPromise;
+}
+
+/** Forget the held index, so the next read sees a deck the server just rewrote. */
+export function invalidateDeckIndex(): void {
+  indexPromise = null;
 }
 
 const dataCache = new Map<string, Promise<DeckData | null>>();
@@ -133,7 +156,7 @@ export interface BundledDeck {
 }
 
 /** `food-and-fellowship` -> `Food and Fellowship`. */
-function titleFromId(id: string): string {
+export function titleFromId(id: string): string {
   const words = id.split(/[-_]/).filter(Boolean);
   // Short joining words read better lowercase, except as the first word.
   const minor = new Set(['and', 'of', 'the', 'a', 'an', 'for', 'in', 'to']);
@@ -152,7 +175,7 @@ function describe(path: string, text: string): BundledDeck {
   const meta = parseDeckMeta(text);
   return {
     id,
-    name: titleFromId(id),
+    name: meta.name ?? titleFromId(id),
     text,
     entries,
     cardCount: totalCards(entries),

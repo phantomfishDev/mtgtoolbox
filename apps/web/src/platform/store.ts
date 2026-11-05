@@ -35,7 +35,19 @@ export interface DataStore {
   saveDeckPin(deckId: string, cardName: string, pin: DeckPin | null): Promise<void>;
   /** What saving a pin actually does here, for the UI to say out loud. */
   readonly pinTarget: string;
+  /**
+   * Whether decks can be renamed. Only the server can: the name lives in the
+   * decklist file, and the browser has no way to write it back.
+   */
+  readonly canRenameDecks: boolean;
+  /** Names given in the decklist files, keyed by deck id. */
+  loadDeckNames(): Promise<DeckNames>;
+  /** Rename one deck, or fall back to its filename with `null`. */
+  saveDeckName(deckId: string, name: string | null): Promise<void>;
 }
+
+/** Deck id -> the name its file gives, or null for none. */
+export type DeckNames = Record<string, string | null>;
 
 /** Deck id -> the pins layered over that deck's list. */
 export type AllDeckPins = Record<string, DeckPinOverlay>;
@@ -102,6 +114,15 @@ export class BrowserStore implements DataStore {
   }
 
   readonly pinTarget = 'this browser';
+  readonly canRenameDecks = false;
+
+  async loadDeckNames(): Promise<DeckNames> {
+    return {};
+  }
+
+  async saveDeckName(): Promise<void> {
+    throw new Error('decks can only be renamed with a local server running');
+  }
 }
 
 /** Talks to the local API exposed by `mtgproxy serve`. */
@@ -151,6 +172,19 @@ export class ServerStore implements DataStore {
   }
 
   readonly pinTarget = 'the decklist files';
+  readonly canRenameDecks = true;
+
+  async loadDeckNames(): Promise<DeckNames> {
+    const body = await this.request<{ decks?: { id: string; name?: string | null }[] }>('/api/decks');
+    return Object.fromEntries((body.decks ?? []).map((deck) => [deck.id, deck.name ?? null]));
+  }
+
+  async saveDeckName(deckId: string, name: string | null): Promise<void> {
+    await this.request(`/api/decks/${encodeURIComponent(deckId)}/name`, {
+      method: 'PUT',
+      body: JSON.stringify({ name }),
+    });
+  }
 }
 
 /**
@@ -166,6 +200,7 @@ export class ReadOnlyStore implements DataStore {
   readonly kind = 'readonly' as const;
   readonly location = 'nothing is saved';
   readonly pinTarget = 'nothing';
+  readonly canRenameDecks = false;
 
   async loadPrinted(): Promise<PrintedLedger> {
     return emptyLedger();
@@ -188,6 +223,14 @@ export class ReadOnlyStore implements DataStore {
   }
 
   async saveDeckPin(): Promise<void> {
+    throw new Error('this build is read-only');
+  }
+
+  async loadDeckNames(): Promise<DeckNames> {
+    return {};
+  }
+
+  async saveDeckName(): Promise<void> {
     throw new Error('this build is read-only');
   }
 }

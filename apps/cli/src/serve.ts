@@ -2,16 +2,30 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { readFile, writeFile } from 'node:fs/promises';
 import { extname, join, resolve as resolvePath } from 'node:path';
 import {
+  buildDeckData,
+  buildDeckIndex,
+  buildDeckIndexEntry,
+  mergeEntries,
   parsePrinted,
   parseConfig,
+  parseDeckMeta,
+  parseDecklist,
   readPins,
+  resolveFromDeckDataWithLookups,
+  selectForTokenMode,
+  setDeckName,
   setPinInDecklist,
+  totalCards,
   type DeckPin,
 } from '@mtgproxy/core';
 import {
   deckId,
   decksDir,
   listDecks,
+  loadDeckData,
+  loadDeckIndex,
+  saveDeckData,
+  saveDeckIndex,
   loadPrinted,
   loadConfig,
   savePrinted,
@@ -19,6 +33,8 @@ import {
   printedPath,
   configPath,
 } from '@mtgproxy/node';
+import { makeClient } from './deck.js';
+import { resolveProfile } from './prefs.js';
 
 /**
  * The local half of the web app.
@@ -29,7 +45,7 @@ import {
  * The app decides which it got by asking `/api/health`, so everything here
  * exists to make that probe succeed and then to be honest about the files.
  *
- * Built on `node:http` rather than a framework: six routes do not justify a
+ * Built on `node:http` rather than a framework: a handful of routes do not justify a
  * dependency in a tool whose whole appeal is that it runs from a checkout.
  */
 
@@ -95,6 +111,42 @@ function isPin(value: unknown): value is DeckPin {
   return typeof pin['set'] === 'string' && typeof pin['collectorNumber'] === 'string';
 }
 
+/**
+ * Bring a deck's stored card data and its index entry up to date with its file.
+ *
+ * A pin rewrites the decklist but not the `.cards.json` beside it or the deck
+ * index, and the index is where the deck list gets its commander art — so
+ * without this a pinned commander reverts on the list the next time the app
+ * loads. Only the cheap path is taken: stored data plus a direct lookup of the
+ * printings it lacks, one request however many pins there are. When the stored
+ * data cannot be applied at all (a changed profile, new cards) nothing is
+ * written, and `mtgproxy sync` remains the way to re-rank the deck.
+ */
+async function refreshStoredDeck(path: string, dir: string, options: ServeOptions): Promise<void> {
+  const stored = await loadDeckData(path);
+  if (!stored) return;
+
+  const id = deckId(path);
+  const { profile } = await resolveProfile({ config: options.config });
+  const parsed = parseDecklist(await readFile(path, 'utf8'));
+  // Tokens included, as sync stores them, so every token mode reads from the file.
+  const merged = mergeEntries(selectForTokenMode(parsed.entries, 'include'));
+  const applied = await resolveFromDeckDataWithLookups(merged, stored, makeClient(true), profile);
+  if (!applied) {
+    console.warn(`  ${id}: stored data is out of date; run \`mtgproxy sync\``);
+    return;
+  }
+
+  const resolved = applied.result.resolved;
+  await saveDeckData(path, buildDeckData(id, resolved, profile));
+
+  // Replace just this deck's entry; the rest of the index stays as sync left it.
+  const index = await loadDeckIndex(dir);
+  const entry = buildDeckIndexEntry(id, parsed.entries, resolved, totalCards(parsed.entries));
+  const others = (index?.decks ?? []).filter((deck) => deck.id !== id);
+  await saveDeckIndex(dir, buildDeckIndex([...others, entry], profile));
+}
+
 async function handleApi(
   url: URL,
   request: IncomingMessage,
@@ -139,12 +191,24 @@ async function handleApi(
     }
   }
 
+  // The deck index straight from disk. The built site carries a copy from build
+  // time, which goes stale the moment a pin refreshes the real one.
+  if (pathname === '/api/index' && method === 'GET') {
+    const index = await loadDeckIndex(dir);
+    if (!index) {
+      sendJson(response, 404, { error: `no deck index in ${dir}` });
+      return true;
+    }
+    sendJson(response, 200, index);
+    return true;
+  }
+
   if (pathname === '/api/decks' && method === 'GET') {
     const paths = await listDecks(dir);
     const decks = await Promise.all(
       paths.map(async (path) => {
         const text = await readFile(path, 'utf8');
-        return { id: deckId(path), pins: readPins(text) };
+        return { id: deckId(path), name: parseDeckMeta(text).name, pins: readPins(text) };
       }),
     );
     sendJson(response, 200, { dir, decks });
@@ -188,9 +252,39 @@ async function handleApi(
         return true;
       }
       await writeFile(path, after, 'utf8');
+      // Awaited so the app's next read of the index already has the new
+      // printing; a failure here must not undo or hide the pin that was saved.
+      try {
+        await refreshStoredDeck(path, dir, options);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgproxy sync\``);
+      }
       sendJson(response, 200, { id, text: after, pins: readPins(after), written: true, path });
       return true;
     }
+  }
+
+  // /api/decks/<id>/name
+  const nameRoute = pathname.match(/^\/api\/decks\/([^/]+)\/name$/);
+  if (nameRoute && method === 'PUT') {
+    const id = decodeURIComponent(nameRoute[1] ?? '');
+    const path = await deckPathFor(dir, id);
+    if (!path) {
+      sendJson(response, 404, { error: `no deck named ${id}` });
+      return true;
+    }
+    const body = (await readBody(request)) as { name?: unknown } | undefined;
+    if (body?.name !== null && typeof body?.name !== 'string') {
+      sendJson(response, 400, { error: 'name must be a string or null' });
+      return true;
+    }
+
+    const before = await readFile(path, 'utf8');
+    const after = setDeckName(before, body.name);
+    if (after !== before) await writeFile(path, after, 'utf8');
+    sendJson(response, 200, { id, name: parseDeckMeta(after).name, written: after !== before, path });
+    return true;
   }
 
   if (pathname.startsWith('/api/')) {

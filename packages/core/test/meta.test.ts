@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseDeckMeta } from '../src/decklist/meta.js';
+import { parseDeckMeta, setDeckName } from '../src/decklist/meta.js';
 
 describe('parseDeckMeta', () => {
   it('reads an owner directive out of the leading comments', () => {
@@ -48,6 +48,49 @@ describe('parseDeckMeta', () => {
   });
 
   it('returns a null note when the file opens with no comments', () => {
-    expect(parseDeckMeta('1 Sol Ring\n')).toEqual({ owner: null, note: null });
+    expect(parseDeckMeta('1 Sol Ring\n')).toEqual({ name: null, owner: null, note: null });
+  });
+});
+
+describe('deck name directive', () => {
+  it('reads a name alongside the owner', () => {
+    const meta = parseDeckMeta('# Name: Hare Apparent\n# Owner: Sam\n# Rabbits.\n');
+    expect(meta).toEqual({ name: 'Hare Apparent', owner: 'Sam', note: 'Rabbits.' });
+  });
+
+  it('adds a name to the top of an existing block', () => {
+    const text = '# Owner: Sam\n# Apes.\n\nCommander\n1 Kibo, Uktabi Prince\n';
+    expect(setDeckName(text, 'Banana Split')).toBe(
+      '# Name: Banana Split\n# Owner: Sam\n# Apes.\n\nCommander\n1 Kibo, Uktabi Prince\n',
+    );
+  });
+
+  it('replaces an existing name rather than adding a second', () => {
+    const text = '# Owner: Sam\n# Name: Old\n# Apes.\n\n1 Sol Ring\n';
+    const next = setDeckName(text, 'New');
+    expect(next).toBe('# Name: New\n# Owner: Sam\n# Apes.\n\n1 Sol Ring\n');
+    expect(parseDeckMeta(next).name).toBe('New');
+  });
+
+  it('creates a block when the file opens with cards', () => {
+    expect(setDeckName('1 Sol Ring\n', 'Rocks')).toBe('# Name: Rocks\n\n1 Sol Ring\n');
+  });
+
+  it('removes the name, and the block if it was all there was', () => {
+    expect(setDeckName('# Name: Rocks\n\n1 Sol Ring\n', null)).toBe('1 Sol Ring\n');
+    expect(setDeckName('# Name: Rocks\n# Owner: Sam\n\n1 Sol Ring\n', '  ')).toBe(
+      '# Owner: Sam\n\n1 Sol Ring\n',
+    );
+  });
+
+  it('leaves comments further down alone', () => {
+    const text = '# A deck.\n\n1 Sol Ring\n# Name: a card note\n';
+    expect(setDeckName(text, 'X')).toBe('# Name: X\n# A deck.\n\n1 Sol Ring\n# Name: a card note\n');
+  });
+
+  it('keeps the name to one line and preserves CRLF', () => {
+    expect(setDeckName('# A deck.\r\n\r\n1 Sol Ring\r\n', 'Two\nLines')).toBe(
+      '# Name: Two Lines\r\n# A deck.\r\n\r\n1 Sol Ring\r\n',
+    );
   });
 });

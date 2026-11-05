@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import { applyPins, type PrintedLedger, type Config } from '@mtgproxy/core';
-import { detectStore, withPin, type AllDeckPins, type DataStore } from './platform/store.js';
+import {
+  detectStore,
+  withPin,
+  type AllDeckPins,
+  type DataStore,
+  type DeckNames,
+} from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
 import { DecksView } from './views/DecksView.js';
 import { DeckDetailView } from './views/DeckDetailView.js';
-import type { BundledDeck } from './decks.js';
+import { invalidateDeckIndex, titleFromId, type BundledDeck } from './decks.js';
 import { PrintView } from './views/PrintView.js';
 import { PrintedView } from './views/PrintedView.js';
 import { PreferencesView } from './views/PreferencesView.js';
@@ -41,6 +47,7 @@ export function App() {
   const [printed, setPrinted] = useState<PrintedLedger | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
   const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
+  const [deckNames, setDeckNames] = useState<DeckNames>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -48,18 +55,21 @@ export function App() {
     // determines where everything is read from and written to for the session.
     void (async () => {
       const detected = await detectStore();
-      const [loadedPrinted, loadedConfig, loadedPins] = await Promise.all([
+      const [loadedPrinted, loadedConfig, loadedPins, loadedNames] = await Promise.all([
         detected.loadPrinted(),
         detected.loadConfig(),
         // Pins must not be able to keep the app from booting: a deck with no
         // pins is the normal case, so an empty map is a fine answer.
         detected.loadDeckPins().catch(() => ({}) as AllDeckPins),
+        // Likewise names: without them every deck still has the one it was built with.
+        detected.loadDeckNames().catch(() => ({}) as DeckNames),
       ]);
       if (cancelled) return;
       setStore(detected);
       setPrinted(loadedPrinted);
       setConfig(loadedConfig);
       setDeckPins(loadedPins);
+      setDeckNames(loadedNames);
     })();
     return () => {
       cancelled = true;
@@ -85,10 +95,23 @@ export function App() {
       },
       saveDeckPin: async (deckId, cardName, pin) => {
         await store.saveDeckPin(deckId, cardName, pin);
+        // The server has just rewritten this deck's index entry to match.
+        if (store.kind === 'server') invalidateDeckIndex();
         setDeckPins((current) => withPin(current ?? {}, deckId, cardName, pin));
       },
+      deckName: (deck) => {
+        // Only ids the server reported are overlaid; an absent key means the
+        // build's own name stands, while null means the file names none.
+        if (!(deck.id in deckNames)) return deck.name;
+        return deckNames[deck.id] ?? titleFromId(deck.id);
+      },
+      saveDeckName: async (deckId, name) => {
+        const clean = name?.trim() || null;
+        await store.saveDeckName(deckId, clean);
+        setDeckNames((current) => ({ ...current, [deckId]: clean }));
+      },
     };
-  }, [store, printed, config, deckPins]);
+  }, [store, printed, config, deckPins, deckNames]);
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.
