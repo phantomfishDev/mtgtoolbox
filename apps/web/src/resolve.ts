@@ -1,6 +1,6 @@
 import {
   hasActivePreferences,
-  resolveFromDeckData,
+  resolveFromDeckDataWithLookups,
   type DeckEntry,
   type ResolvedCard,
   type ScryfallCard,
@@ -36,6 +36,14 @@ export interface ResolveTextOptions {
   onProgress?: (message: string) => void;
   /** Skip the cache and resolve again — what a retry button wants. */
   force?: boolean;
+  /**
+   * The bundled deck this text came from, when the caller knows.
+   *
+   * Pins are applied by rewriting the list, so after the first one the text no
+   * longer matches any file on disk and recognising the deck by its contents
+   * fails. Naming it keeps its stored card data in play for the whole session.
+   */
+  deckId?: string;
 }
 
 export async function resolveText(
@@ -50,7 +58,7 @@ export async function resolveText(
 
     // Card data shipped beside the decklist turns a minute of requests into a
     // single same-origin fetch. It is only used when the profile and the
-    // profile that produced it still applies; resolveFromDeckData refuses
+    // profile that produced it still applies; the stored path refuses
     // otherwise, and resolution falls through to the network.
     const stored = await storedResolution(text, options);
     if (stored) {
@@ -68,17 +76,20 @@ async function storedResolution(
   text: string,
   options: ResolveTextOptions,
 ): Promise<ResolveResult | null> {
-  const deck = bundledDeckForText(text);
-  if (!deck) return null;
+  const id = options.deckId ?? bundledDeckForText(text)?.id;
+  if (!id) return null;
 
-  const data = await loadDeckData(deck.id);
+  const data = await loadDeckData(id);
   if (!data) return null;
 
   options.onProgress?.('Reading stored card data');
   const entries = mergeEntries(
     selectForTokenMode(parseDecklist(text).entries, options.tokenMode ?? 'exclude'),
   );
-  const applied = resolveFromDeckData(entries, data, options.profile);
+  // Printings the file does not hold — pins chosen since it was written — are
+  // fetched by set and number rather than sending the deck back through
+  // ranking, which would re-fetch every printing of every other card too.
+  const applied = await resolveFromDeckDataWithLookups(entries, data, getClient(), options.profile);
   return applied?.result ?? null;
 }
 

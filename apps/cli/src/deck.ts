@@ -3,7 +3,7 @@ import { extname } from 'node:path';
 import {
   ScryfallClient,
   buildDeckData,
-  resolveFromDeckData,
+  resolveFromDeckDataWithLookups,
   hasActivePreferences,
   mergeEntries,
   parseDecklist,
@@ -131,10 +131,14 @@ export async function loadDeck(
 
   // Card data stored beside the deck makes this a local read rather than one
   // request per distinct card. It is only used when the profile that wrote it
-  // still applies; `resolveFromDeckData` refuses otherwise.
+  // still applies; the stored path refuses otherwise. Lines that name a
+  // printing the file predates are fetched directly rather than dragging the
+  // whole deck back through ranking.
   if (!options.ignoreStored && options.profile && path !== '-') {
     const stored = await loadDeckData(path);
-    const applied = stored ? resolveFromDeckData(merged, stored, options.profile) : null;
+    const applied = stored
+      ? await resolveFromDeckDataWithLookups(merged, stored, client, options.profile)
+      : null;
     if (applied) {
       info(dim(`  using stored card data (${stored!.cards.length} printings)`));
       return { parse, resolve: applied.result, usedPreferences: false, usedStoredData: true };

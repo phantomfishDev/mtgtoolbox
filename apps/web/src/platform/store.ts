@@ -11,6 +11,7 @@ import {
   type DeckPins,
 } from '@mtgproxy/core';
 import { idbGet, idbSet } from './idb.js';
+import { SHOWCASE } from '../showcase.js';
 
 /**
  * Where the printed ledger and config live.
@@ -21,7 +22,7 @@ import { idbGet, idbSet } from './idb.js';
  * view has to know which one it got.
  */
 export interface DataStore {
-  readonly kind: 'browser' | 'server';
+  readonly kind: 'browser' | 'server' | 'readonly';
   /** Human-readable description of where data is being kept. */
   readonly location: string;
   loadPrinted(): Promise<PrintedLedger>;
@@ -153,12 +154,56 @@ export class ServerStore implements DataStore {
 }
 
 /**
+ * A store that holds nothing and writes nowhere, for the published showcase.
+ *
+ * Every read answers empty and every write throws. Throwing rather than
+ * quietly doing nothing is deliberate: a no-op write would let a view believe
+ * it had saved something, and the bug would then be invisible in exactly the
+ * build where it matters. In showcase mode no view offers a write at all, so
+ * reaching one of these is a programming error and should look like one.
+ */
+export class ReadOnlyStore implements DataStore {
+  readonly kind = 'readonly' as const;
+  readonly location = 'nothing is saved';
+  readonly pinTarget = 'nothing';
+
+  async loadPrinted(): Promise<PrintedLedger> {
+    return emptyLedger();
+  }
+
+  async loadConfig(): Promise<Config> {
+    return emptyConfig();
+  }
+
+  async loadDeckPins(): Promise<AllDeckPins> {
+    return {};
+  }
+
+  async savePrinted(): Promise<void> {
+    throw new Error('this build is read-only');
+  }
+
+  async saveConfig(): Promise<void> {
+    throw new Error('this build is read-only');
+  }
+
+  async saveDeckPin(): Promise<void> {
+    throw new Error('this build is read-only');
+  }
+}
+
+/**
  * Pick a store by asking whether a local server is answering.
  *
  * The probe is deliberately short and failure-tolerant: a static deployment has
  * nothing listening, and that is the normal case rather than an error.
  */
 export async function detectStore(timeoutMs = 800): Promise<DataStore> {
+  // Not merely pointless in the published build but wrong: the probe is a
+  // request to an origin that has no API, and the point of this mode is that
+  // the page talks to nothing but Scryfall.
+  if (SHOWCASE) return new ReadOnlyStore();
+
   try {
     const response = await fetch('/api/health', { signal: AbortSignal.timeout(timeoutMs) });
     if (response.ok) {

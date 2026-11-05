@@ -57,6 +57,7 @@ Sol Ring                          bare name means one copy
 1 Cultivate (MSC) 172             pin an exact printing
 1 Malakir Rebirth // Malakir Mire double-faced cards
 # comment                         ignored
+# Owner: Sam                      whose deck it is (see below)
 Commander: Sheoldred              section labels are unwrapped
 ```
 
@@ -97,6 +98,36 @@ other than 100 is badged in amber, which is a quick way to spot an unfinished li
 The commander is read from the list itself: either an explicit `Commander` header, or —
 following the convention Moxfield and Archidekt export — any cards sitting above a
 `Deck` header.
+
+### Whose deck it is
+
+Decks accumulate owners — one belongs to a friend who leaves it at your place, another
+is yours. Put an `Owner:` line in the comment block at the top of the file and the deck
+list says so:
+
+```
+# Owner: Sam
+# Kibo, Uktabi Prince — Gruul Ape typal.
+```
+
+Each named owner becomes a filter chip above the grid, so **Whose deck: Sam** narrows
+the page to Sam's decks, and the owner is searchable along with deck and card names.
+Leave the line out and the deck simply has no owner, which is the right answer for the
+ones that are just yours.
+
+It is deliberately a `#` comment rather than a line of its own. These files get pasted
+into mtgprint.net, Archidekt and Moxfield, and a bare `Owner: Sam` line is read by every
+one of those — and by this project's own parser — as a card named "Sam". As a comment it
+is invisible to all of them.
+
+Only the comment block at the very top of the file counts. Comments further down belong
+to the cards beside them, which is where these lists keep their per-card theming notes,
+and prose that merely mentions an owner mid-sentence stays prose: the Kibo deck's note
+credits the Archidekt list's author as `(owner: swebb)` and is not thereby Swebb's deck.
+
+Note that this is a different thing from the printed counts shown everywhere else.
+Those are about which cards are in [your printed ledger](#what-you-have-already-printed);
+this is about whose deck it is.
 
 ### Cards the deck runs several copies of
 
@@ -154,6 +185,76 @@ your decklists and nothing about it belongs on a network. In development run the
 with `pnpm --filter @mtgproxy/web dev` and it proxies `/api` here; the app probes
 `/api/health` at boot and falls back to browser storage when nothing answers, which is
 exactly what a static deployment gets.
+
+## Sharing the deck list
+
+The web app is a static site — card data comes from Scryfall, the printed ledger lives
+in the browser — so it can be published to GitHub Pages and handed to a friend as a link.
+What they get is the **Decks** tab: every deck on the shelf with its commander's art,
+colours, bracket and owner, and every card in it a click away. It is read-only, and
+nothing they do there touches anything of yours.
+
+### Showcase mode
+
+What gets published is not the whole app. The deploy builds in *showcase mode*, which
+is the same code with everything that writes taken out:
+
+```bash
+pnpm --filter @mtgproxy/web build:showcase
+```
+
+| | Local build | Showcase build |
+|---|---|---|
+| Tabs | Decks, Print, Printed, Preferences | Decks, Print |
+| Change a card's printing | yes | no |
+| Printed / to-print counts | yes | no — there is no ledger |
+| Writes anything, anywhere | printed ledger, config, pins | nothing |
+| Asks for `/api` | probes for `mtgproxy serve` | never |
+
+The guarantee is structural rather than cosmetic. Showcase mode runs on a
+`ReadOnlyStore` whose every write method throws, and it skips the `/api/health` probe
+entirely, so the published page talks to nothing but Scryfall's image CDN. The two tabs
+that write — Printed and Preferences — are the two that are dropped, and the printing
+picker is not rendered at all, so there is no path to a write left to take.
+
+Counts are left out rather than shown as zero: with no ledger every deck would
+otherwise report nothing printed, which says something false about the decks rather than
+nothing about the reader.
+
+`VITE_SHOWCASE_TITLE` names the page — it defaults to "The Deck Shelf", since the
+project's own name describes how it is built rather than what is being shared.
+
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) already builds and
+publishes on every push to `main`. It needs turning on once:
+
+> **Settings → Pages → Build and deployment → Source: GitHub Actions**
+
+The site then appears at `https://<user>.github.io/mtgproxy/`, and the workflow can also
+be run by hand from the Actions tab.
+
+### What it costs
+
+Nothing, if the repository is public — Pages and Actions are both free there.
+
+The catch is that this repository is **private**, and on the Free plan Pages only
+publishes from public repositories. That leaves two options:
+
+| | Cost | |
+|---|---|---|
+| Make the repository public | free | Pages and Actions are free for public repos |
+| Keep it private, pay for a plan | from $4/month | Pages from a private repo needs Pro, Team or Enterprise |
+
+Worth knowing before choosing: **the published site is public either way.** A paid plan
+keeps the *source* private, not the site — restricting who can view a Pages site is an
+Enterprise Cloud feature. Since the deck list is the thing being shared with friends,
+the only question is whether the code stays private too.
+
+There is nothing in here that needs to be: no secrets, no ledger file — it is
+already MIT licensed, and the ledger lives in the browser or `~/.config`, never in the repo.
+
+Actions is free on public repositories. On a private one this workflow draws from the
+plan's monthly compute allowance ($12 on Free, $18 on Pro), at a couple of minutes a
+push against roughly $0.006 a minute — a rounding error either way.
 
 ## Building a deck with an agent
 

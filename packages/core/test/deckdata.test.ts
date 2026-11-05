@@ -4,10 +4,12 @@ import {
   refreshDeckData,
   profileFingerprint,
   resolveFromDeckData,
+  resolveFromDeckDataWithLookups,
   trimCard,
 } from '../src/deckdata/build.js';
 import { parseDeckData, DECK_DATA_VERSION } from '../src/deckdata/types.js';
 import type { ResolvedCard } from '../src/scryfall/resolve.js';
+import type { CardIdentifier, CollectionResponse } from '../src/scryfall/types.js';
 import type { DeckEntry } from '../src/decklist/parse.js';
 import type { PreferenceProfile } from '../src/printing/profile.js';
 import { card } from './helpers.js';
@@ -296,5 +298,132 @@ describe('two tokens of the same name', () => {
     const applied = resolveFromDeckData([small.entry, big.entry], data, profile);
     expect(applied).not.toBeNull();
     expect(applied!.result.resolved.map((item) => item.card.id)).toEqual(['bear-2-2', 'bear-4-4']);
+  });
+});
+
+describe('resolveFromDeckDataWithLookups', () => {
+  const resolved = [at('Sol Ring', 1), at('Swamp', 7)];
+  const data = buildDeckData('deck', resolved, profile);
+  const entries = resolved.map((item) => item.entry);
+
+  /** A stand-in for the client, recording what it was actually asked for. */
+  function lookup(cards: readonly ReturnType<typeof card>[]) {
+    const asked: CardIdentifier[][] = [];
+    return {
+      asked,
+      async collection(identifiers: readonly CardIdentifier[]): Promise<CollectionResponse> {
+        asked.push([...identifiers]);
+        return { data: [...cards], not_found: [] };
+      },
+    };
+  }
+
+  it('asks for nothing when the stored data covers the list', async () => {
+    const client = lookup([]);
+    const applied = await resolveFromDeckDataWithLookups(entries, data, client, profile);
+    expect(applied?.result.resolved).toHaveLength(2);
+    expect(client.asked).toEqual([]);
+  });
+
+  it('fetches only the printing a pin named, not every printing of every card', async () => {
+    // This is the whole point: pinning one card used to invalidate the file and
+    // send a hundred-card deck back through ranking, a request per card.
+    const pin = card({ name: 'Sol Ring', set: 'ltc', collector_number: '284' });
+    const client = lookup([pin]);
+    const pinned = [{ ...entries[0]!, set: 'ltc', collectorNumber: '284' }, entries[1]!];
+
+    const applied = await resolveFromDeckDataWithLookups(pinned, data, client, profile);
+
+    expect(client.asked).toEqual([[{ set: 'ltc', collector_number: '284' }]]);
+    expect(applied?.result.resolved[0]?.card.collector_number).toBe('284');
+    expect(applied?.result.resolved[0]?.via).toBe('printing');
+    // The rest of the deck keeps the printings the file already held, in order.
+    expect(applied?.result.resolved[1]?.entry.name).toBe('Swamp');
+    expect(applied?.result.resolved[1]?.entry.quantity).toBe(7);
+  });
+
+  it('batches every gap into one request', async () => {
+    const client = lookup([
+      card({ name: 'Sol Ring', set: 'ltc', collector_number: '284' }),
+      card({ name: 'Swamp', set: 'ltc', collector_number: '400' }),
+    ]);
+    const pinned = [
+      { ...entries[0]!, set: 'ltc', collectorNumber: '284' },
+      { ...entries[1]!, set: 'ltc', collectorNumber: '400' },
+    ];
+    await resolveFromDeckDataWithLookups(pinned, data, client, profile);
+    expect(client.asked).toHaveLength(1);
+    expect(client.asked[0]).toHaveLength(2);
+  });
+
+  it('hands back a gap that names no printing, since that one has to be ranked', async () => {
+    const client = lookup([]);
+    const grown = [...entries, entry('Brainstorm')];
+    expect(
+      await resolveFromDeckDataWithLookups(grown, data, client, profile),
+    ).toBeNull();
+    expect(client.asked).toEqual([]);
+  });
+
+  it('hands back a printing that turns out to be a different card', async () => {
+    // A hand-edited `(SET) NUM` can point anywhere. Resolving to whatever sits
+    // at that number would put the wrong card in the deck without saying so.
+    const client = lookup([card({ name: 'Black Lotus', set: 'ltc', collector_number: '284' })]);
+    const pinned = [{ ...entries[0]!, set: 'ltc', collectorNumber: '284' }, entries[1]!];
+    expect(
+      await resolveFromDeckDataWithLookups(pinned, data, client, profile),
+    ).toBeNull();
+  });
+
+  it('accepts a double-faced card listed by its front face alone', async () => {
+    const front = card({
+      name: 'Beorn, Reluctant Host // Till and Tend',
+      set: 'hob',
+      collector_number: '118',
+      card_faces: [{ name: 'Beorn, Reluctant Host' }, { name: 'Till and Tend' }] as never,
+    });
+    const client = lookup([front]);
+    const pinned = [
+      { ...entry('Beorn, Reluctant Host'), set: 'hob', collectorNumber: '118' },
+      entries[1]!,
+    ];
+    const stored = buildDeckData('deck', [at('Swamp', 7)], profile);
+    const applied = await resolveFromDeckDataWithLookups(
+      pinned,
+      stored,
+      client,
+      profile,
+    );
+    expect(applied?.result.resolved[0]?.card.set).toBe('hob');
+  });
+
+  it('hands back a pin that names a printing which does not exist', async () => {
+    // The ranking path reports this properly, as a missed pin.
+    const client = lookup([]);
+    const pinned = [{ ...entries[0]!, set: 'nope', collectorNumber: '1' }, entries[1]!];
+    expect(
+      await resolveFromDeckDataWithLookups(pinned, data, client, profile),
+    ).toBeNull();
+  });
+
+  it('still refuses data written under a different profile', async () => {
+    const client = lookup([]);
+    expect(
+      await resolveFromDeckDataWithLookups(entries, data, client, { fullArt: 'avoid' }),
+    ).toBeNull();
+    expect(client.asked).toEqual([]);
+  });
+
+  it('derives warnings for a fetched printing too', async () => {
+    const pin = card({
+      name: 'Sol Ring',
+      set: 'ltc',
+      collector_number: '284',
+      image_status: 'lowres',
+    });
+    const client = lookup([pin]);
+    const pinned = [{ ...entries[0]!, set: 'ltc', collectorNumber: '284' }, entries[1]!];
+    const applied = await resolveFromDeckDataWithLookups(pinned, data, client, profile);
+    expect(applied?.result.warnings.map((w) => w.code)).toContain('low-resolution');
   });
 });

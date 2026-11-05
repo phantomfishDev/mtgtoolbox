@@ -25,6 +25,7 @@ import { PrintingPicker } from '../components/PrintingPicker.js';
 import { ManaCurveChart } from '../components/ManaCurveChart.js';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
+import { SHOWCASE } from '../showcase.js';
 
 /**
  * Browse one deck card by card.
@@ -78,15 +79,26 @@ export function DeckDetailView({
    */
   const pins = useMemo(() => readPins(text), [text]);
 
+  /**
+   * Blank the grid when the deck changes, and only then.
+   *
+   * Everything else that re-resolves — a pin, a preference — is a short round
+   * trip over stored card data, and clearing the cards for it makes changing
+   * one printing look like the whole page reloading.
+   */
+  useEffect(() => {
+    setResult(null);
+  }, [deck.id]);
+
   useEffect(() => {
     let cancelled = false;
-    setResult(null);
     setError(null);
     setBusy('Loading');
 
     resolveText(text, {
       profile,
       config,
+      deckId: deck.id,
       force: reloadToken > 0,
       onProgress: (message) => {
         if (!cancelled) setBusy(message);
@@ -105,10 +117,12 @@ export function DeckDetailView({
     return () => {
       cancelled = true;
     };
-  }, [text, profile, config, reloadToken]);
+  }, [text, profile, config, deck.id, reloadToken]);
 
   const diff = useMemo(
-    () => (result ? diffDeck(result.resolved, printed) : null),
+    // No ledger in the published build, so every card would read as still to
+    // print — a claim about someone else's deck that the visitor cannot act on.
+    () => (result && !SHOWCASE ? diffDeck(result.resolved, printed) : null),
     [result, printed],
   );
 
@@ -178,6 +192,12 @@ export function DeckDetailView({
           )}
           <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
             <span>{deck.cardCount} cards</span>
+            {deck.owner && (
+              <>
+                <span>&middot;</span>
+                <span title={`This deck belongs to ${deck.owner}`}>{deck.owner}&rsquo;s deck</span>
+              </>
+            )}
             {diff && (
               <>
                 <span>&middot;</span>
@@ -186,7 +206,7 @@ export function DeckDetailView({
                 </span>
               </>
             )}
-            {pinCount > 0 && (
+            {pinCount > 0 && !SHOWCASE && (
               <>
                 <span>&middot;</span>
                 <span>
@@ -196,7 +216,9 @@ export function DeckDetailView({
             )}
           </p>
           <p className="mt-1 text-xs text-muted">
-            Click a card to change its printing. Pins are saved to {store.pinTarget}.
+            {SHOWCASE
+              ? 'Click any card for a closer look.'
+              : `Click a card to change its printing. Pins are saved to ${store.pinTarget}.`}
           </p>
         </div>
         <Button variant="primary" onClick={() => onPrint(deck)}>
@@ -269,8 +291,8 @@ export function DeckDetailView({
               <CardTile
                 key={`${item.card.id}-${item.entry.line}`}
                 item={item}
-                toPrint={diff?.rows.find((row) => row.card.id === item.card.id)?.toPrint ?? 0}
-                pinned={pins[normalizeName(item.card.name)] !== undefined}
+                toPrint={diff ? (diff.rows.find((row) => row.card.id === item.card.id)?.toPrint ?? 0) : null}
+                pinned={!SHOWCASE && pins[normalizeName(item.card.name)] !== undefined}
                 onZoom={() => setZoomed(item.card)}
                 onChangePrinting={() => setPicking(item.card)}
               />
@@ -292,7 +314,7 @@ export function DeckDetailView({
         />
       )}
 
-      {picking && (
+      {picking && !SHOWCASE && (
         <PrintingPicker
           card={picking}
           profile={profile}
@@ -313,7 +335,8 @@ function CardTile({
   onChangePrinting,
 }: {
   item: ResolvedCard;
-  toPrint: number;
+  /** Copies still to print, or null when there is no ledger to compare. */
+  toPrint: number | null;
   pinned: boolean;
   onZoom: () => void;
   onChangePrinting: () => void;
@@ -362,14 +385,16 @@ function CardTile({
         <p className="truncate text-[11px] text-muted" title={item.card.name}>
           {item.card.name}
         </p>
-        <button
-          type="button"
-          onClick={onChangePrinting}
-          title={`Change the printing of ${item.card.name}`}
-          className="shrink-0 text-[11px] text-muted underline hover:text-accent"
-        >
-          art
-        </button>
+        {!SHOWCASE && (
+          <button
+            type="button"
+            onClick={onChangePrinting}
+            title={`Change the printing of ${item.card.name}`}
+            className="shrink-0 text-[11px] text-muted underline hover:text-accent"
+          >
+            art
+          </button>
+        )}
       </div>
     </div>
   );
@@ -428,11 +453,15 @@ function Lightbox({
         <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
           {card.image_status !== 'highres_scan' && <Badge tone="warn">{card.image_status}</Badge>}
           {pinned && <Badge tone="good">pinned</Badge>}
-          <Button onClick={onChangePrinting}>Change printing</Button>
-          {pinned && (
-            <Button variant="ghost" onClick={onUnpin}>
-              Remove pin
-            </Button>
+          {!SHOWCASE && (
+            <>
+              <Button onClick={onChangePrinting}>Change printing</Button>
+              {pinned && (
+                <Button variant="ghost" onClick={onUnpin}>
+                  Remove pin
+                </Button>
+              )}
+            </>
           )}
           <Button variant="ghost" onClick={onClose}>
             Close

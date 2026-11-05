@@ -32,6 +32,7 @@ import type { TokenMode } from '@mtgproxy/core';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
 import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
+import { APP_TITLE } from '../showcase.js';
 
 const SAMPLE = `1 Arcane Signet
 1 Command Tower
@@ -47,7 +48,7 @@ export function PrintView({
   onChange: (patch: Partial<PrintSession>) => void;
 }) {
   const { printed, config } = useApp();
-  const { text, result, overrides, options } = session;
+  const { text, deckId, result, overrides, options } = session;
   // Transient only: these should not survive a tab switch.
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +57,9 @@ export function PrintView({
   const [picking, setPicking] = useState<DeckSlot | null>(null);
   const retryNotice = useRetryNotice();
 
-  const setText = (value: string) => onChange({ text: value });
+  // Editing the list detaches it from the deck it came from: the stored card
+  // data beside that deck no longer describes what is in the box.
+  const setText = (value: string) => onChange({ text: value, deckId: null });
   const setOptions = (value: typeof options) => onChange({ options: value });
 
   const profile = useMemo(() => activeProfile(config, DEFAULT_PROFILE), [config]);
@@ -154,6 +157,7 @@ export function PrintView({
         profile,
         config,
         tokenMode: options.tokens,
+        ...(deckId ? { deckId } : {}),
         force,
         onProgress: setBusy,
       });
@@ -204,14 +208,14 @@ export function PrintView({
       const rendered = await renderPdf(items, {
         layout: computeLayout({ paper: options.paper, gapMm: options.gap }),
         guides: options.guides,
-        title: 'mtgproxy print sheet',
+        title: `${APP_TITLE} print sheet`,
       });
 
       const blob = new Blob([rendered.bytes as BlobPart], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = 'proxies.pdf';
+      anchor.download = 'print-sheet.pdf';
       anchor.click();
       URL.revokeObjectURL(url);
     } catch (cause) {

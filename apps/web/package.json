@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --build && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:showcase": "VITE_SHOWCASE=1 tsc --build && VITE_SHOWCASE=1 vite build"
   },
   "dependencies": {
     "@mtgproxy/core": "workspace:*",

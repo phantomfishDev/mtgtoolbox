@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { diffDeck, indexCardsToResolved, type DeckIndexEntry } from '@mtgproxy/core';
-import { BUNDLED_DECKS, loadDeckIndex, type BundledDeck } from '../decks.js';
+import { BUNDLED_DECKS, DECK_OWNERS, loadDeckIndex, type BundledDeck } from '../decks.js';
 import { useApp } from '../state.js';
 import { ColorPips } from '../components/ColorPips.js';
 import { Badge, Button, Panel } from '../components/ui.js';
+import { SHOWCASE } from '../showcase.js';
 
 /**
  * Browse the decklists bundled with the repository and send one to the printer.
@@ -22,6 +23,7 @@ export function DecksView({
 }) {
   const { printed } = useApp();
   const [query, setQuery] = useState('');
+  const [owner, setOwner] = useState<string | null>(null);
   const [index, setIndex] = useState<Map<string, DeckIndexEntry> | null>(null);
 
   useEffect(() => {
@@ -40,7 +42,10 @@ export function DecksView({
    * disagree about how much of a deck is already on paper.
    */
   const printedCounts = useMemo(() => {
-    if (!index) return null;
+    // There is no ledger in the published build, so every deck would report
+    // nothing printed — a column of zeroes that says something false about the
+    // decks rather than nothing about the reader.
+    if (SHOWCASE || !index) return null;
     const counts = new Map<string, { printed: number; needed: number }>();
     for (const [id, entry] of index) {
       const diff = diffDeck(indexCardsToResolved(entry.cards), printed);
@@ -51,14 +56,17 @@ export function DecksView({
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    if (!needle) return BUNDLED_DECKS;
-    return BUNDLED_DECKS.filter(
-      (deck) =>
+    return BUNDLED_DECKS.filter((deck) => {
+      if (owner !== null && deck.owner !== owner) return false;
+      if (!needle) return true;
+      return (
         deck.name.toLowerCase().includes(needle) ||
+        (deck.owner?.toLowerCase().includes(needle) ?? false) ||
         deck.commanders.some((name) => name.toLowerCase().includes(needle)) ||
-        deck.entries.some((entry) => entry.name.toLowerCase().includes(needle)),
-    );
-  }, [query]);
+        deck.entries.some((entry) => entry.name.toLowerCase().includes(needle))
+      );
+    });
+  }, [query, owner]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -66,9 +74,8 @@ export function DecksView({
         <div>
           <h2 className="font-semibold">Decks</h2>
           <p className="text-sm text-muted">
-            {BUNDLED_DECKS.length} decklists from the project&rsquo;s{' '}
-            <code className="rounded bg-edge px-1">examples/</code> directory. Drop a{' '}
-            <code className="rounded bg-edge px-1">.txt</code> in there and it shows up here.
+            {BUNDLED_DECKS.length} decks on the shelf, ready to play. Click one to see every
+            card in it.
           </p>
         </div>
         <input
@@ -79,9 +86,29 @@ export function DecksView({
         />
       </div>
 
+      {DECK_OWNERS.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="text-muted">Whose deck:</span>
+          <OwnerChip label="Everyone" active={owner === null} onClick={() => setOwner(null)} />
+          {DECK_OWNERS.map((name) => (
+            <OwnerChip
+              key={name}
+              label={name}
+              active={owner === name}
+              onClick={() => setOwner(owner === name ? null : name)}
+            />
+          ))}
+        </div>
+      )}
+
       {visible.length === 0 ? (
         <Panel>
-          <p className="py-6 text-center text-sm text-muted">Nothing matching &ldquo;{query}&rdquo;.</p>
+          <p className="py-6 text-center text-sm text-muted">
+            {query.trim()
+              ? `Nothing matching \u201c${query}\u201d`
+              : 'No decks here'}
+            {owner !== null && ` among ${owner}\u2019s decks`}.
+          </p>
         </Panel>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -98,6 +125,31 @@ export function DecksView({
         </div>
       )}
     </div>
+  );
+}
+
+function OwnerChip({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`rounded-full border px-2.5 py-1 transition ${
+        active
+          ? 'border-accent bg-accent/10 font-medium text-accent'
+          : 'border-edge text-muted hover:border-accent hover:text-accent'
+      }`}
+    >
+      {label}
+    </button>
   );
 }
 
@@ -171,6 +223,11 @@ function DeckCard({
             <span className="tabular-nums text-muted">{deck.cardCount} cards</span>
           )}
           {!complete && <Badge tone="warn">{deck.cardCount} cards</Badge>}
+          {deck.owner && (
+            <span className="text-muted" title={`This deck belongs to ${deck.owner}`}>
+              &middot; {deck.owner}&rsquo;s
+            </span>
+          )}
         </div>
 
         <div className="mt-auto flex items-center gap-2 pt-2">

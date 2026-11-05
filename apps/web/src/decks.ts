@@ -3,6 +3,7 @@ import {
   parseDecklist,
   parseDeckData,
   parseDeckIndex,
+  parseDeckMeta,
   totalCards,
   type DeckData,
   type DeckEntry,
@@ -120,6 +121,14 @@ export interface BundledDeck {
   commanders: string[];
   /** A leading `#` comment block, when the file opens with one. */
   note: string | null;
+  /**
+   * Whose deck this is, from a `# Owner:` line in the file.
+   *
+   * Distinct from the printed counts shown everywhere else: that is about
+   * which cards are in the printed ledger, this is about whose deck sits on the
+   * shelf and who to hand it to on game night.
+   */
+  owner: string | null;
   entries: DeckEntry[];
 }
 
@@ -137,25 +146,10 @@ function titleFromId(id: string): string {
     .join(' ');
 }
 
-/** The opening comment block, which is where these files explain themselves. */
-function leadingNote(text: string): string | null {
-  const lines: string[] = [];
-  for (const line of text.split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (trimmed === '') {
-      if (lines.length > 0) break;
-      continue;
-    }
-    if (!trimmed.startsWith('#')) break;
-    lines.push(trimmed.replace(/^#\s?/, ''));
-  }
-  const note = lines.join(' ').trim();
-  return note === '' ? null : note;
-}
-
 function describe(path: string, text: string): BundledDeck {
   const id = idFromPath(path);
   const { entries } = parseDecklist(text);
+  const meta = parseDeckMeta(text);
   return {
     id,
     name: titleFromId(id),
@@ -163,7 +157,8 @@ function describe(path: string, text: string): BundledDeck {
     entries,
     cardCount: totalCards(entries),
     commanders: commanders(entries).map((entry) => entry.name),
-    note: leadingNote(text),
+    note: meta.note,
+    owner: meta.owner,
   };
 }
 
@@ -175,3 +170,13 @@ export const BUNDLED_DECKS: BundledDeck[] = Object.entries(files)
 export function bundledDeckForText(text: string): BundledDeck | undefined {
   return BUNDLED_DECKS.find((deck) => deck.text === text);
 }
+
+/**
+ * The distinct deck owners, for the list page's filter.
+ *
+ * Sorted by name so the filter row is stable between builds rather than
+ * following whatever order the decks happen to be in.
+ */
+export const DECK_OWNERS: string[] = [
+  ...new Set(BUNDLED_DECKS.map((deck) => deck.owner).filter((o): o is string => o !== null)),
+].sort((a, b) => a.localeCompare(b));

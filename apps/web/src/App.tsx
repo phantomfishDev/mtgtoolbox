@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import type { PrintedLedger, Config } from '@mtgproxy/core';
+import { applyPins, type PrintedLedger, type Config } from '@mtgproxy/core';
 import { detectStore, withPin, type AllDeckPins, type DataStore } from './platform/store.js';
 import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
@@ -10,15 +10,26 @@ import { PrintView } from './views/PrintView.js';
 import { PrintedView } from './views/PrintedView.js';
 import { PreferencesView } from './views/PreferencesView.js';
 import { Spinner } from './components/ui.js';
+import { APP_TITLE, SHOWCASE } from './showcase.js';
 
-const TABS = [
+const ALL_TABS = [
   { id: 'decks', label: 'Decks' },
   { id: 'print', label: 'Print' },
   { id: 'printed', label: 'Printed' },
   { id: 'preferences', label: 'Preferences' },
 ] as const;
 
-type TabId = (typeof TABS)[number]['id'];
+type TabId = (typeof ALL_TABS)[number]['id'];
+
+/**
+ * Printed and Preferences are the two tabs that write, and both of them
+ * are about the person who owns the decks rather than the person reading the
+ * page. They are the whole of the difference in the navigation; what is left
+ * browses and prints, neither of which saves anything.
+ */
+const WRITING_TABS = new Set<TabId>(['printed', 'preferences']);
+
+const TABS = SHOWCASE ? ALL_TABS.filter((tab) => !WRITING_TABS.has(tab.id)) : ALL_TABS;
 
 export function App() {
   const [tab, setTab] = useState<TabId>('decks');
@@ -81,8 +92,18 @@ export function App() {
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.
+  //
+  // Pins go with it. They belong to the deck rather than to the screen that set
+  // them, so printing has to use the printings the deck browser just showed —
+  // otherwise choosing an artwork and then printing would quietly ignore it.
+  // With `mtgproxy serve` the file on disk already says this and re-applying is
+  // a no-op, which is what keeps the two modes identical.
   const openForPrinting = (deck: BundledDeck): void => {
-    setSession({ ...initialSession, text: deck.text });
+    setSession({
+      ...initialSession,
+      text: applyPins(deck.text, deckPins?.[deck.id] ?? {}),
+      deckId: deck.id,
+    });
     setTab('print');
   };
 
@@ -99,7 +120,7 @@ export function App() {
       <div className="min-h-dvh">
         <header className="border-b border-edge">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-3">
-            <h1 className="text-lg font-semibold tracking-tight">mtgproxy</h1>
+            <h1 className="text-lg font-semibold tracking-tight">{APP_TITLE}</h1>
             <nav className="flex gap-1">
               {TABS.map((item) => (
                 <button
@@ -114,9 +135,11 @@ export function App() {
                 </button>
               ))}
             </nav>
-            <span className="ml-auto text-xs text-muted">
-              {state.store.kind === 'server' ? 'Synced with' : 'Stored in'} {state.store.location}
-            </span>
+            {!SHOWCASE && (
+              <span className="ml-auto text-xs text-muted">
+                {state.store.kind === 'server' ? 'Synced with' : 'Stored in'} {state.store.location}
+              </span>
+            )}
           </div>
         </header>
 
@@ -146,8 +169,18 @@ export function App() {
           <a className="underline" href="https://scryfall.com" target="_blank" rel="noreferrer">
             Scryfall
           </a>
-          . Unaffiliated with Scryfall and with Wizards of the Coast. For personal playtest
-          proxies.
+          . Unaffiliated with Scryfall. {APP_TITLE} is unofficial Fan Content permitted under
+          the{' '}
+          <a
+            className="underline"
+            href="https://company.wizards.com/en/legal/fancontentpolicy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Fan Content Policy
+          </a>
+          . Not approved/endorsed by Wizards. Portions of the materials used are property of
+          Wizards of the Coast. &copy;Wizards of the Coast LLC.
         </footer>
       </div>
     </AppContext.Provider>

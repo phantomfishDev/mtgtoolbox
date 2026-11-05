@@ -38,6 +38,14 @@ export type Overrides = Record<string, PrintingChoice>;
 
 export interface PrintSession {
   text: string;
+  /**
+   * The bundled deck this list came from, or null for a list typed or pasted in.
+   *
+   * Carried so that the stored card data beside that deck can still be found
+   * once pins have rewritten the text, exactly as in the deck browser. Editing
+   * the text clears it: an edited list is no longer that deck.
+   */
+  deckId: string | null;
   result: ResolveResult | null;
   /** Keyed by normalised card name. */
   overrides: Overrides;
@@ -46,6 +54,7 @@ export interface PrintSession {
 
 export const initialSession: PrintSession = {
   text: '',
+  deckId: null,
   result: null,
   overrides: {},
   options: {
