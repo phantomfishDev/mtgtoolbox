@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-04T22:13:21.566Z",
+  "generatedAt": "2026-11-05T02:05:41.405Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -646,7 +646,7 @@
           "name": "Kozilek, the Broken Reality",
           "quantity": 1,
           "set": "mh3",
-          "collectorNumber": "382",
+          "collectorNumber": "10",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
@@ -667,21 +667,21 @@
           "name": "Kozilek, Butcher of Truth",
           "quantity": 1,
           "set": "2x2",
-          "collectorNumber": "336",
+          "collectorNumber": "2",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
           "name": "Kozilek, the Great Distortion",
           "quantity": 1,
           "set": "cmm",
-          "collectorNumber": "668",
+          "collectorNumber": "452",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
           "name": "Ulamog, the Ceaseless Hunger",
           "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "670",
+          "set": "plst",
+          "collectorNumber": "BFZ-15",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
@@ -702,7 +702,7 @@
           "name": "Emrakul, the Promised End",
           "quantity": 1,
           "set": "inr",
-          "collectorNumber": "481",
+          "collectorNumber": "5",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
@@ -778,8 +778,8 @@
         {
           "name": "Wurmcoil Engine",
           "quantity": 1,
-          "set": "2xm",
-          "collectorNumber": "368",
+          "set": "prm",
+          "collectorNumber": "37861",
           "typeLine": "Artifact Creature — Phyrexian Wurm"
         },
         {
@@ -869,8 +869,8 @@
         {
           "name": "Solemn Simulacrum",
           "quantity": 1,
-          "set": "m21",
-          "collectorNumber": "319",
+          "set": "soc",
+          "collectorNumber": "355",
           "typeLine": "Artifact Creature — Golem"
         },
         {
@@ -967,8 +967,8 @@
         {
           "name": "Ugin, the Spirit Dragon",
           "quantity": 1,
-          "set": "m21",
-          "collectorNumber": "279",
+          "set": "med",
+          "collectorNumber": "WS1",
           "typeLine": "Legendary Planeswalker — Ugin"
         },
         {
@@ -2394,7 +2394,7 @@
       "commanders": [
         {
           "name": "Kwain, Itinerant Meddler",
-          "image": "https://cards.scryfall.io/normal/front/9/4/941f5231-5620-45e5-9f00-a7f64f0385dc.jpg?1783910708"
+          "image": "https://cards.scryfall.io/normal/front/c/c/cce29404-abfd-4c2c-90e5-5e04c111aa2b.jpg?1783910656"
         }
       ],
       "cards": [
@@ -2402,7 +2402,7 @@
           "name": "Kwain, Itinerant Meddler",
           "quantity": 1,
           "set": "blc",
-          "collectorNumber": "90",
+          "collectorNumber": "254",
           "typeLine": "Legendary Creature — Rabbit Wizard"
         },
         {

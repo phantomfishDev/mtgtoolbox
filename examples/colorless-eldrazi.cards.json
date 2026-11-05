@@ -1,9 +1,8 @@
 {
   "version": 1,
   "deck": "colorless-eldrazi",
-  "generatedAt": "2026-11-04T03:53:40.877Z",
-  "profile": "n76cg",
-  "owned": "w7k42t",
+  "generatedAt": "2026-11-05T02:05:41.395Z",
+  "profile": "1aquj5n",
   "cards": [
     {
       "id": "00b3c10a-799f-4922-bb0a-44981b13203b",
@@ -108,6 +107,44 @@
         "png": "https://cards.scryfall.io/png/front/0/3/033b1ee0-494f-4881-8bdf-f9436d58fd66.png?1783910646",
         "large": "https://cards.scryfall.io/large/front/0/3/033b1ee0-494f-4881-8bdf-f9436d58fd66.jpg?1783910646",
         "normal": "https://cards.scryfall.io/normal/front/0/3/033b1ee0-494f-4881-8bdf-f9436d58fd66.jpg?1783910646"
+      }
+    },
+    {
+      "id": "04066abb-44d2-4730-9cc3-2584bc4c7d8c",
+      "oracle_id": "39f4bf0e-47d5-4ae8-a504-71acda849850",
+      "name": "Kozilek, the Broken Reality",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-06-14",
+      "set": "mh3",
+      "set_name": "Modern Horizons 3",
+      "set_type": "draft_innovation",
+      "collector_number": "10",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Eldrazi",
+      "cmc": 9,
+      "color_identity": [],
+      "mana_cost": "{9}",
+      "oracle_text": "When you cast this spell, up to two target players each manifest two cards from their hands. For each card manifested this way, you draw a card. (To manifest a card, put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)\nOther colorless creatures you control get +3/+2.",
+      "keywords": [
+        "Manifest"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "551c27d9-eec5-4783-b29c-ca737e6041fd",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/0/4/04066abb-44d2-4730-9cc3-2584bc4c7d8c.png?1783911307",
+        "large": "https://cards.scryfall.io/large/front/0/4/04066abb-44d2-4730-9cc3-2584bc4c7d8c.jpg?1783911307",
+        "normal": "https://cards.scryfall.io/normal/front/0/4/04066abb-44d2-4730-9cc3-2584bc4c7d8c.jpg?1783911307"
       }
     },
     {
@@ -224,42 +261,6 @@
         "png": "https://cards.scryfall.io/png/front/1/b/1b486b75-4680-4a94-af8c-c1c335c9782b.png?1783909036",
         "large": "https://cards.scryfall.io/large/front/1/b/1b486b75-4680-4a94-af8c-c1c335c9782b.jpg?1783909036",
         "normal": "https://cards.scryfall.io/normal/front/1/b/1b486b75-4680-4a94-af8c-c1c335c9782b.jpg?1783909036"
-      }
-    },
-    {
-      "id": "1bacda35-bb91-4537-a14d-846650fa85f6",
-      "oracle_id": "eecb3047-a563-441a-9175-200421981ac3",
-      "name": "Ugin, the Spirit Dragon",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2020-07-03",
-      "set": "m21",
-      "set_name": "Core Set 2021",
-      "set_type": "core",
-      "collector_number": "279",
-      "rarity": "mythic",
-      "type_line": "Legendary Planeswalker — Ugin",
-      "cmc": 8,
-      "color_identity": [],
-      "mana_cost": "{8}",
-      "oracle_text": "+2: Ugin deals 3 damage to any target.\n−X: Exile each permanent with mana value X or less that's one or more colors.\n−10: You gain 7 life, draw seven cards, then put up to seven permanent cards from your hand onto the battlefield.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "25bb2adf-803f-4c2a-aa47-c790c587a350",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/b/1bacda35-bb91-4537-a14d-846650fa85f6.png?1783930640",
-        "large": "https://cards.scryfall.io/large/front/1/b/1bacda35-bb91-4537-a14d-846650fa85f6.jpg?1783930640",
-        "normal": "https://cards.scryfall.io/normal/front/1/b/1bacda35-bb91-4537-a14d-846650fa85f6.jpg?1783930640"
       }
     },
     {
@@ -404,45 +405,6 @@
       }
     },
     {
-      "id": "25eab51a-8dad-4a37-9551-c6bf0dc6ecf5",
-      "oracle_id": "00c0543c-2a1f-4425-8283-4062d74a1637",
-      "name": "Solemn Simulacrum",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2020-07-03",
-      "set": "m21",
-      "set_name": "Core Set 2021",
-      "set_type": "core",
-      "collector_number": "319",
-      "rarity": "rare",
-      "type_line": "Artifact Creature — Golem",
-      "cmc": 4,
-      "color_identity": [],
-      "mana_cost": "{4}",
-      "oracle_text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\nWhen this creature dies, you may draw a card.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "dc682134-81b5-4600-b641-dba845d2cc68",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/2/5/25eab51a-8dad-4a37-9551-c6bf0dc6ecf5.png?1783930623",
-        "large": "https://cards.scryfall.io/large/front/2/5/25eab51a-8dad-4a37-9551-c6bf0dc6ecf5.jpg?1783930623",
-        "normal": "https://cards.scryfall.io/normal/front/2/5/25eab51a-8dad-4a37-9551-c6bf0dc6ecf5.jpg?1783930623"
-      }
-    },
-    {
       "id": "27bf5e61-87d4-446e-8583-cece83d3aacd",
       "oracle_id": "cef7396d-2168-4282-bf38-670ca9eebd91",
       "name": "Thought-Knot Seer",
@@ -479,6 +441,39 @@
         "png": "https://cards.scryfall.io/png/front/2/7/27bf5e61-87d4-446e-8583-cece83d3aacd.png?1783911136",
         "large": "https://cards.scryfall.io/large/front/2/7/27bf5e61-87d4-446e-8583-cece83d3aacd.jpg?1783911136",
         "normal": "https://cards.scryfall.io/normal/front/2/7/27bf5e61-87d4-446e-8583-cece83d3aacd.jpg?1783911136"
+      }
+    },
+    {
+      "id": "29fae212-b757-4e5f-ad9b-06cd09782f9f",
+      "oracle_id": "00c0543c-2a1f-4425-8283-4062d74a1637",
+      "name": "Solemn Simulacrum",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-04-24",
+      "set": "soc",
+      "set_name": "Secrets of Strixhaven Commander",
+      "set_type": "commander",
+      "collector_number": "355",
+      "rarity": "rare",
+      "type_line": "Artifact Creature — Golem",
+      "cmc": 4,
+      "color_identity": [],
+      "mana_cost": "{4}",
+      "oracle_text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\nWhen this creature dies, you may draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "716a1d8e-2c4f-4f30-9484-d177f204da4d",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/2/9/29fae212-b757-4e5f-ad9b-06cd09782f9f.png?1783903737",
+        "large": "https://cards.scryfall.io/large/front/2/9/29fae212-b757-4e5f-ad9b-06cd09782f9f.jpg?1783903737",
+        "normal": "https://cards.scryfall.io/normal/front/2/9/29fae212-b757-4e5f-ad9b-06cd09782f9f.jpg?1783903737"
       }
     },
     {
@@ -831,6 +826,39 @@
       }
     },
     {
+      "id": "411e8228-b594-4af8-8008-c6c8c815d254",
+      "oracle_id": "eecb3047-a563-441a-9175-200421981ac3",
+      "name": "Ugin, the Spirit Dragon",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2019-05-03",
+      "set": "med",
+      "set_name": "Mythic Edition",
+      "set_type": "masterpiece",
+      "collector_number": "WS1",
+      "rarity": "mythic",
+      "type_line": "Legendary Planeswalker — Ugin",
+      "cmc": 8,
+      "color_identity": [],
+      "mana_cost": "{8}",
+      "oracle_text": "+2: Ugin deals 3 damage to any target.\n−X: Exile each permanent with mana value X or less that's one or more colors.\n−10: You gain 7 life, draw seven cards, then put up to seven permanent cards from your hand onto the battlefield.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "borderless",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8d2f6330-4309-4427-994f-fc3cd4041939",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/1/411e8228-b594-4af8-8008-c6c8c815d254.png?1783933493",
+        "large": "https://cards.scryfall.io/large/front/4/1/411e8228-b594-4af8-8008-c6c8c815d254.jpg?1783933493",
+        "normal": "https://cards.scryfall.io/normal/front/4/1/411e8228-b594-4af8-8008-c6c8c815d254.jpg?1783933493"
+      }
+    },
+    {
       "id": "428fe419-358d-4a36-89d8-bde0622beb74",
       "oracle_id": "a699c663-8131-4045-9265-a83e86609374",
       "name": "Thran Dynamo",
@@ -903,6 +931,49 @@
         "png": "https://cards.scryfall.io/png/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.png?1783911342",
         "large": "https://cards.scryfall.io/large/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.jpg?1783911342",
         "normal": "https://cards.scryfall.io/normal/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.jpg?1783911342"
+      }
+    },
+    {
+      "id": "4b1185bb-b12e-47b5-9230-368ac9c91c1d",
+      "oracle_id": "4c1c1537-e519-4e2f-9bc2-d34b289d4487",
+      "name": "Kozilek, the Great Distortion",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "452",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Eldrazi",
+      "cmc": 10,
+      "color_identity": [],
+      "mana_cost": "{8}{C}{C}",
+      "oracle_text": "When you cast this spell, if you have fewer than seven cards in hand, draw cards equal to the difference.\nMenace\nDiscard a card with mana value X: Counter target spell with mana value X.",
+      "keywords": [
+        "Menace"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary",
+        "inverted",
+        "etched"
+      ],
+      "promo": false,
+      "promo_types": [
+        "boosterfun"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "c1b94207-7fc5-407d-835a-aa61df31a086",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/b/4b1185bb-b12e-47b5-9230-368ac9c91c1d.png?1783915576",
+        "large": "https://cards.scryfall.io/large/front/4/b/4b1185bb-b12e-47b5-9230-368ac9c91c1d.jpg?1783915576",
+        "normal": "https://cards.scryfall.io/normal/front/4/b/4b1185bb-b12e-47b5-9230-368ac9c91c1d.jpg?1783915576"
       }
     },
     {
@@ -1041,51 +1112,6 @@
         "png": "https://cards.scryfall.io/png/front/5/3/5355eecf-c03e-406c-9e7d-70e73dcd7510.png?1783911338",
         "large": "https://cards.scryfall.io/large/front/5/3/5355eecf-c03e-406c-9e7d-70e73dcd7510.jpg?1783911338",
         "normal": "https://cards.scryfall.io/normal/front/5/3/5355eecf-c03e-406c-9e7d-70e73dcd7510.jpg?1783911338"
-      }
-    },
-    {
-      "id": "55251b3d-b408-4612-b53d-c90ef26ea57d",
-      "oracle_id": "4e7a8817-1a66-45c3-ade9-eac79b40b89f",
-      "name": "Emrakul, the Promised End",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2025-01-24",
-      "set": "inr",
-      "set_name": "Innistrad Remastered",
-      "set_type": "masters",
-      "collector_number": "481",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Eldrazi",
-      "cmc": 13,
-      "color_identity": [],
-      "mana_cost": "{13}",
-      "oracle_text": "This spell costs {1} less to cast for each card type among cards in your graveyard.\nWhen you cast this spell, you gain control of target opponent during that player's next turn. After that turn, that player takes an extra turn.\nFlying, trample, protection from instants",
-      "keywords": [
-        "Flying",
-        "Protection",
-        "Trample"
-      ],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "showcase",
-        "legendary"
-      ],
-      "promo": false,
-      "promo_types": [
-        "poster",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "a425e9da-a746-4861-9773-cced506f54d2",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/5/5/55251b3d-b408-4612-b53d-c90ef26ea57d.png?1783907975",
-        "large": "https://cards.scryfall.io/large/front/5/5/55251b3d-b408-4612-b53d-c90ef26ea57d.jpg?1783907975",
-        "normal": "https://cards.scryfall.io/normal/front/5/5/55251b3d-b408-4612-b53d-c90ef26ea57d.jpg?1783907975"
       }
     },
     {
@@ -1271,48 +1297,6 @@
       }
     },
     {
-      "id": "64b4b6cd-6d0f-4060-b51f-61f481000d51",
-      "oracle_id": "7b8528b0-71eb-4c9e-bed9-aa2d2e84038f",
-      "name": "Kozilek, Butcher of Truth",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2022-07-08",
-      "set": "2x2",
-      "set_name": "Double Masters 2022",
-      "set_type": "masters",
-      "collector_number": "336",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Eldrazi",
-      "cmc": 10,
-      "color_identity": [],
-      "mana_cost": "{10}",
-      "oracle_text": "When you cast this spell, draw four cards.\nAnnihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.)\nWhen Kozilek is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
-      "keywords": [
-        "Annihilator"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "335cde17-7de4-4e99-90ec-bf3c9313d3cc",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/6/4/64b4b6cd-6d0f-4060-b51f-61f481000d51.png?1783921777",
-        "large": "https://cards.scryfall.io/large/front/6/4/64b4b6cd-6d0f-4060-b51f-61f481000d51.jpg?1783921777",
-        "normal": "https://cards.scryfall.io/normal/front/6/4/64b4b6cd-6d0f-4060-b51f-61f481000d51.jpg?1783921777"
-      }
-    },
-    {
       "id": "65ebbff0-fbe6-4310-a33f-e00bb2534979",
       "oracle_id": "893fed41-c144-433f-af88-bc7d419b7fb3",
       "name": "Burnished Hart",
@@ -1445,6 +1429,46 @@
         "png": "https://cards.scryfall.io/png/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.png?1783937889",
         "large": "https://cards.scryfall.io/large/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1783937889",
         "normal": "https://cards.scryfall.io/normal/front/7/0/7019912c-bd9b-4b96-9388-400794909aa1.jpg?1783937889"
+      }
+    },
+    {
+      "id": "71911392-42b0-4b6d-baf7-918a4bd3b924",
+      "oracle_id": "4e7a8817-1a66-45c3-ade9-eac79b40b89f",
+      "name": "Emrakul, the Promised End",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2025-01-24",
+      "set": "inr",
+      "set_name": "Innistrad Remastered",
+      "set_type": "masters",
+      "collector_number": "5",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Eldrazi",
+      "cmc": 13,
+      "color_identity": [],
+      "mana_cost": "{13}",
+      "oracle_text": "This spell costs {1} less to cast for each card type among cards in your graveyard.\nWhen you cast this spell, you gain control of target opponent during that player's next turn. After that turn, that player takes an extra turn.\nFlying, trample, protection from instants",
+      "keywords": [
+        "Flying",
+        "Protection",
+        "Trample"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "7dfecb59-59d6-46ff-8acd-a81cba58fc4e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/7/1/71911392-42b0-4b6d-baf7-918a4bd3b924.png?1783908188",
+        "large": "https://cards.scryfall.io/large/front/7/1/71911392-42b0-4b6d-baf7-918a4bd3b924.jpg?1783908188",
+        "normal": "https://cards.scryfall.io/normal/front/7/1/71911392-42b0-4b6d-baf7-918a4bd3b924.jpg?1783908188"
       }
     },
     {
@@ -2017,6 +2041,41 @@
       }
     },
     {
+      "id": "aa0aadff-bc69-49fb-8d12-5b5e4cfa438d",
+      "oracle_id": "0bfa4512-e35a-4c93-b324-80ec659f5a97",
+      "name": "Ulamog, the Ceaseless Hunger",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2026-10-19",
+      "set": "plst",
+      "set_name": "The List",
+      "set_type": "masters",
+      "collector_number": "BFZ-15",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Eldrazi",
+      "cmc": 10,
+      "color_identity": [],
+      "mana_cost": "{10}",
+      "oracle_text": "When you cast this spell, exile two target permanents.\nIndestructible\nWhenever Ulamog attacks, defending player exiles the top twenty cards of their library.",
+      "keywords": [
+        "Indestructible"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "74414961-40e4-4df4-8098-ea145af93d91",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/a/aa0aadff-bc69-49fb-8d12-5b5e4cfa438d.png?1787677075",
+        "large": "https://cards.scryfall.io/large/front/a/a/aa0aadff-bc69-49fb-8d12-5b5e4cfa438d.jpg?1787677075",
+        "normal": "https://cards.scryfall.io/normal/front/a/a/aa0aadff-bc69-49fb-8d12-5b5e4cfa438d.jpg?1787677075"
+      }
+    },
+    {
       "id": "aa5e88f1-0ddf-45d7-bbd0-baa88d121867",
       "oracle_id": "9a02a9a7-39d9-4763-85d3-747a0540b60b",
       "name": "Gilded Lotus",
@@ -2050,49 +2109,6 @@
         "png": "https://cards.scryfall.io/png/front/a/a/aa5e88f1-0ddf-45d7-bbd0-baa88d121867.png?1783908890",
         "large": "https://cards.scryfall.io/large/front/a/a/aa5e88f1-0ddf-45d7-bbd0-baa88d121867.jpg?1783908890",
         "normal": "https://cards.scryfall.io/normal/front/a/a/aa5e88f1-0ddf-45d7-bbd0-baa88d121867.jpg?1783908890"
-      }
-    },
-    {
-      "id": "aaa1571f-d73f-48ed-b6e2-f1388c410506",
-      "oracle_id": "0bfa4512-e35a-4c93-b324-80ec659f5a97",
-      "name": "Ulamog, the Ceaseless Hunger",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-08-04",
-      "set": "cmm",
-      "set_name": "Commander Masters",
-      "set_type": "masters",
-      "collector_number": "670",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Eldrazi",
-      "cmc": 10,
-      "color_identity": [],
-      "mana_cost": "{10}",
-      "oracle_text": "When you cast this spell, exile two target permanents.\nIndestructible\nWhenever Ulamog attacks, defending player exiles the top twenty cards of their library.",
-      "keywords": [
-        "Indestructible"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "portrait",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "acdf7cd9-c441-4b42-afb2-c4b5b32632b4",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/a/a/aaa1571f-d73f-48ed-b6e2-f1388c410506.png?1783915502",
-        "large": "https://cards.scryfall.io/large/front/a/a/aaa1571f-d73f-48ed-b6e2-f1388c410506.jpg?1783915502",
-        "normal": "https://cards.scryfall.io/normal/front/a/a/aaa1571f-d73f-48ed-b6e2-f1388c410506.jpg?1783915502"
       }
     },
     {
@@ -2299,6 +2315,42 @@
         "png": "https://cards.scryfall.io/png/front/c/3/c3cb0fff-da50-40b9-9839-68cdf25a0193.png?1783915459",
         "large": "https://cards.scryfall.io/large/front/c/3/c3cb0fff-da50-40b9-9839-68cdf25a0193.jpg?1783915459",
         "normal": "https://cards.scryfall.io/normal/front/c/3/c3cb0fff-da50-40b9-9839-68cdf25a0193.jpg?1783915459"
+      }
+    },
+    {
+      "id": "c4a66a3f-2ba3-4b80-9658-8c3515772a02",
+      "oracle_id": "d1a60f44-7696-49ee-91fb-cab5b3102962",
+      "name": "Wurmcoil Engine",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2010-12-17",
+      "set": "prm",
+      "set_name": "Magic Online Promos",
+      "set_type": "promo",
+      "collector_number": "37861",
+      "rarity": "mythic",
+      "type_line": "Artifact Creature — Phyrexian Wurm",
+      "cmc": 6,
+      "color_identity": [],
+      "mana_cost": "{6}",
+      "oracle_text": "Deathtouch, lifelink\nWhen this creature dies, create a 3/3 colorless Phyrexian Wurm artifact creature token with deathtouch and a 3/3 colorless Phyrexian Wurm artifact creature token with lifelink.",
+      "keywords": [
+        "Lifelink",
+        "Deathtouch"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2003",
+      "promo": true,
+      "digital": true,
+      "image_status": "lowres",
+      "illustration_id": "ba36f91f-5d01-4a9d-9858-f09e57910e81",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/4/c4a66a3f-2ba3-4b80-9658-8c3515772a02.png?1783941567",
+        "large": "https://cards.scryfall.io/large/front/c/4/c4a66a3f-2ba3-4b80-9658-8c3515772a02.jpg?1783941567",
+        "normal": "https://cards.scryfall.io/normal/front/c/4/c4a66a3f-2ba3-4b80-9658-8c3515772a02.jpg?1783941567"
       }
     },
     {
@@ -2621,6 +2673,44 @@
       }
     },
     {
+      "id": "d27cf7b7-7982-46bd-a559-7789c0e74bae",
+      "oracle_id": "7b8528b0-71eb-4c9e-bed9-aa2d2e84038f",
+      "name": "Kozilek, Butcher of Truth",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2022-07-08",
+      "set": "2x2",
+      "set_name": "Double Masters 2022",
+      "set_type": "masters",
+      "collector_number": "2",
+      "rarity": "mythic",
+      "type_line": "Legendary Creature — Eldrazi",
+      "cmc": 10,
+      "color_identity": [],
+      "mana_cost": "{10}",
+      "oracle_text": "When you cast this spell, draw four cards.\nAnnihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.)\nWhen Kozilek is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+      "keywords": [
+        "Annihilator"
+      ],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "8a8e7660-855a-4ebb-8942-6c56d178c88e",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/d/2/d27cf7b7-7982-46bd-a559-7789c0e74bae.png?1783921940",
+        "large": "https://cards.scryfall.io/large/front/d/2/d27cf7b7-7982-46bd-a559-7789c0e74bae.jpg?1783921940",
+        "normal": "https://cards.scryfall.io/normal/front/d/2/d27cf7b7-7982-46bd-a559-7789c0e74bae.jpg?1783921940"
+      }
+    },
+    {
       "id": "d7036f51-10a6-4036-8650-9bc12d2a55cb",
       "oracle_id": "cfdd5dc6-593e-495a-8cfe-3a56b3c4c7df",
       "name": "Temple of the False God",
@@ -2651,48 +2741,6 @@
         "png": "https://cards.scryfall.io/png/front/d/7/d7036f51-10a6-4036-8650-9bc12d2a55cb.png?1783944861",
         "large": "https://cards.scryfall.io/large/front/d/7/d7036f51-10a6-4036-8650-9bc12d2a55cb.jpg?1783944861",
         "normal": "https://cards.scryfall.io/normal/front/d/7/d7036f51-10a6-4036-8650-9bc12d2a55cb.jpg?1783944861"
-      }
-    },
-    {
-      "id": "d81bace1-28d2-4429-ae8d-b867c202afbd",
-      "oracle_id": "39f4bf0e-47d5-4ae8-a504-71acda849850",
-      "name": "Kozilek, the Broken Reality",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-06-14",
-      "set": "mh3",
-      "set_name": "Modern Horizons 3",
-      "set_type": "draft_innovation",
-      "collector_number": "382",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Eldrazi",
-      "cmc": 9,
-      "color_identity": [],
-      "mana_cost": "{9}",
-      "oracle_text": "When you cast this spell, up to two target players each manifest two cards from their hands. For each card manifested this way, you draw a card. (To manifest a card, put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)\nOther colorless creatures you control get +3/+2.",
-      "keywords": [
-        "Manifest"
-      ],
-      "game_changer": false,
-      "full_art": true,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "concept"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "73985c0c-8ca7-4f2d-b4b3-2689c1b0dea9",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/d/8/d81bace1-28d2-4429-ae8d-b867c202afbd.png?1783911180",
-        "large": "https://cards.scryfall.io/large/front/d/8/d81bace1-28d2-4429-ae8d-b867c202afbd.jpg?1783911180",
-        "normal": "https://cards.scryfall.io/normal/front/d/8/d81bace1-28d2-4429-ae8d-b867c202afbd.jpg?1783911180"
       }
     },
     {
@@ -2926,49 +2974,6 @@
       }
     },
     {
-      "id": "f097accb-28ad-4b22-b615-103c74e07708",
-      "oracle_id": "d1a60f44-7696-49ee-91fb-cab5b3102962",
-      "name": "Wurmcoil Engine",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2020-08-07",
-      "set": "2xm",
-      "set_name": "Double Masters",
-      "set_type": "masters",
-      "collector_number": "368",
-      "rarity": "mythic",
-      "type_line": "Artifact Creature — Phyrexian Wurm",
-      "cmc": 6,
-      "color_identity": [],
-      "mana_cost": "{6}",
-      "oracle_text": "Deathtouch, lifelink\nWhen this creature dies, create a 3/3 colorless Phyrexian Wurm artifact creature token with deathtouch and a 3/3 colorless Phyrexian Wurm artifact creature token with lifelink.",
-      "keywords": [
-        "Lifelink",
-        "Deathtouch"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boxtopper",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "865f0957-5e8a-48bc-a103-76b75f790e4a",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/f/0/f097accb-28ad-4b22-b615-103c74e07708.png?1783930065",
-        "large": "https://cards.scryfall.io/large/front/f/0/f097accb-28ad-4b22-b615-103c74e07708.jpg?1783930065",
-        "normal": "https://cards.scryfall.io/normal/front/f/0/f097accb-28ad-4b22-b615-103c74e07708.jpg?1783930065"
-      }
-    },
-    {
       "id": "f461d613-518f-41cf-b08f-0778d40d3cf7",
       "oracle_id": "c8b9fa02-0a0c-4a87-9a00-3c1c7e2f4bfd",
       "name": "Warping Wail",
@@ -3042,49 +3047,6 @@
       }
     },
     {
-      "id": "fea7fe08-37d1-40bb-bb64-af41b025314b",
-      "oracle_id": "4c1c1537-e519-4e2f-9bc2-d34b289d4487",
-      "name": "Kozilek, the Great Distortion",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2023-08-04",
-      "set": "cmm",
-      "set_name": "Commander Masters",
-      "set_type": "masters",
-      "collector_number": "668",
-      "rarity": "mythic",
-      "type_line": "Legendary Creature — Eldrazi",
-      "cmc": 10,
-      "color_identity": [],
-      "mana_cost": "{8}{C}{C}",
-      "oracle_text": "When you cast this spell, if you have fewer than seven cards in hand, draw cards equal to the difference.\nMenace\nDiscard a card with mana value X: Counter target spell with mana value X.",
-      "keywords": [
-        "Menace"
-      ],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "portrait",
-        "boosterfun"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "a46306f8-14af-4372-8b16-0f3c88827598",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/f/e/fea7fe08-37d1-40bb-bb64-af41b025314b.png?1783915502",
-        "large": "https://cards.scryfall.io/large/front/f/e/fea7fe08-37d1-40bb-bb64-af41b025314b.jpg?1783915502",
-        "normal": "https://cards.scryfall.io/normal/front/f/e/fea7fe08-37d1-40bb-bb64-af41b025314b.jpg?1783915502"
-      }
-    },
-    {
       "id": "ff27694e-0381-4ac9-ba20-d631d468f275",
       "oracle_id": "6b8cf2a0-b045-4d91-9d91-c602d40c6237",
       "name": "Basalt Monolith",
@@ -3119,7 +3081,7 @@
     }
   ],
   "chosen": {
-    "all is dust": "8764ca43-bbbb-43b5-895b-c7049cc76580",
+    "all is dust|fdc|9": "8764ca43-bbbb-43b5-895b-c7049cc76580",
     "ancient tomb": "3afebe8a-9f21-4260-8e93-1ab1dff13c09",
     "anticausal vestige": "a8c94ccb-f6af-4a26-b773-624d6ce54330",
     "artisan of kozilek": "c632f5a4-7f5f-4d77-9364-58ea03dfdcad",
@@ -3128,7 +3090,7 @@
     "blast zone": "75a02940-4930-4cd6-ba20-a88efd6e82ce",
     "breaker of armies": "9c414c52-e076-42ea-b080-6b34316eb736",
     "buried ruin": "1e57d7ee-78d8-4e02-b3a8-a4b16ec0cdaf",
-    "burnished hart": "65ebbff0-fbe6-4310-a33f-e00bb2534979",
+    "burnished hart|fdn|250": "65ebbff0-fbe6-4310-a33f-e00bb2534979",
     "cloudpost": "5355eecf-c03e-406c-9e7d-70e73dcd7510",
     "conduit of ruin": "4bc855d3-817c-4748-a7f5-1533d8b0e930",
     "crystal vein": "c7c51eae-2c45-4f12-859d-56bd83247c2e",
@@ -3137,29 +3099,29 @@
     "devourer of destiny": "560debcd-feb4-4534-991e-a7aa1cca2409",
     "dread statuary": "6e54bace-7484-484e-987e-8d3a9a430ab9",
     "dreamstone hedron": "25c5e6f8-eec6-4a90-b7c6-36f882bab64a",
-    "eldrazi conscription": "33965c48-a7ce-4a04-8251-8eeb2d908c0b",
+    "eldrazi conscription|soc|131": "33965c48-a7ce-4a04-8251-8eeb2d908c0b",
     "eldrazi devastator": "c12027df-b6fb-4956-a6da-6e8375be7364",
     "eldrazi mimic": "311a05b1-042d-47e7-9fd7-6e8abe8fc578",
     "eldrazi temple": "010abd40-3f9c-44bc-8570-d539750c3cd7",
-    "emrakul, the promised end": "55251b3d-b408-4612-b53d-c90ef26ea57d",
+    "emrakul, the promised end|inr|5": "71911392-42b0-4b6d-baf7-918a4bd3b924",
     "emrakul, the world anew": "de77f5c3-b027-416b-8d9c-1b96c7bd504e",
     "endbringer": "d9d7309a-d1ec-4b29-bb96-2daaa6be9eb8",
     "endless one": "00b3c10a-799f-4922-bb0a-44981b13203b",
     "everflowing chalice": "7c4d35fe-1ec9-4691-b5cb-cc82998ee457",
     "eye of ugin": "c9c6977d-0e14-47c1-89c0-be376f2675f3",
-    "gilded lotus": "aa5e88f1-0ddf-45d7-bbd0-baa88d121867",
+    "gilded lotus|fdn|725": "aa5e88f1-0ddf-45d7-bbd0-baa88d121867",
     "glimmerpost": "3ba372ea-b4a0-4db3-baec-9cbf5d3384b1",
     "hand of emrakul": "84d602f4-5876-416a-95e5-821a285358bf",
-    "hedron archive": "068a365c-157c-4af4-9b17-4854d696c19d",
+    "hedron archive|fdc|262": "068a365c-157c-4af4-9b17-4854d696c19d",
     "hedron crawler": "9f827f92-1df6-4fd0-aa61-ec2e53476f9c",
-    "it that betrays": "ca08b369-783d-4fe4-8fc8-9cd595638550",
-    "karn liberated": "96d1a254-01a8-4590-8878-690c5bfb4a95",
-    "kozilek, butcher of truth": "64b4b6cd-6d0f-4060-b51f-61f481000d51",
-    "kozilek, the broken reality": "d81bace1-28d2-4429-ae8d-b867c202afbd",
-    "kozilek, the great distortion": "fea7fe08-37d1-40bb-bb64-af41b025314b",
+    "it that betrays|cmm|805": "ca08b369-783d-4fe4-8fc8-9cd595638550",
+    "karn liberated|2xm|333": "96d1a254-01a8-4590-8878-690c5bfb4a95",
+    "kozilek, butcher of truth|2x2|2": "d27cf7b7-7982-46bd-a559-7789c0e74bae",
+    "kozilek, the broken reality|mh3|10": "04066abb-44d2-4730-9cc3-2584bc4c7d8c",
+    "kozilek, the great distortion|cmm|452": "4b1185bb-b12e-47b5-9230-368ac9c91c1d",
     "kozilek's channeler": "c550d179-32ec-4ad8-91c2-d79320a21cba",
-    "matter reshaper": "38e6e9aa-2e5f-49f7-beef-b876c070d72d",
-    "meteor golem": "cd7af704-a770-4f90-8fe8-a45457785a35",
+    "matter reshaper|cmm|806": "38e6e9aa-2e5f-49f7-beef-b876c070d72d",
+    "meteor golem|cmm|399": "cd7af704-a770-4f90-8fe8-a45457785a35",
     "mikokoro, center of the sea": "3ec81982-d1d2-4bea-b94b-e05f1305a462",
     "mind stone": "b30a8f92-ce42-4b27-a893-bcf97fde228d",
     "mind's eye": "b3390599-8fa6-4962-b762-f558a75945cc",
@@ -3167,8 +3129,8 @@
     "not of this world": "d18ce39e-211d-460b-a200-a26c17aeeb12",
     "oblivion sower": "eb179ae3-28d9-4741-a055-e7e767d8a408",
     "palladium myr": "3679933e-6880-41e3-b9e0-43d002722d4e",
-    "reality smasher": "52d4b652-a830-4fd4-94bb-c17c227f2928",
-    "rogue's passage": "58c76a0c-f13c-483c-bb7b-9af21d7fc924",
+    "reality smasher|ogw|7": "52d4b652-a830-4fd4-94bb-c17c227f2928",
+    "rogue's passage|mic|179": "58c76a0c-f13c-483c-bb7b-9af21d7fc924",
     "sanctum of ugin": "86798d03-9f2d-46bd-a660-13c8dd5535ce",
     "sandstone oracle": "c7333ea3-2c98-405a-a5cc-eecba9b14a00",
     "scorched ruins": "75a4e843-937c-47fb-8768-0f42c5cb4e4f",
@@ -3177,33 +3139,33 @@
     "shrine of the forsaken gods": "dde7ad4e-a38b-4981-8c9f-78a9e9ea2c36",
     "sire of seven deaths": "1b486b75-4680-4a94-af8c-c1c335c9782b",
     "skittering invasion": "0bf49859-c1ef-43ca-aa0a-6f4116825b7d",
-    "sol ring": "7454e0cc-98c2-48a1-b2c9-49908d2aedcc",
-    "solemn simulacrum": "25eab51a-8dad-4a37-9551-c6bf0dc6ecf5",
+    "sol ring|cmm|703": "7454e0cc-98c2-48a1-b2c9-49908d2aedcc",
+    "solemn simulacrum|soc|355": "29fae212-b757-4e5f-ad9b-06cd09782f9f",
     "spatial contortion": "3fd2f8b3-62f3-4e52-ae17-dd0a61bc0e26",
     "spawnsire of ulamog": "9ff46819-bfb3-4448-ab4f-f22ff9e2b2b4",
     "spine of ish sah": "033b1ee0-494f-4881-8bdf-f9436d58fd66",
     "strip mine": "62aa232c-6034-4417-95a6-77b3a81c505c",
-    "temple of the false god": "d7036f51-10a6-4036-8650-9bc12d2a55cb",
+    "temple of the false god|scg|143": "d7036f51-10a6-4036-8650-9bc12d2a55cb",
     "thespian's stage": "dc03cbbf-6157-48ee-9687-c91513a95f18",
-    "thought vessel": "226c386a-3382-451b-abe8-682f49f637ec",
+    "thought vessel|lcc|118": "226c386a-3382-451b-abe8-682f49f637ec",
     "thought-knot seer": "27bf5e61-87d4-446e-8583-cece83d3aacd",
     "thran dynamo": "428fe419-358d-4a36-89d8-bde0622beb74",
     "titan's presence": "4dd8cf3f-1ca8-41e4-b0f7-ea9d61f731d7",
-    "ugin, the ineffable": "fba9e014-8abe-4662-8a47-998b5eaa7a6b",
-    "ugin, the spirit dragon": "1bacda35-bb91-4537-a14d-846650fa85f6",
+    "ugin, the ineffable|m3c|160": "fba9e014-8abe-4662-8a47-998b5eaa7a6b",
+    "ugin, the spirit dragon|med|ws1": "411e8228-b594-4af8-8008-c6c8c815d254",
     "ugin's labyrinth": "5d1506f3-5121-4b83-b199-6594b41e7883",
-    "ulamog, the ceaseless hunger": "aaa1571f-d73f-48ed-b6e2-f1388c410506",
+    "ulamog, the ceaseless hunger|plst|bfz-15": "aa0aadff-bc69-49fb-8d12-5b5e4cfa438d",
     "ulamog, the infinite gyre": "cbc085e9-bbb2-463a-b35c-bee13008a2c6",
     "ulamog's dreadsire": "b5821c21-8133-40f7-a28d-addf64b1e35f",
-    "vesuva": "40c17aee-1e93-4db8-b491-cb2c10d0cc67",
-    "void winnower": "8cbedb0a-34ca-4d42-bb43-cbea0f3c6d02",
+    "vesuva|m3c|404": "40c17aee-1e93-4db8-b491-cb2c10d0cc67",
+    "void winnower|bfz|17": "8cbedb0a-34ca-4d42-bb43-cbea0f3c6d02",
     "walker of the wastes": "34f635ac-ad6d-4a13-a08e-64c8e2b9779c",
     "war room": "b2593c45-585f-4eaf-bb08-e91a4fc2d425",
     "warping wail": "f461d613-518f-41cf-b08f-0778d40d3cf7",
-    "wastes": "7019912c-bd9b-4b96-9388-400794909aa1",
-    "wayfarer's bauble": "45794583-7f65-48e4-8d91-b2f8994c4215",
+    "wastes|ogw|183": "7019912c-bd9b-4b96-9388-400794909aa1",
+    "wayfarer's bauble|m3c|315": "45794583-7f65-48e4-8d91-b2f8994c4215",
     "worn powerstone": "eccbb24a-918b-42ab-bcb4-cd3c131da9d5",
-    "wurmcoil engine": "f097accb-28ad-4b22-b615-103c74e07708",
+    "wurmcoil engine|prm|37861": "c4a66a3f-2ba3-4b80-9658-8c3515772a02",
     "zhulodok, void gorger": "a015461d-4214-4feb-8b04-519c537759eb"
   }
 }

@@ -1,3 +1,4 @@
+# Name: Eldraz on Dezz Nuts
 # Colorless Eldrazi — Zhulodok, Void Gorger. Big spells that bring friends.
 #
 # Zhulodok reads: "Colorless spells you cast from your hand with mana value 7
@@ -160,15 +161,15 @@ Deck
 1 Artisan of Kozilek
 1 Hand of Emrakul
 1 Void Winnower (BFZ) 17
-1 Kozilek, the Broken Reality
+1 Kozilek, the Broken Reality (MH3) 10
 1 Desolation Twin
 1 Spawnsire of Ulamog
-1 Kozilek, Butcher of Truth
-1 Kozilek, the Great Distortion
-1 Ulamog, the Ceaseless Hunger (CMM) 670
+1 Kozilek, Butcher of Truth (2X2) 2
+1 Kozilek, the Great Distortion (CMM) 452
+1 Ulamog, the Ceaseless Hunger (PLST) BFZ-15
 1 Ulamog, the Infinite Gyre
 1 It That Betrays (CMM) 805
-1 Emrakul, the Promised End
+1 Emrakul, the Promised End (INR) 5
 1 Emrakul, the World Anew
 1 Ulamog's Dreadsire
 1 Eldrazi Mimic
@@ -179,7 +180,7 @@ Deck
 1 Kozilek's Channeler
 1 Walker of the Wastes
 1 Oblivion Sower
-1 Wurmcoil Engine (2XM) 368
+1 Wurmcoil Engine (PRM) 37861
 1 Anticausal Vestige
 1 Sol Ring (CMM) 703
 1 Mind Stone
@@ -192,7 +193,7 @@ Deck
 1 Wayfarer's Bauble (M3C) 315
 1 Burnished Hart (FDN) 250
 1 Thran Dynamo
-1 Solemn Simulacrum (M21) 319
+1 Solemn Simulacrum (SOC) 355
 1 Gilded Lotus (FDN) 725
 1 Dreamstone Hedron
 1 Hedron Archive (FDC) 262
@@ -206,7 +207,7 @@ Deck
 1 Titan's Presence
 1 All Is Dust (FDC) 9
 1 Karn Liberated (2XM) 333
-1 Ugin, the Spirit Dragon (M21) 279
+1 Ugin, the Spirit Dragon (MED) WS1
 1 Scour from Existence
 1 Spine of Ish Sah
 1 Meteor Golem (CMM) 399

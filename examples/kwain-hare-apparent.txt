@@ -1,3 +1,5 @@
+# Name: The Fern Family Massacre
+# Owner: Jill
 # The Hare Apparent — Kwain, Itinerant Meddler (Azorius rabbits, bracket 3 or under).
 #
 # Twenty-two Hare Apparents, each one a courtier you can name on the blank
@@ -26,7 +28,7 @@
 #   painted fantasy versions: Lockwood, Ejsing, Giancola, Palumbo, rk post.
 
 Commander
-1 Kwain, Itinerant Meddler
+1 Kwain, Itinerant Meddler (BLC) 254
 
 Deck
 1 Adarkar Wastes

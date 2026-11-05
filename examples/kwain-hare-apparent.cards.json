@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "kwain-hare-apparent",
-  "generatedAt": "2026-11-04T22:19:34.015Z",
+  "generatedAt": "2026-11-05T01:56:58.333Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -1172,50 +1172,6 @@
       }
     },
     {
-      "id": "941f5231-5620-45e5-9f00-a7f64f0385dc",
-      "oracle_id": "ce6a85b5-e249-4582-a6be-ce200da5fd53",
-      "name": "Kwain, Itinerant Meddler",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-08-02",
-      "set": "blc",
-      "set_name": "Bloomburrow Commander",
-      "set_type": "commander",
-      "collector_number": "90",
-      "rarity": "rare",
-      "type_line": "Legendary Creature — Rabbit Wizard",
-      "cmc": 2,
-      "color_identity": [
-        "U",
-        "W"
-      ],
-      "mana_cost": "{W}{U}",
-      "oracle_text": "{T}: Each player may draw a card, then each player who drew a card this way gains 1 life.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "borderless",
-      "frame": "2015",
-      "frame_effects": [
-        "legendary",
-        "inverted"
-      ],
-      "promo": false,
-      "promo_types": [
-        "boosterfun",
-        "imagine"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "9679c060-85db-478e-b75d-78a08cb8fa66",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/9/4/941f5231-5620-45e5-9f00-a7f64f0385dc.png?1783910708",
-        "large": "https://cards.scryfall.io/large/front/9/4/941f5231-5620-45e5-9f00-a7f64f0385dc.jpg?1783910708",
-        "normal": "https://cards.scryfall.io/normal/front/9/4/941f5231-5620-45e5-9f00-a7f64f0385dc.jpg?1783910708"
-      }
-    },
-    {
       "id": "9479bc09-7db2-46b3-8c1e-dbee5508e26a",
       "oracle_id": "5330e24a-8568-446e-840a-594cd08bd1bc",
       "name": "Prairie Stream",
@@ -1865,6 +1821,45 @@
       }
     },
     {
+      "id": "cce29404-abfd-4c2c-90e5-5e04c111aa2b",
+      "oracle_id": "ce6a85b5-e249-4582-a6be-ce200da5fd53",
+      "name": "Kwain, Itinerant Meddler",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2024-08-02",
+      "set": "blc",
+      "set_name": "Bloomburrow Commander",
+      "set_type": "commander",
+      "collector_number": "254",
+      "rarity": "rare",
+      "type_line": "Legendary Creature — Rabbit Wizard",
+      "cmc": 2,
+      "color_identity": [
+        "U",
+        "W"
+      ],
+      "mana_cost": "{W}{U}",
+      "oracle_text": "{T}: Each player may draw a card, then each player who drew a card this way gains 1 life.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "frame_effects": [
+        "legendary"
+      ],
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "e6d3d42f-a142-4f7e-a09f-aed96c7914d9",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/c/c/cce29404-abfd-4c2c-90e5-5e04c111aa2b.png?1783910656",
+        "large": "https://cards.scryfall.io/large/front/c/c/cce29404-abfd-4c2c-90e5-5e04c111aa2b.jpg?1783910656",
+        "normal": "https://cards.scryfall.io/normal/front/c/c/cce29404-abfd-4c2c-90e5-5e04c111aa2b.jpg?1783910656"
+      }
+    },
+    {
       "id": "cd70adab-39db-4cc9-ae37-a342f9109bec",
       "oracle_id": "f1750962-a87c-49f6-b731-02ae971ac6ea",
       "name": "Hallowed Fountain",
@@ -2340,7 +2335,7 @@
     "jacked rabbit": "2c695df6-6bf2-4e6b-8500-e3116137ca27",
     "jinxed idol|m11|208": "763cb2dc-c8ea-4bfc-a576-ae1641057bf7",
     "kindred discovery|clb|565": "7f744b4e-18be-4d41-8ea5-eac47a32cfcf",
-    "kwain, itinerant meddler": "941f5231-5620-45e5-9f00-a7f64f0385dc",
+    "kwain, itinerant meddler|blc|254": "cce29404-abfd-4c2c-90e5-5e04c111aa2b",
     "lore broker": "c7935b2b-aebe-44b3-b91b-52978bb4ded5",
     "march of otherworldly light": "553fb946-2706-475b-89f9-e4355ec9ea2b",
     "mistford river turtle": "0c78c386-c64b-4fab-a718-f18b46360e20",

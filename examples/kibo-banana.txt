@@ -1,3 +1,5 @@
+# Name: Kibo is going Bananas
+# Owner: Sam
 # Kibo, Uktabi Prince — Gruul Ape typal, imported from
 # https://archidekt.com/decks/6434579/banana (owner: swebb).
 #
