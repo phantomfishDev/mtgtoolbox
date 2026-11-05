@@ -1,3 +1,4 @@
+# Owner: Drew
 # A plain decklist. Comments and blank lines are ignored.
 # Pin a specific printing with the Arena-style suffix: (SET) COLLECTOR_NUMBER
 

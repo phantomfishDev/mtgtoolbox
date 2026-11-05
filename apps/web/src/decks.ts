@@ -8,13 +8,13 @@ import {
   type DeckData,
   type DeckEntry,
   type DeckIndex,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 
 /**
  * The decklists kept in the repository's `examples/` directory.
  *
  * They are inlined at build time rather than fetched, so the deck list works
- * identically in the static deployment and under `mtgproxy serve` — neither
+ * identically in the static deployment and under `mtgtoolbox serve` — neither
  * needs a filesystem or an endpoint to read them. Dropping a new `.txt` into
  * that directory is all it takes to have it appear here.
  */
@@ -145,11 +145,8 @@ export interface BundledDeck {
   /** A leading `#` comment block, when the file opens with one. */
   note: string | null;
   /**
-   * Whose deck this is, from a `# Owner:` line in the file.
-   *
-   * Distinct from the printed counts shown everywhere else: that is about
-   * which cards are in the printed ledger, this is about whose deck sits on the
-   * shelf and who to hand it to on game night.
+   * Whose deck this is, from a `# Owner:` line in the file: whose deck sits
+   * on the shelf and who to hand it to on game night.
    */
   owner: string | null;
   entries: DeckEntry[];

@@ -5,7 +5,6 @@ import { Command, InvalidArgumentError } from 'commander';
 import {
   PAPER_SIZES,
   computeLayout,
-  diffDeck,
   assessBracket,
   buildDeckData,
   buildDeckIndex,
@@ -28,17 +27,14 @@ import {
   totalCards,
   type DeckIndexEntry,
   manaCurve,
-  unprintedOnly,
-  addEntries,
-  entryFromCard,
   normalizeName,
   scorePrinting,
   comparePrintings,
   type GuideStyle,
   type ImageQuality,
   type PaperName,
-} from '@mtgproxy/core';
-import { renderPdf } from '@mtgproxy/core/pdf';
+} from '@mtgtoolbox/core';
+import { renderPdf } from '@mtgtoolbox/core/pdf';
 import { serve } from './serve.js';
 import {
   DECK_DATA_SUFFIX,
@@ -47,18 +43,14 @@ import {
   saveDeckIndex,
   cacheStats,
   clearCache,
-  printedPath,
   configPath,
   deckId,
   decksDir,
   listDecks,
-  loadPrinted,
   loadConfig,
-  savePrinted,
   saveConfig,
   saveDeckData,
-} from '@mtgproxy/node';
-import { printedCommand } from './printed-cmd.js';
+} from '@mtgtoolbox/node';
 import { workshopCommand } from './workshop/index.js';
 import {
   fetchImages,
@@ -92,7 +84,7 @@ function choice<T extends string>(allowed: readonly T[]) {
 
 const program = new Command();
 program
-  .name('mtgproxy')
+  .name('mtgtoolbox')
   .description('Generate print-ready proxy sheets from a Magic decklist.')
   .version(VERSION);
 
@@ -101,7 +93,6 @@ function withDeckOptions(command: Command): Command {
   return command
     .option('--markdown', 'force markdown decklist-block extraction')
     .option('--quiet', 'suppress per-request logging')
-    .option('--printed <path>', 'printed-ledger file')
     .option('--config <path>', 'config file')
     .option('--profile <name>', 'named preference profile from the config file')
     .option('--prefer-set <code>', 'prefer this set (repeatable, ordered)', collect)
@@ -123,13 +114,11 @@ function withDeckOptions(command: Command): Command {
 interface DeckFlags extends ProfileFlags {
   markdown?: boolean;
   quiet?: boolean;
-  printed?: string;
   tokens?: TokenMode;
 }
 
-/** Shared setup: load the printed ledger and profile, then parse and resolve. */
+/** Shared setup: load the profile, then parse and resolve. */
 async function prepare(file: string, flags: DeckFlags) {
-  const { data: printed } = await loadPrinted(flags.printed);
   const { profile, name } = await resolveProfile(flags);
   if (name) info(dim(`  profile: ${name}`));
 
@@ -141,7 +130,7 @@ async function prepare(file: string, flags: DeckFlags) {
     tokenMode: flags.tokens ?? 'exclude',
     pins: config.pins ?? {},
   });
-  return { ...loaded, printed, client, profile };
+  return { ...loaded, client, profile };
 }
 
 interface PrintFlags extends DeckFlags {
@@ -150,10 +139,6 @@ interface PrintFlags extends DeckFlags {
   guides: GuideStyle;
   quality: ImageQuality;
   gap: number;
-  unprinted?: boolean;
-  record?: boolean;
-  strictPrinting: boolean;
-  assumeBasics?: boolean;
   bothFaces?: boolean;
 }
 
@@ -167,35 +152,14 @@ withDeckOptions(
     .option('-g, --guides <style>', 'cut guides: crop, lines, none', choice(['crop', 'lines', 'none'] as const), 'crop')
     .option('-q, --quality <level>', 'image quality: png, large, normal', choice(['png', 'large', 'normal'] as const), 'png')
     .option('--gap <mm>', 'gap between cards in millimetres', Number.parseFloat, 0)
-    .option('-u, --unprinted', 'print only the cards you have not printed yet')
-    .option('--record', 'record what was printed, so --unprinted skips it next time')
-    .option('--both-faces', 'also print the back of each double-faced card')
-    .option('--no-strict-printing', 'count any printing of a card as already printed')
-    .option('--assume-basics', 'treat basic lands as already printed'),
+    .option('--both-faces', 'also print the back of each double-faced card'),
 ).action(async (file: string, flags: PrintFlags) => {
-  const { resolve, printed, client } = await prepare(file, flags);
+  const { resolve, client } = await prepare(file, flags);
   reportResolve(resolve, { bothFaces: flags.bothFaces ?? false });
   if (resolve.resolved.length === 0) throw new Error('nothing to print: no cards resolved');
 
-  let toPrint = resolve.resolved;
-  if (flags.unprinted) {
-    const diff = diffDeck(resolve.resolved, printed, {
-      strictPrinting: flags.strictPrinting,
-      assumeBasics: flags.assumeBasics ?? false,
-    });
-    toPrint = unprintedOnly(resolve.resolved, diff);
-    info(
-      `${bold('Printed')} ${diff.totalPrinted} of ${diff.totalNeeded} already printed, ` +
-        `${yellow(String(diff.totalToPrint))} to print`,
-    );
-    if (toPrint.length === 0) {
-      done('you have already printed every card in this deck; nothing to print');
-      return;
-    }
-  }
-
   const { items, skipped } = await fetchImages(
-    { ...resolve, resolved: toPrint },
+    resolve,
     client,
     flags.quality,
     flags.bothFaces ?? false,
@@ -206,7 +170,7 @@ withDeckOptions(
   const result = await renderPdf(items, {
     layout,
     guides: flags.guides,
-    title: `mtgproxy - ${file === '-' ? 'decklist' : basename(file)}`,
+    title: `mtgtoolbox - ${file === '-' ? 'decklist' : basename(file)}`,
   });
 
   const output = resolvePath(
@@ -214,21 +178,6 @@ withDeckOptions(
       (file === '-' ? 'deck.pdf' : `${file.slice(0, file.length - extname(file).length)}.pdf`),
   );
   await writeFile(output, result.bytes);
-
-  // Recorded only now, after the PDF exists: a run that failed earlier must not
-  // leave the ledger claiming those cards came out of the printer.
-  if (flags.record) {
-    const { data: ledger } = await loadPrinted(flags.printed);
-    const entries = toPrint.map((item) =>
-      entryFromCard(item.card, {
-        quantity: item.entry.quantity,
-        note: `${file === '-' ? 'decklist' : basename(file)}`,
-      }),
-    );
-    const ledgerPath = await savePrinted(addEntries(ledger, entries), flags.printed);
-    const recorded = entries.reduce((sum, entry) => sum + entry.quantity, 0);
-    info(`${bold('Recorded')} ${recorded} cards as printed ${dim(ledgerPath)}`);
-  }
 
   info('');
   info(
@@ -289,80 +238,6 @@ withDeckOptions(
   info('');
   info(`${resolve.resolved.length} resolved, ${resolve.unresolved.length} unresolved`);
 });
-
-withDeckOptions(
-  program
-    .command('diff')
-    .description('Show which cards in a decklist you have not printed yet')
-    .argument('<file>', 'decklist file, or - to read stdin')
-    .option('--no-strict-printing', 'count any printing of a card as already printed')
-    .option('--assume-basics', 'treat basic lands as already printed')
-    .option('--json', 'emit the diff as JSON on stdout'),
-).action(
-  async (
-    file: string,
-    flags: DeckFlags & { strictPrinting: boolean; assumeBasics?: boolean; json?: boolean },
-  ) => {
-    const { resolve, printed } = await prepare(file, flags);
-    reportResolve(resolve);
-
-    const diff = diffDeck(resolve.resolved, printed, {
-      strictPrinting: flags.strictPrinting,
-      assumeBasics: flags.assumeBasics ?? false,
-    });
-
-    if (flags.json) {
-      process.stdout.write(
-        `${JSON.stringify(
-          {
-            totals: {
-              needed: diff.totalNeeded,
-              printed: diff.totalPrinted,
-              toPrint: diff.totalToPrint,
-            },
-            rows: diff.rows.map((row) => ({
-              name: row.card.name,
-              set: row.card.set,
-              collectorNumber: row.card.collector_number,
-              needed: row.needed,
-              printed: row.printed,
-              toPrint: row.toPrint,
-              isBasic: row.isBasic,
-            })),
-          },
-          null,
-          2,
-        )}\n`,
-      );
-      return;
-    }
-
-    info('');
-    const toPrint = diff.rows.filter((row) => row.toPrint > 0);
-    const alreadyPrinted = diff.rows.filter((row) => row.toPrint === 0);
-
-    if (alreadyPrinted.length > 0) {
-      info(bold(`Already printed (${alreadyPrinted.length})`));
-      for (const row of alreadyPrinted) {
-        const note = row.isBasic ? dim(' basic') : '';
-        info(`  ${green('ok')} ${String(row.needed).padStart(2)} ${row.card.name}${note}`);
-      }
-      info('');
-    }
-    if (toPrint.length > 0) {
-      info(bold(`Still to print (${toPrint.length})`));
-      for (const row of toPrint) {
-        const held = row.printed > 0 ? dim(` (printed ${row.printed} of ${row.needed})`) : '';
-        info(`  ${yellow('--')} ${String(row.toPrint).padStart(2)} ${row.card.name}${held}`);
-      }
-      info('');
-    }
-    info(
-      `${diff.totalPrinted} of ${diff.totalNeeded} already printed, ` +
-        `${diff.totalToPrint} still to print`,
-    );
-  },
-);
 
 withDeckOptions(
   program
@@ -599,28 +474,25 @@ withDeckOptions(
 
 program
   .command('serve')
-  .description('Serve the web app against your real printed ledger, config and decklists')
+  .description('Serve the web app against your real config and decklists')
   .option('--port <n>', 'port to listen on', (value) => Number.parseInt(value, 10), 5174)
   .option('--host <host>', 'interface to bind', '127.0.0.1')
   .option('--decks <dir>', 'decks directory (default: ./examples)')
-  .option('--printed <path>', 'printed-ledger file')
   .option('--config <path>', 'config file')
   .option('--site <dir>', 'serve a built web app from this directory too')
   .action(async (options: {
     port: number;
     host: string;
     decks?: string;
-    printed?: string;
     config?: string;
     site?: string;
   }) => {
     const running = await serve(options);
-    info(`${bold('mtgproxy serve')} ${running.url}`);
+    info(`${bold('mtgtoolbox serve')} ${running.url}`);
     info(dim(`  decks       ${decksDir(options.decks)}`));
-    info(dim(`  printed     ${printedPath(options.printed)}`));
     info(dim(`  config      ${configPath(options.config)}`));
     if (options.site) info(dim(`  site        ${resolvePath(options.site)}`));
-    else info(dim('  run the web app with `pnpm --filter @mtgproxy/web dev`; it proxies /api here'));
+    else info(dim('  run the web app with `pnpm --filter @mtgtoolbox/web dev`; it proxies /api here'));
     info('');
     info(dim('  The web app writes pinned printings straight into the decklists above.'));
     info(dim('  Ctrl-C to stop.'));
@@ -797,12 +669,11 @@ withDeckOptions(
       info('');
       info(dim('  pass --write to add the new tokens; quantities already in a decklist are kept'));
     } else if (changed > 0) {
-      info(dim('  run `mtgproxy sync` so the stored card data includes the new tokens'));
+      info(dim('  run `mtgtoolbox sync` so the stored card data includes the new tokens'));
     }
   },
 );
 
-program.addCommand(printedCommand());
 program.addCommand(workshopCommand());
 
 const cache = program.command('cache').description('Inspect or clear the local Scryfall cache');

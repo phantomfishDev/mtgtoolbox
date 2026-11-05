@@ -4,7 +4,7 @@ name: Deploy web app to GitHub Pages
 # the browser — card data comes straight from Scryfall — so it needs no backend.
 #
 # Showcase mode is what makes this safe to hand to other people: the published
-# build is read-only. It drops the Printed and Preferences tabs, cannot swap
+# build is read-only. It drops the Preferences tab, cannot swap
 # a card's printing, and runs on a store that has no way to write, so nothing a
 # visitor does touches anything of yours. See apps/web/src/showcase.ts.
 #
@@ -41,7 +41,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm test
-      - run: pnpm --filter @mtgproxy/web build:showcase
+      - run: pnpm --filter @mtgtoolbox/web build:showcase
         env:
           VITE_SHOWCASE_TITLE: The Deck Shelf
       - uses: actions/configure-pages@v5

@@ -1,3 +1,4 @@
+# Owner: Drew
 # ============================================================================
 # SHORT KING LOOT — mono-black voltron on Loot, the Anomaly
 # ============================================================================
@@ -327,7 +328,7 @@
 # 7. BRACKET 3, AND UPGRADE PATHS
 # ---------------------------------------------------------------------------
 #
-# `mtgproxy bracket` assesses this as bracket 2 on contents: zero Game
+# `mtgtoolbox bracket` assesses this as bracket 2 on contents: zero Game
 # Changers, no mass land denial, no extra turns. Call it a 3 at the table
 # anyway, because of one thing the tool explicitly does not check — Agatha's
 # Soul Cauldron plus a Lemure in the graveyard produces unlimited free power
@@ -385,7 +386,7 @@
 # for Secret Lair versions of Sol Ring, Urborg, Erebos, Ophiomancer,
 # Reassembling Skeleton, Stinkweed Imp, Tragic Slip, Rogue's Passage, Nirkana
 # Revenant, Night's Whisper, Go for the Throat and Feed the Swarm. All are now
-# painted printings and `mtgproxy resolve` reports no warnings at all.
+# painted printings and `mtgtoolbox resolve` reports no warnings at all.
 #
 # Universes Beyond (8): Claim the Precious, Dragon-Cursed Halls, Gnashing of
 # Teeth, Inherited Envelope, Key to the Side-Door, Morgul-Knife Wound, My

@@ -1,6 +1,6 @@
 import type { ScryfallCard } from '../scryfall/types.js';
 import { bareSectionHeader, isTokenEntry, parseDecklist } from './parse.js';
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 
 /**
  * Write a `Tokens` section into a decklist, replacing any section already there.

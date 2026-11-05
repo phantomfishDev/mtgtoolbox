@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { distinctArtworks, expand, slotsToCards } from '../src/resolve.js';
 import type { Overrides } from '../src/session.js';
-import type { DeckEntry, ResolvedCard, ScryfallCard } from '@mtgproxy/core';
+import type { DeckEntry, ResolvedCard, ScryfallCard } from '@mtgtoolbox/core';
 
 function card(over: Partial<ScryfallCard> = {}): ScryfallCard {
   return {

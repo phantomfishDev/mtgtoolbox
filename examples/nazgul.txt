@@ -1,3 +1,4 @@
+# Owner: Drew
 # Nazgûl deck. Commander declared explicitly so tools can identify it.
 #
 # Rebuilt as a spellslinger-token deck; see docs/nazgul-deck-guide.md for the full

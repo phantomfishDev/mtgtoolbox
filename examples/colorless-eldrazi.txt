@@ -1,4 +1,5 @@
 # Name: Eldraz on Dezz Nuts
+# Owner: Drew
 # Colorless Eldrazi — Zhulodok, Void Gorger. Big spells that bring friends.
 #
 # Zhulodok reads: "Colorless spells you cast from your hand with mana value 7

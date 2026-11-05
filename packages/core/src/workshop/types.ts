@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 
 /**
  * A deck-building session shared between a person and an agent.

@@ -14,7 +14,6 @@ For the architecture these plug into, see [PLAN.md](PLAN.md).
 | Export to Moxfield | Parser already reads the target format | Exporter, UI entry point |
 | Mana curve | **done** | — |
 | Deck bracket | **done** | — |
-| Print only what is unprinted | **done** | — |
 | Token sheets | **done** | — |
 
 ---
@@ -86,7 +85,7 @@ name when a printing fails to import rather than silently dropping the card.
 ## 3. Mana curve — built
 
 Lives in `packages/core/src/analysis/curve.ts` with the front-face helpers in
-`analysis/mana.ts`, charted by `ManaCurveChart` and printed by `mtgproxy curve`.
+`analysis/mana.ts`, charted by `ManaCurveChart` and printed by `mtgtoolbox curve`.
 
 Two things found while building it, both of which would have produced a wrong
 chart: a modal double-faced card's combined type line reads `Instant // Land`,
@@ -127,7 +126,7 @@ effective cost differs (cost reducers present, `Cascade`, `Suspend`, etc.).
 ## 4. Deck bracket, and why — built
 
 Lives in `packages/core/src/analysis/bracket.ts`, shown by `BracketPanel` and
-printed by `mtgproxy bracket`.
+printed by `mtgtoolbox bracket`.
 
 Checking the current criteria before building — as the note below insisted —
 paid off twice. **Tutor limits were removed in the October 2025 update**, so the
@@ -182,44 +181,11 @@ both have changed several times since the system was introduced.
 
 ---
 
-## 5. Print only the cards you have not printed yet — built
+## 5. Print only the cards you have not printed yet — removed
 
-The "owned collection" is gone. What the tool tracks now is what has come out of
-the printer, which is the question a proxy generator actually has.
-
-**Where:** `packages/core/src/printed/` (`types.ts`, `ledger.ts`, `diff.ts`),
-`printedPath()` / `loadPrinted()` / `savePrinted()` in `@mtgproxy/node`,
-`apps/cli/src/printed-cmd.ts`, and the **Printed** tab in the web app.
-
-The ledger lives at `~/.config/mtgproxy/printed.json` (`--printed`,
-`$MTGPROXY_PRINTED`). `print --unprinted` drops what is already in it;
-`print --record` adds what was printed, writing **after** the PDF lands so a run
-that failed earlier cannot claim those cards exist. `mtgproxy printed` has
-`list`, `path` and `clear --yes`, and nothing else: entries come from a print
-run, because a ledger that disagrees with the printer is worse than none.
-
-Two defaults are the opposite of what an ownership check wanted, and both are
-deliberate:
-
-| | was (owned) | is (printed) |
-|---|---|---|
-| `strictPrinting` | `false` | **`true`** — you printed *that* art |
-| `assumeBasics` | `true` | **`false`** — a proxy deck needs its basics |
-
-**What was removed with it:** the ManaBox/CSV importers and exporters, the
-`preferOwned` printing preference and its score weight, the collection's
-`add`/`remove`/`search`/`stats` subcommands, and the stored-deck-data `owned`
-fingerprint — which only existed because `preferOwned` let ownership change
-which printing won. The printed ledger is deliberately *not* fingerprinted into
-stored deck data or the web app's resolution cache: what you have printed cannot
-change which printing is correct, so recording a print must not invalidate every
-cached deck.
-
-**Still open:** there is no way to un-record a single mis-recorded row from the
-CLI — `clear` is all-or-nothing, though `removeEntry` is in core ready for it.
-And a card printed for deck A is skipped for deck B, which is right if you own
-one copy and wrong if you want one per deck; per-deck history
-(`examples/<deck>.printed.json`) is the fix if that turns out to bite.
+This was built as a printed ledger (`print --unprinted --record`, `diff`,
+`printed list|path|clear`, and a **Printed** tab in the web app) and then
+dropped. The tool no longer tracks which cards or decks have been printed.
 
 ---
 
@@ -252,7 +218,7 @@ through to the fuzzy single-card fallback and arrived with exactly one candidate
 fetches them properly, filtered to `layout: token` so a real card of the same
 name cannot win a token's slot.
 
-**Discovery comes from Scryfall, with nothing hardcoded.** `mtgproxy tokens
+**Discovery comes from Scryfall, with nothing hardcoded.** `mtgtoolbox tokens
 <deck>` walks the resolved deck's `all_parts`, keeps the `token` components,
 dedupes by name and printed stats, and prints a ready-to-paste section;
 `--write` puts it in the decklist. Printings are pinned on the written lines,

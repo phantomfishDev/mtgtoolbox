@@ -1,5 +1,5 @@
 {
-  "name": "@mtgproxy/web",
+  "name": "@mtgtoolbox/web",
   "version": "0.3.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "build:showcase": "VITE_SHOWCASE=1 tsc --build && VITE_SHOWCASE=1 vite build"
   },
   "dependencies": {
-    "@mtgproxy/core": "workspace:*",
+    "@mtgtoolbox/core": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

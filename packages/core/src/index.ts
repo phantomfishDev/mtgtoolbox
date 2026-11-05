@@ -1,3 +1,4 @@
+export * from './cards/identity.js';
 export * from './decklist/parse.js';
 export * from './decklist/pin.js';
 export * from './decklist/tokens.js';
@@ -7,9 +8,6 @@ export * from './scryfall/client.js';
 export * from './scryfall/resolve.js';
 export * from './scryfall/tokens.js';
 export * from './layout/geometry.js';
-export * from './printed/types.js';
-export * from './printed/ledger.js';
-export * from './printed/diff.js';
 export * from './printing/profile.js';
 export * from './printing/score.js';
 export * from './printing/resolve.js';

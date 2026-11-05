@@ -1,5 +1,5 @@
 {
-  "name": "mtgproxy-workspace",
+  "name": "mtgtoolbox-workspace",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,7 @@
     "typecheck": "tsc --build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "mtgproxy": "node apps/cli/dist/index.js"
+    "mtgtoolbox": "node apps/cli/dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

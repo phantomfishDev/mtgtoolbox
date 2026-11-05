@@ -1,4 +1,4 @@
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 /**
  * Decklist parsing.
  *
@@ -158,7 +158,7 @@ export function extractFromMarkdown(text: string): string | null {
   const fences = [...text.matchAll(/^[ \t]*```[^\n]*\n([\s\S]*?)^[ \t]*```/gm)];
   if (fences.length === 0) return null;
 
-  const headingRe = /copy list|mtgprint|mtgproxy|paste|proxy list|print list/i;
+  const headingRe = /copy list|mtgprint|mtgproxy|mtgtoolbox|paste|proxy list|print list/i;
   for (const fence of fences) {
     const before = text.slice(0, fence.index ?? 0);
     const lastHeading = before.match(/^#{1,6} .*$(?![\s\S]*^#{1,6} )/m);

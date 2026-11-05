@@ -18,9 +18,9 @@ import {
   type ParseResult,
   type PreferenceProfile,
   type ResolveResult,
-} from '@mtgproxy/core';
-import type { PrintItem } from '@mtgproxy/core/pdf';
-import { FileCardCache, FileImageCache, FilePrintsCache, loadDeckData } from '@mtgproxy/node';
+} from '@mtgtoolbox/core';
+import type { PrintItem } from '@mtgtoolbox/core/pdf';
+import { FileCardCache, FileImageCache, FilePrintsCache, loadDeckData } from '@mtgtoolbox/node';
 import { Progress, dim, fail, info, warn, yellow } from './ui.js';
 
 /** Read a decklist from a file path, or from stdin when the path is `-`. */

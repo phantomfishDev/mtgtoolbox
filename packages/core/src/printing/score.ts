@@ -1,5 +1,5 @@
 import type { ScryfallCard } from '../scryfall/types.js';
-import { compareCollectorNumbers } from '../printed/types.js';
+import { compareCollectorNumbers } from '../cards/identity.js';
 import { profileFor, type PreferenceProfile } from './profile.js';
 
 /**

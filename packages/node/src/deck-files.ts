@@ -6,7 +6,7 @@ import {
   parseDeckIndex,
   type DeckData,
   type DeckIndex,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 
 /**
  * Decklists and their stored card data, side by side on disk.
@@ -20,7 +20,7 @@ export const DECK_DATA_SUFFIX = '.cards.json';
 
 /** Where decklists live: the flag, then the environment, then ./examples. */
 export function decksDir(override?: string): string {
-  const fromEnv = process.env['MTGPROXY_DECKS'];
+  const fromEnv = process.env['MTGTOOLBOX_DECKS'];
   return resolve(override ?? (fromEnv && fromEnv.trim() !== '' ? fromEnv : 'examples'));
 }
 

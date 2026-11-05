@@ -1,13 +1,13 @@
 /**
  * Showcase mode: the build published for other people to look at.
  *
- * The app has always run in two situations — a static site and `mtgproxy
+ * The app has always run in two situations — a static site and `mtgtoolbox
  * serve` — but both of those assume the person using it is the one who owns
  * the decks. A site shared with friends is a third: they are here to see what
  * is on the shelf, not to edit it.
  *
  * So this mode is strictly read-only. It is not a cosmetic difference: there
- * is no printed ledger to diff against, no preferences to change, no printing to
+ * are no preferences to change, no printing to
  * pin, and nothing anywhere that writes. The store it runs on cannot write at
  * all, which is what makes that a guarantee rather than an intention.
  *
@@ -15,7 +15,7 @@
  * the visitor's browser happens to say:
  *
  * ```bash
- * pnpm --filter @mtgproxy/web build:showcase
+ * pnpm --filter @mtgtoolbox/web build:showcase
  * ```
  */
 export const SHOWCASE = import.meta.env.VITE_SHOWCASE === '1';
@@ -29,4 +29,4 @@ export const SHOWCASE = import.meta.env.VITE_SHOWCASE === '1';
  */
 export const APP_TITLE = SHOWCASE
   ? (import.meta.env.VITE_SHOWCASE_TITLE ?? '').trim() || 'The Deck Shelf'
-  : 'mtgproxy';
+  : 'mtgtoolbox';

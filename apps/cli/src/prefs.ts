@@ -4,8 +4,8 @@ import {
   type Config,
   type Preference,
   type PreferenceProfile,
-} from '@mtgproxy/core';
-import { loadConfig } from '@mtgproxy/node';
+} from '@mtgtoolbox/core';
+import { loadConfig } from '@mtgtoolbox/node';
 import { warn } from './ui.js';
 
 /**

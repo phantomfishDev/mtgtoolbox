@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { BracketAssessment } from '@mtgproxy/core';
+import type { BracketAssessment } from '@mtgtoolbox/core';
 
 /**
  * The deck's Commander bracket, with the cards that decided it.

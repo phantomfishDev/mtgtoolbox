@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ManaCurve } from '@mtgproxy/core';
+import type { ManaCurve } from '@mtgtoolbox/core';
 
 /**
  * Mana curve as a column chart.

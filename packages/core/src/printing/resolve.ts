@@ -3,7 +3,7 @@ import type { ScryfallClient } from '../scryfall/client.js';
 import type { ResolveResult, ResolvedCard, UnresolvedCard, ResolveWarning } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
 import { isDoubleFaced, isTokenCard } from '../scryfall/types.js';
-import { isBasicLand } from '../printed/diff.js';
+import { isBasicLand } from '../cards/identity.js';
 import type { PreferenceProfile } from './profile.js';
 import { selectPrinting, type SelectionResult } from './score.js';
 

@@ -4,10 +4,8 @@ import {
   PAPER_SIZES,
   comparePrintings,
   computeLayout,
-  diffDeck,
   isBasicLand,
   isDoubleFaced,
-  unprintedOnly,
   parseDecklist,
   placementCount,
   printPlacements,
@@ -16,7 +14,7 @@ import {
   type PaperName,
   type ResolveResult,
   type ScryfallCard,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { getClient } from '../platform/client.js';
 import { useApp } from '../state.js';
 import {
@@ -28,10 +26,10 @@ import {
   type DeckSlot,
 } from '../resolve.js';
 import type { PrintSession } from '../session.js';
-import type { TokenMode } from '@mtgproxy/core';
+import type { TokenMode } from '@mtgtoolbox/core';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { PrintingPicker } from '../components/PrintingPicker.js';
-import { Badge, Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
+import { Button, Field, Panel, Select, Spinner, Toggle } from '../components/ui.js';
 import { APP_TITLE } from '../showcase.js';
 
 const SAMPLE = `1 Arcane Signet
@@ -47,7 +45,7 @@ export function PrintView({
   session: PrintSession;
   onChange: (patch: Partial<PrintSession>) => void;
 }) {
-  const { printed, config } = useApp();
+  const { config } = useApp();
   const { text, deckId, result, overrides, options } = session;
   // Transient only: these should not survive a tab switch.
   const [busy, setBusy] = useState<string | null>(null);
@@ -69,13 +67,8 @@ export function PrintView({
     () => (result ? expand(result.resolved, overrides) : []),
     [result, overrides],
   );
-  /** Slots as resolved cards: 1:1 and in order, so diff rows line up by index. */
+  /** Slots as resolved cards: 1:1 and in order. */
   const effective = useMemo(() => slotsToCards(slots), [slots]);
-
-  const diff = useMemo(
-    () => diffDeck(effective, printed, { assumeBasics: options.assumeBasics }),
-    [effective, printed, options.assumeBasics],
-  );
 
   /** Write a printing to one slot: either to every copy, or to just this one. */
   function choosePrinting(slot: DeckSlot, card: ScryfallCard): void {
@@ -178,15 +171,9 @@ export function PrintView({
     if (!result) return;
     setError(null);
     try {
-      const toPrint = options.unprinted ? unprintedOnly(effective, diff) : effective;
-      if (toPrint.length === 0) {
-        setError('Nothing to print: you have already printed every card in this list.');
-        return;
-      }
-
       // One download per distinct printing and face, however many copies the
       // deck runs. The CLI builds its sheets from the same helper.
-      const { placements, skipped } = printPlacements(toPrint, {
+      const { placements, skipped } = printPlacements(effective, {
         quality: options.quality,
         bothFaces: options.bothFaces,
       });
@@ -209,7 +196,7 @@ export function PrintView({
       setBusy('Building PDF');
       // pdf-lib is a large dependency and is only needed once someone actually
       // asks for a file, so it is fetched on demand rather than at page load.
-      const { renderPdf } = await import('@mtgproxy/core/pdf');
+      const { renderPdf } = await import('@mtgtoolbox/core/pdf');
       const rendered = await renderPdf(items, {
         layout: computeLayout({ paper: options.paper, gapMm: options.gap }),
         guides: options.guides,
@@ -232,23 +219,22 @@ export function PrintView({
 
   const pageCount = useMemo(() => {
     const layout = computeLayout({ paper: options.paper, gapMm: options.gap });
-    const toPrint = options.unprinted ? unprintedOnly(effective, diff) : effective;
-    const { placements } = printPlacements(toPrint, {
+    const { placements } = printPlacements(effective, {
       quality: options.quality,
       bothFaces: options.bothFaces,
     });
     const cards = placementCount(placements);
     return { pages: Math.ceil(cards / layout.perPage), cards, perPage: layout.perPage };
-  }, [effective, diff, options]);
+  }, [effective, options]);
 
   /** Backs available to print, so the toggle can say what it would add. */
   const backCount = useMemo(
     () =>
-      (options.unprinted ? unprintedOnly(effective, diff) : effective).reduce(
+      effective.reduce(
         (sum, item) => (isDoubleFaced(item.card) ? sum + item.entry.quantity : sum),
         0,
       ),
-    [effective, diff, options.unprinted],
+    [effective],
   );
 
   return (
@@ -313,7 +299,6 @@ export function PrintView({
         {result && slots.length > 0 && (
           <CardGrid
             slots={slots}
-            diff={diff}
             onPick={setPicking}
             onSplit={splitCopies}
             onCombine={combineCopies}
@@ -376,17 +361,6 @@ export function PrintView({
                 ]}
               />
             </Field>
-            <Toggle
-              checked={options.unprinted}
-              onChange={(unprinted) => setOptions({ ...options, unprinted })}
-              label="Only print what I haven't printed"
-              hint={`${diff.totalToPrint} of ${diff.totalNeeded} still to print`}
-            />
-            <Toggle
-              checked={options.assumeBasics}
-              onChange={(assumeBasics) => setOptions({ ...options, assumeBasics })}
-              label="Treat basic lands as already printed"
-            />
             <Toggle
               checked={options.bothFaces}
               onChange={(bothFaces) => setOptions({ ...options, bothFaces })}
@@ -467,7 +441,6 @@ function Warnings({ result, bothFaces }: { result: ResolveResult; bothFaces: boo
 
 function CardGrid({
   slots,
-  diff,
   onPick,
   onSplit,
   onCombine,
@@ -475,7 +448,6 @@ function CardGrid({
   busy,
 }: {
   slots: DeckSlot[];
-  diff: ReturnType<typeof diffDeck>;
   onPick: (slot: DeckSlot) => void;
   onSplit: (slot: DeckSlot) => void;
   onCombine: (slot: DeckSlot) => void;
@@ -493,10 +465,8 @@ function CardGrid({
         </span>
       </h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {slots.map((slot, index) => {
+        {slots.map((slot) => {
           const image = slot.card.image_uris?.normal ?? slot.card.card_faces?.[0]?.image_uris?.normal;
-          // Diff rows are built from these slots in order, so index pairs exactly.
-          const row = diff.rows[index];
           const split = slot.copyIndex !== null;
           return (
             <div key={`${slot.key}-${slot.copyIndex ?? 'all'}-${slot.entry.line}`} className="flex flex-col gap-1">
@@ -533,12 +503,6 @@ function CardGrid({
                 <span>
                   {slot.card.set.toUpperCase()} {slot.card.collector_number}
                 </span>
-                {row && row.toPrint === 0 && <Badge tone="good">printed</Badge>}
-                {row && row.toPrint > 0 && row.printed > 0 && (
-                  <Badge tone="warn">
-                    {row.printed}/{row.needed}
-                  </Badge>
-                )}
               </div>
 
               {/* Copy controls sit on the first tile of a multi-copy card only,

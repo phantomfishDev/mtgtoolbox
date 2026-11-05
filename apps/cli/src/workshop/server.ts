@@ -12,9 +12,9 @@ import {
   type WorkshopBrief,
   type WorkshopReview,
   type WorkshopSession,
-} from '@mtgproxy/core';
-import { loadWorkshopSession, saveWorkshopSession, sessionPath } from '@mtgproxy/node';
-import { ScryfallClient } from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
+import { loadWorkshopSession, saveWorkshopSession, sessionPath } from '@mtgtoolbox/node';
+import { ScryfallClient } from '@mtgtoolbox/core';
 
 /**
  * The workshop server: the person's half of a deck-building session.
@@ -87,7 +87,7 @@ async function loadPage(): Promise<string> {
       // Try the next location.
     }
   }
-  throw new Error('workshop UI not found; run `pnpm --filter @mtgproxy/cli build`');
+  throw new Error('workshop UI not found; run `pnpm --filter @mtgtoolbox/cli build`');
 }
 
 /** The card fields the picker and the review screen actually draw. */

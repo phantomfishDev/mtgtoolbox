@@ -2,12 +2,12 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 
 /**
- * Where mtgproxy keeps its files.
+ * Where mtgtoolbox keeps its files.
  *
  * Follows the XDG base directory variables when they are set, and falls back to
  * the conventional `~/.cache` and `~/.config` otherwise. macOS gets the same
  * treatment as Linux deliberately: these are developer-facing dotfiles, and a
- * ledger under `~/.config` is far easier to find and back up than one
+ * config under `~/.config` is far easier to find and back up than one
  * buried in `~/Library/Application Support`.
  */
 
@@ -18,12 +18,12 @@ const env = (name: string): string | undefined => {
 
 export function cacheDir(): string {
   const base = env('XDG_CACHE_HOME') ?? join(homedir(), '.cache');
-  return join(base, 'mtgproxy');
+  return join(base, 'mtgtoolbox');
 }
 
 export function configDir(): string {
   const base = env('XDG_CONFIG_HOME') ?? join(homedir(), '.config');
-  return join(base, 'mtgproxy');
+  return join(base, 'mtgtoolbox');
 }
 
 export function cardCacheDir(): string {
@@ -39,10 +39,6 @@ export function printsCacheDir(): string {
 }
 
 /** Resolution order: explicit flag, then environment, then the default path. */
-export function printedPath(override?: string): string {
-  return override ?? env('MTGPROXY_PRINTED') ?? join(configDir(), 'printed.json');
-}
-
 export function configPath(override?: string): string {
-  return override ?? env('MTGPROXY_CONFIG') ?? join(configDir(), 'config.json');
+  return override ?? env('MTGTOOLBOX_CONFIG') ?? join(configDir(), 'config.json');
 }

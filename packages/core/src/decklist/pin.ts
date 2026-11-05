@@ -1,4 +1,4 @@
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 import { splitCardLine } from './parse.js';
 
 /**

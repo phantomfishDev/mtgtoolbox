@@ -21,7 +21,7 @@ import {
   type WorkshopPhase,
   type WorkshopProposal,
   type WorkshopSession,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import {
   decksDir,
   loadWorkshopSession,
@@ -31,13 +31,13 @@ import {
   saveWorkshopSession,
   sessionPath,
   workshopSlug,
-} from '@mtgproxy/node';
+} from '@mtgtoolbox/node';
 import { makeClient } from '../deck.js';
 import { bold, cyan, dim, done, fail, green, info, warn, yellow } from '../ui.js';
 import { cardForUi, serveWorkshop } from './server.js';
 
 /**
- * `mtgproxy workshop ...` — the two-sided deck-building loop.
+ * `mtgtoolbox workshop ...` — the two-sided deck-building loop.
  *
  * A deck gets built by a person and an agent taking turns over one session
  * file: the person describes the deck and picks the cards they already know
@@ -126,7 +126,7 @@ async function mustLoad(slug: string, dir?: string): Promise<WorkshopSession> {
   const session = await loadWorkshopSession(slug, dir);
   if (!session) {
     throw new Error(
-      `no workshop session named "${slug}" (looked in ${sessionPath(slug, dir)}); start one with \`mtgproxy workshop start ${slug}\``,
+      `no workshop session named "${slug}" (looked in ${sessionPath(slug, dir)}); start one with \`mtgtoolbox workshop start ${slug}\``,
     );
   }
   return session;
@@ -205,15 +205,15 @@ export function workshopCommand(): Command {
         ...(dir ? { dir } : {}),
       });
 
-      info(`${bold('mtgproxy workshop')} ${cyan(running.url)}`);
+      info(`${bold('mtgtoolbox workshop')} ${cyan(running.url)}`);
       info(dim(`  deck     ${session.title || slug} (${slug})`));
       info(dim(`  session  ${sessionPath(slug, dir)}`));
       info(dim(`  phase    ${session.phase}${created ? ' (new session)' : ''}`));
       info('');
       info(dim('  Open the URL, fill in the brief, and send it over. Then:'));
-      info(dim(`    mtgproxy workshop wait ${slug}        # blocks until it is your turn`));
-      info(dim(`    mtgproxy workshop show ${slug}        # read the brief or the review`));
-      info(dim(`    mtgproxy workshop propose ${slug}     # put a decklist on the table`));
+      info(dim(`    mtgtoolbox workshop wait ${slug}        # blocks until it is your turn`));
+      info(dim(`    mtgtoolbox workshop show ${slug}        # read the brief or the review`));
+      info(dim(`    mtgtoolbox workshop propose ${slug}     # put a decklist on the table`));
       info(dim('  Ctrl-C to stop.'));
       // The server holds the process open.
       await new Promise(() => {});
@@ -260,7 +260,7 @@ export function workshopCommand(): Command {
               ? ` cuts=${review?.cuts.length ?? 0} comments=${Object.keys(review?.comments ?? {}).length}`
               : '';
           process.stdout.write(`${session.phase} round=${session.round}${detail}\n`);
-          done(`${slug} is ${session.phase}; run \`mtgproxy workshop show ${slug}\``);
+          done(`${slug} is ${session.phase}; run \`mtgtoolbox workshop show ${slug}\``);
           return;
         }
         if (Date.now() >= deadline) {
@@ -335,7 +335,7 @@ export function workshopCommand(): Command {
       } catch (error) {
         if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
           throw new Error(
-            `no proposal at ${path}; write one there (see \`mtgproxy workshop propose --example\`)`,
+            `no proposal at ${path}; write one there (see \`mtgtoolbox workshop propose --example\`)`,
           );
         }
         throw error;
@@ -392,7 +392,7 @@ export function workshopCommand(): Command {
           // default, which is frequently a Secret Lair — writing that into the
           // proposal would pin it into the exported decklist behind the
           // preference profile's back. An unpinned card stays unpinned, and
-          // `mtgproxy sync` picks the art. The image below is indicative only.
+          // `mtgtoolbox sync` picks the art. The image below is indicative only.
           ...(pinned ? { scryfallId: match.id } : {}),
           manaCost: ui['manaCost'] as string,
           typeLine: ui['typeLine'] as string,
@@ -455,7 +455,7 @@ export function workshopCommand(): Command {
             : '  the page the person has open will switch to the review screen on its own',
         ),
       );
-      info(dim(`  then: mtgproxy workshop wait ${slug}`));
+      info(dim(`  then: mtgtoolbox workshop wait ${slug}`));
     });
 
   workshop
@@ -491,7 +491,7 @@ export function workshopCommand(): Command {
             (session.review?.cuts.length ? `, ${session.review.cuts.length} cut in review` : ''),
         ),
       );
-      info(dim(`  next: mtgproxy sync ${target}  then bare \`mtgproxy sync\` to refresh the index`));
+      info(dim(`  next: mtgtoolbox sync ${target}  then bare \`mtgtoolbox sync\` to refresh the index`));
     });
 
   return workshop;

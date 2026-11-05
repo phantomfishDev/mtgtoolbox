@@ -1,3 +1,4 @@
+# Owner: Drew
 # Witherbloom Pestilence
 # Secrets of Strixhaven Commander precon (SOC), unmodified.
 # Commanders: Dina, Essence Brewer / Gorma, the Gullet.

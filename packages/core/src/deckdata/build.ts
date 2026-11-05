@@ -6,7 +6,7 @@ import {
   type CollectionResponse,
   type ScryfallCard,
 } from '../scryfall/types.js';
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 import type { PreferenceProfile } from '../printing/profile.js';
 import { DECK_DATA_VERSION, STORED_CARD_FIELDS, type DeckData } from './types.js';
 

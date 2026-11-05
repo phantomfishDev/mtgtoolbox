@@ -8,7 +8,7 @@ import {
   type PreferenceProfile,
   type PrintingScore,
   type ScryfallCard,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { getClient } from '../platform/client.js';
 import { Badge, Button, Spinner } from './ui.js';
 

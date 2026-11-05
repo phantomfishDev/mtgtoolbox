@@ -1,4 +1,4 @@
-import type { Config, PreferenceProfile, ResolveResult } from '@mtgproxy/core';
+import type { Config, PreferenceProfile, ResolveResult } from '@mtgtoolbox/core';
 
 /**
  * Resolved decks, kept for the session.
@@ -40,9 +40,6 @@ export function makeCacheKey(input: CacheKeyInput): string {
       profile: input.profile,
       pins: input.config.pins ?? {},
       tokenMode: input.tokenMode ?? 'exclude',
-      // The printed ledger stays out of the key: it cannot change which
-      // printing wins, so recording a print must not throw away every
-      // cached deck.
     }),
   );
 }

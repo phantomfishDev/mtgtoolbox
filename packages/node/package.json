@@ -1,5 +1,5 @@
 {
-  "name": "@mtgproxy/node",
+  "name": "@mtgtoolbox/node",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -7,5 +7,5 @@
   "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
   "files": ["dist"],
   "scripts": { "build": "tsc --build" },
-  "dependencies": { "@mtgproxy/core": "workspace:*" }
+  "dependencies": { "@mtgtoolbox/core": "workspace:*" }
 }

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_PROFILE,
   assessBracket,
-  diffDeck,
   manaCurve,
   normalizeName,
   readPins,
@@ -10,7 +9,7 @@ import {
   type ResolvedCard,
   type ScryfallCard,
   type TokenMode,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import type { BundledDeck } from '../decks.js';
 import { useApp } from '../state.js';
 import {
@@ -44,7 +43,7 @@ export function DeckDetailView({
   onBack: () => void;
   onPrint: (deck: BundledDeck, tokens?: TokenMode) => void;
 }) {
-  const { printed, config, saveDeckPin, deckName, deckText, store } = useApp();
+  const { config, saveDeckPin, deckName, deckText, store } = useApp();
   const name = deckName(deck);
   const [result, setResult] = useState<ResolveResult | null>(null);
   const [busy, setBusy] = useState<string | null>('Loading');
@@ -64,7 +63,7 @@ export function DeckDetailView({
    *
    * Pins are expressed as `(SET) NUM` in the list itself, so applying them is a
    * text rewrite and everything downstream — resolution, the cache key, the
-   * PDF — follows without knowing pins exist. Under `mtgproxy serve` the file
+   * PDF — follows without knowing pins exist. Under `mtgtoolbox serve` the file
    * on disk already says this; re-applying it is a no-op, which is what keeps
    * the two modes identical.
    */
@@ -118,13 +117,6 @@ export function DeckDetailView({
       cancelled = true;
     };
   }, [text, profile, config, deck.id, reloadToken]);
-
-  const diff = useMemo(
-    // No ledger in the published build, so every card would read as still to
-    // print — a claim about someone else's deck that the visitor cannot act on.
-    () => (result && !SHOWCASE ? diffDeck(result.resolved, printed) : null),
-    [result, printed],
-  );
 
   const commanderNames = useMemo(
     () => new Set(deck.commanders.map(normalizeName)),
@@ -200,14 +192,6 @@ export function DeckDetailView({
               <>
                 <span>&middot;</span>
                 <span title={`This deck belongs to ${deck.owner}`}>{deck.owner}&rsquo;s deck</span>
-              </>
-            )}
-            {diff && (
-              <>
-                <span>&middot;</span>
-                <span>
-                  {diff.totalPrinted} printed, {diff.totalToPrint} to print
-                </span>
               </>
             )}
             {pinCount > 0 && !SHOWCASE && (
@@ -302,7 +286,6 @@ export function DeckDetailView({
               <CardTile
                 key={`${item.card.id}-${item.entry.line}`}
                 item={item}
-                toPrint={diff ? (diff.rows.find((row) => row.card.id === item.card.id)?.toPrint ?? 0) : null}
                 pinned={!SHOWCASE && pins[normalizeName(item.card.name)] !== undefined}
                 onZoom={() => setZoomed(item.card)}
                 onChangePrinting={() => setPicking(item.card)}
@@ -340,14 +323,11 @@ export function DeckDetailView({
 
 function CardTile({
   item,
-  toPrint,
   pinned,
   onZoom,
   onChangePrinting,
 }: {
   item: ResolvedCard;
-  /** Copies still to print, or null when there is no ledger to compare. */
-  toPrint: number | null;
   pinned: boolean;
   onZoom: () => void;
   onChangePrinting: () => void;
@@ -376,11 +356,6 @@ function CardTile({
         {item.entry.quantity > 1 && (
           <span className="absolute left-1 top-1 rounded bg-black/75 px-1.5 py-0.5 text-[11px] font-semibold text-white">
             {item.entry.quantity}x
-          </span>
-        )}
-        {toPrint === 0 && (
-          <span className="absolute right-1 top-1 rounded bg-emerald-500/90 px-1 py-0.5 text-[10px] font-semibold text-white">
-            printed
           </span>
         )}
         {pinned && (

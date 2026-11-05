@@ -8,7 +8,7 @@ import {
   makeCacheKey,
   putCached,
 } from '../src/resolution-cache.js';
-import type { Config, PreferenceProfile, ResolveResult } from '@mtgproxy/core';
+import type { Config, PreferenceProfile, ResolveResult } from '@mtgtoolbox/core';
 
 const result = (label: string) =>
   ({ resolved: [], unresolved: [], warnings: [{ code: 'double-faced', message: label }] } as unknown as ResolveResult);

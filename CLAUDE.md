@@ -1,4 +1,4 @@
-# mtgproxy — working notes
+# mtgtoolbox — working notes
 
 ## Where files go
 

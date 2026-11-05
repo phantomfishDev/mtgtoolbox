@@ -1,3 +1,4 @@
+# Owner: Drew
 # Prismari Artistry
 # Secrets of Strixhaven Commander precon (SOC), unmodified.
 # Commanders: Rootha, Mastering the Moment / Muddle, the Ever-Changing.

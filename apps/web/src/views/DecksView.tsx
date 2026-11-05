@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { diffDeck, indexCardsToResolved, type DeckIndexEntry } from '@mtgproxy/core';
+import { type DeckIndexEntry } from '@mtgtoolbox/core';
 import { BUNDLED_DECKS, DECK_OWNERS, loadDeckIndex, type BundledDeck } from '../decks.js';
 import { useApp } from '../state.js';
 import { ColorPips } from '../components/ColorPips.js';
@@ -21,7 +21,7 @@ export function DecksView({
   onView: (deck: BundledDeck) => void;
   onPrint: (deck: BundledDeck) => void;
 }) {
-  const { printed, deckName, store } = useApp();
+  const { deckName, store } = useApp();
   const [query, setQuery] = useState('');
   const [owner, setOwner] = useState<string | null>(null);
   const [index, setIndex] = useState<Map<string, DeckIndexEntry> | null>(null);
@@ -36,23 +36,6 @@ export function DecksView({
       cancelled = true;
     };
   }, [store.kind]);
-
-  /**
-   * Printed counts, using the same diff the deck view runs so the two can never
-   * disagree about how much of a deck is already on paper.
-   */
-  const printedCounts = useMemo(() => {
-    // There is no ledger in the published build, so every deck would report
-    // nothing printed — a column of zeroes that says something false about the
-    // decks rather than nothing about the reader.
-    if (SHOWCASE || !index) return null;
-    const counts = new Map<string, { printed: number; needed: number }>();
-    for (const [id, entry] of index) {
-      const diff = diffDeck(indexCardsToResolved(entry.cards), printed);
-      counts.set(id, { printed: diff.totalPrinted, needed: diff.totalNeeded });
-    }
-    return counts;
-  }, [index, printed]);
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -119,7 +102,6 @@ export function DecksView({
               key={deck.id}
               deck={deck}
               summary={index?.get(deck.id)}
-              printed={printedCounts?.get(deck.id)}
               onView={() => onView(deck)}
               onPrint={() => onPrint(deck)}
             />
@@ -158,13 +140,11 @@ function OwnerChip({
 function DeckCard({
   deck,
   summary,
-  printed,
   onView,
   onPrint,
 }: {
   deck: BundledDeck;
   summary: DeckIndexEntry | undefined;
-  printed: { printed: number; needed: number } | undefined;
   onView: () => void;
   onPrint: () => void;
 }) {
@@ -217,14 +197,7 @@ function DeckCard({
         </div>
 
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          {printed ? (
-            <span className="tabular-nums" title="Cards you already own, of the whole deck">
-              <span className="font-medium">{printed.printed}</span>
-              <span className="text-muted">/{printed.needed} printed</span>
-            </span>
-          ) : (
-            <span className="tabular-nums text-muted">{deck.cardCount} cards</span>
-          )}
+          <span className="tabular-nums text-muted">{deck.cardCount} cards</span>
           {!complete && <Badge tone="warn">{deck.cardCount} cards</Badge>}
           {deck.owner && (
             <span className="text-muted" title={`This deck belongs to ${deck.owner}`}>

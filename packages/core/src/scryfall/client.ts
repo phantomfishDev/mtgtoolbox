@@ -120,7 +120,7 @@ export class ScryfallClient {
     // `window` present means a browser, where User-Agent is a forbidden header.
     const inBrowser = typeof globalThis === 'object' && 'window' in globalThis;
     this.userAgent =
-      options.userAgent ?? (inBrowser ? undefined : 'mtgproxy/0.2 (+https://github.com/drewbonddev/mtgproxy)');
+      options.userAgent ?? (inBrowser ? undefined : 'mtgtoolbox/0.2 (+https://github.com/drewbonddev/mtgproxy)');
     this.onRequest = options.onRequest;
     this.onRetry = options.onRetry;
   }

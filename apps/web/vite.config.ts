@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // Relative base so the built site works from a GitHub Pages subpath as well
-  // as from the root when served by `mtgproxy serve`.
+  // as from the root when served by `mtgtoolbox serve`.
   base: './',
   server: {
     port: 5173,

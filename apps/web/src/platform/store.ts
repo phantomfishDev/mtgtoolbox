@@ -1,24 +1,21 @@
 import {
-  emptyLedger,
   emptyConfig,
   normalizeName,
-  parsePrinted,
   parseConfig,
-  type PrintedLedger,
   type Config,
   type DeckPin,
   type DeckPinOverlay,
   type DeckPins,
   type TokenRow,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { idbGet, idbSet } from './idb.js';
 import { SHOWCASE } from '../showcase.js';
 
 /**
- * Where the printed ledger and config live.
+ * Where the config and deck edits live.
  *
  * The same UI runs in two situations: as a static site, where the only durable
- * storage is the browser's, and served by `mtgproxy serve`, where it should read
+ * storage is the browser's, and served by `mtgtoolbox serve`, where it should read
  * and write the very same files the CLI uses. Both satisfy this interface so no
  * view has to know which one it got.
  */
@@ -26,8 +23,6 @@ export interface DataStore {
   readonly kind: 'browser' | 'server' | 'readonly';
   /** Human-readable description of where data is being kept. */
   readonly location: string;
-  loadPrinted(): Promise<PrintedLedger>;
-  savePrinted(ledger: PrintedLedger): Promise<void>;
   loadConfig(): Promise<Config>;
   saveConfig(config: Config): Promise<void>;
   /** Pinned printings for every deck, keyed by deck id. */
@@ -84,25 +79,11 @@ export class BrowserStore implements DataStore {
   readonly kind = 'browser' as const;
   readonly location = 'this browser';
 
-  async loadPrinted(): Promise<PrintedLedger> {
-    const stored = await idbGet<unknown>('data', 'printed');
-    if (!stored) return emptyLedger();
-    // A hand-imported file can be malformed; fall back rather than trapping the
-    // user in an app that will not boot.
-    try {
-      return parsePrinted(stored.value);
-    } catch {
-      return emptyLedger();
-    }
-  }
-
-  async savePrinted(ledger: PrintedLedger): Promise<void> {
-    await idbSet('data', 'printed', ledger);
-  }
-
   async loadConfig(): Promise<Config> {
     const stored = await idbGet<unknown>('data', 'config');
     if (!stored) return emptyConfig();
+    // A hand-imported file can be malformed; fall back rather than trapping the
+    // user in an app that will not boot.
     try {
       return parseConfig(stored.value);
     } catch {
@@ -149,7 +130,7 @@ export class BrowserStore implements DataStore {
   }
 }
 
-/** Talks to the local API exposed by `mtgproxy serve`. */
+/** Talks to the local API exposed by `mtgtoolbox serve`. */
 export class ServerStore implements DataStore {
   readonly kind = 'server' as const;
   readonly location: string;
@@ -165,14 +146,6 @@ export class ServerStore implements DataStore {
     });
     if (!response.ok) throw new Error(`${path} failed: ${response.status}`);
     return (await response.json()) as T;
-  }
-
-  async loadPrinted(): Promise<PrintedLedger> {
-    return parsePrinted(await this.request('/api/printed'));
-  }
-
-  async savePrinted(ledger: PrintedLedger): Promise<void> {
-    await this.request('/api/printed', { method: 'PUT', body: JSON.stringify(ledger) });
   }
 
   async loadConfig(): Promise<Config> {
@@ -240,20 +213,12 @@ export class ReadOnlyStore implements DataStore {
   readonly pinTarget = 'nothing';
   readonly canRenameDecks = false;
 
-  async loadPrinted(): Promise<PrintedLedger> {
-    return emptyLedger();
-  }
-
   async loadConfig(): Promise<Config> {
     return emptyConfig();
   }
 
   async loadDeckPins(): Promise<AllDeckPins> {
     return {};
-  }
-
-  async savePrinted(): Promise<void> {
-    throw new Error('this build is read-only');
   }
 
   async saveConfig(): Promise<void> {
@@ -296,8 +261,8 @@ export async function detectStore(timeoutMs = 800): Promise<DataStore> {
   try {
     const response = await fetch('/api/health', { signal: AbortSignal.timeout(timeoutMs) });
     if (response.ok) {
-      const body = (await response.json()) as { printedPath?: string };
-      return new ServerStore(body.printedPath ?? 'local mtgproxy server');
+      const body = (await response.json()) as { decksDir?: string };
+      return new ServerStore(body.decksDir ?? 'local mtgtoolbox server');
     }
   } catch {
     // No server: fall through to browser storage.

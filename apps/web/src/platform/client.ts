@@ -1,4 +1,4 @@
-import { ScryfallClient, type RetryInfo } from '@mtgproxy/core';
+import { ScryfallClient, type RetryInfo } from '@mtgtoolbox/core';
 import { IdbCardCache, IdbImageCache, IdbPrintsCache } from './caches.js';
 
 /**

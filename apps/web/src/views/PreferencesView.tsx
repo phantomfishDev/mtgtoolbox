@@ -4,7 +4,7 @@ import {
   mergeProfiles,
   type Preference,
   type PreferenceProfile,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { useApp } from '../state.js';
 import { Button, Field, Panel, Select, Toggle } from '../components/ui.js';
 
@@ -160,7 +160,7 @@ export function PreferencesView() {
           {pins.length === 0 ? (
             <p className="text-sm text-muted">
               None. Choose a printing in the print view, or use{' '}
-              <code className="rounded bg-edge px-1">mtgproxy pin</code>.
+              <code className="rounded bg-edge px-1">mtgtoolbox pin</code>.
             </p>
           ) : (
             <ul className="space-y-1 text-sm">

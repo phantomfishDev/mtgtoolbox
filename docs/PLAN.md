@@ -1,4 +1,4 @@
-# mtgproxy — architecture plan
+# mtgtoolbox — architecture plan
 
 A local-first Magic: the Gathering proxy print-sheet generator: a CLI for producing
 print-ready PDFs, a React web app for browsing and tweaking, and a collection file
@@ -42,16 +42,16 @@ pnpm workspaces, TypeScript throughout.
 mtg/
 ├── pnpm-workspace.yaml, tsconfig.base.json, LICENSE (MIT)
 ├── packages/
-│   ├── core/        @mtgproxy/core   — isomorphic. No fs, no DOM.
+│   ├── core/        @mtgtoolbox/core   — isomorphic. No fs, no DOM.
 │   │   ├── decklist/   parser
 │   │   ├── scryfall/   batch client, pluggable cache + fetch
 │   │   ├── layout/     mm geometry, page grids, cut guides
 │   │   ├── pdf/        pdf-lib renderer
 │   │   ├── printing/   preference profiles + scoring
 │   │   └── collection/ zod schema, diff, CSV importers
-│   └── node/        @mtgproxy/node   — fs caches, collection file I/O, atomic writes
+│   └── node/        @mtgtoolbox/node   — fs caches, collection file I/O, atomic writes
 └── apps/
-    ├── cli/         @mtgproxy/cli    — `mtgproxy` bin (commander.js)
+    ├── cli/         @mtgtoolbox/cli    — `mtgtoolbox` bin (commander.js)
     └── web/         Vite + React + TS + Tailwind
 ```
 
@@ -74,7 +74,7 @@ Output is `{ quantity, name, set?, collectorNumber?, line, raw }[]` plus a struc
 error list. A single malformed line never aborts the parse — every problem is reported
 at once, with its line number.
 
-`mtgproxy print -` reads stdin, so skill output can be piped straight in.
+`mtgtoolbox print -` reads stdin, so skill output can be piped straight in.
 
 ## 2. Scryfall layer
 
@@ -83,7 +83,7 @@ at once, with its line number.
 - Prefer `{set, collector_number}` when a line supplies one, else `{name}`; retry
   misses through `/cards/named?fuzzy=`, and report whatever still fails.
 - Two caches, card JSON and image bytes, keyed by Scryfall ID. Disk under
-  `~/.cache/mtgproxy/` for the CLI; IndexedDB in the browser. A repeat print of the
+  `~/.cache/mtgtoolbox/` for the CLI; IndexedDB in the browser. A repeat print of the
   same deck is fully offline.
 - Scryfall attribution and a Wizards non-affiliation notice ship in the README.
 
@@ -106,8 +106,8 @@ The README leads with the one instruction that ruins prints when missed:
 
 ## 4. Collection
 
-`~/.config/mtgproxy/collection.json`, overridable via `--collection` or
-`MTGPROXY_COLLECTION`. Stably sorted so it stays git-diffable if kept in a private repo.
+`~/.config/mtgtoolbox/collection.json`, overridable via `--collection` or
+`MTGTOOLBOX_COLLECTION`. Stably sorted so it stays git-diffable if kept in a private repo.
 Atomic writes (temp file plus rename) with a `.bak` — this is the one file that is
 genuinely painful to recreate.
 
@@ -122,11 +122,9 @@ CSV importers for ManaBox, Moxfield, Deckbox and Archidekt, to seed from existin
 
 ## 5. Diff — proxy only the gaps
 
-- Match by **name** by default: any printing counts as owned. `--strict-printing`
-  requires set and collector number to match. Finish is ignored unless asked for.
-- Multiplicity respected: need 2, own 1, print 1.
-- `--assume-basics` (default on) drops basic lands from the missing list.
-- `mtgproxy diff deck.md` reports owned/missing without generating anything.
+Removed. This became a ledger of printed cards (`print --unprinted --record`,
+`diff`, the **Printed** tab), and that ledger has since been dropped: the tool no
+longer tracks whether a deck's cards have been printed.
 
 ## 6. Printing preferences
 
@@ -183,10 +181,10 @@ downloaded once) makes preference resolution instant and request-free.
 ### Surface
 
 ```bash
-mtgproxy print deck.md --profile retro --prefer-set cmm --full-art
-mtgproxy prints "Sol Ring" --explain     # ranked list, with score breakdown
-mtgproxy pin "Sol Ring" --set ltc --cn 264
-mtgproxy prefs show | set | edit
+mtgtoolbox print deck.md --profile retro --prefer-set cmm --full-art
+mtgtoolbox prints "Sol Ring" --explain     # ranked list, with score breakdown
+mtgtoolbox pin "Sol Ring" --set ltc --cn 264
+mtgtoolbox prefs show | set | edit
 ```
 
 `--explain` is built early: when a policy returns an unexpected printing, a score
@@ -196,7 +194,7 @@ breakdown is the difference between a two-minute fix and a guess.
 
 At boot the app probes `GET /api/health`.
 
-- **Present** (`mtgproxy serve`): a `HttpCollectionStore` reads and writes the same
+- **Present** (`mtgtoolbox serve`): a `HttpCollectionStore` reads and writes the same
   `collection.json` the CLI uses.
 - **Absent** (GitHub Pages): an `IndexedDbCollectionStore`, plus import/export buttons.
 
@@ -213,7 +211,7 @@ dependency in a tool whose appeal is that it runs straight from a checkout.
 The deck view's picker writes its choice into the decklist as `(SET) NUM` —
 the list is the source of truth, so a pin is a text rewrite and resolution, the
 cache key and the PDF all follow without knowing pins exist. Under
-`mtgproxy serve` that rewrite reaches `examples/<deck>.txt`; with no server the
+`mtgtoolbox serve` that rewrite reaches `examples/<deck>.txt`; with no server the
 same overlay is kept in IndexedDB and applied to the text in memory. One code
 path, and the only difference is whether it lands on disk.
 
@@ -231,10 +229,10 @@ without a re-sync.
 
 | # | Status | Deliverable |
 |---|---|---|
-| M1 | done | Scaffold, parser, Scryfall client, layout, PDF, `mtgproxy print` — end-to-end printable deck |
+| M1 | done | Scaffold, parser, Scryfall client, layout, PDF, `mtgtoolbox print` — end-to-end printable deck |
 | M2 | done | Collection file and commands, diff, `--missing-only`, preference engine, profiles, `prints` / `pin` / `prefs` |
 | M3 | done | Web app, static mode, in-browser PDF, per-card printing picker, preferences panel |
-| M4 | done | `mtgproxy serve`, disk-backed collection sync, and pinning printings from the deck view |
+| M4 | done | `mtgtoolbox serve`, disk-backed collection sync, and pinning printings from the deck view |
 | M5 | next | CSV importers, bulk-data ingestion, Pages deploy |
 
 Designs for work beyond these — Moxfield export, mana curve, deck brackets and
@@ -296,7 +294,7 @@ mid-deck. Durable state now lives in `App`; transient state (spinners, errors, t
 picker) stays local, because that genuinely should reset.
 
 **`pdf-lib` is loaded on demand.** Re-exporting the renderer from the core barrel forced
-it into every consumer's main chunk. It is now a `@mtgproxy/core/pdf` subpath, imported
+it into every consumer's main chunk. It is now a `@mtgtoolbox/core/pdf` subpath, imported
 dynamically when a PDF is actually requested: the initial bundle went from 275 KB to
 96 KB gzipped.
 
@@ -311,4 +309,4 @@ without rework.
 
 The `commander-deck-builder` skill needs no changes — its Section 8 paste block is
 already exactly the format the parser wants. Optionally, one line can be added to the
-skill telling it to mention `mtgproxy print <file> --missing-only` after saving a guide.
+skill telling it to mention `mtgtoolbox print <file> --missing-only` after saving a guide.

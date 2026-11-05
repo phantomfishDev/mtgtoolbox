@@ -105,9 +105,9 @@ export async function renderPdf(
   };
 
   const pdf = await PDFDocument.create();
-  pdf.setTitle(options.title ?? 'mtgproxy print sheet');
-  pdf.setProducer('mtgproxy');
-  pdf.setCreator('mtgproxy');
+  pdf.setTitle(options.title ?? 'mtgtoolbox print sheet');
+  pdf.setProducer('mtgtoolbox');
+  pdf.setCreator('mtgtoolbox');
 
   const embedded = new Map<string, PDFImage>();
   const placements: PDFImage[] = [];

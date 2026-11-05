@@ -6,7 +6,6 @@ import {
   buildDeckIndex,
   buildDeckIndexEntry,
   mergeEntries,
-  parsePrinted,
   parseConfig,
   parseDeckMeta,
   parseDecklist,
@@ -21,7 +20,7 @@ import {
   totalCards,
   type DeckPin,
   type TokenRow,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import {
   deckId,
   decksDir,
@@ -30,13 +29,10 @@ import {
   loadDeckIndex,
   saveDeckData,
   saveDeckIndex,
-  loadPrinted,
   loadConfig,
-  savePrinted,
   saveConfig,
-  printedPath,
   configPath,
-} from '@mtgproxy/node';
+} from '@mtgtoolbox/node';
 import { makeClient } from './deck.js';
 import { resolveProfile } from './prefs.js';
 
@@ -45,7 +41,7 @@ import { resolveProfile } from './prefs.js';
  *
  * The same built site runs in two modes: against a static host, where the
  * browser is the only storage there is, and against this server, where the
- * printed ledger, the config and the decklists are the very files the CLI uses.
+ * config and the decklists are the very files the CLI uses.
  * The app decides which it got by asking `/api/health`, so everything here
  * exists to make that probe succeed and then to be honest about the files.
  *
@@ -57,7 +53,6 @@ export interface ServeOptions {
   port: number;
   host: string;
   decks?: string;
-  printed?: string;
   config?: string;
   /** Directory of a built web app to serve at `/`. Optional. */
   site?: string;
@@ -140,7 +135,7 @@ function isPin(value: unknown): value is DeckPin {
  * loads. Only the cheap path is taken: stored data plus a direct lookup of the
  * printings it lacks, one request however many pins there are. When the stored
  * data cannot be applied at all (a changed profile, new cards) nothing is
- * written, and `mtgproxy sync` remains the way to re-rank the deck.
+ * written, and `mtgtoolbox sync` remains the way to re-rank the deck.
  */
 async function refreshStoredDeck(path: string, dir: string, options: ServeOptions): Promise<void> {
   const stored = await loadDeckData(path);
@@ -153,7 +148,7 @@ async function refreshStoredDeck(path: string, dir: string, options: ServeOption
   const merged = mergeEntries(selectForTokenMode(parsed.entries, 'include'));
   const applied = await resolveFromDeckDataWithLookups(merged, stored, makeClient(true), profile);
   if (!applied) {
-    console.warn(`  ${id}: stored data is out of date; run \`mtgproxy sync\``);
+    console.warn(`  ${id}: stored data is out of date; run \`mtgtoolbox sync\``);
     return;
   }
 
@@ -180,23 +175,10 @@ async function handleApi(
   if (pathname === '/api/health') {
     sendJson(response, 200, {
       ok: true,
-      printedPath: printedPath(options.printed),
       configPath: configPath(options.config),
       decksDir: dir,
     });
     return true;
-  }
-
-  if (pathname === '/api/printed') {
-    if (method === 'GET') {
-      sendJson(response, 200, (await loadPrinted(options.printed)).data);
-      return true;
-    }
-    if (method === 'PUT') {
-      const path = await savePrinted(parsePrinted(await readBody(request)), options.printed);
-      sendJson(response, 200, { ok: true, path });
-      return true;
-    }
   }
 
   if (pathname === '/api/config') {
@@ -283,7 +265,7 @@ async function handleApi(
         await refreshStoredDeck(path, dir, options);
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
-        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgproxy sync\``);
+        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgtoolbox sync\``);
       }
       sendJson(response, 200, { id, text: after, pins: readPins(after), written: true, path });
       return true;
@@ -344,7 +326,7 @@ async function handleApi(
         await refreshStoredDeck(path, dir, options);
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
-        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgproxy sync\``);
+        console.warn(`  ${id}: could not refresh stored data (${message}); run \`mtgtoolbox sync\``);
       }
     }
     sendJson(response, 200, { id, tokens: readTokenRows(after), written: after !== before, path });

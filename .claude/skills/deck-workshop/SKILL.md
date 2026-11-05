@@ -1,6 +1,6 @@
 ---
 name: deck-workshop
-description: Build a Magic Commander deck with Drew through the mtgproxy workshop UI — he picks the commander, the cards he already wants and the theme in a browser, you propose the other ninety, he cuts and comments, repeat until he accepts. Use this whenever he asks to build, start, design or upgrade a deck with this tool, mentions a commander by name and wants a deck around it, or says "let's build a deck" / "deck workshop" / "new deck". Not for printing or syncing an existing decklist.
+description: Build a Magic Commander deck with Drew through the mtgtoolbox workshop UI — he picks the commander, the cards he already wants and the theme in a browser, you propose the other ninety, he cuts and comments, repeat until he accepts. Use this whenever he asks to build, start, design or upgrade a deck with this tool, mentions a commander by name and wants a deck around it, or says "let's build a deck" / "deck workshop" / "new deck". Not for printing or syncing an existing decklist.
 ---
 
 # Deck workshop
@@ -31,7 +31,7 @@ Give him the URL in chat, and open it in the browser pane with `preview_start
 {url}` so he can work without leaving the app. Then say what the page is for in
 one line and stop talking — he is typing into it, not reading chat.
 
-If the CLI is not built yet: `pnpm --filter @mtgproxy/cli build`.
+If the CLI is not built yet: `pnpm --filter @mtgtoolbox/cli build`.
 
 ## 2. Wait for the brief
 
@@ -66,7 +66,7 @@ roles, curve, the land count, what a commander wants. On top of it:
 ## 4. Propose a round
 
 Write `.workshop/<slug>/proposal.json`, then run `workshop propose <slug>`.
-`mtgproxy workshop propose --example` prints the shape. In short:
+`mtgtoolbox workshop propose --example` prints the shape. In short:
 
 ```json
 {

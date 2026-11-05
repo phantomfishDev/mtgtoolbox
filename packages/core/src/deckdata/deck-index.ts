@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { commanders, isDeckCard, type DeckEntry } from '../decklist/parse.js';
-import { normalizeName } from '../printed/types.js';
+import { normalizeName } from '../cards/identity.js';
 import type { ResolvedCard } from '../scryfall/resolve.js';
 import type { ScryfallCard } from '../scryfall/types.js';
 import { assessBracket, BRACKET_NAMES, type Bracket } from '../analysis/bracket.js';
@@ -136,22 +136,4 @@ export function buildDeckIndex(
     profile: profileFingerprint(profile),
     decks: [...decks].sort((a, b) => a.id.localeCompare(b.id)),
   };
-}
-
-/**
- * Index cards as resolved cards, so the list can run the same diff the deck
- * view does and the two can never report different to-print counts.
- */
-export function indexCardsToResolved(cards: readonly DeckIndexCard[]): ResolvedCard[] {
-  return cards.map((card, line) => ({
-    entry: { quantity: card.quantity, name: card.name, line, raw: `${card.quantity} ${card.name}` },
-    card: {
-      id: `${card.set}-${card.collectorNumber}`,
-      name: card.name,
-      set: card.set,
-      collector_number: card.collectorNumber,
-      type_line: card.typeLine,
-    } as ScryfallCard,
-    via: 'name' as const,
-  }));
 }

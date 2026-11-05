@@ -1,16 +1,14 @@
 import { createContext, useContext } from 'react';
-import type { PrintedLedger, Config, DeckPin, TokenRow } from '@mtgproxy/core';
+import type { Config, DeckPin, TokenRow } from '@mtgtoolbox/core';
 import type { AllDeckPins, DataStore } from './platform/store.js';
 import type { BundledDeck } from './decks.js';
 
 /** App-wide data, provided once at the root so views never build their own store. */
 export interface AppState {
   store: DataStore;
-  printed: PrintedLedger;
   config: Config;
   /** Pinned printings for every deck, keyed by deck id. */
   deckPins: AllDeckPins;
-  savePrinted: (ledger: PrintedLedger) => Promise<void>;
   saveConfig: (config: Config) => Promise<void>;
   /** Pin a printing for one card in one deck, or clear it with `null`. */
   saveDeckPin: (deckId: string, cardName: string, pin: DeckPin | null) => Promise<void>;
@@ -18,7 +16,7 @@ export interface AppState {
    * The name to show for a deck.
    *
    * Bundled decks carry the name their file had at build time; a rename made
-   * since — or a file edited under `mtgproxy serve` after the site was built —
+   * since — or a file edited under `mtgtoolbox serve` after the site was built —
    * is layered over that here, so every view agrees on it.
    */
   deckName: (deck: BundledDeck) => string;

@@ -3,10 +3,9 @@ import {
   applyPins,
   setTokensSection,
   tokenLine,
-  type PrintedLedger,
   type Config,
   type TokenMode,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import {
   detectStore,
   withPin,
@@ -21,7 +20,6 @@ import { DecksView } from './views/DecksView.js';
 import { DeckDetailView } from './views/DeckDetailView.js';
 import { invalidateDeckIndex, titleFromId, type BundledDeck } from './decks.js';
 import { PrintView } from './views/PrintView.js';
-import { PrintedView } from './views/PrintedView.js';
 import { PreferencesView } from './views/PreferencesView.js';
 import { Spinner } from './components/ui.js';
 import { APP_TITLE, SHOWCASE } from './showcase.js';
@@ -29,19 +27,18 @@ import { APP_TITLE, SHOWCASE } from './showcase.js';
 const ALL_TABS = [
   { id: 'decks', label: 'Decks' },
   { id: 'print', label: 'Print' },
-  { id: 'printed', label: 'Printed' },
   { id: 'preferences', label: 'Preferences' },
 ] as const;
 
 type TabId = (typeof ALL_TABS)[number]['id'];
 
 /**
- * Printed and Preferences are the two tabs that write, and both of them
- * are about the person who owns the decks rather than the person reading the
- * page. They are the whole of the difference in the navigation; what is left
- * browses and prints, neither of which saves anything.
+ * Preferences is the tab that writes, and it is about the person who owns the
+ * decks rather than the person reading the page. It is the whole of the
+ * difference in the navigation; what is left browses and prints, neither of
+ * which saves anything.
  */
-const WRITING_TABS = new Set<TabId>(['printed', 'preferences']);
+const WRITING_TABS = new Set<TabId>(['preferences']);
 
 const TABS = SHOWCASE ? ALL_TABS.filter((tab) => !WRITING_TABS.has(tab.id)) : ALL_TABS;
 
@@ -52,7 +49,6 @@ export function App() {
   /** The deck being browsed card by card; null shows the deck list. */
   const [viewing, setViewing] = useState<BundledDeck | null>(null);
   const [store, setStore] = useState<DataStore | null>(null);
-  const [printed, setPrinted] = useState<PrintedLedger | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
   const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
   const [deckNames, setDeckNames] = useState<DeckNames>({});
@@ -64,8 +60,7 @@ export function App() {
     // determines where everything is read from and written to for the session.
     void (async () => {
       const detected = await detectStore();
-      const [loadedPrinted, loadedConfig, loadedPins, loadedNames, loadedTokens] = await Promise.all([
-        detected.loadPrinted(),
+      const [loadedConfig, loadedPins, loadedNames, loadedTokens] = await Promise.all([
         detected.loadConfig(),
         // Pins must not be able to keep the app from booting: a deck with no
         // pins is the normal case, so an empty map is a fine answer.
@@ -77,7 +72,6 @@ export function App() {
       ]);
       if (cancelled) return;
       setStore(detected);
-      setPrinted(loadedPrinted);
       setConfig(loadedConfig);
       setDeckPins(loadedPins);
       setDeckNames(loadedNames);
@@ -89,18 +83,13 @@ export function App() {
   }, []);
 
   const state = useMemo<AppState | null>(() => {
-    if (!store || !printed || !config || !deckPins) return null;
+    if (!store || !config || !deckPins) return null;
     return {
       store,
-      printed,
       config,
       deckPins,
       // Persist first, then update state, so a failed write never leaves the UI
       // claiming a change that did not reach storage.
-      savePrinted: async (next) => {
-        await store.savePrinted(next);
-        setPrinted(next);
-      },
       saveConfig: async (next) => {
         await store.saveConfig(next);
         setConfig(next);
@@ -132,7 +121,7 @@ export function App() {
         setDeckTokens((current) => ({ ...current, [deckId]: [...rows] }));
       },
     };
-  }, [store, printed, config, deckPins, deckNames, deckTokens]);
+  }, [store, config, deckPins, deckNames, deckTokens]);
 
   // Loading a deck replaces the whole working session: a stale resolution or
   // printing override from the previous deck would silently apply to this one.
@@ -140,7 +129,7 @@ export function App() {
   // Pins and token counts go with it. They belong to the deck rather than to the
   // screen that set them, so printing has to use what the deck browser just
   // showed — otherwise choosing an artwork and then printing would quietly
-  // ignore it. With `mtgproxy serve` the file on disk already says this and
+  // ignore it. With `mtgtoolbox serve` the file on disk already says this and
   // re-applying is a no-op, which is what keeps the two modes identical.
   const openForPrinting = (
     deck: BundledDeck,
@@ -209,7 +198,6 @@ export function App() {
               onChange={(patch) => setSession((current) => ({ ...current, ...patch }))}
             />
           )}
-          {tab === 'printed' && <PrintedView />}
           {tab === 'preferences' && <PreferencesView />}
         </main>
 

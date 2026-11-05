@@ -4,7 +4,7 @@ import {
   newWorkshopSession,
   parseWorkshopSession,
   type WorkshopSession,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 
 /**
  * Where a deck-building session lives.
@@ -21,7 +21,7 @@ export const SESSION_FILENAME = 'session.json';
 export const PROPOSAL_FILENAME = 'proposal.json';
 
 export function workshopDir(override?: string): string {
-  const fromEnv = process.env['MTGPROXY_WORKSHOP'];
+  const fromEnv = process.env['MTGTOOLBOX_WORKSHOP'];
   return resolve(override ?? (fromEnv && fromEnv.trim() !== '' ? fromEnv : '.workshop'));
 }
 

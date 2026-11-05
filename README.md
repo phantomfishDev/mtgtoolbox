@@ -1,11 +1,10 @@
-# mtgproxy
+# mtgtoolbox
 
 A local-first Magic: the Gathering proxy print-sheet generator — a CLI that turns a
-decklist into a print-ready PDF at true card size, a web app for browsing and tweaking,
-and a plain-file ledger of what you have already printed so you never proxy the same card twice.
+decklist into a print-ready PDF at true card size, and a web app for browsing and tweaking.
 
 > **Status:** M4 complete — everything works from the CLI, the web app runs the same
-> engine in the browser, and `mtgproxy serve` lets that app read and write the CLI's
+> engine in the browser, and `mtgtoolbox serve` lets that app read and write the CLI's
 > own files, decklists included. Next is bulk-data ingestion and the Pages deploy.
 > See [docs/PLAN.md](docs/PLAN.md) for the full architecture.
 
@@ -14,7 +13,7 @@ and a plain-file ledger of what you have already printed so you never proxy the 
 ```bash
 pnpm install
 pnpm build
-pnpm link --global   # puts `mtgproxy` on your PATH
+pnpm link --global   # puts `mtgtoolbox` on your PATH
 ```
 
 Or run it without linking: `node apps/cli/dist/index.js <command>`.
@@ -24,25 +23,25 @@ Or run it without linking: `node apps/cli/dist/index.js <command>`.
 Render a decklist to a PDF:
 
 ```bash
-mtgproxy print examples/rats.txt
+mtgtoolbox print examples/rats.txt
 ```
 
 Check what a list resolves to, without generating anything:
 
 ```bash
-mtgproxy resolve examples/rats.txt
+mtgtoolbox resolve examples/rats.txt
 ```
 
 Pipe a list in from anywhere:
 
 ```bash
-pbpaste | mtgproxy print -
+pbpaste | mtgtoolbox print -
 ```
 
 Build a new deck with an agent, a card at a time, in the browser:
 
 ```bash
-mtgproxy workshop start thranduil-elf
+mtgtoolbox workshop start thranduil-elf
 ```
 
 ### Deck list formats
@@ -76,14 +75,12 @@ copy-list heading.
 | `-q, --quality <level>` | `png` | `png`, `large`, `normal` |
 | `--gap <mm>` | `0` | space between cards; `0` tiles them so one cut serves two |
 | `--markdown` | auto | force markdown block extraction |
-| `-u, --unprinted` | off | print only cards you have not printed yet |
-| `--record` | off | record what was printed, so `--unprinted` skips it next time |
 | `--tokens <mode>` | `exclude` | `exclude`, `include` or `only` — see [Tokens](#tokens) |
 
 ## Web app
 
 ```bash
-pnpm --filter @mtgproxy/web dev
+pnpm --filter @mtgtoolbox/web dev
 ```
 
 Then open <http://localhost:5173>. The **Decks** tab lists every decklist in
@@ -126,10 +123,6 @@ to the cards beside them, which is where these lists keep their per-card theming
 and prose that merely mentions an owner mid-sentence stays prose: the Kibo deck's note
 credits the Archidekt list's author as `(owner: swebb)` and is not thereby Swebb's deck.
 
-Note that this is a different thing from the printed counts shown everywhere else.
-Those are about which cards are in [your printed ledger](#what-you-have-already-printed);
-this is about whose deck it is.
-
 ### What the deck is called
 
 A deck is named after its file — `kwain-hare-apparent.txt` reads as "Kwain Hare
@@ -141,7 +134,7 @@ same way as `Owner:`:
 # Owner: Sam
 ```
 
-With `mtgproxy serve` running, the deck page has a **Rename** link beside the title that
+With `mtgtoolbox serve` running, the deck page has a **Rename** link beside the title that
 writes this line for you; clearing the name removes it, and the deck goes back to its
 filename. The file itself is never renamed, so pins, stored data and the index keep
 pointing at the same deck.
@@ -156,21 +149,19 @@ choosing, so you can pick each one yourself; **same printing for all** collapses
 Where a card has fewer distinct artworks than copies, some repeat and the app says so,
 naming the preference responsible so you know which setting to relax.
 
-On the **Print** tab you can paste a decklist, see every card resolved with
-printed/to-print badges, click any card to browse and pick a different printing, and
+On the **Print** tab you can paste a decklist, see every card resolved, click any card to browse and pick a different printing, and
 download the PDF — all generated in the browser by the same code the CLI runs.
 
 On a **deck** page the same picker is behind each card's *art* link, and the choice is
 kept. A pin is written into the decklist itself as `1 Sol Ring (LTC) 284`, because that
 file is what gets committed, diffed and pasted elsewhere — so a pin set in the browser
 is a pin the CLI obeys, and one typed by hand shows up in the browser. Under
-`mtgproxy serve` the rewrite lands in `examples/<deck>.txt`; without it, the same
+`mtgtoolbox serve` the rewrite lands in `examples/<deck>.txt`; without it, the same
 overlay is kept in your browser and applied in memory, leaving the repository alone.
 The line under the deck title always says which of the two you are getting.
 
-The app works entirely offline of any backend. It stores your printed ledger and
-preferences in the browser (IndexedDB). The **Printed** tab lists everything recorded as
-printed and can clear it. When `mtgproxy serve` is running it will instead read and write
+The app works entirely offline of any backend. It stores your preferences in the
+browser (IndexedDB). When `mtgtoolbox serve` is running it will instead read and write
 the same files the CLI uses; the header always says which of the two is in effect.
 
 Card data, printing lists and images are cached in the browser (IndexedDB), and the
@@ -192,21 +183,20 @@ hang. If it does fail, **Try again** re-runs it and bypasses the cache.
 ## Serving the app against your own files
 
 ```bash
-mtgproxy serve                    # http://127.0.0.1:5174
-mtgproxy serve --port 8080 --decks ~/decks
-mtgproxy serve --site apps/web/dist   # serve a built app too, one process
+mtgtoolbox serve                    # http://127.0.0.1:5174
+mtgtoolbox serve --port 8080 --decks ~/decks
+mtgtoolbox serve --site apps/web/dist   # serve a built app too, one process
 ```
 
-It binds the loopback interface, because it writes to your printed ledger, your config and
-your decklists and nothing about it belongs on a network. In development run the web app
-with `pnpm --filter @mtgproxy/web dev` and it proxies `/api` here; the app probes
+It binds the loopback interface, because it writes to your config and your decklists and nothing about it belongs on a network. In development run the web app
+with `pnpm --filter @mtgtoolbox/web dev` and it proxies `/api` here; the app probes
 `/api/health` at boot and falls back to browser storage when nothing answers, which is
 exactly what a static deployment gets.
 
 ## Sharing the deck list
 
-The web app is a static site — card data comes from Scryfall, the printed ledger lives
-in the browser — so it can be published to GitHub Pages and handed to a friend as a link.
+The web app is a static site — card data comes from Scryfall, preferences live in the
+browser — so it can be published to GitHub Pages and handed to a friend as a link.
 What they get is the **Decks** tab: every deck on the shelf with its commander's art,
 colours, bracket and owner, and every card in it a click away. It is read-only, and
 nothing they do there touches anything of yours.
@@ -217,26 +207,21 @@ What gets published is not the whole app. The deploy builds in *showcase mode*, 
 is the same code with everything that writes taken out:
 
 ```bash
-pnpm --filter @mtgproxy/web build:showcase
+pnpm --filter @mtgtoolbox/web build:showcase
 ```
 
 | | Local build | Showcase build |
 |---|---|---|
-| Tabs | Decks, Print, Printed, Preferences | Decks, Print |
+| Tabs | Decks, Print, Preferences | Decks, Print |
 | Change a card's printing | yes | no |
-| Printed / to-print counts | yes | no — there is no ledger |
-| Writes anything, anywhere | printed ledger, config, pins | nothing |
-| Asks for `/api` | probes for `mtgproxy serve` | never |
+| Writes anything, anywhere | config, pins | nothing |
+| Asks for `/api` | probes for `mtgtoolbox serve` | never |
 
 The guarantee is structural rather than cosmetic. Showcase mode runs on a
 `ReadOnlyStore` whose every write method throws, and it skips the `/api/health` probe
-entirely, so the published page talks to nothing but Scryfall's image CDN. The two tabs
-that write — Printed and Preferences — are the two that are dropped, and the printing
+entirely, so the published page talks to nothing but Scryfall's image CDN. The one tab
+that writes — Preferences — is dropped, and the printing
 picker is not rendered at all, so there is no path to a write left to take.
-
-Counts are left out rather than shown as zero: with no ledger every deck would
-otherwise report nothing printed, which says something false about the decks rather than
-nothing about the reader.
 
 `VITE_SHOWCASE_TITLE` names the page — it defaults to "The Deck Shelf", since the
 project's own name describes how it is built rather than what is being shared.
@@ -266,8 +251,8 @@ keeps the *source* private, not the site — restricting who can view a Pages si
 Enterprise Cloud feature. Since the deck list is the thing being shared with friends,
 the only question is whether the code stays private too.
 
-There is nothing in here that needs to be: no secrets, no ledger file — it is
-already MIT licensed, and the ledger lives in the browser or `~/.config`, never in the repo.
+There is nothing in here that needs to be: no secrets — it is already MIT licensed,
+and your preferences live in the browser or `~/.config`, never in the repo.
 
 Actions is free on public repositories. On a private one this workflow draws from the
 plan's monthly compute allowance ($12 on Free, $18 on Pro), at a couple of minutes a
@@ -277,10 +262,10 @@ push against roughly $0.006 a minute — a rounding error either way.
 
 A deck is easier to build with two people than one: whoever owns the deck knows which
 cards they want and what it should feel like, and the other half is ninety cards of
-legwork. `mtgproxy workshop` is that conversation, held over one session file.
+legwork. `mtgtoolbox workshop` is that conversation, held over one session file.
 
 ```bash
-mtgproxy workshop start thranduil-elf --title "Thranduil, Elvenking"
+mtgtoolbox workshop start thranduil-elf --title "Thranduil, Elvenking"
 ```
 
 It serves a page — card search with real art and text, a commander picker, a bracket
@@ -301,10 +286,10 @@ Everything after that is turns, tracked by the session's phase:
 The agent's side is four commands:
 
 ```bash
-mtgproxy workshop wait thranduil-elf      # blocks until it is its turn
-mtgproxy workshop show thranduil-elf      # the brief, the cuts, the comments
-mtgproxy workshop propose thranduil-elf   # put a decklist on the table
-mtgproxy workshop export thranduil-elf    # write examples/thranduil-elf.txt
+mtgtoolbox workshop wait thranduil-elf      # blocks until it is its turn
+mtgtoolbox workshop show thranduil-elf      # the brief, the cuts, the comments
+mtgtoolbox workshop propose thranduil-elf   # put a decklist on the table
+mtgtoolbox workshop export thranduil-elf    # write examples/thranduil-elf.txt
 ```
 
 `propose` reads `.workshop/<deck>/proposal.json` — a list of cards with a role and a
@@ -334,10 +319,10 @@ request per distinct card — about a minute for a hundred of them, every time, 
 machine. With it, that becomes a single local read.
 
 ```bash
-mtgproxy sync                 # store data for every deck
-mtgproxy sync my-new-deck.txt # copy a new deck in and store its data too
-mtgproxy sync --force         # re-resolve even when the stored data looks current
-mtgproxy sync --refresh       # re-read the chosen printings, to pick up new card fields
+mtgtoolbox sync                 # store data for every deck
+mtgtoolbox sync my-new-deck.txt # copy a new deck in and store its data too
+mtgtoolbox sync --force         # re-resolve even when the stored data looks current
+mtgtoolbox sync --refresh       # re-read the chosen printings, to pick up new card fields
 ```
 
 `sync` also writes `decks.index.json`, a summary the deck list reads: commander images,
@@ -351,7 +336,7 @@ ninety-nine printings that did not change, the pinned line is looked up by set a
 number directly: one batched request, however many pins are new. Changing an artwork in
 the deck browser therefore costs a single request instead of one per distinct card.
 
-Under `mtgproxy serve`, saving a pin also rewrites that deck's `.cards.json` and its
+Under `mtgtoolbox serve`, saving a pin also rewrites that deck's `.cards.json` and its
 entry in `decks.index.json` the same way, so the deck list's commander art follows the
 pin straight away rather than waiting for the next `sync`. The app reads the index from
 the server rather than the copy baked into the build, since that copy cannot see the
@@ -364,7 +349,7 @@ costs one request per seventy-five. Adding colour identity across eight decks to
 seconds this way, against roughly ten minutes for a full re-resolve.
 
 Passing a decklist from outside the decks directory copies it in, so a new deck and its
-data end up side by side. `--decks <dir>` or `$MTGPROXY_DECKS` moves the directory.
+data end up side by side. `--decks <dir>` or `$MTGTOOLBOX_DECKS` moves the directory.
 
 **Only the chosen printings are stored, and never image bytes** — just the URLs Scryfall
 serves images from. Storing every printing of every card would be about 1.5 MB per deck
@@ -374,16 +359,12 @@ that deck, rather than bundling them all.
 The cost of storing only the chosen printings is that the file is valid only for the
 rules that chose them. The preference profile is fingerprinted into the file and checked
 on load, so changing a preference falls back to resolving properly instead of quietly
-showing printings that contradict your settings. Run `mtgproxy sync` again to regenerate
+showing printings that contradict your settings. Run `mtgtoolbox sync` again to regenerate
 against your own setup.
-
-The printed ledger is deliberately *not* part of that fingerprint: what you have printed
-cannot change which printing is correct, so recording a print run must not throw away
-every stored deck.
 
 ## Mana curve
 
-The deck view charts the curve of a deck's nonland cards, and `mtgproxy curve <file>`
+The deck view charts the curve of a deck's nonland cards, and `mtgtoolbox curve <file>`
 prints the same thing in a terminal.
 
 Two details it gets right that most curves do not. A card whose *back* face is a land
@@ -397,7 +378,7 @@ truth for a deck that pays full price for everything.
 
 ## Commander bracket
 
-The deck view assesses which bracket a deck's contents sit in, and `mtgproxy bracket
+The deck view assesses which bracket a deck's contents sit in, and `mtgtoolbox bracket
 <file>` does the same in a terminal. It names the cards behind the call, because a
 bracket is something you say out loud to a table and an unexplained number is not much
 use.
@@ -414,45 +395,6 @@ are listed in the output rather than folded silently into the number.
 
 Tutors are not counted — they stopped being a bracket criterion in the October 2025
 update.
-
-## What you have already printed
-
-The point of the tool is to print the cards you do not have yet, so it keeps a ledger of
-what has come out of the printer.
-
-Nothing goes in by hand. A print run records itself:
-
-```bash
-mtgproxy print my-deck.md --unprinted --record
-```
-
-`--unprinted` drops everything already in the ledger from the sheet; `--record` adds what
-it printed, but only *after* the PDF is on disk — a run that failed earlier must not leave
-the ledger claiming those cards exist. Then inspect it:
-
-```bash
-mtgproxy diff my-deck.md     # what is left to print for this deck
-mtgproxy printed list
-mtgproxy printed path
-mtgproxy printed clear --yes
-```
-
-The file lives at `~/.config/mtgproxy/printed.json` (override with `--printed` or
-`$MTGPROXY_PRINTED`), sorted stably so it stays readable and diffable under version
-control. Writes go through a temp file and a rename, keeping the previous version as
-`.bak` — a crash mid-write leaves either the old file or the new one, never a mixture.
-
-**Matching is per printing.** Choosing a different art for a card you have already
-printed is a new card to print, not a card you are done with, so the ledger keys on the
-exact set and collector number. Pass `--no-strict-printing` if you would rather any
-printing of a card count.
-
-**Basic lands count as still to print**, because a proxy deck needs its basics along with
-everything else. Pass `--assume-basics` if you print those separately or use real ones.
-
-Rows are matched to copies by position, so a deck running nine copies of one card across
-nine different arts stays nine separate rows rather than collapsing into one — print three
-of them and the ledger knows which three.
 
 ## Tokens
 
@@ -476,17 +418,17 @@ cannot make a legal deck read as 112 cards.
 Let the tool work out which tokens a deck can make:
 
 ```bash
-mtgproxy tokens                              # every deck: what each makes, and what is new
-mtgproxy tokens --write                      # add the new ones to every decklist
-mtgproxy tokens examples/nazgul.txt --write  # just one deck
-mtgproxy tokens --write -q 2                 # add new tokens at 2 each instead of 4
+mtgtoolbox tokens                              # every deck: what each makes, and what is new
+mtgtoolbox tokens --write                      # add the new ones to every decklist
+mtgtoolbox tokens examples/nazgul.txt --write  # just one deck
+mtgtoolbox tokens --write -q 2                 # add new tokens at 2 each instead of 4
 ```
 
 Nothing is hardcoded: Scryfall's `all_parts` names the tokens each card makes,
 so a deck that gains a Clue-maker gains a Clue the next time you run it. Tokens
 are deduped by name, type, stats, colour and rules text, so two cards making
 the same 2/2 Drake produce one line, and a 3/3 Wraith is never mistaken for a
-2/2 one. Run `mtgproxy sync` afterwards so the stored card data includes them.
+2/2 one. Run `mtgtoolbox sync` afterwards so the stored card data includes them.
 
 **Writing only ever adds.** Rows already in a `Tokens` section keep their
 quantity and their pinned art, so set the counts however you like and re-run
@@ -497,22 +439,22 @@ The web app's deck page has the same thing in a **Tokens** panel: *Find tokens*
 runs the search, each token has a count to set, clicking a token changes its
 art, *Save changes* writes them, and
 *Print tokens* opens the print view with only the tokens selected. Under
-`mtgproxy serve` the counts are written into the decklist itself; without a
+`mtgtoolbox serve` the counts are written into the decklist itself; without a
 server they are kept in the browser, as pins are.
 
 Then choose what a print run does with them:
 
 ```bash
-mtgproxy print my-deck.txt                     # deck only (the default)
-mtgproxy print my-deck.txt --tokens include    # deck and tokens together
-mtgproxy print my-deck.txt --tokens only       # a token sheet on its own
+mtgtoolbox print my-deck.txt                     # deck only (the default)
+mtgtoolbox print my-deck.txt --tokens include    # deck and tokens together
+mtgtoolbox print my-deck.txt --tokens only       # a token sheet on its own
 ```
 
 The default is `exclude`, so adding a section to a deck never changes what an
 existing command prints. The web app's print view has the same three choices.
 
 One caveat worth knowing before you print a sheet of nine: some tokens have only
-one printing and a poor scan of it. `mtgproxy tokens` marks those `[lowres]`,
+one printing and a poor scan of it. `mtgtoolbox tokens` marks those `[lowres]`,
 and there is no better printing to fall back on.
 
 ## Printing preferences
@@ -520,9 +462,9 @@ and there is no better printing to fall back on.
 Choose *which version* of each card gets printed.
 
 ```bash
-mtgproxy print deck.md --prefer-set cmm --full-art
-mtgproxy print deck.md --no-ub --borderless
-mtgproxy prints "Sol Ring" --explain
+mtgtoolbox print deck.md --prefer-set cmm --full-art
+mtgtoolbox print deck.md --no-ub --borderless
+mtgtoolbox prints "Sol Ring" --explain
 ```
 
 | Flag | Effect |
@@ -544,11 +486,11 @@ An explicit `avoid` outranks every positive signal — asking for no Universes B
 printings means it even if that printing wins on every other count, so the penalty has to
 exceed the bonuses rather than merely offset one.
 
-Save profiles in `~/.config/mtgproxy/config.json`:
+Save profiles in `~/.config/mtgtoolbox/config.json`:
 
 ```bash
-mtgproxy prefs init
-mtgproxy prefs show --profile retro
+mtgtoolbox prefs init
+mtgtoolbox prefs show --profile retro
 ```
 
 ```jsonc
@@ -572,7 +514,7 @@ spells — and in a 38-land deck it is most of what you see.
 To always use one exact printing of a card:
 
 ```bash
-mtgproxy pin "Sol Ring" --set soc --number 427
+mtgtoolbox pin "Sol Ring" --set soc --number 427
 ```
 
 Pins are checked against Scryfall when set, so a wrong collector number fails
@@ -600,7 +542,7 @@ dropping an artwork for lacking a high-resolution one:
 ```
 
 Override any of it per run with the flags above, or edit
-`~/.config/mtgproxy/config.json`.
+`~/.config/mtgtoolbox/config.json`.
 
 ### What preferences cost
 
@@ -648,12 +590,12 @@ to waste a sheet.
 
 ## Caching
 
-Card data and images are cached under `~/.cache/mtgproxy` (or `$XDG_CACHE_HOME`), so
+Card data and images are cached under `~/.cache/mtgtoolbox` (or `$XDG_CACHE_HOME`), so
 re-printing a deck needs no network at all.
 
 ```bash
-mtgproxy cache info
-mtgproxy cache clear images
+mtgtoolbox cache info
+mtgtoolbox cache clear images
 ```
 
 Printing lists are cached for a week rather than forever, because new printings appear

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { RetryInfo } from '@mtgproxy/core';
+import type { RetryInfo } from '@mtgtoolbox/core';
 import { subscribeToRetries } from './platform/client.js';
 
 /** How long a notice stays up after the retry that caused it. */

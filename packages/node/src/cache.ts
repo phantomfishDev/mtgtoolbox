@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-import type { BlobCache, CardCache, PrintsCache, ScryfallCard } from '@mtgproxy/core';
+import type { BlobCache, CardCache, PrintsCache, ScryfallCard } from '@mtgtoolbox/core';
 import { cardCacheDir, imageCacheDir, printsCacheDir } from './paths.js';
 
 /**

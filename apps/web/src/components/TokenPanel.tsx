@@ -7,7 +7,7 @@ import {
   readTokenRows,
   type ScryfallCard,
   type TokenRow,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { getClient } from '../platform/client.js';
 import { useApp } from '../state.js';
 import { activeProfile } from '../resolve.js';
@@ -39,7 +39,7 @@ function sameRows(a: readonly TokenRow[], b: readonly TokenRow[]): boolean {
  * A deck's tokens: which ones it makes, and how many of each to print.
  *
  * Counts and art are edited as a draft and saved together, because each save rewrites
- * the decklist (under `mtgproxy serve`) and every click of a stepper would
+ * the decklist (under `mtgtoolbox serve`) and every click of a stepper would
  * otherwise be a file write. A count of 0 is kept rather than deleted, so the
  * next search does not offer the same token again.
  */

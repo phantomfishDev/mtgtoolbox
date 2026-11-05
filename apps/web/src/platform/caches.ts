@@ -1,4 +1,4 @@
-import type { BlobCache, CardCache, PrintsCache, ScryfallCard } from '@mtgproxy/core';
+import type { BlobCache, CardCache, PrintsCache, ScryfallCard } from '@mtgtoolbox/core';
 import { idbGet, idbSet } from './idb.js';
 
 /**

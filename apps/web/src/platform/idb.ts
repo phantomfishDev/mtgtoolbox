@@ -6,6 +6,8 @@
  * the handful of operations the caches need are implemented.
  */
 
+// Still the tool's old name: renaming the database would orphan everything a
+// browser has already stored, pins and preferences included.
 const DB_NAME = 'mtgproxy';
 const DB_VERSION = 1;
 

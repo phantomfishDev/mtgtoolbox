@@ -1,9 +1,9 @@
 {
-  "name": "@mtgproxy/cli",
+  "name": "@mtgtoolbox/cli",
   "version": "0.1.0",
   "type": "module",
   "bin": {
-    "mtgproxy": "./dist/index.js"
+    "mtgtoolbox": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [
@@ -13,8 +13,8 @@
     "build": "tsc --build && node scripts/copy-ui.mjs"
   },
   "dependencies": {
-    "@mtgproxy/core": "workspace:*",
-    "@mtgproxy/node": "workspace:*",
+    "@mtgtoolbox/core": "workspace:*",
+    "@mtgtoolbox/node": "workspace:*",
     "commander": "^12.1.0"
   }
 }

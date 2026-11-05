@@ -14,7 +14,7 @@ import {
   type Config,
   type PreferenceProfile,
   type ResolveResult,
-} from '@mtgproxy/core';
+} from '@mtgtoolbox/core';
 import { getClient } from './platform/client.js';
 import { bundledDeckForText, loadDeckData } from './decks.js';
 import type { Overrides } from './session.js';

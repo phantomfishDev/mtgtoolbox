@@ -1,4 +1,5 @@
 # Name: Big ol Bears
+# Owner: Drew
 # Beorn the Fierce — mono-green Bear typal, built to the top of bracket 2 ("Core").
 #
 # Beorn counts himself, and his combat trigger turns its target into a Bear
