@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-05T02:49:44.769Z",
+  "generatedAt": "2026-11-07T15:03:38.914Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -5053,7 +5053,7 @@
     },
     {
       "id": "rendmaw",
-      "cardCount": 83,
+      "cardCount": 100,
       "colorIdentity": [
         "B",
         "G"
@@ -5075,333 +5075,11 @@
           "typeLine": "Legendary Artifact Creature — Scarecrow"
         },
         {
-          "name": "Junk Diver",
-          "quantity": 1,
-          "set": "mh3",
-          "collectorNumber": "293",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "Foundry Inspector",
-          "quantity": 2,
-          "set": "slz",
-          "collectorNumber": "104",
-          "typeLine": "Artifact Creature — Construct"
-        },
-        {
-          "name": "Adaptive Automaton",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "1109",
-          "typeLine": "Artifact Creature — Construct"
-        },
-        {
-          "name": "Foraging Wickermaw",
-          "quantity": 1,
-          "set": "ecl",
-          "collectorNumber": "256",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Dread Tiller",
-          "quantity": 1,
-          "set": "ecc",
-          "collectorNumber": "20",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Ornithopter of Paradise",
-          "quantity": 1,
-          "set": "fdc",
-          "collectorNumber": "277",
-          "typeLine": "Artifact Creature — Thopter"
-        },
-        {
-          "name": "Ornithopter",
-          "quantity": 1,
-          "set": "slz",
-          "collectorNumber": "109",
-          "typeLine": "Artifact Creature — Thopter"
-        },
-        {
-          "name": "Anvilwrought Raptor",
-          "quantity": 1,
-          "set": "m20",
-          "collectorNumber": "221",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "Arcbound Condor",
-          "quantity": 1,
-          "set": "mh3",
-          "collectorNumber": "81",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "Bladegriff Prototype",
-          "quantity": 1,
-          "set": "otc",
-          "collectorNumber": "253",
-          "typeLine": "Artifact Creature — Griffin"
-        },
-        {
-          "name": "Clockwork Condor",
-          "quantity": 1,
-          "set": "ddf",
-          "collectorNumber": "50",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "One-Eyed Scarecrow",
-          "quantity": 1,
-          "set": "isd",
-          "collectorNumber": "230",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Scarecrow",
-          "quantity": 1,
-          "set": "drk",
-          "collectorNumber": "108",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Lurebound Scarecrow",
-          "quantity": 1,
-          "set": "shm",
-          "collectorNumber": "256",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Scarecrow Guide",
-          "quantity": 1,
-          "set": "woe",
-          "collectorNumber": "250",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Shire Scarecrow",
-          "quantity": 1,
-          "set": "ltr",
-          "collectorNumber": "249",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Signpost Scarecrow",
-          "quantity": 1,
-          "set": "plst",
-          "collectorNumber": "ELD-231",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Wild-Field Scarecrow",
-          "quantity": 1,
-          "set": "inr",
-          "collectorNumber": "274",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Wingrattle Scarecrow",
-          "quantity": 1,
-          "set": "shm",
-          "collectorNumber": "270",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Skyclave Sentinel",
-          "quantity": 1,
-          "set": "znr",
-          "collectorNumber": "253",
-          "typeLine": "Artifact Creature — Gargoyle"
-        },
-        {
-          "name": "Thaumaturge's Familiar",
-          "quantity": 1,
-          "set": "j22",
-          "collectorNumber": "802",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "Oasis Gardener",
-          "quantity": 1,
-          "set": "otj",
-          "collectorNumber": "246",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Myr Sire",
-          "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "400",
-          "typeLine": "Artifact Creature — Phyrexian Myr"
-        },
-        {
-          "name": "Sanctuary Raptor",
-          "quantity": 1,
-          "set": "mh2",
-          "collectorNumber": "233",
-          "typeLine": "Artifact Creature — Bird"
-        },
-        {
-          "name": "Scaretiller",
-          "quantity": 1,
-          "set": "otc",
-          "collectorNumber": "266",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Scrapbasket",
-          "quantity": 1,
-          "set": "shm",
-          "collectorNumber": "262",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Tatterkite",
-          "quantity": 1,
-          "set": "shm",
-          "collectorNumber": "264",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
           "name": "Wickerfolk Thresher",
           "quantity": 1,
           "set": "dsk",
           "collectorNumber": "207",
           "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Wickerfolk Indomitable",
-          "quantity": 1,
-          "set": "dft",
-          "collectorNumber": "109",
-          "typeLine": "Artifact Creature — Scarecrow"
-        },
-        {
-          "name": "Erebos, God of the Dead",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "74",
-          "typeLine": "Legendary Enchantment Creature — God"
-        },
-        {
-          "name": "Wing Storm",
-          "quantity": 1,
-          "set": "pcy",
-          "collectorNumber": "135",
-          "typeLine": "Sorcery"
-        },
-        {
-          "name": "Jet Medallion",
-          "quantity": 1,
-          "set": "mh3",
-          "collectorNumber": "346",
-          "typeLine": "Artifact"
-        },
-        {
-          "name": "Tree of Tales",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "2887",
-          "typeLine": "Artifact Land"
-        },
-        {
-          "name": "Vault of Whispers",
-          "quantity": 2,
-          "set": "sld",
-          "collectorNumber": "2885",
-          "typeLine": "Artifact Land"
-        },
-        {
-          "name": "Darksteel Citadel",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "608",
-          "typeLine": "Artifact Land"
-        },
-        {
-          "name": "Cabal Coffers",
-          "quantity": 1,
-          "set": "mh2",
-          "collectorNumber": "325",
-          "typeLine": "Land"
-        },
-        {
-          "name": "Urborg, Tomb of Yawgmoth",
-          "quantity": 2,
-          "set": "slz",
-          "collectorNumber": "121",
-          "typeLine": "Legendary Land"
-        },
-        {
-          "name": "Westvale Abbey // Ormendahl, Profane Prince",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "1159",
-          "typeLine": "Land"
-        },
-        {
-          "name": "Copper Myr",
-          "quantity": 1,
-          "set": "som",
-          "collectorNumber": "146",
-          "typeLine": "Artifact Creature — Myr"
-        },
-        {
-          "name": "Leaden Myr",
-          "quantity": 1,
-          "set": "som",
-          "collectorNumber": "170",
-          "typeLine": "Artifact Creature — Myr"
-        },
-        {
-          "name": "Palladium Myr",
-          "quantity": 1,
-          "set": "fdc",
-          "collectorNumber": "278",
-          "typeLine": "Artifact Creature — Myr"
-        },
-        {
-          "name": "Plague Myr",
-          "quantity": 1,
-          "set": "onc",
-          "collectorNumber": "139",
-          "typeLine": "Artifact Creature — Phyrexian Myr"
-        },
-        {
-          "name": "Myr Retriever",
-          "quantity": 1,
-          "set": "fdc",
-          "collectorNumber": "274",
-          "typeLine": "Artifact Creature — Myr"
-        },
-        {
-          "name": "Dryad Arbor",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "2281",
-          "typeLine": "Land Creature — Forest Dryad"
-        },
-        {
-          "name": "Massacre Wurm",
-          "quantity": 1,
-          "set": "m21",
-          "collectorNumber": "316",
-          "typeLine": "Creature — Phyrexian Wurm"
-        },
-        {
-          "name": "Lignify",
-          "quantity": 1,
-          "set": "sld",
-          "collectorNumber": "1847",
-          "typeLine": "Kindred Enchantment — Treefolk Aura"
-        },
-        {
-          "name": "Haywire Mite",
-          "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "349",
-          "typeLine": "Artifact Creature — Insect"
         },
         {
           "name": "Solemn Simulacrum",
@@ -5411,18 +5089,81 @@
           "typeLine": "Artifact Creature — Golem"
         },
         {
-          "name": "Whip of Erebos",
+          "name": "Bow of Nylea",
           "quantity": 1,
-          "set": "dsc",
-          "collectorNumber": "159",
+          "set": "plst",
+          "collectorNumber": "THS-153",
           "typeLine": "Legendary Enchantment Artifact"
         },
         {
-          "name": "Enduring Vitality",
+          "name": "Arasta of the Endless Web",
           "quantity": 1,
-          "set": "dsk",
-          "collectorNumber": "176",
-          "typeLine": "Enchantment Creature — Elk Glimmer"
+          "set": "fdc",
+          "collectorNumber": "188",
+          "typeLine": "Legendary Enchantment Creature — Spider"
+        },
+        {
+          "name": "Nightmare Shepherd",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "149",
+          "typeLine": "Enchantment Creature — Demon"
+        },
+        {
+          "name": "Foundry of the Consuls",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "302",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Tree of Tales",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2887",
+          "typeLine": "Artifact Land"
+        },
+        {
+          "name": "Nylea, Keen-Eyed",
+          "quantity": 1,
+          "set": "thb",
+          "collectorNumber": "185",
+          "typeLine": "Legendary Enchantment Creature — God"
+        },
+        {
+          "name": "Power Depot",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "34",
+          "typeLine": "Artifact Land"
+        },
+        {
+          "name": "Consume Strength",
+          "quantity": 1,
+          "set": "ddm",
+          "collectorNumber": "74",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Temple of the False God",
+          "quantity": 1,
+          "set": "slc",
+          "collectorNumber": "20",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Morbid Opportunist",
+          "quantity": 1,
+          "set": "spg",
+          "collectorNumber": "32",
+          "typeLine": "Creature — Human Rogue"
+        },
+        {
+          "name": "Command Tower",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "118",
+          "typeLine": "Land"
         },
         {
           "name": "Dockside Chef",
@@ -5432,74 +5173,81 @@
           "typeLine": "Enchantment Creature — Human Citizen"
         },
         {
-          "name": "Culling Ritual",
+          "name": "Poison-Tip Archer",
           "quantity": 1,
-          "set": "soa",
-          "collectorNumber": "62",
-          "typeLine": "Sorcery"
+          "set": "blc",
+          "collectorNumber": "256",
+          "typeLine": "Creature — Elf Archer"
         },
         {
-          "name": "Pygmy Kavu",
+          "name": "Fog",
           "quantity": 1,
-          "set": "pls",
-          "collectorNumber": "88",
-          "typeLine": "Creature — Kavu"
+          "set": "plst",
+          "collectorNumber": "EMA-167",
+          "typeLine": "Instant"
         },
         {
-          "name": "Noxious Gearhulk",
+          "name": "Eidolon of Blossoms",
           "quantity": 1,
-          "set": "dsc",
-          "collectorNumber": "151",
-          "typeLine": "Artifact Creature — Construct"
+          "set": "woc",
+          "collectorNumber": "124",
+          "typeLine": "Enchantment Creature — Spirit"
         },
         {
-          "name": "Blood Seeker",
+          "name": "Twitching Doll",
           "quantity": 1,
-          "set": "dsc",
-          "collectorNumber": "77",
-          "typeLine": "Creature — Vampire Shaman"
+          "set": "dsk",
+          "collectorNumber": "201",
+          "typeLine": "Artifact Creature — Spider Toy"
         },
         {
-          "name": "Burnished Hart",
+          "name": "Arachnogenesis",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "647",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Springheart Nantuko",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "341",
+          "typeLine": "Enchantment Creature — Insect Monk"
+        },
+        {
+          "name": "Woodland Cemetery",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "424",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Obscuring Haze",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "701",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Emerald Medallion",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "345",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Beastmaster Ascension",
           "quantity": 1,
           "set": "sld",
-          "collectorNumber": "172",
-          "typeLine": "Artifact Creature — Elk"
+          "collectorNumber": "1609",
+          "typeLine": "Enchantment"
         },
         {
-          "name": "Manakin",
+          "name": "Jungle Hollow",
           "quantity": 1,
-          "set": "j22",
-          "collectorNumber": "785",
-          "typeLine": "Artifact Creature — Construct"
-        },
-        {
-          "name": "Blood Artist",
-          "quantity": 1,
-          "set": "2x2",
-          "collectorNumber": "352",
-          "typeLine": "Creature — Vampire"
-        },
-        {
-          "name": "Memnite",
-          "quantity": 1,
-          "set": "plst",
-          "collectorNumber": "SOM-174",
-          "typeLine": "Artifact Creature — Construct"
-        },
-        {
-          "name": "Cryptothrall",
-          "quantity": 1,
-          "set": "40k",
-          "collectorNumber": "155",
-          "typeLine": "Artifact Creature — Construct"
-        },
-        {
-          "name": "Reap",
-          "quantity": 1,
-          "set": "plst",
-          "collectorNumber": "TMP-247",
-          "typeLine": "Instant"
+          "set": "dft",
+          "collectorNumber": "256",
+          "typeLine": "Land"
         },
         {
           "name": "Putrefy",
@@ -5507,20 +5255,6 @@
           "set": "sta",
           "collectorNumber": "63",
           "typeLine": "Instant"
-        },
-        {
-          "name": "Treasure Vault",
-          "quantity": 1,
-          "set": "drc",
-          "collectorNumber": "180",
-          "typeLine": "Artifact Land"
-        },
-        {
-          "name": "Bojuka Bog",
-          "quantity": 1,
-          "set": "fdc",
-          "collectorNumber": "296",
-          "typeLine": "Land"
         },
         {
           "name": "Reliquary Tower",
@@ -5537,32 +5271,214 @@
           "typeLine": "Artifact Land"
         },
         {
-          "name": "Command Tower",
+          "name": "Foundry Inspector",
           "quantity": 1,
           "set": "slz",
-          "collectorNumber": "118",
-          "typeLine": "Land"
+          "collectorNumber": "104",
+          "typeLine": "Artifact Creature — Construct"
         },
         {
-          "name": "Woodland Cemetery",
+          "name": "Sanctum Weaver",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "424",
-          "typeLine": "Land"
+          "set": "plst",
+          "collectorNumber": "MH2-171",
+          "typeLine": "Enchantment Creature — Dryad"
         },
         {
-          "name": "Tainted Wood",
+          "name": "Arcane Signet",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "820",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Return of the Wildspeaker",
+          "quantity": 1,
+          "set": "ecc",
+          "collectorNumber": "115",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Renata, Called to the Hunt",
+          "quantity": 1,
+          "set": "mul",
+          "collectorNumber": "28",
+          "typeLine": "Legendary Enchantment Creature — Demigod"
+        },
+        {
+          "name": "Swiftfoot Boots",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "355",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Essence Warden",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "CMA-106",
+          "typeLine": "Creature — Elf Shaman"
+        },
+        {
+          "name": "Memnite",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "SOM-174",
+          "typeLine": "Artifact Creature — Construct"
+        },
+        {
+          "name": "Demolisher Spawn",
           "quantity": 1,
           "set": "dsc",
-          "collectorNumber": "305",
+          "collectorNumber": "31",
+          "typeLine": "Enchantment Creature — Horror"
+        },
+        {
+          "name": "Windstorm",
+          "quantity": 1,
+          "set": "gvl",
+          "collectorNumber": "25",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Ohran Frostfang",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "650",
+          "typeLine": "Snow Creature — Snake"
+        },
+        {
+          "name": "Destiny Spinner",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "THB-168",
+          "typeLine": "Enchantment Creature — Human"
+        },
+        {
+          "name": "Noxious Gearhulk",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "151",
+          "typeLine": "Artifact Creature — Construct"
+        },
+        {
+          "name": "Treasure Vault",
+          "quantity": 1,
+          "set": "drc",
+          "collectorNumber": "180",
+          "typeLine": "Artifact Land"
+        },
+        {
+          "name": "Enduring Vitality",
+          "quantity": 1,
+          "set": "dsk",
+          "collectorNumber": "176",
+          "typeLine": "Enchantment Creature — Elk Glimmer"
+        },
+        {
+          "name": "Massacre Wurm",
+          "quantity": 1,
+          "set": "m21",
+          "collectorNumber": "316",
+          "typeLine": "Creature — Phyrexian Wurm"
+        },
+        {
+          "name": "Blood Artist",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "352",
+          "typeLine": "Creature — Vampire"
+        },
+        {
+          "name": "Blunt the Assault",
+          "quantity": 1,
+          "set": "som",
+          "collectorNumber": "113",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Brass Gnat",
+          "quantity": 1,
+          "set": "tsp",
+          "collectorNumber": "249",
+          "typeLine": "Artifact Creature — Insect"
+        },
+        {
+          "name": "Sol Ring",
+          "quantity": 1,
+          "set": "slc",
+          "collectorNumber": "19",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Exotic Orchard",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1231",
           "typeLine": "Land"
         },
         {
-          "name": "Twilight Mire",
+          "name": "Grismold, the Dreadsower",
+          "quantity": 1,
+          "set": "c19",
+          "collectorNumber": "44",
+          "typeLine": "Legendary Creature — Troll Shaman"
+        },
+        {
+          "name": "Grim Backwoods",
           "quantity": 1,
           "set": "soc",
-          "collectorNumber": "418",
+          "collectorNumber": "377",
           "typeLine": "Land"
+        },
+        {
+          "name": "Syr Konrad, the Grim",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1297",
+          "typeLine": "Legendary Creature — Human Knight"
+        },
+        {
+          "name": "Assassin's Trophy",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "139",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Lignify",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1847",
+          "typeLine": "Kindred Enchantment — Treefolk Aura"
+        },
+        {
+          "name": "Ezuri's Predation",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "203",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Palladium Myr",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "278",
+          "typeLine": "Artifact Creature — Myr"
+        },
+        {
+          "name": "Ornithopter of Paradise",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "277",
+          "typeLine": "Artifact Creature — Thopter"
+        },
+        {
+          "name": "Hovermyr",
+          "quantity": 1,
+          "set": "nph",
+          "collectorNumber": "138",
+          "typeLine": "Artifact Creature — Myr"
         },
         {
           "name": "Golgari Rot Farm",
@@ -5579,32 +5495,53 @@
           "typeLine": "Land"
         },
         {
-          "name": "Deathcap Glade",
+          "name": "March of the World Ooze",
           "quantity": 1,
-          "set": "sos",
-          "collectorNumber": "301",
-          "typeLine": "Land"
+          "set": "dft",
+          "collectorNumber": "402",
+          "typeLine": "Enchantment"
         },
         {
-          "name": "Temple of Malady",
+          "name": "Black Market",
           "quantity": 1,
-          "set": "soc",
-          "collectorNumber": "413",
-          "typeLine": "Land"
+          "set": "sld",
+          "collectorNumber": "1577",
+          "typeLine": "Enchantment"
         },
         {
-          "name": "Underground Mortuary",
+          "name": "Shigeki, Jukai Visionary",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "198",
+          "typeLine": "Legendary Enchantment Creature — Snake Druid"
+        },
+        {
+          "name": "Reanimate",
+          "quantity": 1,
+          "set": "otp",
+          "collectorNumber": "18",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Moldervine Reclamation",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1716",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Scene of the Crime",
           "quantity": 1,
           "set": "mkm",
-          "collectorNumber": "333",
-          "typeLine": "Land — Swamp Forest"
+          "collectorNumber": "267",
+          "typeLine": "Artifact Land — Clue"
         },
         {
-          "name": "Primal Vigor",
+          "name": "Golgari Guildgate",
           "quantity": 1,
-          "set": "wot",
-          "collectorNumber": "59",
-          "typeLine": "Enchantment"
+          "set": "plst",
+          "collectorNumber": "GRN-248",
+          "typeLine": "Land — Gate"
         },
         {
           "name": "The Meathook Massacre",
@@ -5614,18 +5551,172 @@
           "typeLine": "Legendary Enchantment"
         },
         {
-          "name": "Raking Canopy",
+          "name": "Wastewood Verge",
           "quantity": 1,
-          "set": "shm",
-          "collectorNumber": "127",
+          "set": "dft",
+          "collectorNumber": "374",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel",
+          "quantity": 1,
+          "set": "fin",
+          "collectorNumber": "317",
+          "typeLine": "Legendary Creature — Human Avatar Soldier"
+        },
+        {
+          "name": "Culling Ritual",
+          "quantity": 1,
+          "set": "soa",
+          "collectorNumber": "62",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Dryad Arbor",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2281",
+          "typeLine": "Land Creature — Forest Dryad"
+        },
+        {
+          "name": "Bojuka Bog",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "296",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Insidious Roots",
+          "quantity": 1,
+          "set": "mkm",
+          "collectorNumber": "208",
           "typeLine": "Enchantment"
         },
         {
-          "name": "Revenge of Ravens",
+          "name": "Rusted Slasher",
+          "quantity": 1,
+          "set": "mbs",
+          "collectorNumber": "128",
+          "typeLine": "Artifact Creature — Phyrexian Horror"
+        },
+        {
+          "name": "Unnatural Restoration",
+          "quantity": 1,
+          "set": "one",
+          "collectorNumber": "191",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Blood Seeker",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "77",
+          "typeLine": "Creature — Vampire Shaman"
+        },
+        {
+          "name": "Valgavoth's Lair",
+          "quantity": 1,
+          "set": "dsk",
+          "collectorNumber": "271",
+          "typeLine": "Enchantment Land"
+        },
+        {
+          "name": "Darksteel Citadel",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "608",
+          "typeLine": "Artifact Land"
+        },
+        {
+          "name": "Twilight Mire",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "418",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Primal Vigor",
+          "quantity": 1,
+          "set": "wot",
+          "collectorNumber": "59",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Cultivate",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "74",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Whip of Erebos",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "159",
+          "typeLine": "Legendary Enchantment Artifact"
+        },
+        {
+          "name": "Haywire Mite",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "349",
+          "typeLine": "Artifact Creature — Insect"
+        },
+        {
+          "name": "Erebos, Bleak-Hearted",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "868",
+          "typeLine": "Legendary Enchantment Creature — God"
+        },
+        {
+          "name": "Harrow",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2016",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Deathreap Ritual",
           "quantity": 1,
           "set": "plst",
-          "collectorNumber": "ELD-104",
+          "collectorNumber": "DSC-86",
           "typeLine": "Enchantment"
+        },
+        {
+          "name": "Tainted Wood",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "305",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Vault of Whispers",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2885",
+          "typeLine": "Artifact Land"
+        },
+        {
+          "name": "Reclaim",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "ORI-195",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Forest",
+          "quantity": 6,
+          "set": "fra",
+          "collectorNumber": "394",
+          "typeLine": "Basic Land — Forest"
+        },
+        {
+          "name": "Swamp",
+          "quantity": 3,
+          "set": "fra",
+          "collectorNumber": "388",
+          "typeLine": "Basic Land — Swamp"
         }
       ]
     },

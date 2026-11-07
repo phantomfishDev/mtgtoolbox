@@ -6,91 +6,108 @@
 1 Rendmaw, Creaking Nest
 
 Deck
-Junk Diver
-Foundry Inspector
-Adaptive Automaton
-Foraging Wickermaw
-Dread Tiller
-Ornithopter of Paradise
-Ornithopter
-Anvilwrought Raptor
-Arcbound Condor
-Bladegriff Prototype
-Clockwork Condor
-One-Eyed Scarecrow
-Scarecrow
-Lurebound Scarecrow
-Scarecrow Guide
-Shire Scarecrow
-Signpost Scarecrow
-Wild-Field Scarecrow
-Wingrattle Scarecrow
-Skyclave Sentinel
-Thaumaturge's Familiar
-Oasis Gardener
-Myr Sire
-Sanctuary Raptor
-Scaretiller
-Scrapbasket
-Tatterkite
 Wickerfolk Thresher
-Wickerfolk Indomitable
-Erebos, God of the Dead
-Wing Storm
-Jet Medallion
-Tree of Tales
-Vault of Whispers
-Darksteel Citadel
-Cabal Coffers
-Urborg, Tomb of Yawgmoth
-Vault of Whispers
-Westvale Abbey
-Copper Myr
-Leaden Myr
-Palladium Myr
-Plague Myr
-Myr Retriever
-Dryad Arbor
-Massacre Wurm
-Lignify
-Haywire Mite
 Solemn Simulacrum
-Whip of Erebos
-Enduring Vitality
-Dockside Chef
-Culling Ritual
-Pygmy Kavu
-Noxious Gearhulk
-Foundry Inspector
-Blood Seeker
-Burnished Hart
-Manakin
-Blood Artist
-Memnite
-Cryptothrall
-Reap
-Putrefy
-Treasure Vault
-Bojuka Bog
-Reliquary Tower
-Urborg, Tomb of Yawgmoth
-Darkmoss Bridge
+Bow of Nylea
+Arasta of the Endless Web
+Nightmare Shepherd
+Foundry of the Consuls
+Tree of Tales
+Nylea, Keen-Eyed
+Power Depot
+Consume Strength
+Temple of the False God
+Morbid Opportunist
 Command Tower
+Dockside Chef
+Poison-Tip Archer
+Fog
+Eidolon of Blossoms
+Twitching Doll
+Arachnogenesis
+Springheart Nantuko
 Woodland Cemetery
-Tainted Wood
-Twilight Mire
+Obscuring Haze
+Emerald Medallion
+Beastmaster Ascension
+Jungle Hollow
+Putrefy
+Reliquary Tower
+Darkmoss Bridge
+Foundry Inspector
+Sanctum Weaver
+Arcane Signet
+Return of the Wildspeaker
+Renata, Called to the Hunt
+Swiftfoot Boots
+Essence Warden
+Memnite
+Demolisher Spawn
+Windstorm
+Ohran Frostfang
+Destiny Spinner
+Noxious Gearhulk
+Treasure Vault
+Enduring Vitality
+Massacre Wurm
+Blood Artist
+Blunt the Assault
+Brass Gnat
+Sol Ring
+Exotic Orchard
+Grismold, the Dreadsower
+Grim Backwoods
+Syr Konrad, the Grim
+Assassin's Trophy
+Lignify
+Ezuri's Predation
+Palladium Myr
+Ornithopter of Paradise
+Hovermyr
 Golgari Rot Farm
 Viridescent Bog
-Deathcap Glade
-Temple of Malady
-Underground Mortuary
-Primal Vigor
+March of the World Ooze
+Black Market
+Shigeki, Jukai Visionary
+Reanimate
+Moldervine Reclamation
+Scene of the Crime
+Golgari Guildgate
 The Meathook Massacre
-Raking Canopy
-Revenge of Ravens
+Wastewood Verge
+Sephiroth, Fabled SOLDIER
+Culling Ritual
+Dryad Arbor
+Bojuka Bog
+Insidious Roots
+Rusted Slasher
+Unnatural Restoration
+Blood Seeker
+Valgavoth's Lair
+Darksteel Citadel
+Twilight Mire
+Primal Vigor
+Cultivate
+Whip of Erebos
+Haywire Mite
+Erebos, Bleak-Hearted
+Harrow
+Deathreap Ritual
+Tainted Wood
+Vault of Whispers
+Reclaim
+6 Forest
+3 Swamp
 
 Tokens
 4 Treasure (TDFT) 11
 2 Bird (TDSC) 5
-2 Human Cleric (TINR) 19
-2 Phyrexian Myr (TCMM) 44
+4 Copy (TDSK) 1
+4 Elephant (TDFT) 6
+4 Insect (TMH3) 25
+4 Phyrexian Beast (TFDC) 11
+4 Plant (TC19) 17
+4 Plant (TMKM) 9
+4 Spider (TFDC) 12
+4 Spider (TDSK) 12
+4 Thopter (TFDC) 15
