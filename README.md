@@ -226,37 +226,25 @@ picker is not rendered at all, so there is no path to a write left to take.
 `VITE_SHOWCASE_TITLE` names the page — it defaults to "The Deck Shelf", since the
 project's own name describes how it is built rather than what is being shared.
 
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml) already builds and
-publishes on every push to `main`. It needs turning on once:
-
-> **Settings → Pages → Build and deployment → Source: GitHub Actions**
-
-The site then appears at `https://<user>.github.io/mtgproxy/`, and the workflow can also
-be run by hand from the Actions tab.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds and publishes on
+every push to `main`. Pages is already switched on for this repository, with its source
+set to GitHub Actions, so there is nothing to set up: the site is live at
+<https://phantomfishdev.github.io/mtgtoolbox/> and the workflow can also be run by hand
+from the Actions tab.
 
 ### What it costs
 
-Nothing, if the repository is public — Pages and Actions are both free there.
+Nothing. This repository is public, and Pages and Actions are both free there —
+standard runners on public repositories do not draw from the account's compute
+allowance at all.
 
-The catch is that this repository is **private**, and on the Free plan Pages only
-publishes from public repositories. That leaves two options:
-
-| | Cost | |
-|---|---|---|
-| Make the repository public | free | Pages and Actions are free for public repos |
-| Keep it private, pay for a plan | from $4/month | Pages from a private repo needs Pro, Team or Enterprise |
-
-Worth knowing before choosing: **the published site is public either way.** A paid plan
-keeps the *source* private, not the site — restricting who can view a Pages site is an
-Enterprise Cloud feature. Since the deck list is the thing being shared with friends,
-the only question is whether the code stays private too.
-
-There is nothing in here that needs to be: no secrets — it is already MIT licensed,
-and your preferences live in the browser or `~/.config`, never in the repo.
-
-Actions is free on public repositories. On a private one this workflow draws from the
-plan's monthly compute allowance ($12 on Free, $18 on Pro), at a couple of minutes a
-push against roughly $0.006 a minute — a rounding error either way.
+It is worth knowing why public is the choice that costs nothing. On the Free plan Pages
+publishes only from public repositories; publishing from a private one needs Pro, Team
+or Enterprise, from $4/month. But a paid plan would keep the *source* private, not the
+site — restricting who can view a Pages site is an Enterprise Cloud feature, so the
+published page is public either way. Paying would have bought privacy for the code
+alone, and there is nothing in here that needs it: no secrets, MIT licensed already,
+and preferences live in the browser or `~/.config`, never in the repo.
 
 ## Building a deck with an agent
 
