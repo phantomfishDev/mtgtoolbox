@@ -143,7 +143,7 @@ Commander
 
 Deck
 1 Sol Ring (CMM) 703
-1 Mind Stone
+1 Mind Stone (CMM) 961
 1 Thought Vessel (LCC) 118
 1 Everflowing Chalice
 1 Worn Powerstone
@@ -175,7 +175,7 @@ Deck
 1 Ulamog's Dreadsire
 1 Desolation Twin
 1 Kozilek, the Great Distortion
-1 Blight Herder
+1 Blight Herder (BFZ) 2
 1 Ulamog's Despoiler
 1 Ruin Processor
 1 Thought-Knot Seer

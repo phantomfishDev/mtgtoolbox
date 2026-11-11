@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "ulamog",
-  "generatedAt": "2026-11-11T18:45:18.134Z",
+  "generatedAt": "2026-11-11T18:52:19.689Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -252,44 +252,6 @@
         "png": "https://cards.scryfall.io/png/front/1/7/1718ebac-641f-4115-bb13-d58732cf3464.png?1789753318",
         "large": "https://cards.scryfall.io/large/front/1/7/1718ebac-641f-4115-bb13-d58732cf3464.jpg?1789753318",
         "normal": "https://cards.scryfall.io/normal/front/1/7/1718ebac-641f-4115-bb13-d58732cf3464.jpg?1789753318"
-      }
-    },
-    {
-      "id": "1b87c785-d06d-4965-8637-0444ee7fea90",
-      "oracle_id": "3159d289-b822-4657-919a-d712623e622e",
-      "name": "Blight Herder",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2015-10-02",
-      "set": "pbfz",
-      "set_name": "Battle for Zendikar Promos",
-      "set_type": "promo",
-      "collector_number": "2",
-      "rarity": "rare",
-      "type_line": "Creature — Eldrazi Processor",
-      "cmc": 5,
-      "color_identity": [],
-      "mana_cost": "{5}",
-      "oracle_text": "When you cast this spell, you may put two cards your opponents own from exile into their owners' graveyards. If you do, create three 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\"",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": true,
-      "promo_types": [
-        "setpromo",
-        "datestamped",
-        "release"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "9e90e1b5-60fe-492f-9d8b-86753b37d011",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/b/1b87c785-d06d-4965-8637-0444ee7fea90.png?1783938153",
-        "large": "https://cards.scryfall.io/large/front/1/b/1b87c785-d06d-4965-8637-0444ee7fea90.jpg?1783938153",
-        "normal": "https://cards.scryfall.io/normal/front/1/b/1b87c785-d06d-4965-8637-0444ee7fea90.jpg?1783938153"
       }
     },
     {
@@ -968,6 +930,39 @@
         "png": "https://cards.scryfall.io/png/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.png?1783911342",
         "large": "https://cards.scryfall.io/large/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.jpg?1783911342",
         "normal": "https://cards.scryfall.io/normal/front/4/5/45794583-7f65-48e4-8d91-b2f8994c4215.jpg?1783911342"
+      }
+    },
+    {
+      "id": "478c3a74-ff78-4041-8137-93356d370ece",
+      "oracle_id": "3159d289-b822-4657-919a-d712623e622e",
+      "name": "Blight Herder",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2015-10-02",
+      "set": "bfz",
+      "set_name": "Battle for Zendikar",
+      "set_type": "expansion",
+      "collector_number": "2",
+      "rarity": "rare",
+      "type_line": "Creature — Eldrazi Processor",
+      "cmc": 5,
+      "color_identity": [],
+      "mana_cost": "{5}",
+      "oracle_text": "When you cast this spell, you may put two cards your opponents own from exile into their owners' graveyards. If you do, create three 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "f488832f-3d52-42f4-87fb-a0a7e10a8378",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/4/7/478c3a74-ff78-4041-8137-93356d370ece.png?1783938225",
+        "large": "https://cards.scryfall.io/large/front/4/7/478c3a74-ff78-4041-8137-93356d370ece.jpg?1783938225",
+        "normal": "https://cards.scryfall.io/normal/front/4/7/478c3a74-ff78-4041-8137-93356d370ece.jpg?1783938225"
       }
     },
     {
@@ -2146,6 +2141,39 @@
       }
     },
     {
+      "id": "aeaf1f56-de96-480a-a0c4-0a06d4daf149",
+      "oracle_id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
+      "name": "Mind Stone",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2023-08-04",
+      "set": "cmm",
+      "set_name": "Commander Masters",
+      "set_type": "masters",
+      "collector_number": "961",
+      "rarity": "common",
+      "type_line": "Artifact",
+      "cmc": 2,
+      "color_identity": [],
+      "mana_cost": "{2}",
+      "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "12a6cfae-ed70-4406-97d3-9366fc138254",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/a/e/aeaf1f56-de96-480a-a0c4-0a06d4daf149.png?1783915403",
+        "large": "https://cards.scryfall.io/large/front/a/e/aeaf1f56-de96-480a-a0c4-0a06d4daf149.jpg?1783915403",
+        "normal": "https://cards.scryfall.io/normal/front/a/e/aeaf1f56-de96-480a-a0c4-0a06d4daf149.jpg?1783915403"
+      }
+    },
+    {
       "id": "b005223d-aa57-4238-8c25-290141851177",
       "oracle_id": "1b5e6560-ff2e-4475-96cb-63f64c8a86db",
       "name": "Soul-Guide Lantern",
@@ -2209,39 +2237,6 @@
         "png": "https://cards.scryfall.io/png/front/b/2/b2593c45-585f-4eaf-bb08-e91a4fc2d425.png?1789753455",
         "large": "https://cards.scryfall.io/large/front/b/2/b2593c45-585f-4eaf-bb08-e91a4fc2d425.jpg?1789753455",
         "normal": "https://cards.scryfall.io/normal/front/b/2/b2593c45-585f-4eaf-bb08-e91a4fc2d425.jpg?1789753455"
-      }
-    },
-    {
-      "id": "b30a8f92-ce42-4b27-a893-bcf97fde228d",
-      "oracle_id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
-      "name": "Mind Stone",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2026-10-19",
-      "set": "mbc",
-      "set_name": "Mystery Booster Commander Edition",
-      "set_type": "draft_innovation",
-      "collector_number": "76",
-      "rarity": "uncommon",
-      "type_line": "Artifact",
-      "cmc": 2,
-      "color_identity": [],
-      "mana_cost": "{2}",
-      "oracle_text": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "future",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "12a6cfae-ed70-4406-97d3-9366fc138254",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/b/3/b30a8f92-ce42-4b27-a893-bcf97fde228d.png?1785759375",
-        "large": "https://cards.scryfall.io/large/front/b/3/b30a8f92-ce42-4b27-a893-bcf97fde228d.jpg?1785759375",
-        "normal": "https://cards.scryfall.io/normal/front/b/3/b30a8f92-ce42-4b27-a893-bcf97fde228d.jpg?1785759375"
       }
     },
     {
@@ -3237,7 +3232,7 @@
     "altar of the brood|ktk|216": "8d59d264-87ee-4305-bffb-110549331a82",
     "basalt monolith": "ff27694e-0381-4ac9-ba20-d631d468f275",
     "blast zone": "75a02940-4930-4cd6-ba20-a88efd6e82ce",
-    "blight herder": "1b87c785-d06d-4965-8637-0444ee7fea90",
+    "blight herder|bfz|2": "478c3a74-ff78-4041-8137-93356d370ece",
     "buried ruin": "1e57d7ee-78d8-4e02-b3a8-a4b16ec0cdaf",
     "burnished hart|fdn|250": "65ebbff0-fbe6-4310-a33f-e00bb2534979",
     "cloudpost": "5355eecf-c03e-406c-9e7d-70e73dcd7510",
@@ -3270,7 +3265,7 @@
     "mazemind tome": "fbae0603-fdc3-488a-8917-08edf0884e1d",
     "meteor golem|cmm|399": "cd7af704-a770-4f90-8fe8-a45457785a35",
     "mikokoro, center of the sea|dmc|217": "d80eb098-5433-4b1e-aad5-0fd31bf598dd",
-    "mind stone": "b30a8f92-ce42-4b27-a893-bcf97fde228d",
+    "mind stone|cmm|961": "aeaf1f56-de96-480a-a0c4-0a06d4daf149",
     "mind's eye": "b3390599-8fa6-4962-b762-f558a75945cc",
     "mindcrank|clb|866": "8858a941-8175-476d-8177-2db4ffdcb3ad",
     "mystic forge": "375e6985-e212-4bd0-b06c-0ca7dc1f68e6",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11T18:45:18.731Z",
+  "generatedAt": "2026-11-11T18:52:20.063Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -6976,8 +6976,8 @@
         {
           "name": "Mind Stone",
           "quantity": 1,
-          "set": "mbc",
-          "collectorNumber": "76",
+          "set": "cmm",
+          "collectorNumber": "961",
           "typeLine": "Artifact"
         },
         {
@@ -7200,7 +7200,7 @@
         {
           "name": "Blight Herder",
           "quantity": 1,
-          "set": "pbfz",
+          "set": "bfz",
           "collectorNumber": "2",
           "typeLine": "Creature — Eldrazi Processor"
         },
