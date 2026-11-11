@@ -15,7 +15,7 @@
 #    colorless permanent or spell triggers twice, and every card in this deck
 #    is colorless. Ulamog's attack becomes FORTY cards. His cast trigger
 #    exiles FOUR permanents. Mindcrank mills double, Altar of the Brood mills
-#    double, Kozilek draws eight. It also copies every colorless spell you
+#    double, Oblivion Sower exiles eight. It also copies every colorless spell you
 #    cast, so Skittering Invasion makes ten Spawn.
 #
 # 3. Twenty cards hits ONE player. Four-player library-out is ~240 cards, so
@@ -44,8 +44,12 @@
 #                           clock in the deck.
 #   Mindcrank ............. 10 damage from Ulamog is 10 more cards. Every
 #                           Fleshraker ping is a card. Doubled by Echoes.
-#   Brotherhood Regalia ... ward 2 and unblockable for an equip of {1} on a
-#                           legend. Ulamog's best friend.
+#   Strionic Resonator .... {2}: copy Ulamog's attack trigger. Twenty more
+#                           cards for two mana, every turn. Copy the cast
+#                           trigger instead and exile two more permanents.
+#   Lithoform Engine ...... a second Resonator: {2} copies any triggered
+#                           ability, so the Defiler's half-library cast
+#                           trigger can hit a second opponent.
 #
 # A tier
 #   Ulamog, the Defiler ... exiles HALF a library on cast, then grows off the
@@ -88,14 +92,14 @@
 #   Turns 1-3   Rocks, Fleshraker, Altar of the Brood, Mindcrank. Thought-Knot
 #               Seer on four exiles their best card — processor fuel.
 #   Turns 5-6   Ulamog. Exile their two best permanents on cast. Equip
-#               Regalia or Greaves and swing at the player with the SMALLEST
+#               Prowler's Helm or Greaves and swing at the player with the SMALLEST
 #               library, not the biggest threat: one player decked is one
 #               player gone.
 #   Turns 7+    Echoes, Helm of the Host, processors. Each turn Ulamog and his
 #               copies split across players. Altar of Dementia and Sands of
 #               Delirium finish whoever is at single digits.
 #   The rest    Opponents with eighty-card libraries take four Ulamog hits.
-#               Annihilator from the Defiler and It That Betrays, and simple
+#               Annihilator from the Defiler, Void Winnower, and simple
 #               10/10 beats, close out the last player when exile is slower.
 #
 #   The weakness: Ulamog is the clock. Exile removal and tuck answer him for
@@ -158,6 +162,8 @@ Deck
 1 Idol of False Gods
 1 Skullclamp (BLC) 283
 1 Echoes of Eternity
+1 Strionic Resonator
+1 Lithoform Engine
 1 Mindcrank (CLB) 866
 1 Altar of Dementia
 1 Altar of the Brood (KTK) 216
@@ -166,11 +172,9 @@ Deck
 1 Sands of Delirium
 1 Ulamog, the Defiler
 1 Oblivion Sower
-1 Bane of Bala Ged
 1 Ulamog's Dreadsire
 1 Desolation Twin
 1 Kozilek, the Great Distortion
-1 Kozilek, Butcher of Truth
 1 Blight Herder
 1 Ulamog's Despoiler
 1 Ruin Processor
@@ -178,28 +182,28 @@ Deck
 1 Matter Reshaper (CMM) 806
 1 Reality Smasher (OGW) 7
 1 Conduit of Ruin
-1 It That Betrays (CMM) 805
 1 Void Winnower (BFZ) 17
 1 Portal to Phyrexia
 1 Lightning Greaves (SOC) 350
 1 Swiftfoot Boots
-1 Brotherhood Regalia
 1 Whispersilk Cloak
+1 Prowler's Helm
 1 Not of This World
 1 Eldritch Immunity
 1 All Is Dust (FDC) 9
 1 Ugin, the Spirit Dragon
-1 Karn Liberated
 1 Ugin, the Ineffable (M3C) 160
 1 Spatial Contortion
 1 Warping Wail
 1 Kozilek's Command
+1 Scour from Existence
 1 Meteor Golem (CMM) 399
 1 Duplicant
 1 Mind's Eye
 1 Endbringer
-1 Sandstone Oracle
 1 Mystic Forge
+1 Endless Atlas
+1 Mazemind Tome
 1 Soul-Guide Lantern (FDC) 287
 1 Eldrazi Temple
 1 Eye of Ugin
@@ -220,7 +224,8 @@ Deck
 1 Blast Zone
 1 Sea Gate Wreckage
 1 Reliquary Tower (SOC) 398
-17 Wastes
+9 Wastes (OGW) 183
+8 Wastes (OGW) 184
 
 Tokens
 2 Copy (TBLC) 1

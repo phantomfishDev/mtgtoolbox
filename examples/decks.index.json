@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-10T21:06:18.174Z",
+  "generatedAt": "2026-11-11T18:45:18.731Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -7107,6 +7107,20 @@
           "typeLine": "Kindred Enchantment — Eldrazi"
         },
         {
+          "name": "Strionic Resonator",
+          "quantity": 1,
+          "set": "lcc",
+          "collectorNumber": "116",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Lithoform Engine",
+          "quantity": 1,
+          "set": "brc",
+          "collectorNumber": "146",
+          "typeLine": "Legendary Artifact"
+        },
+        {
           "name": "Mindcrank",
           "quantity": 1,
           "set": "clb",
@@ -7163,13 +7177,6 @@
           "typeLine": "Creature — Eldrazi"
         },
         {
-          "name": "Bane of Bala Ged",
-          "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "802",
-          "typeLine": "Creature — Eldrazi"
-        },
-        {
           "name": "Ulamog's Dreadsire",
           "quantity": 1,
           "set": "m3c",
@@ -7188,13 +7195,6 @@
           "quantity": 1,
           "set": "cmm",
           "collectorNumber": "668",
-          "typeLine": "Legendary Creature — Eldrazi"
-        },
-        {
-          "name": "Kozilek, Butcher of Truth",
-          "quantity": 1,
-          "set": "2x2",
-          "collectorNumber": "336",
           "typeLine": "Legendary Creature — Eldrazi"
         },
         {
@@ -7247,13 +7247,6 @@
           "typeLine": "Creature — Eldrazi"
         },
         {
-          "name": "It That Betrays",
-          "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "805",
-          "typeLine": "Creature — Eldrazi"
-        },
-        {
           "name": "Void Winnower",
           "quantity": 1,
           "set": "bfz",
@@ -7282,17 +7275,17 @@
           "typeLine": "Artifact — Equipment"
         },
         {
-          "name": "Brotherhood Regalia",
-          "quantity": 1,
-          "set": "acr",
-          "collectorNumber": "71",
-          "typeLine": "Artifact — Equipment"
-        },
-        {
           "name": "Whispersilk Cloak",
           "quantity": 1,
           "set": "lcc",
           "collectorNumber": "119",
+          "typeLine": "Artifact — Equipment"
+        },
+        {
+          "name": "Prowler's Helm",
+          "quantity": 1,
+          "set": "ths",
+          "collectorNumber": "219",
           "typeLine": "Artifact — Equipment"
         },
         {
@@ -7324,13 +7317,6 @@
           "typeLine": "Legendary Planeswalker — Ugin"
         },
         {
-          "name": "Karn Liberated",
-          "quantity": 1,
-          "set": "slp",
-          "collectorNumber": "36",
-          "typeLine": "Legendary Planeswalker — Karn"
-        },
-        {
           "name": "Ugin, the Ineffable",
           "quantity": 1,
           "set": "m3c",
@@ -7357,6 +7343,13 @@
           "set": "pmh3",
           "collectorNumber": "11p",
           "typeLine": "Kindred Instant — Eldrazi"
+        },
+        {
+          "name": "Scour from Existence",
+          "quantity": 1,
+          "set": "bfz",
+          "collectorNumber": "13",
+          "typeLine": "Instant"
         },
         {
           "name": "Meteor Golem",
@@ -7387,18 +7380,25 @@
           "typeLine": "Creature — Eldrazi"
         },
         {
-          "name": "Sandstone Oracle",
-          "quantity": 1,
-          "set": "cmm",
-          "collectorNumber": "406",
-          "typeLine": "Artifact Creature — Sphinx"
-        },
-        {
           "name": "Mystic Forge",
           "quantity": 1,
           "set": "m3c",
           "collectorNumber": "302",
           "typeLine": "Artifact"
+        },
+        {
+          "name": "Endless Atlas",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "256",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Mazemind Tome",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "268",
+          "typeLine": "Artifact — Book"
         },
         {
           "name": "Soul-Guide Lantern",
@@ -7542,9 +7542,16 @@
         },
         {
           "name": "Wastes",
-          "quantity": 17,
-          "set": "plg25",
-          "collectorNumber": "2",
+          "quantity": 9,
+          "set": "ogw",
+          "collectorNumber": "183",
+          "typeLine": "Basic Land"
+        },
+        {
+          "name": "Wastes",
+          "quantity": 8,
+          "set": "ogw",
+          "collectorNumber": "184",
           "typeLine": "Basic Land"
         }
       ]
