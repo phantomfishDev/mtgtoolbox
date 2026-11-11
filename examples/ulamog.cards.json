@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "ulamog",
-  "generatedAt": "2026-11-11T18:52:19.689Z",
+  "generatedAt": "2026-11-11T18:53:54.268Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -3040,6 +3040,39 @@
       }
     },
     {
+      "id": "f79de5e7-1545-420c-bfe1-ee2444fca85b",
+      "oracle_id": "6b8cf2a0-b045-4d91-9d91-c602d40c6237",
+      "name": "Basalt Monolith",
+      "lang": "en",
+      "layout": "normal",
+      "released_at": "2020-08-07",
+      "set": "2xm",
+      "set_name": "Double Masters",
+      "set_type": "masters",
+      "collector_number": "232",
+      "rarity": "uncommon",
+      "type_line": "Artifact",
+      "cmc": 3,
+      "color_identity": [],
+      "mana_cost": "{3}",
+      "oracle_text": "This artifact doesn't untap during your untap step.\n{T}: Add {C}{C}{C}.\n{3}: Untap this artifact.",
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "digital": false,
+      "image_status": "highres_scan",
+      "illustration_id": "b9bc1fae-f946-418b-a6e3-69e526e202fb",
+      "image_uris": {
+        "png": "https://cards.scryfall.io/png/front/f/7/f79de5e7-1545-420c-bfe1-ee2444fca85b.png?1783930120",
+        "large": "https://cards.scryfall.io/large/front/f/7/f79de5e7-1545-420c-bfe1-ee2444fca85b.jpg?1783930120",
+        "normal": "https://cards.scryfall.io/normal/front/f/7/f79de5e7-1545-420c-bfe1-ee2444fca85b.jpg?1783930120"
+      }
+    },
+    {
       "id": "f90973d1-9d4b-4c39-940c-406cd7fb33a6",
       "oracle_id": "2f2c549d-0293-4b9d-b9a8-ff392800f3a5",
       "name": "Kozilek's Command",
@@ -3191,46 +3224,13 @@
         "large": "https://cards.scryfall.io/large/front/f/e/fea7fe08-37d1-40bb-bb64-af41b025314b.jpg?1783915502",
         "normal": "https://cards.scryfall.io/normal/front/f/e/fea7fe08-37d1-40bb-bb64-af41b025314b.jpg?1783915502"
       }
-    },
-    {
-      "id": "ff27694e-0381-4ac9-ba20-d631d468f275",
-      "oracle_id": "6b8cf2a0-b045-4d91-9d91-c602d40c6237",
-      "name": "Basalt Monolith",
-      "lang": "en",
-      "layout": "normal",
-      "released_at": "2024-08-02",
-      "set": "mb2",
-      "set_name": "Mystery Booster 2",
-      "set_type": "masters",
-      "collector_number": "217",
-      "rarity": "uncommon",
-      "type_line": "Artifact",
-      "cmc": 3,
-      "color_identity": [],
-      "mana_cost": "{3}",
-      "oracle_text": "This artifact doesn't untap during your untap step.\n{T}: Add {C}{C}{C}.\n{3}: Untap this artifact.",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "future",
-      "promo": false,
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "b9bc1fae-f946-418b-a6e3-69e526e202fb",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/f/f/ff27694e-0381-4ac9-ba20-d631d468f275.png?1783910555",
-        "large": "https://cards.scryfall.io/large/front/f/f/ff27694e-0381-4ac9-ba20-d631d468f275.jpg?1783910555",
-        "normal": "https://cards.scryfall.io/normal/front/f/f/ff27694e-0381-4ac9-ba20-d631d468f275.jpg?1783910555"
-      }
     }
   ],
   "chosen": {
     "all is dust|fdc|9": "8764ca43-bbbb-43b5-895b-c7049cc76580",
     "altar of dementia": "8bab577a-4d2b-4b52-a861-1a43fdaa3f97",
     "altar of the brood|ktk|216": "8d59d264-87ee-4305-bffb-110549331a82",
-    "basalt monolith": "ff27694e-0381-4ac9-ba20-d631d468f275",
+    "basalt monolith|2xm|232": "f79de5e7-1545-420c-bfe1-ee2444fca85b",
     "blast zone": "75a02940-4930-4cd6-ba20-a88efd6e82ce",
     "blight herder|bfz|2": "478c3a74-ff78-4041-8137-93356d370ece",
     "buried ruin": "1e57d7ee-78d8-4e02-b3a8-a4b16ec0cdaf",

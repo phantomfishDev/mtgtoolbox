@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11T18:52:20.063Z",
+  "generatedAt": "2026-11-11T18:53:54.707Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -7004,8 +7004,8 @@
         {
           "name": "Basalt Monolith",
           "quantity": 1,
-          "set": "mb2",
-          "collectorNumber": "217",
+          "set": "2xm",
+          "collectorNumber": "232",
           "typeLine": "Artifact"
         },
         {

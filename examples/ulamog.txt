@@ -147,7 +147,7 @@ Deck
 1 Thought Vessel (LCC) 118
 1 Everflowing Chalice
 1 Worn Powerstone
-1 Basalt Monolith
+1 Basalt Monolith (2XM) 232
 1 Thran Dynamo
 1 Wayfarer's Bauble (M3C) 315
 1 Burnished Hart (FDN) 250
