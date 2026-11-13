@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "beorn-bears",
-  "generatedAt": "2026-11-04T22:19:33.412Z",
+  "generatedAt": "2026-11-13T18:37:45.296Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -162,44 +162,6 @@
         "png": "https://cards.scryfall.io/png/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.png?1785152153",
         "large": "https://cards.scryfall.io/large/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.jpg?1785152153",
         "normal": "https://cards.scryfall.io/normal/front/1/5/153ca57e-30f0-4ad7-ae9d-c55cbf0fd4c9.jpg?1785152153"
-      }
-    },
-    {
-      "id": "1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af",
-      "oracle_id": "af4bd34a-0a0b-4c53-8f13-579c45ab471a",
-      "name": "Bear",
-      "lang": "en",
-      "layout": "token",
-      "released_at": "2025-11-21",
-      "set": "ttla",
-      "set_name": "Avatar: The Last Airbender Tokens",
-      "set_type": "token",
-      "collector_number": "12",
-      "rarity": "common",
-      "type_line": "Token Creature — Bear",
-      "cmc": 0,
-      "color_identity": [
-        "G"
-      ],
-      "mana_cost": "",
-      "oracle_text": "",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "e0c22a8c-a48a-420c-ae2e-77d443227b5b",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/1/d/1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af.png?1783904746",
-        "large": "https://cards.scryfall.io/large/front/1/d/1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af.jpg?1783904746",
-        "normal": "https://cards.scryfall.io/normal/front/1/d/1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af.jpg?1783904746"
       }
     },
     {
@@ -471,44 +433,6 @@
         "png": "https://cards.scryfall.io/png/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.png?1783926456",
         "large": "https://cards.scryfall.io/large/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.jpg?1783926456",
         "normal": "https://cards.scryfall.io/normal/front/3/0/30e8a00f-8131-470d-8072-4c23b812281a.jpg?1783926456"
-      }
-    },
-    {
-      "id": "31661af9-a40a-418c-82e3-b74aa14cc7c4",
-      "oracle_id": "a62a374d-ccdd-418d-9bcd-5ca8bf9b05e8",
-      "name": "Bear",
-      "lang": "en",
-      "layout": "token",
-      "released_at": "2026-08-14",
-      "set": "thob",
-      "set_name": "The Hobbit Tokens",
-      "set_type": "token",
-      "collector_number": "7",
-      "rarity": "common",
-      "type_line": "Token Creature — Bear",
-      "cmc": 0,
-      "color_identity": [
-        "G"
-      ],
-      "mana_cost": "",
-      "oracle_text": "",
-      "keywords": [],
-      "game_changer": false,
-      "full_art": false,
-      "textless": false,
-      "border_color": "black",
-      "frame": "2015",
-      "promo": false,
-      "promo_types": [
-        "universesbeyond"
-      ],
-      "digital": false,
-      "image_status": "highres_scan",
-      "illustration_id": "9828319c-6328-4257-884e-fdc2cad16391",
-      "image_uris": {
-        "png": "https://cards.scryfall.io/png/front/3/1/31661af9-a40a-418c-82e3-b74aa14cc7c4.png?1785497718",
-        "large": "https://cards.scryfall.io/large/front/3/1/31661af9-a40a-418c-82e3-b74aa14cc7c4.jpg?1785497718",
-        "normal": "https://cards.scryfall.io/normal/front/3/1/31661af9-a40a-418c-82e3-b74aa14cc7c4.jpg?1785497718"
       }
     },
     {
@@ -3115,8 +3039,6 @@
     "three tree city": "d96b0f9e-fa3b-4a40-acea-b6ecc584a79f",
     "three visits|sld|1676": "07e40ddc-0483-4a2e-a776-807b37bada7f",
     "titania's command": "753567c7-c484-4c0d-8128-7710e23c428f",
-    "token:bear|thob|7": "31661af9-a40a-418c-82e3-b74aa14cc7c4",
-    "token:bear|ttla|12": "1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af",
     "token:beast|tltc|10": "c622237d-92e5-4efc-aec4-0a18efd6fb38",
     "token:mutavault|tecl|11": "3d2f5d31-a1c6-465f-b518-b40acdfab8aa",
     "tribute to the world tree": "4f80e176-9106-42ce-be93-a63a9a80faef",

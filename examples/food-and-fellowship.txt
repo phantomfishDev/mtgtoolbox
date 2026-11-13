@@ -110,10 +110,11 @@ Deck
 1 Woodland Cemetery
 
 Tokens
-10 Food (TBLB) 27
-4 Halfling (TLTC) 3
-4 Soldier (PLST) TGRN-2
-4 Treasure (SLD) 2820
-2 Bird (TLTC) 1
-2 Treefolk (TLTC) 13
+1 Food (TBLB) 27
+1 Halfling (TLTC) 3
+1 Soldier (PLST) TGRN-2
+1 Treasure (SLD) 2820
+1 Bird (TLTC) 1
+1 Treefolk (TLTC) 13
 1 Goat (TBRC) 3
+1 The Ring // The Ring Tempts You (TLTR) H13

@@ -60,8 +60,8 @@ Deck
 1 Witch's Cottage
 
 Tokens
-12 Rat (TAFC) 5
-6 Rat (TWOE) 7
-2 Copy (TTRC) 8
-2 Human Cleric (TINR) 19
-2 Squirrel (TBLB) 23
+1 Rat (TAFC) 5
+1 Rat (TWOE) 7
+1 Copy (TTRC) 8
+1 Human Cleric (TINR) 19
+1 Squirrel (TBLB) 23

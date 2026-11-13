@@ -144,7 +144,7 @@ Deck
 1 Wilson, Refined Grizzly
 
 Tokens
-8 Bear (THOB) 7
-4 Bear (TTLA) 12
+0 Bear (THOB) 7
+0 Bear (TTLA) 12
 1 Beast (TLTC) 10
 1 Mutavault (TECL) 11

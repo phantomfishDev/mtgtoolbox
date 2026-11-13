@@ -94,12 +94,12 @@ Deck
 1 Zulaport Cutthroat
 
 Tokens
-10 Pest (TSOC) 23
-6 Food (TBLB) 27
-4 Saproling (SLD) 1139
-4 Zombie (TSOC) 12
-2 Eldrazi Spawn (TSOC) 1
-2 Fungus Beast (TSOC) 17
-2 Goat (TSOC) 4
-2 Snake (TSOC) 11
-2 Worm (TSOC) 26
+1 Pest (TSOC) 23
+1 Food (TBLB) 27
+1 Saproling (SLD) 1139
+1 Zombie (TSOC) 12
+1 Eldrazi Spawn (TSOC) 1
+1 Fungus Beast (TSOC) 17
+1 Goat (TSOC) 4
+1 Snake (TSOC) 11
+1 Worm (TSOC) 26
