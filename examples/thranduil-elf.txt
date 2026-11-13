@@ -96,7 +96,8 @@ Deck
 1 Zagoth Triome
 
 Tokens
-8 Elf (THOB) 8
-6 Elf Warrior (TFDN) 19
-2 Bird (TEOC) 3
+1 Elf (THOB) 8
+1 Elf Warrior (TFDN) 19
+1 Bird (TEOC) 3
 1 Beast (TFDC) 10
+1 The Ring // The Ring Tempts You (TLTR) H13

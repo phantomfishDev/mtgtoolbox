@@ -98,5 +98,5 @@ Deck
 1 Wayfarer's Bauble
 
 Tokens
-4 Demon (TDSK) 9
+1 Demon (TDSK) 9
 1 Plaguebearer of Nurgle (T40K) 15★

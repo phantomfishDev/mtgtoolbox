@@ -100,6 +100,6 @@ Deck
 1 Zodiac Monkey
 
 Tokens
-4 Beast (TLCC) 8
-4 Shapeshifter (TKHM) 8
-4 Treasure (TMOM) 21
+1 Beast (TLCC) 8
+1 Shapeshifter (TKHM) 8
+1 Treasure (TMOM) 21

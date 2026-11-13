@@ -88,10 +88,10 @@ Deck
 1 Wooden Stake (ISD) 237
 
 Tokens
-12 Rabbit (TFDN) 5
-4 Human (TBLC) 6
-4 Soldier (TCMR) 16
-2 Blood (TVOW) 17
-2 Intrepid Rabbit (TBLB) 2
-2 Spirit (TMKM) 12
-2 Treasure (TLTR) 25
+1 Rabbit (TFDN) 5
+1 Human (TBLC) 6
+1 Soldier (TCMR) 16
+1 Blood (TVOW) 17
+1 Intrepid Rabbit (TBLB) 2
+1 Spirit (TMKM) 12
+1 Treasure (TLTR) 25

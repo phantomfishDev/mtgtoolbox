@@ -95,11 +95,11 @@ Deck
 1 Volcanic Torrent
 
 Tokens
-8 Treasure (SLD) 2820
-4 Copy (TTRC) 8
-4 Elemental (TSOC) 19
-4 Elemental (TSOC) 21
-2 Dragon Illusion (TSOC) 13
-2 Elemental (TSOS) 3
-2 Elemental (TSOC) 20
-2 Phyrexian Myr (TMUL) 1
+1 Treasure (SLD) 2820
+1 Copy (TTRC) 8
+1 Elemental (TSOC) 19
+1 Elemental (TSOC) 21
+1 Dragon Illusion (TSOC) 13
+1 Elemental (TSOS) 3
+1 Elemental (TSOC) 20
+1 Phyrexian Myr (TMUL) 1

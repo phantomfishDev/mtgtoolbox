@@ -100,14 +100,14 @@ Reclaim
 3 Swamp
 
 Tokens
-4 Treasure (TDFT) 11
-2 Bird (TDSC) 5
-4 Copy (TDSK) 1
-4 Elephant (TDFT) 6
-4 Insect (TMH3) 25
-4 Phyrexian Beast (TFDC) 11
-4 Plant (TC19) 17
-4 Plant (TMKM) 9
-4 Spider (TFDC) 12
-4 Spider (TDSK) 12
-4 Thopter (TFDC) 15
+1 Treasure (TDFT) 11
+1 Bird (TDSC) 5
+1 Copy (TDSK) 1
+1 Elephant (TDFT) 6
+1 Insect (TMH3) 25
+1 Phyrexian Beast (TFDC) 11
+1 Plant (TC19) 17
+1 Plant (TMKM) 9
+1 Spider (TFDC) 12
+1 Spider (TDSK) 12
+1 Thopter (TFDC) 15

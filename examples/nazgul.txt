@@ -107,8 +107,9 @@ Deck
 7 Swamp
 
 Tokens
-12 Wraith (TLTC) 7
-6 Clue (PLST) TMKM-15
-6 Drake (TCMM) 12
-2 Bird (TEOC) 3
-2 Treasure (TTRK) 26
+1 Wraith (TLTC) 7
+1 Clue (PLST) TMKM-15
+1 Drake (TCMM) 12
+1 Bird (TEOC) 3
+1 Treasure (TTRK) 26
+1 The Ring // The Ring Tempts You (TLTR) H13

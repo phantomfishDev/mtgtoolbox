@@ -1,7 +1,7 @@
 {
   "version": 1,
   "deck": "food-and-fellowship",
-  "generatedAt": "2026-11-04T22:19:33.794Z",
+  "generatedAt": "2026-11-13T18:37:45.644Z",
   "profile": "1aquj5n",
   "cards": [
     {
@@ -1253,6 +1253,58 @@
         "large": "https://cards.scryfall.io/large/front/6/d/6d67a523-bda9-4f8b-bd50-dc015f9b4b7a.jpg?1783916031",
         "normal": "https://cards.scryfall.io/normal/front/6/d/6d67a523-bda9-4f8b-bd50-dc015f9b4b7a.jpg?1783916031"
       }
+    },
+    {
+      "id": "7215460e-8c06-47d0-94e5-d1832d0218af",
+      "oracle_id": "98737456-ac2a-420d-aa0e-778ba3a22cec",
+      "name": "The Ring // The Ring Tempts You",
+      "lang": "en",
+      "layout": "double_faced_token",
+      "released_at": "2023-06-23",
+      "set": "tltr",
+      "set_name": "Tales of Middle-earth Tokens",
+      "set_type": "token",
+      "collector_number": "H13",
+      "rarity": "common",
+      "type_line": "Emblem // Card",
+      "cmc": 0,
+      "color_identity": [],
+      "keywords": [],
+      "game_changer": false,
+      "full_art": false,
+      "textless": false,
+      "border_color": "black",
+      "frame": "2015",
+      "promo": false,
+      "promo_types": [
+        "universesbeyond"
+      ],
+      "digital": false,
+      "image_status": "highres_scan",
+      "card_faces": [
+        {
+          "name": "The Ring",
+          "type_line": "Emblem",
+          "mana_cost": "",
+          "oracle_text": "Your Ring-bearer is legendary and can't be blocked by creatures with greater power.\nWhenever your Ring-bearer attacks, draw a card, then discard a card.\nWhenever your Ring-bearer becomes blocked by a creature, that creature's controller sacrifices it at end of combat.\nWhenever your Ring-bearer deals combat damage to a player, each opponent loses 3 life.",
+          "image_uris": {
+            "png": "https://cards.scryfall.io/png/front/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.png?1783916050",
+            "large": "https://cards.scryfall.io/large/front/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.jpg?1783916050",
+            "normal": "https://cards.scryfall.io/normal/front/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.jpg?1783916050"
+          }
+        },
+        {
+          "name": "The Ring Tempts You",
+          "type_line": "Card",
+          "mana_cost": "",
+          "oracle_text": "As the Ring tempts you, you get an emblem named The Ring if you don't have one. Then your emblem gains its next ability and you choose a creature you control to become or remain your Ring-bearer.\n• The Ring can tempt you even if you don't control a creature.\n• The Ring gains its abilities in order from top to bottom. Once it gains an ability, it has that ability for the rest of the game.\n• Each time the Ring tempts you, you must choose a creature if you control one.\n• Each player can have only one emblem named The Ring and only one Ring-bearer at a time.",
+          "image_uris": {
+            "png": "https://cards.scryfall.io/png/back/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.png?1783916050",
+            "large": "https://cards.scryfall.io/large/back/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.jpg?1783916050",
+            "normal": "https://cards.scryfall.io/normal/back/7/2/7215460e-8c06-47d0-94e5-d1832d0218af.jpg?1783916050"
+          }
+        }
+      ]
     },
     {
       "id": "73731e45-51bb-4188-a54d-fdaa4bdfaf1f",
@@ -3740,6 +3792,7 @@
     "token:goat|tbrc|3": "7fc777ba-4380-4d9d-8a0d-88e3213107cf",
     "token:halfling|tltc|3": "bbd9ff58-4d38-4d34-9dfc-6f788830297e",
     "token:soldier|plst|tgrn-2": "20a9bda0-5673-4071-9201-83670a317f8a",
+    "token:the ring // the ring tempts you|tltr|h13": "7215460e-8c06-47d0-94e5-d1832d0218af",
     "token:treasure|sld|2820": "0bb11342-bc1d-4eea-b0b0-94799be2602a",
     "token:treefolk|tltc|13": "bf661b43-53eb-4e51-8152-420f6d8c925f",
     "toxic deluge": "73731e45-51bb-4188-a54d-fdaa4bdfaf1f",
