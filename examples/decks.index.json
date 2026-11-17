@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-11T18:53:54.707Z",
+  "generatedAt": "2026-11-17T22:25:05.896Z",
   "profile": "1aquj5n",
   "decks": [
     {
@@ -542,6 +542,556 @@
           "set": "clb",
           "collectorNumber": "261",
           "typeLine": "Legendary Creature — Bear Warrior"
+        }
+      ]
+    },
+    {
+      "id": "bruna-voltron",
+      "cardCount": 100,
+      "colorIdentity": [
+        "W",
+        "U"
+      ],
+      "bracket": 3,
+      "bracketName": "Upgraded",
+      "commanders": [
+        {
+          "name": "Bruna, Light of Alabaster",
+          "image": "https://cards.scryfall.io/normal/front/1/e/1e376a75-77ea-40f0-a61e-afcdea2c763a.jpg?1783917374"
+        }
+      ],
+      "cards": [
+        {
+          "name": "Bruna, Light of Alabaster",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1221",
+          "typeLine": "Legendary Creature — Angel"
+        },
+        {
+          "name": "Aegis Angel",
+          "quantity": 1,
+          "set": "e01",
+          "collectorNumber": "1",
+          "typeLine": "Creature — Angel"
+        },
+        {
+          "name": "Aetherize",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1667",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "All That Glitters",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "1",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "An Offer You Can't Refuse",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "27",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Aqueous Form",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "THS-39",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Arcane Signet",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "820",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Archon of Sun's Grace",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "137",
+          "typeLine": "Creature — Archon"
+        },
+        {
+          "name": "Azorius Chancery",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "400",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Azorius Guildgate",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "RNA-243",
+          "typeLine": "Land — Gate"
+        },
+        {
+          "name": "Bane's Contingency",
+          "quantity": 1,
+          "set": "clb",
+          "collectorNumber": "57",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Cathedral of War",
+          "quantity": 1,
+          "set": "eos",
+          "collectorNumber": "6",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Chosen by Heliod",
+          "quantity": 1,
+          "set": "j25",
+          "collectorNumber": "181",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Citadel Gate",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "CLB-349",
+          "typeLine": "Land — Gate"
+        },
+        {
+          "name": "Cloudshift",
+          "quantity": 1,
+          "set": "jmp",
+          "collectorNumber": "97",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Coastal Piracy",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "MMQ-68",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Command Tower",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "118",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Commander's Sphere",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "655",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Daybreak Coronet",
+          "quantity": 1,
+          "set": "woc",
+          "collectorNumber": "65",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Dramatic Rescue",
+          "quantity": 1,
+          "set": "gk2",
+          "collectorNumber": "12",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Eel Umbra",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "48",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Eldrazi Conscription",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1218",
+          "typeLine": "Kindred Enchantment — Eldrazi Aura"
+        },
+        {
+          "name": "Entity Tracker",
+          "quantity": 1,
+          "set": "dsk",
+          "collectorNumber": "53",
+          "typeLine": "Creature — Human Scout"
+        },
+        {
+          "name": "Ephemerate",
+          "quantity": 1,
+          "set": "sta",
+          "collectorNumber": "5",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Essence Reliquary",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "24",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Ethereal Armor",
+          "quantity": 1,
+          "set": "dsk",
+          "collectorNumber": "7",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Evolving Wilds",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "LCC-328",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Feat of Resistance",
+          "quantity": 1,
+          "set": "m21",
+          "collectorNumber": "19",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Fellwar Stone",
+          "quantity": 1,
+          "set": "cmm",
+          "collectorNumber": "657",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Flaming Fist",
+          "quantity": 1,
+          "set": "clb",
+          "collectorNumber": "18",
+          "typeLine": "Legendary Enchantment — Background"
+        },
+        {
+          "name": "Flooded Strand",
+          "quantity": 1,
+          "set": "mh3",
+          "collectorNumber": "353",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Fractured Identity",
+          "quantity": 1,
+          "set": "otp",
+          "collectorNumber": "45",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Glacial Fortress",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "456",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Grand Arbiter Augustin IV",
+          "quantity": 1,
+          "set": "2x2",
+          "collectorNumber": "379",
+          "typeLine": "Legendary Creature — Human Advisor"
+        },
+        {
+          "name": "Grasp of Fate",
+          "quantity": 1,
+          "set": "wot",
+          "collectorNumber": "3",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Heliod's Pilgrim",
+          "quantity": 1,
+          "set": "thb",
+          "collectorNumber": "20",
+          "typeLine": "Creature — Human Cleric"
+        },
+        {
+          "name": "Insight",
+          "quantity": 1,
+          "set": "6ed",
+          "collectorNumber": "75",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Invisibility",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "M15-61",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Island",
+          "quantity": 8,
+          "set": "fra",
+          "collectorNumber": "385",
+          "typeLine": "Basic Land — Island"
+        },
+        {
+          "name": "Land Tax",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "5",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Light-Paws, Emperor's Voice",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1877",
+          "typeLine": "Legendary Creature — Fox Advisor"
+        },
+        {
+          "name": "Mental Note",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2154",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Mind Stone",
+          "quantity": 1,
+          "set": "mbc",
+          "collectorNumber": "76",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Mortal Obstinacy",
+          "quantity": 1,
+          "set": "jou",
+          "collectorNumber": "17",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Ordeal of Heliod",
+          "quantity": 1,
+          "set": "a25",
+          "collectorNumber": "27",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Perpetual Timepiece",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "354",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Phyrexian Vindicator",
+          "quantity": 1,
+          "set": "one",
+          "collectorNumber": "300",
+          "typeLine": "Creature — Phyrexian Horror"
+        },
+        {
+          "name": "Pippin, Guard of the Citadel",
+          "quantity": 1,
+          "set": "ltr",
+          "collectorNumber": "818",
+          "typeLine": "Legendary Creature — Halfling Soldier"
+        },
+        {
+          "name": "Plains",
+          "quantity": 18,
+          "set": "fra",
+          "collectorNumber": "382",
+          "typeLine": "Basic Land — Plains"
+        },
+        {
+          "name": "Pristine Talisman",
+          "quantity": 1,
+          "set": "brr",
+          "collectorNumber": "43",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Reparations",
+          "quantity": 1,
+          "set": "mir",
+          "collectorNumber": "278",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Safe Passage",
+          "quantity": 1,
+          "set": "m13",
+          "collectorNumber": "30",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Sage's Reverie",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "165",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Seraph Sanctuary",
+          "quantity": 1,
+          "set": "fdc",
+          "collectorNumber": "313",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Sheltered by Ghosts",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "2653",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Sol Ring",
+          "quantity": 1,
+          "set": "slc",
+          "collectorNumber": "19",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Solemn Simulacrum",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1725",
+          "typeLine": "Artifact Creature — Golem"
+        },
+        {
+          "name": "Sovereigns of Lost Alara",
+          "quantity": 1,
+          "set": "uma",
+          "collectorNumber": "207",
+          "typeLine": "Creature — Spirit"
+        },
+        {
+          "name": "Sphere of Safety",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "104",
+          "typeLine": "Enchantment"
+        },
+        {
+          "name": "Spirit Mantle",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "175",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Starlit Mantle",
+          "quantity": 1,
+          "set": "j25",
+          "collectorNumber": "366",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Swords to Plowshares",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "364",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Temple of Enlightenment",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "DSC-308",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Temple of the False God",
+          "quantity": 1,
+          "set": "slc",
+          "collectorNumber": "20",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Thought Scour",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "31",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Time Wipe",
+          "quantity": 1,
+          "set": "dsc",
+          "collectorNumber": "237",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Tranquil Cove",
+          "quantity": 1,
+          "set": "dft",
+          "collectorNumber": "267",
+          "typeLine": "Land"
+        },
+        {
+          "name": "Traumatize",
+          "quantity": 1,
+          "set": "m14",
+          "collectorNumber": "77",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Turn Aside",
+          "quantity": 1,
+          "set": "plst",
+          "collectorNumber": "EMN-78",
+          "typeLine": "Instant"
+        },
+        {
+          "name": "Twinblade Blessing",
+          "quantity": 1,
+          "set": "fdn",
+          "collectorNumber": "26",
+          "typeLine": "Enchantment — Aura"
+        },
+        {
+          "name": "Umbra Mystic",
+          "quantity": 1,
+          "set": "woc",
+          "collectorNumber": "82",
+          "typeLine": "Creature — Human Wizard"
+        },
+        {
+          "name": "Wall of Reverence",
+          "quantity": 1,
+          "set": "uma",
+          "collectorNumber": "41",
+          "typeLine": "Creature — Spirit Wall"
+        },
+        {
+          "name": "Warden of Evos Isle",
+          "quantity": 1,
+          "set": "j25",
+          "collectorNumber": "385",
+          "typeLine": "Creature — Bird Wizard"
+        },
+        {
+          "name": "Well of Lost Dreams",
+          "quantity": 1,
+          "set": "sld",
+          "collectorNumber": "1181",
+          "typeLine": "Artifact"
+        },
+        {
+          "name": "Windfall",
+          "quantity": 1,
+          "set": "slz",
+          "collectorNumber": "33",
+          "typeLine": "Sorcery"
+        },
+        {
+          "name": "Winds of Rath",
+          "quantity": 1,
+          "set": "soc",
+          "collectorNumber": "185",
+          "typeLine": "Sorcery"
         }
       ]
     },
