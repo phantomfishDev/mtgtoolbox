@@ -26,6 +26,7 @@ import { TokenPanel } from '../components/TokenPanel.js';
 import { useRetryNotice } from '../useRetryNotice.js';
 import { Badge, Button, Panel, Spinner } from '../components/ui.js';
 import { SHOWCASE } from '../showcase.js';
+import { deckUrl } from '../route.js';
 
 /**
  * Browse one deck card by card.
@@ -209,9 +210,12 @@ export function DeckDetailView({
               : `Click a card to change its printing. Pins are saved to ${store.pinTarget}.`}
           </p>
         </div>
-        <Button variant="primary" onClick={() => onPrint(deck)}>
-          Print this deck
-        </Button>
+        <div className="flex flex-wrap items-center gap-2">
+          <CopyLinkButton deckId={deck.id} />
+          <Button variant="primary" onClick={() => onPrint(deck)}>
+            Print this deck
+          </Button>
+        </div>
       </div>
 
       {busy && (
@@ -544,5 +548,48 @@ function DeckNameEditor({ deckId, name }: { deckId: string; name: string }) {
       </div>
       {error && <p className="text-xs text-amber-600">{error}</p>}
     </form>
+  );
+}
+
+/**
+ * Copy this deck's direct link, to send to someone.
+ *
+ * The clipboard API needs a secure context; where it is missing or refused, the
+ * link is shown so it can be copied by hand instead.
+ */
+function CopyLinkButton({ deckId }: { deckId: string }) {
+  const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const url = deckUrl(deckId);
+
+  useEffect(() => {
+    if (state !== 'copied') return;
+    const timer = window.setTimeout(() => setState('idle'), 2000);
+    return () => window.clearTimeout(timer);
+  }, [state]);
+
+  const copy = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setState('copied');
+    } catch {
+      setState('failed');
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-end gap-1">
+      <Button onClick={() => void copy()} title="Copy a link straight to this deck">
+        {state === 'copied' ? 'Link copied' : 'Copy link'}
+      </Button>
+      {state === 'failed' && (
+        <input
+          readOnly
+          value={url}
+          onFocus={(event) => event.currentTarget.select()}
+          aria-label="Link to this deck"
+          className="w-64 rounded-md border border-edge bg-surface px-2 py-1 text-xs"
+        />
+      )}
+    </div>
   );
 }

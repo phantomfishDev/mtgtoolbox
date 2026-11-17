@@ -201,6 +201,12 @@ What they get is the **Decks** tab: every deck on the shelf with its commander's
 colours, bracket and owner, and every card in it a click away. It is read-only, and
 nothing they do there touches anything of yours.
 
+To send one deck rather than the whole shelf, open it and press **Copy link**. Each
+deck has its own address, `<site>#/deck/<id>`, where the id is the decklist's filename
+(`examples/bruna-voltron.txt` -> `#/deck/bruna-voltron`), so a link keeps working
+after the deck is renamed. It lives in the URL fragment because Pages serves no route
+but the page itself; Back and Forward move between the shelf and the decks opened from it.
+
 ### Showcase mode
 
 What gets published is not the whole app. The deploy builds in *showcase mode*, which
