@@ -18,7 +18,8 @@ import { AppContext, type AppState } from './state.js';
 import { initialSession, type PrintSession } from './session.js';
 import { DecksView } from './views/DecksView.js';
 import { DeckDetailView } from './views/DeckDetailView.js';
-import { invalidateDeckIndex, titleFromId, type BundledDeck } from './decks.js';
+import { BUNDLED_DECKS, invalidateDeckIndex, titleFromId, type BundledDeck } from './decks.js';
+import { deckIdFromHash, navigateToDeck } from './route.js';
 import { PrintView } from './views/PrintView.js';
 import { PreferencesView } from './views/PreferencesView.js';
 import { Spinner } from './components/ui.js';
@@ -31,6 +32,12 @@ const ALL_TABS = [
 ] as const;
 
 type TabId = (typeof ALL_TABS)[number]['id'];
+
+/** The bundled deck the address bar links to, if it names one that exists. */
+function deckFromLocation(): BundledDeck | null {
+  const id = deckIdFromHash(window.location.hash);
+  return id === null ? null : (BUNDLED_DECKS.find((deck) => deck.id === id) ?? null);
+}
 
 /**
  * Preferences is the tab that writes, and it is about the person who owns the
@@ -47,12 +54,30 @@ export function App() {
   // Held here so switching tabs does not discard a resolved decklist.
   const [session, setSession] = useState<PrintSession>(initialSession);
   /** The deck being browsed card by card; null shows the deck list. */
-  const [viewing, setViewing] = useState<BundledDeck | null>(null);
+  // Seeded from the address bar so a shared link opens straight onto its deck.
+  const [viewing, setViewing] = useState<BundledDeck | null>(deckFromLocation);
   const [store, setStore] = useState<DataStore | null>(null);
   const [config, setConfig] = useState<Config | null>(null);
   const [deckPins, setDeckPins] = useState<AllDeckPins | null>(null);
   const [deckNames, setDeckNames] = useState<DeckNames>({});
   const [deckTokens, setDeckTokens] = useState<AllDeckTokens>({});
+
+  // Back and Forward move between the shelf and the decks opened from it.
+  useEffect(() => {
+    const onPop = (): void => {
+      const deck = deckFromLocation();
+      setViewing(deck);
+      if (deck) setTab('decks');
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  /** Open a deck, or return to the shelf with null, keeping the URL in step. */
+  const view = (deck: BundledDeck | null): void => {
+    navigateToDeck(deck?.id ?? null);
+    setViewing(deck);
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -186,11 +211,11 @@ export function App() {
             (viewing ? (
               <DeckDetailView
                 deck={viewing}
-                onBack={() => setViewing(null)}
+                onBack={() => view(null)}
                 onPrint={openForPrinting}
               />
             ) : (
-              <DecksView onView={setViewing} onPrint={openForPrinting} />
+              <DecksView onView={view} onPrint={openForPrinting} />
             ))}
           {tab === 'print' && (
             <PrintView
